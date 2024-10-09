@@ -1,0 +1,2 @@
+bindsym $mod+Return exec kitty
+bindsym --release Super_L exec "rofi -show drun"
