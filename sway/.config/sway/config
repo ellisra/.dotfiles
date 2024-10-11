@@ -1,7 +1,3 @@
 set $mod Mod4
 
-input "type:keyboard" {
-  xkb_layout gb
-}
-
 include ./config.d/*
