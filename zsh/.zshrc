@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+source "$HOME/.rye/env"
 
 export OBSIDIAN_REST_API_KEY=API_KEY
 
