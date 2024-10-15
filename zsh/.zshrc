@@ -1,8 +1,9 @@
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$PATH:/root/bin"
 
 export OBSIDIAN_REST_API_KEY=API_KEY
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 plugins=( 
     git
@@ -11,9 +12,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# Set-up FZF key bindings (CTRL R for fuzzy history finder)
-source <(fzf --zsh)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -27,3 +25,5 @@ alias la='eza -a --icons'
 alias lt='eza -a --tree --level=1 --icons'
 
 pfetch
+
+eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
