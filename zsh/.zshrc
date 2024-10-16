@@ -23,6 +23,6 @@ alias ll='eza -al --icons'
 alias la='eza -a --icons'
 alias lt='eza -a --tree --level=1 --icons'
 
-pfetch
+# pfetch
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
