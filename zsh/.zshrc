@@ -1,8 +1,11 @@
 source ~/.dotfiles/zsh/.zsh_paths
 
-export OBSIDIAN_REST_API_KEY=API_KEY
+# Only enable work settings inside WSL instances
+if grep -q Microsoft /proc/version 2>/dev/null; then
+    source ~/.dotfiles/zsh/.zsh_work_settings
+fi
 
-#ZSH_THEME="robbyrussell"
+export OBSIDIAN_REST_API_KEY=API_KEY
 
 plugins=( 
     git
@@ -22,7 +25,5 @@ alias ls='eza --icons'
 alias ll='eza -al --icons'
 alias la='eza -a --icons'
 alias lt='eza -a --tree --level=1 --icons'
-
-# pfetch
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
