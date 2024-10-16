@@ -10,6 +10,8 @@ end)
 -- Make navigation keys handle wrapped text better in navigation mode
 vim.keymap.set("n", "<up>", "gk")
 vim.keymap.set("n", "<down>", "gj")
+vim.cmd([[nnoremap j gj]])
+vim.cmd([[nnoremap k gk]])
 
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
