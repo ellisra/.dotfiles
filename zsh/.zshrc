@@ -1,7 +1,4 @@
-export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:/root/bin"
-export PATH="$PATH:/home/rob/.local/bin"
-export PATH="$PATH:/home/rob/.cargo/bin"
+source ~/.dotfiles/zsh/.zsh_paths
 
 export OBSIDIAN_REST_API_KEY=API_KEY
 
