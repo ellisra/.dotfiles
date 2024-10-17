@@ -21,6 +21,9 @@ return {
     config = function()
         require("telescope").setup({
             defaults = {
+                file_ignore_patterns = {
+                    ".git", "plugins"
+                },
                 wrap_results = true,
             },
 
