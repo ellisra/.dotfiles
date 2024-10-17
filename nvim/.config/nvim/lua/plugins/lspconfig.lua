@@ -68,8 +68,18 @@ return {
             capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
             local servers = {
-                rust_analyzer = {},
                 pyright = {},
+                rust_analyzer = {
+                    settings = {
+                        cargo = {
+                            allFeatures = true,
+                        },
+
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                    },
+                },
                 lua_ls = {
                     settings = {
                         Lua = {
