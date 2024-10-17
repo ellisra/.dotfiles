@@ -1,7 +1,6 @@
 source ~/.dotfiles/zsh/.zsh_paths
 
-# Only enable work settings inside WSL instances
-if grep -q Microsoft /proc/version 2>/dev/null; then
+if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     source ~/.dotfiles/zsh/.zsh_work_settings
 fi
 
