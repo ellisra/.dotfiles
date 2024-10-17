@@ -25,4 +25,8 @@ alias ll='eza -al --icons'
 alias la='eza -a --icons'
 alias lt='eza -a --tree --level=1 --icons'
 
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"

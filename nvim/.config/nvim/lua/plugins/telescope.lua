@@ -22,7 +22,7 @@ return {
         require("telescope").setup({
             defaults = {
                 file_ignore_patterns = {
-                    ".git", "plugins"
+                    ".git", "oh%-my%-zsh/cutom/plugins"
                 },
                 wrap_results = true,
             },
