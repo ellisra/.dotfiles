@@ -1,4 +1,4 @@
--- Set light/dark theme with Ctrl+[/]
+-- FIXME: Set light/dark theme with Ctrl+[/]
 vim.keymap.set("n", "<C-[>", function()
     vim.cmd([[set bg=light]])
 end)
