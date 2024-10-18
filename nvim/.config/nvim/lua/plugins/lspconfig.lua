@@ -89,6 +89,15 @@ return {
                         },
                     },
                 },
+                clangd = {
+                    cmd = {
+                        "clangd",
+                        "--background-index",
+                        "--suggest-missing-includes",
+                        "--clang-tidy",
+                        "--header-insertion=iwyu",
+                    },
+                },
             }
 
             require("mason").setup()
