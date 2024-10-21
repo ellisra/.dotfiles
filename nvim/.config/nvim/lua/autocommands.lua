@@ -1,15 +1,15 @@
 -- Enclose code blocks with elipses in markdown
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        vim.cmd([[
-      augroup MarkdownSyntaxMatch
-        autocmd!
-        autocmd FileType markdown syntax match @conceal /```/ conceal cchar=⋯
-      augroup END
-    ]])
-    end,
-})
-
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function()
+--         vim.cmd([[
+--       augroup MarkdownSyntaxMatch
+--         autocmd!
+--         autocmd FileType markdown syntax match @conceal /```/ conceal cchar=⋯
+--       augroup END
+--     ]])
+--     end,
+-- })
+--
 -- Enable syntax highlighting for sway config files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "/home/rob/.dotfiles/sway/.config/sway/config.d/*" },
