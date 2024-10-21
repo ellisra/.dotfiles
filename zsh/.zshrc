@@ -2,6 +2,8 @@ source ~/.dotfiles/zsh/.zsh_paths
 
 if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     source ~/.dotfiles/zsh/.zsh_work_settings
+else
+    export PF_ASCII="arch"
 fi
 
 export OBSIDIAN_REST_API_KEY=API_KEY
@@ -31,3 +33,5 @@ mkcd() {
 }
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
+
+pfetch

@@ -16,6 +16,7 @@ require("lazy").setup({
     require("plugins.gitsigns"),
     require("plugins.telescope"),
     require("plugins.obsidian"),
+    require("plugins.markview"),
     require("plugins.indent-blankline"),
     require("plugins.oil"),
     require("plugins.lualine"),
