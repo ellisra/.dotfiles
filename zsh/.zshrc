@@ -31,3 +31,5 @@ mkcd() {
 }
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
+
+pfetch
