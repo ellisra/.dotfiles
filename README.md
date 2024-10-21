@@ -1,5 +1,8 @@
 # Dotfiles
 ## Installation
+### Install Scripts
+Installation scripts can be found for Arch based distros, Fedora, and Void in the `scripts/install/` directory. These install the general requirements as well as the shell requirements. Window manager requirements are left to be installed manually depending on the choice of WM you make.
+
 ### Requirements
 #### General
 - `git`
@@ -43,6 +46,3 @@
 
 ###### Qtile
 - `qtile`
-
-### Install Scripts
-Installation scripts can be found for Arch based distros, Fedora, and Void in the `scripts/install/` directory. These install the general requirements as well as the shell requirements. Window manager requirements are left to be installed manually depending on the choice of WM you make.
