@@ -33,3 +33,6 @@ mkcd() {
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
 
 pfetch
+
+# Created by `pipx` on 2024-10-21 09:58:05
+export PATH="$PATH:/root/.local/bin"
