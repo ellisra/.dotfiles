@@ -12,7 +12,7 @@ return {
             require("everforest").setup({
                 background = "hard",
                 transparent_background_level = 0,
-                italics = true,
+                italics = false,
                 disable_italic_comments = true,
                 sign_column_background = "none",
                 ui_contrast = "low",
