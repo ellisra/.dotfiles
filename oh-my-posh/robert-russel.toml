@@ -21,7 +21,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     type = 'git'
     style = 'plain'
     foreground = 'blue'
-    template = ' git:({{ if or (.Working.Changed) (.Staging.Changed) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}){{ if or (.Working.Changed) (.Staging.Changed) }} <yellow>✗</>{{ end }}'
+    template = ' git:({{ if or (.Working.Changed) (.Staging.Changed) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}){{ if or (.Working.Changed) (.Staging.Changed) }} <yellow>✗</>{{ else }} <green></>{{ end }}'
 
     [blocks.segments.properties]
       branch_icon = ''

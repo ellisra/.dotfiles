@@ -2,8 +2,9 @@ source ~/.dotfiles/zsh/.zsh_paths
 
 if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     source ~/.dotfiles/zsh/.zsh_work_settings
+    export PF_ASCII="Ubuntu"
 else
-    export PF_ASCII="arch"
+#    export PF_ASCII="arch"
 fi
 
 export OBSIDIAN_REST_API_KEY=API_KEY
