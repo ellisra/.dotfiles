@@ -84,7 +84,7 @@ return {
         open_notes_in = "current",
 
         ui = {
-            enable = false,
+            enable = true,
             update_debounce = 200,
             max_file_length = 5000,
 
