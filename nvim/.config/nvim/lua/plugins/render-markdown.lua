@@ -10,11 +10,19 @@ return {
     --@type render.md.UserConfig
     opts = {
         heading = {
-            enabled = false,
+            enabled = true,
             sign = false,
             position = 'inline',
-            icons = { '', '  ', '  ', '  ', '  ', '  ' },
+            icons = { '', '', '', '', '', '' },
             width = 'block',
+            backgrounds = {
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+            },
         },
 
         bullet = {
