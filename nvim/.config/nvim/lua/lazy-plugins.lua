@@ -16,7 +16,7 @@ require("lazy").setup({
     require("plugins.mini"),
     require("plugins.obsidian"),
     require("plugins.oil"),
-    --require("plugins.render-markdown"),
+    require("plugins.render-markdown"),
     require("plugins.telescope"),
     require("plugins.todo-comments"),
     require("plugins.treesitter"),
