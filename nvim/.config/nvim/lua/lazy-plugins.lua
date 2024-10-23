@@ -4,23 +4,23 @@ require("lazy").setup({
     "dhruvasagar/vim-table-mode", -- Makes markdown tables neater
 
     -- Configured Plugins
-    require("plugins.everforest"),
-    require("plugins.which-key"),
-    require("plugins.lspconfig"),
-    require("plugins.conform"),
-    require("plugins.cmp"),
-    require("plugins.todo-comments"),
-    require("plugins.mini"),
-    require("plugins.treesitter"),
     require("plugins.autopairs"),
+    require("plugins.cmp"),
+    require("plugins.conform"),
+    require("plugins.everforest"),
     require("plugins.gitsigns"),
-    require("plugins.telescope"),
-    require("plugins.obsidian"),
-    require("plugins.render-markdown"),
-    -- require("plugins.markview"),
     require("plugins.indent-blankline"),
-    require("plugins.oil"),
+    require("plugins.lazygit"),
+    require("plugins.lspconfig"),
     require("plugins.lualine"),
+    require("plugins.mini"),
+    require("plugins.obsidian"),
+    require("plugins.oil"),
+    --require("plugins.render-markdown"),
+    require("plugins.telescope"),
+    require("plugins.todo-comments"),
+    require("plugins.treesitter"),
+    require("plugins.which-key"),
 }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {
