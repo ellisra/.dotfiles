@@ -36,7 +36,7 @@ return {
         bullet = {
             enabled = true,
             icons = { "•" },
-            highlight = "Bullet",
+            highlight = "BlueFg",
         },
 
         checkbox = {
@@ -66,6 +66,25 @@ return {
                     scope_highlight = nil,
                 },
             },
+        },
+
+        link = {
+            enabled = true,
+            wiki = { icon = "", highlight = "BlueFg" },
+        },
+
+        code = {
+            enabled = true,
+            sign = false,
+            style = "full",
+            position = "left",
+            language_pad = 0,
+            language_name = true,
+            left_pad = 1,
+            right_pad = 1,
+            width = "block",
+            min_width = 40,
+            border = "thin",
         },
     },
 }

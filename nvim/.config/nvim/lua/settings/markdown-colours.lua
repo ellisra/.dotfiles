@@ -30,7 +30,7 @@ function M.setup_highlight()
     vim.cmd(string.format([[highlight Heading6Bg guifg=%s guibg=%s]], M.purple_fg, M.purple_bg))
 
     -- Assign Bullet colours
-    vim.cmd(string.format([[highlight Bullet guifg=%s]], M.blue_fg))
+    vim.cmd(string.format([[highlight BlueFg guifg=%s]], M.blue_fg))
 end
 
 return M
