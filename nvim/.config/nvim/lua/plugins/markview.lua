@@ -16,5 +16,5 @@ return {
                 shift_width = 0,
             },
         })
-    end
+    end,
 }

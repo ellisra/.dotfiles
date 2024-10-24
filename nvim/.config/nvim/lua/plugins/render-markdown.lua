@@ -19,9 +19,9 @@ return {
         heading = {
             enabled = true,
             sign = false,
-            position = 'inline',
-            icons = { '', '', '', '', '', '' },
-            width = 'block',
+            position = "inline",
+            icons = { "", "", "", "", "", "" },
+            width = "block",
             right_pad = 2,
             backgrounds = {
                 "Heading1Bg",
@@ -35,34 +35,34 @@ return {
 
         bullet = {
             enabled = true,
-            icons = { '•' },
-            highlight = "Bullet"
+            icons = { "•" },
+            highlight = "Bullet",
         },
 
         checkbox = {
             enabled = true,
-            position = 'inline',
+            position = "inline",
             unchecked = {
-                icon = '',
-                highlight = 'RenderMarkdownUnchecked',
+                icon = "",
+                highlight = "RenderMarkdownUnchecked",
                 scope_highlight = nil,
             },
             checked = {
-                icon = '',
-                highlight = 'RenderMarkdownChecked',
+                icon = "",
+                highlight = "RenderMarkdownChecked",
                 scope_highlight = nil,
             },
             custom = {
                 blocked = {
-                    raw = '[>]',
-                    rendered = '󰛂',
-                    highlight = '',
+                    raw = "[>]",
+                    rendered = "󰛂",
+                    highlight = "",
                     scope_highlight = nil,
                 },
                 partial = {
-                    raw = '[~]',
-                    rendered = '󰎃',
-                    highlight = '',
+                    raw = "[~]",
+                    rendered = "󰎃",
+                    highlight = "",
                     scope_highlight = nil,
                 },
             },
