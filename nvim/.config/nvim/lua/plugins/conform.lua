@@ -24,8 +24,13 @@ return {
                     lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
                 }
             end,
-            format_by_ft = {
+            formatters_by_ft = {
                 lua = { "stylua" },
+                python = {
+                    "ruff_fix",
+                    "ruff_format",
+                    "ruff_organize_imports",
+                },
             },
         },
     },

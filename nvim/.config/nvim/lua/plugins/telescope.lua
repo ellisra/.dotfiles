@@ -16,13 +16,14 @@ return {
             end,
         },
         { "nvim-telescope/telescope-ui-select.nvim" },
-        { "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+        { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
     },
     config = function()
         require("telescope").setup({
             defaults = {
                 file_ignore_patterns = {
-                    ".git", "oh%-my%-zsh/cutom/plugins"
+                    ".git",
+                    "oh%-my%-zsh/cutom/plugins",
                 },
                 wrap_results = true,
             },
@@ -32,8 +33,8 @@ return {
                     enable_preview = true,
                 },
                 find_files = {
-                    hidden = true
-                }
+                    hidden = true,
+                },
             },
 
             extensions = {

@@ -1,6 +1,6 @@
 require("lazy").setup({
     -- General Plugins
-    "tpope/vim-sleuth",           -- Detect tab size automatically
+    "tpope/vim-sleuth", -- Detect tab size automatically
     "dhruvasagar/vim-table-mode", -- Makes markdown tables neater
 
     -- Configured Plugins
