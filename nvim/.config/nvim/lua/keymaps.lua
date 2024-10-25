@@ -21,3 +21,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 -- Exit built-in terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- Navigate to the start of the line with Home
+vim.keymap.set("n", "<Home>", "^")
+vim.keymap.set("i", "<Home>", "<C-o>^")
