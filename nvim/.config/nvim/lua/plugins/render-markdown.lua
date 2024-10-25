@@ -86,5 +86,17 @@ return {
             min_width = 40,
             border = "thin",
         },
+
+        pipe_table = {
+            enabled = true,
+            style = "normal",
+            preset = "round",
+        },
+
+        quote = {
+            enabled = true,
+            icon = "▏",
+            repeat_linebreak = false,
+        },
     },
 }
