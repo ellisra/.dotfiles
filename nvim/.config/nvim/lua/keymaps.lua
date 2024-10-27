@@ -13,6 +13,12 @@ vim.keymap.set("n", "<down>", "gj")
 vim.cmd([[nnoremap j gj]])
 vim.cmd([[nnoremap k gk]])
 
+-- Ctrl + j/k navigates 5 lines down/up
+vim.keymap.set("n", "<C-j>", "5j")
+vim.keymap.set("i", "<C-j>", "<C-o>5j")
+vim.keymap.set("n", "<C-k>", "5k")
+vim.keymap.set("i", "<C-k>", "<C-o>5k")
+
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
