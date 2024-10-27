@@ -8,3 +8,5 @@ require("autocommands") -- General purpose autocommands
 require("keymaps") -- Keymaps
 require("lazy-bootstrap") -- Install lazy.nvim
 require("lazy-plugins") -- Plugins
+
+require("waypoint")
