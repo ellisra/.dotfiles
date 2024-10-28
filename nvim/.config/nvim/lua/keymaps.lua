@@ -19,6 +19,9 @@ vim.keymap.set("i", "<C-j>", "<C-o>5j")
 vim.keymap.set("n", "<C-k>", "5k")
 vim.keymap.set("i", "<C-k>", "<C-o>5k")
 
+-- Go to file explorer
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
+
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
