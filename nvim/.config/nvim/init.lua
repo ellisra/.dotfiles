@@ -10,3 +10,5 @@ require("lazy-bootstrap") -- Install lazy.nvim
 require("lazy-plugins") -- Plugins
 
 require("waypoint")
+
+vim.cmd.colorscheme("rose-pine")

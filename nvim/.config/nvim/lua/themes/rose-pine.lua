@@ -5,6 +5,8 @@ return {
 
         config = function()
             require("rose-pine").setup({
+                variant = "auto",
+
                 palette = {
                     main = { -- Softened the colour palette
                         _nc = "#16141f",
