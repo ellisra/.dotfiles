@@ -13,6 +13,7 @@ require("lazy").setup({
     require("plugins.lspconfig"),
     require("plugins.lualine"),
     require("plugins.mini"),
+    require("plugins.nvim-colorizer"),
     require("plugins.obsidian"),
     require("plugins.oil"),
     require("plugins.render-markdown"),
@@ -23,9 +24,9 @@ require("lazy").setup({
     require("plugins.which-key"),
 
     -- Themes
-    require("themes.everforest"),
-    require("themes.gruvbox-material"),
-    -- require("themes.roseforest"),
+    --require("themes.everforest"),
+    require("themes.rose-pine"),
+    --require("themes.roseforest"),
 }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {
