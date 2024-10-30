@@ -21,7 +21,7 @@ set_options({
 
     -- General
     breakindent = true, -- Makes wrapped lines wrap to the same indent level
-    conceallevel = 2, -- Hide certain charactes to improve readability
+    --conceallevel = 2, -- Hide certain charactes to improve readability
     cursorline = true, -- Highlight cursor line
     ignorecase = true, -- Ignore case sensitivity in search
     linebreak = true, -- Wrap lines on spaces rather than characters
