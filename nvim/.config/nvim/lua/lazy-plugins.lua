@@ -13,6 +13,7 @@ require("lazy").setup({
     require("plugins.lspconfig"),
     require("plugins.lualine"),
     require("plugins.mini"),
+    require("plugins.multicursor"),
     require("plugins.nvim-colorizer"),
     require("plugins.obsidian"),
     require("plugins.oil"),

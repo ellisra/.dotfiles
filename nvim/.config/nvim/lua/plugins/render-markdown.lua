@@ -10,7 +10,7 @@ return {
 
     -- Colorscheme definition
     init = function()
-        require("settings.rose-pine-palette").setup_highlight()
+        require("settings.everforest-palette").setup_highlight()
     end,
 
     --@module "render-markdown"
@@ -70,7 +70,7 @@ return {
 
         link = {
             enabled = true,
-            wiki = { icon = "", highlight = "BlueFg" },
+            wiki = { icon = "" },
         },
 
         code = {
