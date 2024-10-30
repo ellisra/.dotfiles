@@ -20,7 +20,10 @@ vim.keymap.set("n", "<C-k>", "5k")
 vim.keymap.set("i", "<C-k>", "<C-o>5k")
 
 -- Go to file explorer
-vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O][i]l file explorer" })
+
+-- Open template selector
+vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
 
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
