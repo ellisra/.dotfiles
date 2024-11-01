@@ -16,6 +16,7 @@ require("lazy").setup({
     require("plugins.multicursor"),
     require("plugins.nvim-colorizer"),
     require("plugins.obsidian"),
+    require("plugins.obsidian-bridge"),
     require("plugins.oil"),
     require("plugins.render-markdown"),
     require("plugins.telescope"),

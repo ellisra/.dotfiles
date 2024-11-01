@@ -5,9 +5,8 @@ if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     export PF_ASCII="Ubuntu"
 else
     export PF_ASCII="arch"
+    export OBSIDIAN_REST_API_KEY="d963040f65b48167c66eb822e7699064e14b016aabc3245e432cc4b50376746c"
 fi
-
-export OBSIDIAN_REST_API_KEY=API_KEY
 
 plugins=( 
     git

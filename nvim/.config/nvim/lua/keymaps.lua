@@ -19,21 +19,26 @@ vim.keymap.set("i", "<C-j>", "<C-o>5j")
 vim.keymap.set("n", "<C-k>", "5k")
 vim.keymap.set("i", "<C-k>", "<C-o>5k")
 
+-- Navigate to the start of the line with Home
+vim.keymap.set("n", "<Home>", "^")
+vim.keymap.set("i", "<Home>", "<C-o>^")
+
 -- Go to file explorer
 vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O][i]l file explorer" })
 
--- Open template selector
-vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
-
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Obsidian Keymaps
+-- Toggle obsidian-bridge
+vim.keymap.set("n", "<leader>tb", ":ObsidianBridgeToggle<CR>", { desc = "[T]oggle obsidian [B]ridge" })
+-- Open template selector
+vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
+-- Create waypoint
+vim.keymap.set("n", "<leader>wp", "i%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
 
 -- Open diagnostics window
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit built-in terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- Navigate to the start of the line with Home
-vim.keymap.set("n", "<Home>", "^")
-vim.keymap.set("i", "<Home>", "<C-o>^")
