@@ -32,6 +32,10 @@ mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+toad() {
+    touch "$1" && code "$1"
+}
+
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
 
 pfetch
