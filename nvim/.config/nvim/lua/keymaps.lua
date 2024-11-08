@@ -1,3 +1,14 @@
+-- Function to stop flickering when using <C-d/u>zz motion
+local function lazykeys(keys)
+    keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+    return function()
+        local old = vim.o.lazyredraw
+        vim.o.lazyredraw = true
+        vim.api.nvim_feedkeys(keys, "nx", false)
+        vim.o.lazyredraw = old
+    end
+end
+
 -- FIXME: Set light/dark theme with Ctrl+[/]
 vim.keymap.set("n", "<C-[>", function()
     vim.cmd([[set bg=light]])
@@ -8,16 +19,14 @@ vim.keymap.set("n", "<C-]>", function()
 end)
 
 -- Make navigation keys handle wrapped text better in navigation mode
-vim.keymap.set("n", "<up>", "gk")
-vim.keymap.set("n", "<down>", "gj")
-vim.cmd([[nnoremap j gj]])
-vim.cmd([[nnoremap k gk]])
+vim.keymap.set("n", "k", "gk")
+vim.keymap.set("n", "j", "gj")
 
--- Ctrl + j/k navigates 5 lines down/up
-vim.keymap.set("n", "<C-j>", "5j")
-vim.keymap.set("i", "<C-j>", "<C-o>5j")
-vim.keymap.set("n", "<C-k>", "5k")
-vim.keymap.set("i", "<C-k>", "<C-o>5k")
+-- Ctrl + j/k navigates half page down/up and centres the cursor
+vim.keymap.set("n", "<C-j>", lazykeys("<C-d>zz"))
+vim.keymap.set("i", "<C-j>", "<C-o><C-d><C-o>zz")
+vim.keymap.set("n", "<C-k>", lazykeys("<C-u>zz"))
+vim.keymap.set("i", "<C-k>", "<C-o><C-u><C-o>zz")
 
 -- Navigate to the start of the line with Home
 vim.keymap.set("n", "<Home>", "^")
