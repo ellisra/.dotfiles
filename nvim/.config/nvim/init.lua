@@ -11,4 +11,4 @@ require("lazy-plugins") -- Plugins
 
 require("waypoint")
 
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("rose-pine")
