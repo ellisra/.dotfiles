@@ -8,6 +8,7 @@ require("lazy").setup({
     require("plugins.cmp"),
     require("plugins.conform"),
     require("plugins.eyeliner"),
+    require("plugins.flash"),
     require("plugins.gitsigns"),
     require("plugins.indent-blankline"),
     require("plugins.lazygit"),
