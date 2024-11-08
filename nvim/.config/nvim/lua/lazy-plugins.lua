@@ -23,14 +23,12 @@ require("lazy").setup({
     require("plugins.render-markdown"),
     require("plugins.telescope"),
     require("plugins.todo-comments"),
-    require("plugins.transparent"),
     require("plugins.treesitter"),
     require("plugins.which-key"),
 
     -- Themes
     require("themes.everforest"),
     require("themes.rose-pine"),
-    --require("themes.roseforest"),
 }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {
