@@ -4,9 +4,8 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            -- hello
+            vim.g.gruvbox_material_background = "medium"
             vim.g.gruvbox_material_foreground = "material"
-            vim.g.gruvbox_material_background = "material"
             vim.g.gruvbox_material_enable_italic = false
             vim.g.gruvbox_material_disable_italic_comment = true
             vim.g.gruvbox_material_better_performance = 1
