@@ -29,6 +29,7 @@ require("lazy").setup({
     -- Themes
     require("themes.everforest"),
     require("themes.rose-pine"),
+    require("themes.gruvbox-material"),
 }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {
