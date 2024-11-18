@@ -1,6 +1,10 @@
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[transient_prompt]
+  template = '<cyan>{{ .PWD }}</> ➜ '
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
 [[blocks]]
   type = 'prompt'
@@ -8,25 +12,27 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'cyan'
+    background = 'transparent'
     type = 'path'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'cyan'
-    template = '{{ .Path }}'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'full'
 
   [[blocks.segments]]
+    template = ' git:({{ if or (.Working.Changed) (.Staging.Changed) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}){{ if or (.Working.Changed) (.Staging.Changed) }} <yellow>✗</>{{ end }}'
+    foreground = 'blue'
     type = 'git'
     style = 'plain'
-    foreground = 'blue'
-    template = ' git:({{ if or (.Working.Changed) (.Staging.Changed) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}){{ if or (.Working.Changed) (.Staging.Changed) }} <yellow>✗</>{{ end }}'
 
     [blocks.segments.properties]
-      branch_icon = ''
-      branch_behind_icon = ''
       branch_ahead_icon = ''
+      branch_behind_icon = ''
+      branch_icon = ''
+      cache_duration = 'none'
       fetch_status = true
 
 [[blocks]]
@@ -35,26 +41,20 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    template = '{{ if .Venv }}(venv){{ end }} '
+    foreground = 'cyan'
     type = 'python'
     style = 'plain'
-    foreground = 'cyan'
-    template = '{{ if .Venv }}(venv){{ end }} '
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       fetch_virtual_env = true
 
   [[blocks.segments]]
-  type = 'text'
-  style = 'plain'
-  foreground_templates = [
-    '{{if gt .Code 0}}red{{end}}',
-    '{{if eq .Code 0}}green{{end}}',
-  ]
-  template = '➜'
+    template = '➜'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
-[transient_prompt]
-  foreground_templates = [
-    '{{if gt .Code 0}}red{{end}}',
-    '{{if eq .Code 0}}green{{end}}',
-  ]
-  template = '<cyan>{{ .PWD }}</> ➜ '
+    [blocks.segments.properties]
+      cache_duration = 'none'
