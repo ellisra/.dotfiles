@@ -16,6 +16,7 @@ require("lazy").setup({
     require("plugins.lualine"),
     require("plugins.mini"),
     require("plugins.multicursor"),
+    require("plugins.neogen"),
     require("plugins.nvim-colorizer"),
     require("plugins.obsidian"),
     require("plugins.obsidian-bridge"),
@@ -27,8 +28,6 @@ require("lazy").setup({
     require("plugins.which-key"),
 
     -- Themes
-    require("themes.everforest"),
-    require("themes.rose-pine"),
     require("themes.gruvbox-material"),
 }, {
     ui = {
