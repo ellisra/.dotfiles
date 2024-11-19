@@ -51,3 +51,14 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 -- Exit built-in terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- Generate docstring
+vim.api.nvim_set_keymap("n", "<leader>do", ":Neogen<CR>", { desc = "Generate [Do]cstring" })
+
+-- LuaSnip
+local ls = require("luasnip")
+
+-- Jumps to next placeholder in snippet
+vim.keymap.set("n", "<tab>", function()
+    ls.jump(1)
+end, { silent = true })

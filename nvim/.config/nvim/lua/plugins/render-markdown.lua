@@ -11,6 +11,7 @@ return {
     -- Colorscheme definition
     init = function()
         --require("settings.rose-pine-palette").setup_highlight()
+        require("settings.everforest-palette").setup_highlight()
     end,
 
     --@module "render-markdown"
@@ -36,7 +37,7 @@ return {
         bullet = {
             enabled = true,
             icons = { "•" },
-            highlight = "BlueFg",
+            highlight = "blue",
         },
 
         checkbox = {
