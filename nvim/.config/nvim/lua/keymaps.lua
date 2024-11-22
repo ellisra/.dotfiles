@@ -1,4 +1,6 @@
--- Function to stop flickering when using <C-d/u>zz motion
+--- Reduces flickering when jumping around buffer
+---@param keys string inputs from user
+---@return function which uses lazyredraw to draw the buffer
 local function lazykeys(keys)
     keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
     return function()
