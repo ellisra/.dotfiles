@@ -2,9 +2,7 @@ source ~/.dotfiles/zsh/.zsh_paths
 
 if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     source ~/.dotfiles/zsh/.zsh_work_settings
-    export PF_ASCII="Ubuntu"
 else
-    export PF_ASCII="arch"
     export OBSIDIAN_REST_API_KEY="d963040f65b48167c66eb822e7699064e14b016aabc3245e432cc4b50376746c"
 fi
 
@@ -44,5 +42,3 @@ toad() {
 alias lg='lazygit'
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
-
-pfetch
