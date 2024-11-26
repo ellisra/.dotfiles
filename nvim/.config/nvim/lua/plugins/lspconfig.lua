@@ -69,6 +69,7 @@ return {
 
             local servers = {
                 pyright = {},
+                ruff_lsp = {},
                 rust_analyzer = {
                     settings = {
                         cargo = {
