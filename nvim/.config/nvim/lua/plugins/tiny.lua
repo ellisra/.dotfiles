@@ -6,7 +6,11 @@ return {
         priority = 1000,
 
         config = function()
-            require("tiny-inline-diagnostic").setup()
+            require("tiny-inline-diagnostic").setup({
+                options = {
+                    multilines = true,
+                },
+            })
         end,
     },
 
