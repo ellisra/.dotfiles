@@ -21,6 +21,7 @@ require("lazy").setup({
     require("plugins.oil"),
     require("plugins.render-markdown"),
     require("plugins.telescope"),
+    require("plugins.tiny"),
     require("plugins.todo-comments"),
     require("plugins.treesitter"),
     require("plugins.which-key"),

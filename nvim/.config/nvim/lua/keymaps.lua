@@ -26,7 +26,7 @@ vim.keymap.set("n", "<Home>", "^")
 vim.keymap.set("i", "<Home>", "<C-o>^")
 
 -- Go to file explorer
-vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O][i]l file explorer" })
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
 
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -39,8 +39,7 @@ vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T
 -- Create waypoint
 vim.keymap.set("n", "<leader>wp", "i%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
 
--- Open diagnostics window
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [L]ist" })
 
 -- Exit built-in terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -52,6 +51,11 @@ vim.api.nvim_set_keymap("n", "<leader>do", ":Neogen<CR>", { desc = "Generate [Do
 local ls = require("luasnip")
 
 -- Jumps to next placeholder in snippet
-vim.keymap.set("n", "<tab>", function()
+vim.keymap.set("n", "'", function()
     ls.jump(1)
 end, { silent = true })
+
+-- Open code action meny for tiny-code-action.nvim
+vim.keymap.set("n", "<leader>q", function()
+    require("tiny-code-action").code_action()
+end, { noremap = true, silent = true, desc = "Open [Q]uickfix List" })
