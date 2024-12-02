@@ -59,3 +59,16 @@ end, { silent = true })
 vim.keymap.set("n", "<leader>q", function()
     require("tiny-code-action").code_action()
 end, { noremap = true, silent = true, desc = "Open [Q]uickfix List" })
+
+-- Vim window split commands
+-- <leader>h/j/k/l opens a new window in that direction
+vim.keymap.set("n", "<leader>wl", ":vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wh", ":leftabove vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wj", ":split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wk", ":leftabove split<CR>", { noremap = true, silent = true })
+
+-- <leader>H/J/K/L moves the cursor to the window in that direction
+vim.keymap.set("n", "<leader>wL", ":wincmd l<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wH", ":wincmd h<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wJ", ":wincmd j<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wK", ":wincmd k<CR>", { noremap = true, silent = true })
