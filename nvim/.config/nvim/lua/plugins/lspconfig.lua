@@ -68,7 +68,22 @@ return {
             capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
             local servers = {
-                pyright = {},
+                basedpyright = {
+                    settings = {
+                        basedpyright = {
+                            disableOrganizeImports = true,
+                            analysis = {
+                                typeCheckingMode = "standard",
+                                diagnosticSeverityOverrides = {
+                                    reportUnknownParameterType = true,
+                                    reportImportCycles = "warning",
+                                    reportDuplicateImport = "warning",
+                                    reportConstantRedefinition = "error",
+                                },
+                            },
+                        },
+                    },
+                },
                 ruff = {},
                 rust_analyzer = {
                     settings = {
