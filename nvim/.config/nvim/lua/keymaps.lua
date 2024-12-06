@@ -72,3 +72,9 @@ vim.keymap.set("n", "<leader>wL", ":wincmd l<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>wH", ":wincmd h<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wJ", ":wincmd j<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wK", ":wincmd k<CR>", { noremap = true, silent = true })
+
+-- Insert the current date to make daily notes quicker
+vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [Date]" })
+
+-- Find and replace word under cursor
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "[R]eplace current word" })
