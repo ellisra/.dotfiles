@@ -3,13 +3,12 @@ require("lazy").setup({
     "tpope/vim-sleuth", -- Detect tab size automatically
     "dhruvasagar/vim-table-mode", -- Makes markdown tables neater
 
-    require("plugins.floaterm"),
-
     -- Configured Plugins
     require("plugins.autopairs"),
     require("plugins.cmp"),
     require("plugins.conform"),
     require("plugins.flash"),
+    require("plugins.floaterm"),
     require("plugins.gitsigns"),
     require("plugins.indent-blankline"),
     require("plugins.lazygit"),

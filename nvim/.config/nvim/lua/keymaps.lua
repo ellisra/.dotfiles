@@ -80,6 +80,7 @@ vim.keymap.set("n", "<leader>tt", ":FloatermToggle<CR>", { desc = "[T]erminal [T
 vim.keymap.set("n", "<leader>tk", ":FloatermKill<CR>", { desc = "[T]erminal [K]ill" })
 vim.keymap.set("n", "<leader>tn", ":FloatermNext<CR>", { desc = "[T]erminal [N]ext" })
 vim.keymap.set("n", "<leader>tp", ":FloatermPrev<CR>", { desc = "[T]erminal [P]rev" })
+
 -- Insert the current date to make daily notes quicker
 vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [Date]" })
 
