@@ -17,17 +17,6 @@ return {
                     update_n_lines = "mn",
                 },
             })
-
-            require("mini.files").setup({
-                mappings = {},
-
-                windows = {
-                    max_number = 3,
-                    preview = true,
-                    width_focus = 20,
-                    width_preview = 50,
-                },
-            })
         end,
     },
 }

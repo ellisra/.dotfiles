@@ -26,8 +26,7 @@ vim.keymap.set("n", "<Home>", "^")
 vim.keymap.set("i", "<Home>", "<C-o>^")
 
 -- Go to file explorer
--- vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
-vim.keymap.set("n", "<leader>o", ":lua MiniFiles.open()<CR>", { desc = "[O]il file explorer" })
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
 
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -73,3 +72,11 @@ vim.keymap.set("n", "<leader>wL", ":wincmd l<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>wH", ":wincmd h<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wJ", ":wincmd j<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wK", ":wincmd k<CR>", { noremap = true, silent = true })
+
+-- Floaterm
+vim.keymap.set("n", "<leader>to", ":FloatermNew<CR>", { desc = "[T]erminal [O]pen" })
+vim.keymap.set("n", "<Esc>", ":FloatermHide<CR>", { silent = true, desc = "Hide Terminal" })
+vim.keymap.set("n", "<leader>tt", ":FloatermToggle<CR>", { desc = "[T]erminal [T]oggle" })
+vim.keymap.set("n", "<leader>tk", ":FloatermKill<CR>", { desc = "[T]erminal [K]ill" })
+vim.keymap.set("n", "<leader>tn", ":FloatermNext<CR>", { desc = "[T]erminal [N]ext" })
+vim.keymap.set("n", "<leader>tp", ":FloatermPrev<CR>", { desc = "[T]erminal [P]rev" })
