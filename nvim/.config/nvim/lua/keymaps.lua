@@ -29,7 +29,7 @@ vim.keymap.set("i", "<Home>", "<C-o>^")
 vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
 
 -- Clear search highlight on Esc
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
 
 -- Obsidian Keymaps
 -- Toggle obsidian-bridge
