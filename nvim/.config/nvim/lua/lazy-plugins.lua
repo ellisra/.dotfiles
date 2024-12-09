@@ -5,7 +5,7 @@ require("lazy").setup({
 
     -- Configured Plugins
     require("plugins.autopairs"),
-    require("plugins.cmp"),
+    require("plugins.nvim-cmp"),
     require("plugins.conform"),
     require("plugins.flash"),
     require("plugins.floaterm"),
@@ -23,7 +23,6 @@ require("lazy").setup({
     require("plugins.render-markdown"),
     require("plugins.telescope"),
     require("plugins.tiny"),
-    require("plugins.todo-comments"),
     require("plugins.treesitter"),
     require("plugins.which-key"),
 
