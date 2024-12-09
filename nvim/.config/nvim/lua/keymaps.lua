@@ -29,7 +29,7 @@ vim.keymap.set("i", "<Home>", "<C-o>^")
 vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
 
 -- Clear search highlight on Esc
-vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Obsidian Keymaps
 -- Toggle obsidian-bridge
@@ -75,7 +75,6 @@ vim.keymap.set("n", "<leader>wK", ":wincmd k<CR>", { noremap = true, silent = tr
 
 -- Floaterm
 vim.keymap.set("n", "<leader>to", ":FloatermNew<CR>", { desc = "[T]erminal [O]pen" })
-vim.keymap.set("n", "<Esc>", ":FloatermHide<CR>", { silent = true, desc = "Hide Terminal" })
 vim.keymap.set("n", "<leader>tt", ":FloatermToggle<CR>", { desc = "[T]erminal [T]oggle" })
 vim.keymap.set("n", "<leader>tk", ":FloatermKill<CR>", { desc = "[T]erminal [K]ill" })
 vim.keymap.set("n", "<leader>tn", ":FloatermNext<CR>", { desc = "[T]erminal [N]ext" })
