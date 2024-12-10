@@ -1,29 +1,34 @@
 require("lazy").setup({
-    -- General Plugins
-    "tpope/vim-sleuth", -- Detect tab size automatically
-    "dhruvasagar/vim-table-mode", -- Makes markdown tables neater
-
-    -- Configured Plugins
-    require("plugins.autopairs"),
-    require("plugins.nvim-cmp"),
-    require("plugins.conform"),
-    require("plugins.flash"),
-    require("plugins.floaterm"),
+    -- Git
     require("plugins.gitsigns"),
-    require("plugins.indent-blankline"),
     require("plugins.lazygit"),
+
+    -- Language Functionality
+    require("plugins.autopairs"),
+    require("plugins.conform"),
+    require("plugins.nvim-cmp"),
+    require("plugins.indent-blankline"),
     require("plugins.lspconfig"),
+    require("plugins.treesitter"),
+
+    -- Markdown
+    require("plugins.obsidian"),
+    require("plugins.obsidian-bridge"),
+    require("plugins.render-markdown"),
+    require("plugins.vim-table-mode"),
+
+    -- Navigation
+    require("plugins.flash"),
+    require("plugins.oil"),
+    require("plugins.telescope"),
+
+    -- QoL
+    require("plugins.floaterm"),
     require("plugins.lualine"),
     require("plugins.mini"),
     require("plugins.neogen"),
     require("plugins.nvim-colorizer"),
-    require("plugins.obsidian"),
-    require("plugins.obsidian-bridge"),
-    require("plugins.oil"),
-    require("plugins.render-markdown"),
-    require("plugins.telescope"),
     require("plugins.tiny"),
-    require("plugins.treesitter"),
     require("plugins.which-key"),
 
     -- Themes
