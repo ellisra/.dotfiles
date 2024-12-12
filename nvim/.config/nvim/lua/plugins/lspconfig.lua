@@ -38,7 +38,12 @@ return {
                 callback = function(event)
                     -- Helper function for mapping LSP related items
                     local map = function(keys, func, desc)
-                        vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+                        vim.keymap.set(
+                            "n",
+                            keys,
+                            func,
+                            { buffer = event.buf, desc = "LSP: " .. desc }
+                        )
                     end
 
                     -- Jump to definition of word
@@ -46,11 +51,23 @@ return {
                     -- Find references for word
                     map("gr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
                     -- Jump to implementation of word
-                    map("gI", require("telescope.builtin").lsp_implementations, "[G]o to [I]mplementation")
+                    map(
+                        "gI",
+                        require("telescope.builtin").lsp_implementations,
+                        "[G]o to [I]mplementation"
+                    )
                     -- Jump to type definition
-                    map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+                    map(
+                        "<leader>D",
+                        require("telescope.builtin").lsp_type_definitions,
+                        "Type [D]efinition"
+                    )
                     -- Fuzzy find all symbols in document
-                    map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+                    map(
+                        "<leader>ds",
+                        require("telescope.builtin").lsp_document_symbols,
+                        "[D]ocument [S]ymbols"
+                    )
                     -- Fuzzy find all symbols in workspace
                     map(
                         "<leader>ws",
@@ -65,7 +82,11 @@ return {
             })
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+            capabilities = vim.tbl_deep_extend(
+                "force",
+                capabilities,
+                require("cmp_nvim_lsp").default_capabilities()
+            )
 
             local servers = {
                 basedpyright = {
@@ -130,7 +151,12 @@ return {
                     function(server_name)
                         local server = servers[server_name] or {}
 
-                        server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+                        server.capabilities = vim.tbl_deep_extend(
+                            "force",
+                            {},
+                            capabilities,
+                            server.capabilities or {}
+                        )
                         require("lspconfig")[server_name].setup(server)
                     end,
                 },
