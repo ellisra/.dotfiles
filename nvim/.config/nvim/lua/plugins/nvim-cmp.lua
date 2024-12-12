@@ -56,6 +56,10 @@ return {
                 { name = "luasnip" },
                 { name = "path" },
             },
+            ---@diagnostic disable-next-line: missing-fields
+            performance = {
+                max_view_entries = 7,
+            },
         })
     end,
 }

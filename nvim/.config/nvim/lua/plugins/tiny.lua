@@ -7,6 +7,7 @@ return {
 
         config = function()
             require("tiny-inline-diagnostic").setup({
+                preset = "simple",
                 options = {
                     multilines = true,
                 },
