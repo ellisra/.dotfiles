@@ -8,59 +8,6 @@ return {
         "saghen/blink.cmp",
     },
 
-    -- LSPs
-    opts = {
-        servers = {
-            basedpyright = {
-                settings = {
-                    basedpyright = {
-                        disableOrganizeImports = true,
-                        analysis = {
-                            typeCheckingMode = "standard",
-                            diagnosticSeverityOverrides = {
-                                reportUnknownParameterType = true,
-                                reportImportCycles = "warning",
-                                reportDuplicateImport = "warning",
-                                reportConstantRedefinition = "error",
-                            },
-                        },
-                    },
-                },
-            },
-            ruff = {},
-            rust_analyzer = {
-                settings = {
-                    cargo = {
-                        allFeatures = true,
-                    },
-
-                    checkOnSave = {
-                        command = "clippy",
-                    },
-                },
-            },
-            lua_ls = {
-                settings = {
-                    Lua = {
-                        completion = {
-                            callSnippet = "Replace",
-                        },
-                    },
-                },
-            },
-            clangd = {
-                cmd = {
-                    "clangd",
-                    "--background-index",
-                    "--suggest-missing-includes",
-                    "--clang-tidy",
-                    "--header-insertion=iwyu",
-                },
-            },
-            marksman = {},
-        },
-    },
-
     config = function()
         local servers = {
             basedpyright = {
@@ -109,6 +56,7 @@ return {
                     "--header-insertion=iwyu",
                 },
             },
+            marksman = {},
         }
 
         require("mason").setup()
