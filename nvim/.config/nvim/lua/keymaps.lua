@@ -33,7 +33,12 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Obsidian Keymaps
 -- Toggle obsidian-bridge
-vim.keymap.set("n", "<leader>tb", ":ObsidianBridgeToggle<CR>", { desc = "[T]oggle obsidian [B]ridge" })
+vim.keymap.set(
+    "n",
+    "<leader>tb",
+    ":ObsidianBridgeToggle<CR>",
+    { desc = "[T]oggle obsidian [B]ridge" }
+)
 -- Open template selector
 vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
 -- Create waypoint
@@ -84,4 +89,9 @@ vim.keymap.set("n", "<leader>tp", ":FloatermPrev<CR>", { desc = "[T]erminal [P]r
 vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [Date]" })
 
 -- Find and replace word under cursor
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "[R]eplace current word" })
+vim.keymap.set(
+    "n",
+    "<leader>r",
+    [[:%s/\<<C-r><C-w>\>//g<Left><Left>]],
+    { desc = "[R]eplace current word" }
+)

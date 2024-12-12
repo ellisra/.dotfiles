@@ -1,6 +1,3 @@
--- obsidian
--- https://github.com/epwalsh/obsidian.nvim
-
 return {
     "epwalsh/obsidian.nvim",
     version = "*",
@@ -8,7 +5,6 @@ return {
     ft = "markdown",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
         "nvim-telescope/telescope.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
@@ -23,7 +19,7 @@ return {
         log_level = vim.log.levels.INFO,
 
         completion = {
-            nvim_cmp = true,
+            nvim_cmp = false,
             min_chars = 2,
         },
 

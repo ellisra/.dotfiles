@@ -5,8 +5,8 @@ require("lazy").setup({
 
     -- Language Functionality
     require("plugins.autopairs"),
+    require("plugins.blink-cmp"),
     require("plugins.conform"),
-    require("plugins.nvim-cmp"),
     require("plugins.indent-blankline"),
     require("plugins.lspconfig"),
     require("plugins.treesitter"),
@@ -24,7 +24,9 @@ require("lazy").setup({
 
     -- QoL
     require("plugins.floaterm"),
+    require("plugins.lazydev"),
     require("plugins.lualine"),
+    require("plugins.luasnip"),
     require("plugins.mini"),
     require("plugins.neogen"),
     require("plugins.nvim-colorizer"),
