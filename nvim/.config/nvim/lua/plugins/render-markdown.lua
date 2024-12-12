@@ -1,5 +1,3 @@
--- Useful dotfiles: https://github.com/linkarzu/dotfiles-latest/
-
 return {
     "MeanderingProgrammer/render-markdown.nvim",
 
@@ -11,7 +9,7 @@ return {
     -- Colorscheme definition
     init = function()
         --require("settings.rose-pine-palette").setup_highlight()
-        require("settings.everforest-palette").setup_highlight()
+        -- require("settings.everforest-palette").setup_highlight()
     end,
 
     --@module "render-markdown"

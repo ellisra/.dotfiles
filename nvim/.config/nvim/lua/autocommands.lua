@@ -1,11 +1,3 @@
--- Enable syntax highlighting for sway config files
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "/home/rob/.dotfiles/sway/.config/sway/config.d/*" },
-    callback = function()
-        vim.bo.filetype = "swayconfig"
-    end,
-})
-
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
