@@ -129,22 +129,4 @@ return {
             },
         })
     end,
-
-    -- require("mason").setup()
-    -- local ensure_installed = vim.tbl_keys(servers or {})
-    -- vim.list_extend(ensure_installed, {"stylua"})
-    --
-    -- require("mason-tool-installer").setup({ensure_installed = ensure_installed})
-    --
-    --
-    -- require("mason-lspconfig").setup({
-    --     handlers = {
-    --         function(_, opts)
-    --             for server, config in pairs(opts.server) do
-    --                 config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-    --                 require("lspconfig")[server].setup(config)
-    --             end
-    --         end,
-    --     }
-    -- })
 }
