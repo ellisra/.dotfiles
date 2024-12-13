@@ -60,8 +60,9 @@ vim.keymap.set("n", "'", function()
     ls.jump(1)
 end, { silent = true })
 
--- Open code action meny for tiny-code-action.nvim
+-- Open code action menu for tiny-code-action.nvim
 vim.keymap.set("n", "<leader>q", function()
+    ---@diagnostic disable-next-line: missing-parameter
     require("tiny-code-action").code_action()
 end, { noremap = true, silent = true, desc = "Open [Q]uickfix List" })
 
