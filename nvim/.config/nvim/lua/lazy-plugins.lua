@@ -3,7 +3,7 @@ require("lazy").setup({
     require("plugins.lazygit"),
 
     -- Language Functionality
-    require("plugins.autopairs"),
+    -- require("plugins.autopairs"), -- Trying out mini.pairs for now
     require("plugins.blink-cmp"),
     require("plugins.conform"),
     require("plugins.indent-blankline"),
@@ -24,7 +24,7 @@ require("lazy").setup({
     -- QoL
     require("plugins.floaterm"),
     require("plugins.lazydev"),
-    require("plugins.lualine"),
+    -- require("plugins.lualine"), -- Trying out mini.statusline
     require("plugins.luasnip"),
     require("plugins.mini"),
     require("plugins.neogen"),
