@@ -1,6 +1,5 @@
 require("lazy").setup({
     -- Git
-    require("plugins.gitsigns"),
     require("plugins.lazygit"),
 
     -- Language Functionality
