@@ -42,7 +42,7 @@ vim.keymap.set(
 -- Open template selector
 vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
 -- Create waypoint
-vim.keymap.set("n", "<leader>wp", "i%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
+vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
 
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [L]ist" })
 
