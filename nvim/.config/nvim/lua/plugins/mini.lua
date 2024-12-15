@@ -18,6 +18,7 @@ return {
                 },
             })
 
+            -- Visualise git changes and allow git hunk interraction
             require("mini.diff").setup({
                 view = {
                     style = "sign",
@@ -25,6 +26,20 @@ return {
                     priority = 199,
                 },
             })
+
+            -- Better scope highlighting for indent-blankline
+            require("mini.indentscope").setup({
+                draw = {
+                    animation = require("mini.indentscope").gen_animation.none(),
+                },
+                symbol = "▏",
+            })
+
+            -- Replacement for nvim-autopairs
+            require("mini.pairs").setup({})
+
+            -- Replacement for Lualine
+            require("mini.statusline").setup({})
         end,
     },
 }
