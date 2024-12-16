@@ -37,9 +37,6 @@ return {
 
             -- Replacement for nvim-autopairs
             require("mini.pairs").setup({})
-
-            -- Replacement for Lualine
-            require("mini.statusline").setup({})
         end,
     },
 }
