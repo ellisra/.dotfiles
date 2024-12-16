@@ -23,6 +23,7 @@ return {
             folder = "work/work-todo",
             date_format = "%Y-%m-%d - TODO",
             template = ".obsidian/templates/work-todo-template.md",
+            default_tags = {},
         },
 
         completion = {

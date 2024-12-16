@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 --- Reduces flickering when jumping around buffer
 ---@param keys string inputs from user
 ---@return function which uses lazyredraw to draw the buffer
@@ -58,12 +59,9 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 ---@diagnostic disable-next-line: missing-fields
 vim.api.nvim_set_keymap("n", "<leader>do", ":Neogen<CR>", { desc = "Generate [Do]cstring" })
 
--- LuaSnip
-local ls = require("luasnip")
-
 -- Jumps to next placeholder in snippet
 vim.keymap.set("n", "'", function()
-    ls.jump(1)
+    require("luasnip").jump(1)
 end, { silent = true })
 
 -- Open code action menu for tiny-code-action.nvim
@@ -102,3 +100,6 @@ vim.keymap.set(
     [[:%s/\<<C-r><C-w>\>//g<Left><Left>]],
     { desc = "[R]eplace current word" }
 )
+
+-- Insert type: ignore on current line
+vim.keymap.set("n", "<leader>ti", "A  # type: ignore<Esc>", { desc = "[T]ype [I]gnore" })
