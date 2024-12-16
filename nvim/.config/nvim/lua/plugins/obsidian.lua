@@ -18,6 +18,13 @@ return {
 
         log_level = vim.log.levels.INFO,
 
+        -- Work todo
+        daily_notes = {
+            folder = "work/work-todo",
+            date_format = "%Y-%m-%d - TODO",
+            template = ".obsidian/templates/work-todo-template.md",
+        },
+
         completion = {
             nvim_cmp = false,
             min_chars = 2,

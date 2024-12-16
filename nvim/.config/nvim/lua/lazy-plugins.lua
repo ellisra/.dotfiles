@@ -24,13 +24,15 @@ require("lazy").setup({
     -- QoL
     require("plugins.floaterm"),
     require("plugins.lazydev"),
-    -- require("plugins.lualine"), -- Trying out mini.statusline
-    require("plugins.luasnip"),
+    require("plugins.lualine"),
     require("plugins.mini"),
-    require("plugins.neogen"),
     require("plugins.nvim-colorizer"),
     require("plugins.tiny"),
     require("plugins.which-key"),
+
+    -- Snippets
+    require("plugins.luasnip"),
+    require("plugins.neogen"),
 
     -- Themes
     require("themes.gruvbox-material"),

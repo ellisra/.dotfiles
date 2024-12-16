@@ -43,6 +43,11 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
 -- Create waypoint
 vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
+-- Create work todo note
+vim.keymap.set("n", "<leader>td", function()
+    require("obsidian")
+    vim.cmd("ObsidianToday")
+end, { desc = "Create [T]o [D]o note" })
 
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [L]ist" })
 
@@ -50,6 +55,7 @@ vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]i
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Generate docstring
+---@diagnostic disable-next-line: missing-fields
 vim.api.nvim_set_keymap("n", "<leader>do", ":Neogen<CR>", { desc = "Generate [Do]cstring" })
 
 -- LuaSnip

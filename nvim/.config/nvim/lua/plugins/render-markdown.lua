@@ -69,7 +69,7 @@ return {
 
         link = {
             enabled = true,
-            wiki = { icon = "" },
+            wiki = { icon = "", highlight = "blue" },
         },
 
         code = {
