@@ -128,11 +128,5 @@ return {
             { desc = "[S]earch [T]emplate" }
         )
         vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
-        vim.keymap.set(
-            "n",
-            "<leader>td",
-            "<cmd>ObsidianToday<CR>",
-            { desc = "Create [T]o [D]o note" }
-        )
     end,
 }
