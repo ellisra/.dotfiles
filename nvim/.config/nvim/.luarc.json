@@ -1,8 +1,6 @@
 {
-    "diagnostics.globals": [
-        "Snacks"
-    ],
     "diagnostics.disable": [
-        "undefined-doc-name"
+        "undefined-doc-name",
+        "missing-fields"
     ]
 }

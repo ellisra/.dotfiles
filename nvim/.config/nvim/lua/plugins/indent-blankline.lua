@@ -10,7 +10,7 @@ return {
                     char = "▏",
                 },
                 scope = {
-                    enabled = false,
+                    enabled = true,
                     show_start = false,
                     show_end = false,
                 },

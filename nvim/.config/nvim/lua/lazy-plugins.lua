@@ -1,7 +1,4 @@
 require("lazy").setup({
-    -- Git
-    -- require("plugins.lazygit"),
-
     -- Language Functionality
     require("plugins.blink-cmp"),
     require("plugins.conform"),
