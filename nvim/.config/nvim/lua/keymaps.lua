@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 --- Reduces flickering when jumping around buffer
 ---@param keys string inputs from user
 ---@return function which uses lazyredraw to draw the buffer
@@ -26,49 +25,13 @@ vim.keymap.set("i", "<C-k>", "<C-o><C-u><C-o>zz")
 vim.keymap.set("n", "<Home>", "^")
 vim.keymap.set("i", "<Home>", "<C-o>^")
 
--- Go to file explorer
-vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[O]il file explorer" })
-
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
--- Obsidian Keymaps
--- Toggle obsidian-bridge
-vim.keymap.set(
-    "n",
-    "<leader>tb",
-    ":ObsidianBridgeToggle<CR>",
-    { desc = "[T]oggle obsidian [B]ridge" }
-)
--- Open template selector
-vim.keymap.set("n", "<leader>st", ":ObsidianTemplate<CR>", { desc = "[S]earch [T]emplates" })
--- Create waypoint
-vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
--- Create work todo note
-vim.keymap.set("n", "<leader>td", function()
-    require("obsidian")
-    vim.cmd("ObsidianToday")
-end, { desc = "Create [T]o [D]o note" })
 
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [L]ist" })
 
 -- Exit built-in terminal
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- Generate docstring
----@diagnostic disable-next-line: missing-fields
-vim.api.nvim_set_keymap("n", "<leader>do", ":Neogen<CR>", { desc = "Generate [Do]cstring" })
-
--- Jumps to next placeholder in snippet
-vim.keymap.set("n", "'", function()
-    require("luasnip").jump(1)
-end, { silent = true })
-
--- Open code action menu for tiny-code-action.nvim
-vim.keymap.set("n", "<leader>q", function()
-    ---@diagnostic disable-next-line: missing-parameter
-    require("tiny-code-action").code_action()
-end, { noremap = true, silent = true, desc = "Open [Q]uickfix List" })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Vim window split commands
 -- <leader>h/j/k/l opens a new window in that direction
@@ -83,15 +46,8 @@ vim.keymap.set("n", "<leader>wH", ":wincmd h<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>wJ", ":wincmd j<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wK", ":wincmd k<CR>", { noremap = true, silent = true })
 
--- Floaterm
-vim.keymap.set("n", "<leader>to", ":FloatermNew<CR>", { desc = "[T]erminal [O]pen" })
-vim.keymap.set("n", "<leader>tt", ":FloatermToggle<CR>", { desc = "[T]erminal [T]oggle" })
-vim.keymap.set("n", "<leader>tk", ":FloatermKill<CR>", { desc = "[T]erminal [K]ill" })
-vim.keymap.set("n", "<leader>tn", ":FloatermNext<CR>", { desc = "[T]erminal [N]ext" })
-vim.keymap.set("n", "<leader>tp", ":FloatermPrev<CR>", { desc = "[T]erminal [P]rev" })
-
 -- Insert the current date to make daily notes quicker
-vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [Date]" })
+vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [D]ate" })
 
 -- Find and replace word under cursor
 vim.keymap.set(

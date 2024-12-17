@@ -15,6 +15,13 @@ return {
     config = function()
         require("obsidian-bridge").setup({})
         vim.cmd("ObsidianBridgeOff")
+
+        vim.keymap.set(
+            "n",
+            "<leader>tb",
+            "<cmd>ObsidianBdridgeToggle<CR>",
+            { desc = "[T]oggle Obsidian [B]ridge" }
+        )
     end,
 
     event = {

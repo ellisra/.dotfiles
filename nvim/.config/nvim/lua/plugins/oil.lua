@@ -66,5 +66,7 @@ return {
                 border = "rounded",
             },
         })
+
+        vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "[O]il file explorer" })
     end,
 }

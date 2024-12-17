@@ -1,9 +1,8 @@
 require("lazy").setup({
     -- Git
-    require("plugins.lazygit"),
+    -- require("plugins.lazygit"),
 
     -- Language Functionality
-    -- require("plugins.autopairs"), -- Trying out mini.pairs for now
     require("plugins.blink-cmp"),
     require("plugins.conform"),
     require("plugins.indent-blankline"),

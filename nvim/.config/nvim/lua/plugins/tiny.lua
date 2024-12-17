@@ -26,6 +26,10 @@ return {
 
         config = function()
             require("tiny-code-action").setup()
+
+            vim.keymap.set("n", "<leader>q", function()
+                require("tiny-code-action").code_action({})
+            end, { noremap = true, silent = true, desc = "Open [Q]uickfix List" })
         end,
     },
 }

@@ -28,12 +28,12 @@ return {
             })
 
             -- Better scope highlighting for indent-blankline
-            require("mini.indentscope").setup({
-                draw = {
-                    animation = require("mini.indentscope").gen_animation.none(),
-                },
-                symbol = "▏",
-            })
+            -- require("mini.indentscope").setup({
+            --     draw = {
+            --         animation = require("mini.indentscope").gen_animation.none(),
+            --     },
+            --     symbol = "▏",
+            -- })
 
             -- Replacement for nvim-autopairs
             require("mini.pairs").setup({})

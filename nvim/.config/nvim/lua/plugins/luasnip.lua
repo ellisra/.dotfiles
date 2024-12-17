@@ -12,5 +12,9 @@ return {
 
     config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        vim.keymap.set("n", "'", function()
+            require("luasnip").jump(1)
+        end, { silent = true })
     end,
 }
