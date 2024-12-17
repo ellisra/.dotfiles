@@ -8,6 +8,7 @@ return {
         "nvim-telescope/telescope.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
+
     opts = {
         workspaces = {
             {
@@ -37,12 +38,6 @@ return {
                     return require("obsidian").util.gf_passthrough()
                 end,
                 opts = { noremap = false, expr = true, buffer = true },
-            },
-            ["<leader>ch"] = {
-                action = function()
-                    return require("obsidian").util.toggle_checkbox()
-                end,
-                opts = { buffer = true },
             },
             ["<cr>"] = {
                 action = function()
@@ -123,4 +118,21 @@ return {
             },
         },
     },
+
+    -- Keymaps to set on init
+    init = function()
+        vim.keymap.set(
+            "n",
+            "<leader>st",
+            "<cmd>ObsidianTemplate<CR>",
+            { desc = "[S]earch [T]emplate" }
+        )
+        vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
+        vim.keymap.set(
+            "n",
+            "<leader>td",
+            "<cmd>ObsidianToday<CR>",
+            { desc = "Create [T]o [D]o note" }
+        )
+    end,
 }
