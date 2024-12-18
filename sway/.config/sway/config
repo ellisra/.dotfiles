@@ -1,3 +1,0 @@
-set $mod Mod4
-
-include ./config.d/*

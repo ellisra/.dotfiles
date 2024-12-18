@@ -1,8 +1,0 @@
-input "type:keyboard" {
-    xkb_layout gb
-}
-
-input "type:pointer" {
-    pointer_accel 0.3
-    accel_profile "flat"
-}
