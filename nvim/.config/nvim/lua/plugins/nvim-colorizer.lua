@@ -1,6 +1,7 @@
 return {
     "NvChad/nvim-colorizer.lua", -- Highlight hex codes with their colour
 
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("colorizer").setup({
             filetypes = { "*" },
