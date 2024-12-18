@@ -27,33 +27,8 @@ return {
                 },
             })
 
-            -- require("mini.files").setup({
-            --     mappings = {
-            --         close = "<Esc>",
-            --         go_in = "<CR>",
-            --         go_out = "-",
-            --     },
-            --
-            --     windows = {
-            --         max_number = 2,
-            --         preview = true,
-            --         width_focus = 15,
-            --         width_nofocus = 15,
-            --         width_preview = 90,
-            --     },
-            -- })
-
             -- Replacement for nvim-autopairs
             require("mini.pairs").setup({})
-        end,
-
-        init = function()
-            -- vim.keymap.set(
-            --     "n",
-            --     "<leader>o",
-            --     "<cmd>lua require('mini.files').open(vim.api.nvim_buf_get_name(0))<CR>",
-            --     { desc = "[O]pen file explorer" }
-            -- )
         end,
     },
 }

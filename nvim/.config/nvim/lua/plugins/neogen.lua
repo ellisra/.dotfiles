@@ -1,6 +1,8 @@
 return {
     "danymat/neogen",
 
+    event = "LspAttach",
+
     config = function()
         require("neogen").setup({
             snippet_engine = "luasnip",
