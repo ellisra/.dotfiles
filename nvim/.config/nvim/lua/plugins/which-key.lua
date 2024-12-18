@@ -4,8 +4,10 @@ return {
 
         event = "VimEnter",
 
-        config = function()
-            require("which-key").setup()
+        opts = { preset = "modern" },
+
+        config = function(_, opts)
+            require("which-key").setup(opts)
         end,
     },
 }
