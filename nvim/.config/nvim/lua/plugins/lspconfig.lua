@@ -2,12 +2,7 @@ return {
     "neovim/nvim-lspconfig",
 
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-        { "williamboman/mason.nvim", config = true },
-        "williamboman/mason-lspconfig.nvim",
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
-        "saghen/blink.cmp",
-    },
+    dependencies = { "saghen/blink.cmp" },
 
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -101,23 +96,9 @@ return {
             marksman = {},
         }
 
-        require("mason").setup()
-        local ensure_installed = vim.tbl_keys(servers or {})
-        vim.list_extend(ensure_installed, { "stylua" })
-
-        require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
-        ---@diagnostic disable-next-line: missing-fields
-        require("mason-lspconfig").setup({
-            handlers = {
-                function()
-                    for server, config in pairs(servers) do
-                        config.capabilities =
-                            require("blink.cmp").get_lsp_capabilities(config.capabilities)
-                        require("lspconfig")[server].setup(config)
-                    end
-                end,
-            },
-        })
+        for server, config in pairs(servers) do
+            config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+            require("lspconfig")[server].setup(config)
+        end
     end,
 }
