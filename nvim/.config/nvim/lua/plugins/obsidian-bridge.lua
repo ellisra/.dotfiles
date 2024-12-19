@@ -19,7 +19,7 @@ return {
         vim.keymap.set(
             "n",
             "<leader>tb",
-            "<cmd>ObsidianBdridgeToggle<CR>",
+            "<cmd>ObsidianBridgeToggle<CR>",
             { desc = "[T]oggle Obsidian [B]ridge" }
         )
     end,

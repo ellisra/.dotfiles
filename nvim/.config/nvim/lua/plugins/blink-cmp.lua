@@ -15,7 +15,7 @@ return {
             ["<Down>"] = { "select_next", "fallback" },
 
             ["<Tab>"] = { "select_and_accept", "fallback" },
-            ["<CR>"] = { "select_and_accept", "fallback" },
+            ["<C-Enter>"] = { "select_and_accept", "fallback" },
         },
         appearance = {
             use_nvim_cmp_as_default = true,
