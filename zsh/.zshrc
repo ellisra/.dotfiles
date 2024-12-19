@@ -14,6 +14,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export EDITOR=nvim
+
 PROMPT_EOL_MARK=''
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
