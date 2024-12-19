@@ -18,13 +18,10 @@ require("lazy").setup({
     require("plugins.telescope"),
 
     -- QoL
-    require("plugins.floaterm"),
     require("plugins.lazydev"),
     require("plugins.lualine"),
     require("plugins.mini"),
-    require("plugins.nvim-colorizer"),
     require("plugins.tiny"),
-    require("plugins.which-key"),
 
     -- Snippets
     require("plugins.luasnip"),
