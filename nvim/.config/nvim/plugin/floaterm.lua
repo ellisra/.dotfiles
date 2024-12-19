@@ -62,7 +62,7 @@ end
 
 vim.api.nvim_create_user_command("Floaterm", toggle_terminal, {})
 
-vim.keymap.set({ "n", "t" }, "<leader>tt", toggle_terminal, { desc = "[T]oggle [T]erminal" })
+vim.keymap.set("n", "<leader>tt", toggle_terminal, { desc = "[T]oggle [T]erminal" })
 vim.keymap.set("n", "<leader>lg", function()
     toggle_terminal({ term_command = "lazygit" })
 end, { desc = "[L]azy[G]it" })
