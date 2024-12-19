@@ -65,3 +65,6 @@ vim.keymap.set("n", "<leader>td", function()
     require("obsidian")
     vim.cmd("ObsidianToday")
 end, { desc = "Create [T]o [D]o note" })
+
+-- Open Lazy.nvim
+vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open [L]a[z]y.nvim" })
