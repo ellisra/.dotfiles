@@ -16,6 +16,7 @@ require("lazy").setup({
     require("plugins.flash"),
     require("plugins.oil"),
     require("plugins.telescope"),
+    -- require("plugins.fzf"),
 
     -- QoL
     require("plugins.lazydev"),
