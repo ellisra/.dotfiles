@@ -21,7 +21,7 @@ return {
             enabled = true,
             sign = false,
             position = "inline",
-            icons = { " ", " ", "> ", " ", " ", " " },
+            icons = { " ", " ", " ", " ", " ", " " },
             width = "block",
             right_pad = 2,
             backgrounds = {
