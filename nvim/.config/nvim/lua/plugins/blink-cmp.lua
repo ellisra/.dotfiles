@@ -5,7 +5,10 @@ return {
     event = "LspAttach",
     version = "v0.*",
 
-    dependencies = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" },
+    dependencies = {
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
+    },
 
     opts = {
         keymap = {
@@ -27,7 +30,7 @@ return {
 
             documentation = {
                 auto_show = true,
-                auto_show_delay = 200,
+                auto_show_delay_ms = 200,
             },
 
             trigger = {
@@ -53,9 +56,19 @@ return {
         sources = {
             default = { "lsp", "path", "snippets", "buffer", "lazydev", "luasnip" },
             providers = {
-                lsp = { fallback = { "lazydev" } },
-                lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    score_offset = 100,
+                },
             },
+            min_keyword_length = function()
+                if vim.fn.getcmdtype() == ":" then
+                    return 3
+                else
+                    return 1
+                end
+            end,
         },
     },
 
