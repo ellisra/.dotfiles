@@ -41,9 +41,3 @@ set_options({
 vim.schedule(function()
     vim.opt.clipboard = "unnamedplus"
 end)
-
--- Set tab size work around
-vim.cmd([[set expandtab tabstop=4 softtabstop=4 shiftwidth=4]])
-
--- Stop all diagnostics from beind displayed for tiny-inline-diagnostics.nvim
-vim.diagnostic.config({ virtual_text = false })

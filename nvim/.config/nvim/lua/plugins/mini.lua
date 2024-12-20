@@ -5,9 +5,9 @@ return {
         event = { "VeryLazy" },
         config = function()
             -- Better Around/Inside textobjects
-            require("mini.ai").setup({ n_lines = 500 }) -- hello
+            require("mini.ai").setup({ n_lines = 500 })
 
-            -- Which-key replacement
+            -- Keymap hints
             local miniclue = require("mini.clue")
             miniclue.setup({
                 triggers = {
@@ -71,7 +71,7 @@ return {
                 highlighters = {
                     fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
                     hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-                    todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+                    -- todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
                     note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
                     -- Highlight hex color strings (`#rrggbb`) using that color

@@ -11,5 +11,8 @@ return {
                 multilines = true,
             },
         })
+
+        -- Stop all diagnostics from beind displayed for tiny-inline-diagnostics.nvim
+        vim.diagnostic.config({ virtual_text = false })
     end,
 }
