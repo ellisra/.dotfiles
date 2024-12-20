@@ -19,7 +19,6 @@ require("lazy").setup({
 
     -- QoL
     require("plugins.lazydev"),
-    require("plugins.lualine"),
     require("plugins.mini"),
     require("plugins.tiny"),
 
