@@ -22,7 +22,7 @@ return {
             vim.api.nvim_set_hl(0, "StatuslineInsertAccent", { bg = "#a9b665", fg = "#1b1b1b" })
             vim.api.nvim_set_hl(0, "StatuslineVisualAccent", { bg = "#ea6962", fg = "#1b1b1b" })
             vim.api.nvim_set_hl(0, "StatuslineReplaceAccent", { bg = "#e78a4e", fg = "#1b1b1b" })
-            vim.api.nvim_set_hl(0, "StatuslineCmdLineAccent", { bg = "#89b482", fg = "#1b1b1b" })
+            vim.api.nvim_set_hl(0, "StatuslineCmdLineAccent", { bg = "#7daea3", fg = "#1b1b1b" })
             vim.api.nvim_set_hl(0, "StatuslineTerminalAccent", { bg = "#d3869b", fg = "#1b1b1b" })
         end,
     },

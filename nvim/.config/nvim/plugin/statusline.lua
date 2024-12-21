@@ -102,11 +102,12 @@ local function lsp()
         info = " %#LspDiagnosticsSignInformation# " .. count["info"]
     end
 
-    return errors .. warnings .. hints .. info .. "%#Normal#"
+    -- return errors .. warnings .. hints .. info .. "%#Normal#"
+    return string.format("%s %s %s %s %s ", errors, warnings, hints, info, "%#Statusline#")
 end
 
 local function filetype()
-    return string.format(" %s ", vim.bo.filetype)
+    return string.format("%s %s ", "%#Statusline#", vim.bo.filetype)
 end
 
 local function lineinfo()
