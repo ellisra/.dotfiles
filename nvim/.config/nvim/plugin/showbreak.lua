@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
     callback = function()
-        if vim.bo.filetype == "terminal" then
+        if vim.bo.filetype == "terminal" or vim.bo.filetype == "" then
             vim.opt_local.statuscolumn = ""
         else
             vim.opt.statuscolumn = "%s%C%=%#CursorLineNr#%{(v:relnum == 0)?v:lua.CheckSymbolOrNumber(v:lnum).\""
