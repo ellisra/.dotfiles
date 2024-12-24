@@ -102,8 +102,8 @@ local function lsp()
         info = " %#LspDiagnosticsSignInformation# " .. count["info"]
     end
 
-    -- return errors .. warnings .. hints .. info .. "%#Normal#"
-    return string.format("%s %s %s %s %s ", errors, warnings, hints, info, "%#Statusline#")
+    return errors .. warnings .. hints .. info .. "%#Normal#"
+    -- return string.format("%s %s %s %s %s ", errors, warnings, hints, info, "%#Statusline#")
 end
 
 local function filetype()
