@@ -24,6 +24,15 @@ return {
             vim.api.nvim_set_hl(0, "StatuslineReplaceAccent", { bg = "#e78a4e", fg = "#1b1b1b" })
             vim.api.nvim_set_hl(0, "StatuslineCmdLineAccent", { bg = "#7daea3", fg = "#1b1b1b" })
             vim.api.nvim_set_hl(0, "StatuslineTerminalAccent", { bg = "#d3869b", fg = "#1b1b1b" })
+
+            vim.api.nvim_set_hl(0, "LspDiagnosticsSignError", { fg = "#ea6962", bg = "#32302f" })
+            vim.api.nvim_set_hl(0, "LspDiagnosticsSignWarning", { fg = "#d8a657", bg = "#32302f" })
+            vim.api.nvim_set_hl(0, "LspDiagnosticsSignHint", { fg = "#a9b665", bg = "#32302f" })
+            vim.api.nvim_set_hl(
+                0,
+                "LspDiagnosticsSignInformation",
+                { fg = "#7daea3", bg = "#32302f" }
+            )
         end,
     },
 }
