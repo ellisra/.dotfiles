@@ -16,19 +16,3 @@ vim.api.nvim_create_autocmd("User", {
 
 -- Turn on spell checking for markdown files
 vim.cmd("autocmd FileType markdown setlocal spell")
-
--- Disable diagnostics inside markdown files
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "*.md",
-    callback = function()
-        vim.diagnostic.enable(false)
-    end,
-})
--- Re-enable diagnostics inside non-markdown files
-vim.api.nvim_create_autocmd("BufEnter", {
-    callback = function()
-        if vim.bo.filetype ~= "markdown" then
-            vim.diagnostic.enable()
-        end
-    end,
-})
