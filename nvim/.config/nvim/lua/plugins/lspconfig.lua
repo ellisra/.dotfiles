@@ -93,7 +93,7 @@ return {
                     "--header-insertion=iwyu",
                 },
             },
-            marksman = {},
+            markdown_oxide = {},
         }
 
         for server, config in pairs(servers) do
