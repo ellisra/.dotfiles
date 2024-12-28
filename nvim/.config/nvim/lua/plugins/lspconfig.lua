@@ -63,7 +63,7 @@ return {
                     },
                 },
             },
-            ruff = {},
+            -- ruff = {},
             rust_analyzer = {
                 settings = {
                     cargo = {

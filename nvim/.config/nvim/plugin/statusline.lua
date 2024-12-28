@@ -50,7 +50,12 @@ local function git_info()
     if vim.v.shell_error ~= 0 then
         return nil
     end
-    return string.format("  %s ", git_branch)
+
+    if git_branch ~= "" then
+        return string.format("  %s ", git_branch)
+    else
+        return "  No Branch "
+    end
 end
 
 local function filepath()
@@ -103,7 +108,6 @@ local function lsp()
     end
 
     return errors .. warnings .. hints .. info .. "%#Normal#"
-    -- return string.format("%s %s %s %s %s ", errors, warnings, hints, info, "%#Statusline#")
 end
 
 local function filetype()
