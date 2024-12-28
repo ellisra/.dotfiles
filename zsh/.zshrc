@@ -39,7 +39,6 @@ toad() {
     touch "$1" && code "$1"
 }
 
-# Open lazygit
 alias lg='lazygit'
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
