@@ -10,8 +10,8 @@
   "lazydev.nvim": { "branch": "main", "commit": "8620f82ee3f59ff2187647167b6b47387a13a018" },
   "mini.nvim": { "branch": "main", "commit": "2faada1cffce5609d78ac5e81eaf3754e0476758" },
   "neogen": { "branch": "main", "commit": "dd0301bfba1f83a3bc009b5430fce7aa3cee6941" },
-  "nvim-lspconfig": { "branch": "master", "commit": "57154fd9a24e76907e3b0bdba4677ef42c88d91c" },
-  "nvim-treesitter": { "branch": "master", "commit": "5d18ef22dc63624e90aa7b6dbc17f2c3856ae716" },
+  "nvim-lspconfig": { "branch": "master", "commit": "8b15a1a597a59f4f5306fad9adfe99454feab743" },
+  "nvim-treesitter": { "branch": "master", "commit": "7e0fcf0d456fc5818da1af35b1a3f5c784fce457" },
   "nvim-web-devicons": { "branch": "master", "commit": "63f552a7f59badc6e6b6d22e603150f0d5abebb7" },
   "obsidian-bridge.nvim": { "branch": "main", "commit": "a1b97404a7f22c6a5d43a36c52cc33926a903bae" },
   "obsidian.nvim": { "branch": "main", "commit": "ae1f76a75c7ce36866e1d9342a8f6f5b9c2caf9b" },
@@ -21,6 +21,6 @@
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "dae2eac9d91464448b584c7949a31df8faefec56" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
-  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "90610e55f438d833c052867d022ff11f27647210" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "b77b0b5d44394a9efc273210fb4471e44813d351" },
   "vim-table-mode": { "branch": "master", "commit": "e4365bde024f73e205eefa2fb78e3029ddb92ea9" }
 }
