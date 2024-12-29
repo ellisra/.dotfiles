@@ -1,8 +1,10 @@
 require("lazy").setup({
+    require("plugins.snacks"),
+
     -- Language Functionality
     require("plugins.blink-cmp"),
     require("plugins.conform"),
-    require("plugins.indent-blankline"),
+    -- require("plugins.indent-blankline"),
     require("plugins.lspconfig"),
     require("plugins.treesitter"),
 
