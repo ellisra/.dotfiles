@@ -1,3 +1,5 @@
+local M = {}
+
 local function get_num_wraps()
     local winid = vim.api.nvim_get_current_win()
     local winwidth = vim.api.nvim_win_get_width(winid)
@@ -31,26 +33,30 @@ function CheckSymbolOrNumber(current)
     return current
 end
 
-vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
-    pattern = "term://*",
-    callback = function()
-        vim.opt_local.statuscolumn = ""
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-    end,
-})
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-    callback = function()
-        if vim.bo.filetype == "terminal" or vim.bo.filetype == "" then
+function M.setup()
+    vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
+        pattern = "term://*",
+        callback = function()
             vim.opt_local.statuscolumn = ""
-        else
-            vim.opt.statuscolumn = "%s%C%=%#CursorLineNr#%{(v:relnum == 0)?v:lua.CheckSymbolOrNumber(v:lnum).\""
-                .. "  "
-                .. "\":\"\"}"
-                .. "%#LineNr#%{(v:relnum != 0)?v:lua.CheckSymbolOrNumber(v:relnum).\""
-                .. " "
-                .. "\":\"\"}"
-        end
-    end,
-})
+            vim.opt_local.number = false
+            vim.opt_local.relativenumber = false
+        end,
+    })
+
+    vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+        callback = function()
+            if vim.bo.filetype == "terminal" or vim.bo.filetype == "" then
+                vim.opt_local.statuscolumn = ""
+            else
+                vim.opt.statuscolumn = "%s%C%=%#CursorLineNr#%{(v:relnum == 0)?v:lua.CheckSymbolOrNumber(v:lnum).\""
+                    .. "  "
+                    .. "\":\"\"}"
+                    .. "%#LineNr#%{(v:relnum != 0)?v:lua.CheckSymbolOrNumber(v:relnum).\""
+                    .. " "
+                    .. "\":\"\"}"
+            end
+        end,
+    })
+end
+
+return M.setup()

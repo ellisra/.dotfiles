@@ -1,3 +1,5 @@
+local M = {}
+
 local modes = {
     ["n"] = "NORMAL",
     ["no"] = "NORMAL",
@@ -122,42 +124,46 @@ local function lineinfo()
     return string.format("%s %s", mode_color, "%l:%c ")
 end
 
-Statusline = {}
+function M.setup()
+    Statusline = {}
 
-Statusline.active = function()
-    return table.concat({
-        "%#Statusline#",
-        update_mode_colors(),
-        mode(),
-        "%#Statusline#",
-        git_info(),
-        "%#Normal# ",
-        filepath(),
-        filename(),
-        "%#Normal#",
-        "%=%#StatusLineExtra#",
-        lsp(),
-        filetype(),
-        lineinfo(),
-    })
+    Statusline.active = function()
+        return table.concat({
+            "%#Statusline#",
+            update_mode_colors(),
+            mode(),
+            "%#Statusline#",
+            git_info(),
+            "%#Normal# ",
+            filepath(),
+            filename(),
+            "%#Normal#",
+            "%=%#StatusLineExtra#",
+            lsp(),
+            filetype(),
+            lineinfo(),
+        })
+    end
+
+    function Statusline.inactive()
+        return " %F"
+    end
+
+    function Statusline.short()
+        return "%#StatusLineNC#"
+    end
+
+    vim.api.nvim_exec2(
+        [[
+            augroup Statusline
+            au!
+            au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+            au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
+            au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
+            augroup END
+        ]],
+        { output = false }
+    )
 end
 
-function Statusline.inactive()
-    return " %F"
-end
-
-function Statusline.short()
-    return "%#StatusLineNC#"
-end
-
-vim.api.nvim_exec2(
-    [[
-  augroup Statusline
-  au!
-  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
-  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
-  au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
-  augroup END
-]],
-    { output = false }
-)
+return M.setup()
