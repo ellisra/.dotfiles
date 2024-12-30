@@ -36,6 +36,9 @@ local function create_floating_window(opts)
 
     local win = vim.api.nvim_open_win(buf, true, win_config)
 
+    -- vim.wo[win].winhighlight = "NormalFloat:Normal"
+    -- vim.wo[win].signcolumn = "yes:1"
+
     return { buf = buf, win = win }
 end
 
@@ -47,9 +50,12 @@ local function create_temp_buffer()
     vim.bo[state.floating.buf].buftype = "nofile"
     vim.bo[state.floating.buf].filetype = filetype
 
+    ---@diagnostic disable-next-line: deprecated
     local clients = vim.lsp.get_active_clients()
     for _, client in ipairs(clients) do
-        if client.config.filetypes and vim.tbl_contains(client.config.filetypes, filetype) then
+        ---@type table { filetypes: string[] }|nil
+        local config = client.config
+        if config and config.filetypes and vim.tbl_contains(config.filetypes, filetype) then
             vim.lsp.buf_attach_client(state.floating.buf, client.id)
         end
     end
@@ -65,8 +71,10 @@ local function execute_buffer()
     local tmpfile = vim.fn.tempname() .. "." .. filetype
 
     local f = io.open(tmpfile, "w")
-    f:write(content)
-    f:close()
+    if f ~= nil then
+        f:write(content)
+        f:close()
+    end
 
     local cmd = {
         python = "python3 " .. tmpfile,
@@ -81,23 +89,6 @@ local function execute_buffer()
     end
 
     os.remove(tmpfile)
-end
-
-function M.setup()
-    vim.api.nvim_create_user_command("ScratchPad", create_temp_buffer, {})
-    vim.api.nvim_create_user_command("RunPad", execute_buffer, {})
-
-    vim.api.nvim_set_keymap(
-        "n",
-        "<leader>tp",
-        "<cmd>ScratchPad<CR>",
-        { noremap = true, silent = true, desc = "[S]cratch [P]ad" }
-    )
-    vim.api.nvim_set_keymap("n", "<leader>rp", "<cmd>RunPad<CR>", {
-        noremap = true,
-        silent = true,
-        desc = "[R]un Scratch [P]ad",
-    })
 end
 
 local toggle_terminal = function(opts)
@@ -124,11 +115,31 @@ local toggle_terminal = function(opts)
     end
 end
 
-vim.api.nvim_create_user_command("Floaterm", toggle_terminal, {})
+function M.setup()
+    vim.api.nvim_create_user_command("ScratchPad", create_temp_buffer, {})
+    vim.api.nvim_create_user_command("RunPad", execute_buffer, {})
+    vim.api.nvim_create_user_command("Floaterm", toggle_terminal, {})
 
-vim.keymap.set("n", "<leader>tt", toggle_terminal, { desc = "[T]oggle [T]erminal" })
-vim.keymap.set("n", "<leader>lg", function()
-    toggle_terminal({ term_command = "lazygit" })
-end, { desc = "[L]azy[G]it" })
+    vim.api.nvim_set_keymap(
+        "n",
+        "<leader>tp",
+        "<cmd>ScratchPad<CR>",
+        { noremap = true, silent = true, desc = "[S]cratch [P]ad" }
+    )
+    vim.api.nvim_set_keymap("n", "<leader>rp", "<cmd>RunPad<CR>", {
+        noremap = true,
+        silent = true,
+        desc = "[R]un Scratch [P]ad",
+    })
+    vim.api.nvim_set_keymap(
+        "n",
+        "<leader>tt",
+        "<cmd>Floaterm<CR>",
+        { desc = "[T]oggle [T]erminal" }
+    )
+    vim.keymap.set("n", "<leader>lg", function()
+        toggle_terminal({ term_command = "lazygit" })
+    end, { desc = "[L]azy[G]it" })
+end
 
 return M.setup()
