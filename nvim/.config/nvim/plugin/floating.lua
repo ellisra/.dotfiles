@@ -71,7 +71,7 @@ local function execute_buffer()
     local tmpfile = vim.fn.tempname() .. "." .. filetype
 
     local f = io.open(tmpfile, "w")
-    if f ~= nil then
+    if f then
         f:write(content)
         f:close()
     end
