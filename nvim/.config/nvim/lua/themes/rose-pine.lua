@@ -11,11 +11,11 @@ return {
                 variant = "dawn",
 
                 highlight_groups = {
-                    NormalFloat = { bg = "#faf4ed" },
-                    FloatBorder = { bg = "#faf4ed" },
-                    FloatTitle = { bg = "#faf4ed" },
-                    FloatFooter = { bg = "#faf4ed" },
-                    TelescopeBorder = { bg = "#faf4ed" },
+                    NormalFloat = { link = "Normal" },
+                    FloatBorder = { link = "Normal" },
+                    FloatTitle = { link = "Normal" },
+                    FloatFooter = { link = "Normal" },
+                    TelescopeBorder = { link = "Normal" },
 
                     StatusLineAccent = { bg = "#9893a5", fg = "#191724" },
                     StatuslineInsertAccent = { bg = "#9ccfd8", fg = "#1f1d2e" },

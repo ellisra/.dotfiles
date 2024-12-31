@@ -10,7 +10,6 @@ require("lazy").setup({
     require("plugins.obsidian"),
     require("plugins.obsidian-bridge"),
     require("plugins.render-markdown"),
-    require("plugins.vim-table-mode"),
 
     -- Navigation
     require("plugins.flash"),
