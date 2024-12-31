@@ -35,16 +35,56 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Vim window split commands
 -- <leader>h/j/k/l opens a new window in that direction
-vim.keymap.set("n", "<leader>wl", ":vsplit<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>wh", ":leftabove vsplit<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>wj", ":split<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>wk", ":leftabove split<CR>", { noremap = true, silent = true })
+vim.keymap.set(
+    "n",
+    "<leader>wl",
+    ":vsplit<CR>",
+    { noremap = true, silent = true, desc = "New window right" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>wh",
+    ":leftabove vsplit<CR>",
+    { noremap = true, silent = true, desc = "New window left" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>wj",
+    ":split<CR>",
+    { noremap = true, silent = true, desc = "New window down" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>wk",
+    ":leftabove split<CR>",
+    { noremap = true, silent = true, desc = "New window up" }
+)
 
 -- <leader>H/J/K/L moves the cursor to the window in that direction
-vim.keymap.set("n", "<leader>wL", ":wincmd l<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>wH", ":wincmd h<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>wJ", ":wincmd j<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>wK", ":wincmd k<CR>", { noremap = true, silent = true })
+vim.keymap.set(
+    "n",
+    "<leader>wL",
+    ":wincmd l<CR>",
+    { noremap = true, silent = true, desc = "Focus right window" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>wH",
+    ":wincmd h<CR>",
+    { noremap = true, silent = true, desc = "Focus left window" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>wJ",
+    ":wincmd j<CR>",
+    { noremap = true, silent = true, desc = "Focus down window" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>wK",
+    ":wincmd k<CR>",
+    { noremap = true, silent = true, desc = "Focus up window" }
+)
 
 -- Insert the current date to make daily notes quicker
 vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [D]ate" })

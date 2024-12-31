@@ -4,7 +4,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.g.gruvbox_material_background = "medium"
+            vim.g.gruvbox_material_background = "hard"
             vim.g.gruvbox_material_foreground = "material"
             vim.g.gruvbox_material_enable_italic = false
             vim.g.gruvbox_material_disable_italic_comment = true
@@ -13,10 +13,10 @@ return {
 
         init = function()
             vim.cmd.colorscheme("gruvbox-material")
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282828", fg = "#d4be98" })
-            vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#282828", fg = "#d4be98" })
-            vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#282828", fg = "#d4be98" })
-            vim.api.nvim_set_hl(0, "FloatFooter", { bg = "#282828", fg = "#d4be98" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+            vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+            vim.api.nvim_set_hl(0, "FloatTitle", { link = "Normal" })
+            vim.api.nvim_set_hl(0, "FloatFooter", { link = "Normal" })
 
             vim.api.nvim_set_hl(0, "StatusLineAccent", { bg = "#a89984", fg = "#1b1b1b" })
             vim.api.nvim_set_hl(0, "StatuslineInsertAccent", { bg = "#a9b665", fg = "#1b1b1b" })
