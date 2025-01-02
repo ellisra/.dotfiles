@@ -7,6 +7,9 @@ return {
             -- Better Around/Inside textobjects
             require("mini.ai").setup({ n_lines = 500 })
 
+            -- Align text objects, e.g. markdown tables with `ga|`
+            require("mini.align").setup({})
+
             -- Keymap hints
             local miniclue = require("mini.clue")
             miniclue.setup({
