@@ -35,9 +35,13 @@ return {
             vim.api.nvim_set_hl(0, "@keyword", { fg = red })
             vim.api.nvim_set_hl(0, "@keyword.function", { fg = red })
             vim.api.nvim_set_hl(0, "@keyword.return", { fg = red })
-
+            vim.api.nvim_set_hl(0, "TSMethod", { fg = green })
+            vim.api.nvim_set_hl(0, "TSString", { fg = aqua })
             vim.api.nvim_set_hl(0, "@variable", { fg = fg1 })
             vim.api.nvim_set_hl(0, "@parameter", { fg = orange })
+            vim.api.nvim_set_hl(0, "@property", { fg = blue })
+            vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = fg1 })
+            vim.api.nvim_set_hl(0, "Directory", { fg = green })
 
             -- Statusline
             vim.api.nvim_set_hl(0, "StatusLine", { bg = bg1, fg = fg0 })
@@ -60,9 +64,16 @@ return {
             vim.api.nvim_set_hl(0, "@markup.heading.4", { fg = green })
             vim.api.nvim_set_hl(0, "@markup.heading.5", { fg = blue })
             vim.api.nvim_set_hl(0, "@markup.heading.6", { fg = purple })
+            vim.api.nvim_set_hl(0, "@markup.quote", { fg = fg3 })
+
+            vim.api.nvim_set_hl(0, "FloatTitle", { link = "Normal" })
+
+            vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = green })
+            vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = blue })
+            vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = red })
         end
 
-        vim.cmd.colorscheme("base16-rose-pine-dawn")
+        vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
         set_highlights()
 
         vim.api.nvim_create_autocmd("ColorScheme", {

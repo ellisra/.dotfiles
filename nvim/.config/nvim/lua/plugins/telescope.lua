@@ -54,8 +54,8 @@ return {
         pcall(require("telescope").load_extension, "ui-select")
 
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<leader>sh", builtin.help_tags, {
-            desc = "[S]earch [H]elp",
+        vim.keymap.set("n", "<leader>sm", builtin.help_tags, {
+            desc = "[S]earch [M]anual",
         })
         vim.keymap.set("n", "<leader>sk", builtin.keymaps, {
             desc = "[S]earch [K]eymaps",
@@ -111,5 +111,12 @@ return {
         vim.keymap.set("n", "<leader>sn", function()
             builtin.find_files({ cwd = vim.fn.stdpath("config") })
         end, { desc = "[S]earch [N]eovim files" })
+
+        vim.keymap.set(
+            "n",
+            "<leader>sh",
+            "<cmd>Telescope highlights<CR>",
+            { desc = "[S]earch [H]ighlights" }
+        )
     end,
 }

@@ -37,7 +37,7 @@ return {
         bullet = {
             enabled = true,
             icons = { "•" },
-            highlight = "blue",
+            highlight = "@text.title",
         },
 
         checkbox = {
@@ -71,7 +71,7 @@ return {
 
         link = {
             enabled = true,
-            wiki = { icon = "", highlight = "orange" },
+            wiki = { icon = "", highlight = "@markup.raw" },
         },
 
         code = {
