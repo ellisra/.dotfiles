@@ -26,7 +26,8 @@ require("lazy").setup({
     require("plugins.neogen"),
 
     -- Themes
-    require("themes.gruvbox-material"),
+    -- require("themes.gruvbox-material"),
+    require("themes.base16-nvim"),
 }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {
