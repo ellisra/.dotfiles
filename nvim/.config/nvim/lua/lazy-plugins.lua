@@ -26,7 +26,6 @@ require("lazy").setup({
     require("plugins.neogen"),
 
     -- Themes
-    -- require("themes.gruvbox-material"),
     require("themes.base16-nvim"),
 }, {
     ui = {
