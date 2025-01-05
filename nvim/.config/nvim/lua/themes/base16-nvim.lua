@@ -68,12 +68,12 @@ return {
             vim.api.nvim_set_hl(0, "LspDiagnosticsSignInformation", { fg = blue, bg = bg1 })
 
             -- Markdown
-            vim.api.nvim_set_hl(0, "@markup.heading.1", { fg = red })
-            vim.api.nvim_set_hl(0, "@markup.heading.2", { fg = orange })
-            vim.api.nvim_set_hl(0, "@markup.heading.3", { fg = yellow })
-            vim.api.nvim_set_hl(0, "@markup.heading.4", { fg = green })
-            vim.api.nvim_set_hl(0, "@markup.heading.5", { fg = blue })
-            vim.api.nvim_set_hl(0, "@markup.heading.6", { fg = purple })
+            vim.api.nvim_set_hl(0, "@markup.heading.1", { fg = red, bold = true })
+            vim.api.nvim_set_hl(0, "@markup.heading.2", { fg = orange, bold = true })
+            vim.api.nvim_set_hl(0, "@markup.heading.3", { fg = yellow, bold = true })
+            vim.api.nvim_set_hl(0, "@markup.heading.4", { fg = green, bold = true })
+            vim.api.nvim_set_hl(0, "@markup.heading.5", { fg = blue, bold = true })
+            vim.api.nvim_set_hl(0, "@markup.heading.6", { fg = purple, bold = true })
             vim.api.nvim_set_hl(0, "@markup.quote", { fg = fg3 })
 
             vim.api.nvim_set_hl(0, "FloatTitle", { link = "Normal" })
