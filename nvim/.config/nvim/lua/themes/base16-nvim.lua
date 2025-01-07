@@ -75,6 +75,7 @@ return {
             vim.api.nvim_set_hl(0, "@markup.heading.5", { fg = blue, bold = true })
             vim.api.nvim_set_hl(0, "@markup.heading.6", { fg = purple, bold = true })
             vim.api.nvim_set_hl(0, "@markup.quote", { fg = fg3 })
+            vim.api.nvim_set_hl(0, "@markup.list.checked", { fg = green })
 
             vim.api.nvim_set_hl(0, "FloatTitle", { link = "Normal" })
 
