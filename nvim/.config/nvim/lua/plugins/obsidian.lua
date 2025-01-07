@@ -1,8 +1,10 @@
 return {
     "epwalsh/obsidian.nvim",
+
     version = "*",
     lazy = true,
     ft = "markdown",
+
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
@@ -90,9 +92,6 @@ return {
             checkboxes = {
                 [" "] = { char = "", hl_group = "ObsidianTodo" },
                 ["x"] = { char = "", hl_group = "ObsidianDone" },
-                [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-                ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-                ["!"] = { char = "", hl_group = "ObsidianImportant" },
             },
 
             bullets = { char = "•", hl_group = "ObsidianBullet" },
@@ -106,9 +105,6 @@ return {
                 -- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
                 ObsidianTodo = { bold = true, fg = "#e67e80" },
                 ObsidianDone = { bold = true, fg = "#a7c080" },
-                ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
-                ObsidianTilde = { bold = true, fg = "#ff5370" },
-                ObsidianImportant = { bold = true, fg = "#f85552" },
                 ObsidianBullet = { bold = true, fg = "#7fbbb3" },
                 ObsidianRefText = { underline = true, fg = "#7fbbb3" },
                 ObsidianExtLinkIcon = { fg = "#7fbbb3" },

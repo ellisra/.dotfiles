@@ -1,7 +1,11 @@
 local M = {}
 
 local state = {
-    floating = {
+    terminal = {
+        buf = -1,
+        win = -1,
+    },
+    scratch = {
         buf = -1,
         win = -1,
     },
@@ -42,25 +46,30 @@ local function create_floating_window(opts)
     return { buf = buf, win = win }
 end
 
-local function create_temp_buffer()
+local function toggle_temp_buffer()
     local filetype = vim.bo.filetype
 
-    state.floating = create_floating_window({ title = " scratch buffer " })
-    vim.bo[state.floating.buf].bufhidden = "wipe"
-    vim.bo[state.floating.buf].buftype = "nofile"
-    vim.bo[state.floating.buf].filetype = filetype
+    if not vim.api.nvim_win_is_valid(state.scratch.win) then
+        state.scratch =
+            create_floating_window({ buf = state.scratch.buf, title = " scratch buffer " })
+        vim.bo[state.scratch.buf].bufhidden = "hide"
+        vim.bo[state.scratch.buf].buftype = "nofile"
+        vim.bo[state.scratch.buf].filetype = filetype
 
-    ---@diagnostic disable-next-line: deprecated
-    local clients = vim.lsp.get_active_clients()
-    for _, client in ipairs(clients) do
-        ---@type table { filetypes: string[] }|nil
-        local config = client.config
-        if config and config.filetypes and vim.tbl_contains(config.filetypes, filetype) then
-            vim.lsp.buf_attach_client(state.floating.buf, client.id)
+        ---@diagnostic disable-next-line: deprecated
+        local clients = vim.lsp.get_active_clients()
+        for _, client in ipairs(clients) do
+            ---@type table { filetypes: string[] }|nil
+            local config = client.config
+            if config and config.filetypes and vim.tbl_contains(config.filetypes, filetype) then
+                vim.lsp.buf_attach_client(state.scratch.buf, client.id)
+            end
         end
-    end
 
-    vim.api.nvim_set_current_buf(state.floating.buf)
+        vim.api.nvim_set_current_buf(state.scratch.buf)
+    else
+        vim.api.nvim_win_hide(state.scratch.win)
+    end
 end
 
 local function execute_buffer()
@@ -95,9 +104,9 @@ local toggle_terminal = function(opts)
     opts = opts or {}
     local term_command = opts.term_command or nil
 
-    if not vim.api.nvim_win_is_valid(state.floating.win) then
-        state.floating = create_floating_window({ buf = state.floating.buf, title = " floaterm " })
-        if vim.bo[state.floating.buf].buftype ~= "terminal" then
+    if not vim.api.nvim_win_is_valid(state.terminal.win) then
+        state.terminal = create_floating_window({ buf = state.terminal.buf, title = " floaterm " })
+        if vim.bo[state.terminal.buf].buftype ~= "terminal" then
             vim.cmd.terminal()
         end
 
@@ -111,12 +120,12 @@ local toggle_terminal = function(opts)
             vim.cmd.startinsert()
         end, 30)
     else
-        vim.api.nvim_win_hide(state.floating.win)
+        vim.api.nvim_win_hide(state.terminal.win)
     end
 end
 
 function M.setup()
-    vim.api.nvim_create_user_command("ScratchPad", create_temp_buffer, {})
+    vim.api.nvim_create_user_command("ScratchPad", toggle_temp_buffer, {})
     vim.api.nvim_create_user_command("RunPad", execute_buffer, {})
     vim.api.nvim_create_user_command("Floaterm", toggle_terminal, {})
 
