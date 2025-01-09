@@ -39,7 +39,7 @@ return {
             vim.api.nvim_set_hl(0, "TSBoolean", { fg = purple })
             vim.api.nvim_set_hl(0, "TSComment", { cterm = { italic = false }, fg = bg3 })
             vim.api.nvim_set_hl(0, "TSConstant", { fg = purple })
-            vim.api.nvim_set_hl(0, "TSConstructor", { link = "Normal" })
+            vim.api.nvim_set_hl(0, "TSConstructor", { fg = fg0 })
             vim.api.nvim_set_hl(0, "TSFunction", { fg = green })
             vim.api.nvim_set_hl(0, "TSMethod", { fg = green })
             vim.api.nvim_set_hl(0, "TSString", { fg = aqua })
