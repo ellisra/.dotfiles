@@ -37,6 +37,7 @@ return {
             vim.api.nvim_set_hl(0, "@keyword.return", { fg = red })
             vim.api.nvim_set_hl(0, "TSAttribute", { fg = purple })
             vim.api.nvim_set_hl(0, "TSBoolean", { fg = purple })
+            vim.api.nvim_set_hl(0, "TSComment", { cterm = { italic = false }, fg = bg3 })
             vim.api.nvim_set_hl(0, "TSConstant", { fg = purple })
             vim.api.nvim_set_hl(0, "TSConstructor", { link = "Normal" })
             vim.api.nvim_set_hl(0, "TSFunction", { fg = green })
@@ -87,10 +88,10 @@ return {
         end
 
         vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
+
         set_highlights()
 
         vim.api.nvim_create_autocmd("ColorScheme", {
-            -- pattern("*"),
             callback = function()
                 set_highlights()
             end,
