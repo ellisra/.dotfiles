@@ -135,7 +135,7 @@ function M.setup()
             "%#Statusline#",
             git_info(),
             "%#Normal# ",
-            filepath(),
+            -- filepath(),
             filename(),
             "%#Normal#",
             "%=%#StatusLineExtra#",

@@ -56,13 +56,15 @@ local function toggle_temp_buffer()
         vim.bo[state.scratch.buf].buftype = "nofile"
         vim.bo[state.scratch.buf].filetype = filetype
 
-        ---@diagnostic disable-next-line: deprecated
-        local clients = vim.lsp.get_active_clients()
-        for _, client in ipairs(clients) do
-            ---@type table { filetypes: string[] }|nil
-            local config = client.config
-            if config and config.filetypes and vim.tbl_contains(config.filetypes, filetype) then
-                vim.lsp.buf_attach_client(state.scratch.buf, client.id)
+        if not vim.tbl_contains({ "markdonw" }, filetype) then
+            ---@diagnostic disable-next-line: deprecated
+            local clients = vim.lsp.get_active_clients()
+            for _, client in ipairs(clients) do
+                ---@type table { filetypes: string[] }|nil
+                local config = client.config
+                if config and config.filetypes and vim.tbl_contains(config.filetypes, filetype) then
+                    vim.lsp.buf_attach_client(state.scratch.buf, client.id)
+                end
             end
         end
 

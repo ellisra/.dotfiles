@@ -108,3 +108,6 @@ end, { desc = "Create [T]o [D]o note" })
 
 -- Open Lazy.nvim
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open [L]a[z]y.nvim" })
+
+-- Echo current filepath
+vim.keymap.set("n", "<leader>cd", "<cmd>echo expand('%:p')<CR>", { desc = "[C]urrent [D]irectory" })
