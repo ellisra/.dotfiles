@@ -2,7 +2,6 @@ require("lazy").setup({
     -- Language Functionality
     require("plugins.blink-cmp"),
     require("plugins.conform"),
-    require("plugins.indent-blankline"),
     require("plugins.lspconfig"),
     require("plugins.treesitter"),
 
@@ -17,6 +16,7 @@ require("lazy").setup({
     require("plugins.telescope"),
 
     -- QoL
+    require("plugins.indent-blankline"),
     require("plugins.lazydev"),
     require("plugins.mini"),
     require("plugins.tiny"),

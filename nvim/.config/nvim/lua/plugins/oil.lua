@@ -69,5 +69,6 @@ return {
         })
 
         vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "[O]il file explorer" })
+        vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "[O]il file explorer" })
     end,
 }
