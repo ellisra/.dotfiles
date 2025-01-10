@@ -41,6 +41,7 @@ return {
             vim.api.nvim_set_hl(0, "TSConstant", { fg = purple })
             vim.api.nvim_set_hl(0, "TSConstructor", { fg = fg0 })
             vim.api.nvim_set_hl(0, "TSFunction", { fg = green })
+            vim.api.nvim_set_hl(0, "TSFuncBuiltin", { cterm = { italic = false }, fg = green })
             vim.api.nvim_set_hl(0, "TSMethod", { fg = green })
             vim.api.nvim_set_hl(0, "TSString", { fg = aqua })
             vim.api.nvim_set_hl(0, "TSInclude", { fg = red })
@@ -77,6 +78,7 @@ return {
             vim.api.nvim_set_hl(0, "@markup.heading.6", { fg = purple, bold = true })
             vim.api.nvim_set_hl(0, "@markup.quote", { fg = fg3 })
             vim.api.nvim_set_hl(0, "@markup.list.checked", { fg = green })
+            vim.api.nvim_set_hl(0, "SpecialChar", { fg = orange })
 
             vim.api.nvim_set_hl(0, "FloatTitle", { link = "Normal" })
 
