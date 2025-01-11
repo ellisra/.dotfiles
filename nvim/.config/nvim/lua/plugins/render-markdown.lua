@@ -8,12 +8,6 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
 
-    -- Colorscheme definition
-    -- init = function()
-    --require("settings.rose-pine-palette").setup_highlight()
-    -- require("settings.everforest-palette").setup_highlight()
-    -- end,
-
     --@module "render-markdown"
     --@type render.md.UserConfig
     opts = {

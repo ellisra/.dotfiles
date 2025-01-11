@@ -38,25 +38,25 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set(
     "n",
     "<leader>wl",
-    ":vsplit<CR>",
+    "<cmd>vsplit<CR>",
     { noremap = true, silent = true, desc = "New window right" }
 )
 vim.keymap.set(
     "n",
     "<leader>wh",
-    ":leftabove vsplit<CR>",
+    "<cmd>leftabove vsplit<CR>",
     { noremap = true, silent = true, desc = "New window left" }
 )
 vim.keymap.set(
     "n",
     "<leader>wj",
-    ":split<CR>",
+    "<cmd>split<CR>",
     { noremap = true, silent = true, desc = "New window down" }
 )
 vim.keymap.set(
     "n",
     "<leader>wk",
-    ":leftabove split<CR>",
+    "<cmd>leftabove split<CR>",
     { noremap = true, silent = true, desc = "New window up" }
 )
 
@@ -64,41 +64,46 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader>wL",
-    ":wincmd l<CR>",
+    "<cmd>wincmd l<CR>",
     { noremap = true, silent = true, desc = "Focus right window" }
 )
 vim.keymap.set(
     "n",
     "<leader>wH",
-    ":wincmd h<CR>",
+    "<cmd>wincmd h<CR>",
     { noremap = true, silent = true, desc = "Focus left window" }
 )
 vim.keymap.set(
     "n",
     "<leader>wJ",
-    ":wincmd j<CR>",
+    "<cmd>wincmd j<CR>",
     { noremap = true, silent = true, desc = "Focus down window" }
 )
 vim.keymap.set(
     "n",
     "<leader>wK",
-    ":wincmd k<CR>",
+    "<cmd>wincmd k<CR>",
     { noremap = true, silent = true, desc = "Focus up window" }
 )
 
 -- Insert the current date to make daily notes quicker
-vim.keymap.set("n", "td", ":pu=strftime('%Y-%m-%d')<CR>$a", { desc = "Insert [T]oday's [D]ate" })
+vim.keymap.set(
+    "n",
+    "td",
+    "<cmd>pu=strftime('%Y-%m-%d')<CR>$a",
+    { desc = "Insert [T]oday's [D]ate" }
+)
 
 -- Find and replace word under cursor
 vim.keymap.set(
     "n",
     "<leader>r",
-    [[:%s/\<<C-r><C-w>\>//g<Left><Left>]],
+    [[<cmd>%s/\<<C-r><C-w>\>//g<Left><Left>]],
     { desc = "[R]eplace current word" }
 )
 
 -- Insert type: ignore on current line
-vim.keymap.set("n", "<leader>ti", "A  # type: ignore<Esc>", { desc = "[T]ype [I]gnore" })
+vim.keymap.set("n", "<leader>ti", "A  # type<cmd> ignore<Esc>", { desc = "[T]ype [I]gnore" })
 
 -- Obsidian daily todo note
 vim.keymap.set("n", "<leader>td", function()
@@ -110,4 +115,9 @@ end, { desc = "Create [T]o [D]o note" })
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open [L]a[z]y.nvim" })
 
 -- Echo current filepath
-vim.keymap.set("n", "<leader>cd", "<cmd>echo expand('%:p')<CR>", { desc = "[C]urrent [D]irectory" })
+vim.keymap.set(
+    "n",
+    "<leader>cd",
+    "<cmd>echo expand('%<cmd>p')<CR>",
+    { desc = "[C]urrent [D]irectory" }
+)
