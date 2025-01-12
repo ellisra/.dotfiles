@@ -25,6 +25,10 @@ vim.keymap.set("i", "<C-k>", "<C-o><C-u><C-o>zz")
 vim.keymap.set("n", "<Home>", "^")
 vim.keymap.set("i", "<Home>", "<C-o>^")
 
+-- Jump to next whitespace
+vim.keymap.set("n", "J", "}")
+vim.keymap.set("n", "K", "{")
+
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
