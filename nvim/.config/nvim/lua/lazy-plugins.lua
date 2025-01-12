@@ -12,7 +12,7 @@ require("lazy").setup({
 
     -- Navigation
     require("plugins.flash"),
-    require("plugins.oil"),
+    -- require("plugins.oil"),
     require("plugins.telescope"),
 
     -- QoL
