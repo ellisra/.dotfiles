@@ -2,7 +2,8 @@ return {
     { -- Collection of various small independent plugins/modules
         "echasnovski/mini.nvim",
 
-        event = { "VeryLazy" },
+        lazy = false,
+        -- event = { "VeryLazy" },
         config = function()
             -- Better Around/Inside textobjects
             require("mini.ai").setup({ n_lines = 500 })
@@ -69,6 +70,23 @@ return {
                     priority = 199,
                 },
             })
+
+            -- File system editing
+            require("mini.files").setup({
+                mappings = {
+                    close = "<Esc>",
+                    synchronize = "<CR>",
+                },
+
+                windows = {
+                    max_number = 1,
+                },
+            })
+
+            vim.keymap.set("n", "<leader>o", function()
+                MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+                MiniFiles.reveal_cwd()
+            end, { desc = "[O]pen MiniFiles" })
 
             -- Highlight colour codes and other specified patterns
             require("mini.hipatterns").setup({
