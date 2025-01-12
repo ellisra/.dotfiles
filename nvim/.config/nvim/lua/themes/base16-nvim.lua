@@ -29,7 +29,7 @@ return {
             local aqua = colors.base0C
             local blue = colors.base0D
             local purple = colors.base0E
-            local brown = colors.base0F
+            local bonus = colors.base0F
 
             -- General
             vim.api.nvim_set_hl(0, "@keyword", { fg = red })
@@ -56,7 +56,7 @@ return {
             vim.api.nvim_set_hl(0, "Directory", { fg = green })
 
             -- Statusline
-            vim.api.nvim_set_hl(0, "StatusLine", { bg = bg1, fg = fg0 })
+            vim.api.nvim_set_hl(0, "StatusLine", { bg = bg1, fg = fg2 })
             vim.api.nvim_set_hl(0, "StatusLineAccent", { bg = fg3, fg = bg0 })
             vim.api.nvim_set_hl(0, "StatuslineInsertAccent", { bg = green, fg = bg0 })
             vim.api.nvim_set_hl(0, "StatuslineVisualAccent", { bg = red, fg = bg0 })
