@@ -40,9 +40,6 @@ local function create_floating_window(opts)
 
     local win = vim.api.nvim_open_win(buf, true, win_config)
 
-    -- vim.wo[win].winhighlight = "NormalFloat:Normal"
-    -- vim.wo[win].signcolumn = "yes:1"
-
     return { buf = buf, win = win }
 end
 
@@ -103,10 +100,18 @@ end
 
 local toggle_terminal = function(opts)
     opts = opts or {}
+    local title = opts.title or nil
+    local width = opts.width or nil
+    local height = opts.height or nil
     local term_command = opts.term_command or nil
 
     if not vim.api.nvim_win_is_valid(state.terminal.win) then
-        state.terminal = create_floating_window({ buf = state.terminal.buf, title = " floaterm " })
+        state.terminal = create_floating_window({
+            buf = state.terminal.buf,
+            title = title,
+            width = width,
+            height = height,
+        })
         if vim.bo[state.terminal.buf].buftype ~= "terminal" then
             vim.cmd.terminal()
         end
@@ -141,14 +146,16 @@ function M.setup()
         silent = true,
         desc = "[R]un Scratch [P]ad",
     })
-    vim.api.nvim_set_keymap(
-        "n",
-        "<leader>tt",
-        "<cmd>Floaterm<CR>",
-        { desc = "[T]oggle [T]erminal" }
-    )
+    vim.keymap.set("n", "<leader>tt", function()
+        toggle_terminal({ title = " floaterm " })
+    end, { desc = "[T]oggle [T]erminal" })
     vim.keymap.set("n", "<leader>lg", function()
-        toggle_terminal({ term_command = "lazygit" })
+        toggle_terminal({
+            title = " lazygit ",
+            width = math.floor(vim.o.columns * 0.8),
+            height = math.floor(vim.o.lines * 0.9),
+            term_command = "lazygit",
+        })
     end, { desc = "[L]azy[G]it" })
 end
 
