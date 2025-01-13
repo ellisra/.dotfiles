@@ -12,13 +12,12 @@ require("lazy").setup({
 
     -- Navigation
     require("plugins.flash"),
-    -- require("plugins.oil"),
     require("plugins.telescope"),
 
     -- QoL
     require("plugins.indent-blankline"),
     require("plugins.lazydev"),
-    require("plugins.mini"),
+    require("plugins.mini.mini"),
     require("plugins.tiny"),
 
     -- Snippets
