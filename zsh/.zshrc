@@ -40,6 +40,6 @@ toad() {
 }
 
 alias lg='lazygit'
-alias e='nvim'
+# alias e='nvim'
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"

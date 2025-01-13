@@ -12,6 +12,9 @@ return {
 
     init = function()
         local function set_highlights()
+            -- vim.highlight.priorities.semantic_tokens = 100
+            -- vim.highlight.priorities.treesitter = 125
+
             local colors = require("base16-colorscheme").colors
 
             local bg0 = colors.base00
@@ -49,6 +52,7 @@ return {
             vim.api.nvim_set_hl(0, "TSPunctSpecial", { fg = blue })
             vim.api.nvim_set_hl(0, "TSNamespace", { fg = yellow })
             vim.api.nvim_set_hl(0, "TSNumber", { fg = purple })
+            vim.api.nvim_set_hl(0, "TSTypeBuiltin", { cterm = { italic = false } })
             vim.api.nvim_set_hl(0, "@variable", { fg = fg2 })
             vim.api.nvim_set_hl(0, "@parameter", { fg = blue })
             vim.api.nvim_set_hl(0, "@property", { fg = blue })
@@ -98,5 +102,7 @@ return {
                 set_highlights()
             end,
         })
+
+        vim.api.nvim_create_user_command("SetHighlights", set_highlights, {})
     end,
 }
