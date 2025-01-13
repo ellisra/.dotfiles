@@ -80,6 +80,7 @@ return {
 
                 windows = {
                     max_number = 1,
+                    width_focus = 25,
                 },
             })
 
@@ -103,6 +104,9 @@ return {
 
             -- Replacement for nvim-autopairs
             require("mini.pairs").setup({})
+
+            -- Startup screen
+            require("mini.starter").setup({})
 
             -- Add/delete/replace surroundings (brackets, quotes, etc.)
             require("mini.surround").setup({
