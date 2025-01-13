@@ -3,6 +3,7 @@ return {
         "echasnovski/mini.nvim",
 
         lazy = false,
+
         -- event = { "VeryLazy" },
         config = function()
             -- Better Around/Inside textobjects
@@ -65,7 +66,6 @@ return {
             require("mini.diff").setup({
                 view = {
                     style = "sign",
-                    -- signs = { add = "▏", change = "▏", delete = "_" },
                     signs = { add = "│", change = "│", delete = "_" },
                     priority = 199,
                 },
@@ -75,7 +75,11 @@ return {
             require("mini.files").setup({
                 mappings = {
                     close = "<Esc>",
-                    synchronize = "<CR>",
+                    synchronize = "t",
+
+                    go_in = "",
+                    go_in_plus = "<CR>",
+                    go_out = "-",
                 },
 
                 windows = {
@@ -94,7 +98,6 @@ return {
                 highlighters = {
                     fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
                     hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-                    -- todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
                     note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
                     -- Highlight hex color strings (`#rrggbb`) using that color
@@ -104,9 +107,6 @@ return {
 
             -- Replacement for nvim-autopairs
             require("mini.pairs").setup({})
-
-            -- Startup screen
-            require("mini.starter").setup({})
 
             -- Add/delete/replace surroundings (brackets, quotes, etc.)
             require("mini.surround").setup({

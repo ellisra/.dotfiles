@@ -103,7 +103,7 @@ vim.keymap.set(
 )
 
 -- Insert type: ignore on current line
-vim.keymap.set("n", "<leader>ti", "A  # type<cmd> ignore<Esc>", { desc = "[T]ype [I]gnore" })
+vim.keymap.set("n", "<leader>ti", "A  # type: ignore<Esc>", { desc = "[T]ype [I]gnore" })
 
 -- Obsidian daily todo note
 vim.keymap.set("n", "<leader>td", function()
