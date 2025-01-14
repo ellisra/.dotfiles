@@ -35,4 +35,20 @@ return {
             map_buf("q", MiniFiles.close)
         end,
     }),
+
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event)
+            MiniFiles.close()
+            ---@diagnostic disable-next-line: undefined-global
+            Snacks.rename.on_rename_file(event.data.from, event.data.to)
+        end,
+    }),
+
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "TelescopePreviewerLoaded",
+        callback = function()
+            MiniFiles.close()
+        end,
+    }),
 }
