@@ -59,6 +59,10 @@ return {
             vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = fg1 })
             vim.api.nvim_set_hl(0, "Directory", { fg = green })
 
+            vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = bg2 })
+            vim.api.nvim_set_hl(0, "LspReferenceText", { link = "LspReferenceRead" })
+            vim.api.nvim_set_hl(0, "LspReferenceWrite", { link = "LspReferenceRead" })
+
             -- Statusline
             vim.api.nvim_set_hl(0, "StatusLine", { bg = bg1, fg = fg2 })
             vim.api.nvim_set_hl(0, "StatusLineAccent", { bg = fg3, fg = bg0 })
