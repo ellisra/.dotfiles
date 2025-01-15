@@ -15,7 +15,6 @@ require("lazy").setup({
     require("plugins.telescope"),
 
     -- QoL
-    require("plugins.indent-blankline"),
     require("plugins.lazydev"),
     require("plugins.mini.mini"),
     require("plugins.snacks"),
