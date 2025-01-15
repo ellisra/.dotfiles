@@ -7,7 +7,7 @@ These are my personal configuration files, feel free to copy all or any part of 
 ##### Neovim
 - Latest stable neovim release
 - `make`, `unzip`, `gcc`
-- `ripgrep` for telescope
+- `ripgrep` for fzf-lua
 - A nerd font (I use JetBrainsMono)
 - Any LSPs you require installed via system package manager
 - `xclip` or `wl-clipboard` depending if you are in an X11 or Wayland session

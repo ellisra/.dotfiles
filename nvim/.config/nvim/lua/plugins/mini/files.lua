@@ -11,7 +11,7 @@ return {
 
         windows = {
             max_number = 1,
-            width_focus = 25,
+            width_focus = 50,
         },
     }),
 
@@ -45,10 +45,10 @@ return {
         end,
     }),
 
-    vim.api.nvim_create_autocmd("User", {
-        pattern = "TelescopePreviewerLoaded",
-        callback = function()
-            MiniFiles.close()
-        end,
-    }),
+    -- vim.api.nvim_create_autocmd("User", {
+    --     pattern = "TelescopePreviewerLoaded",
+    --     callback = function()
+    --         MiniFiles.close()
+    --     end,
+    -- }),
 }

@@ -14,33 +14,33 @@ return {
                     vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                 end
 
-                map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinition")
-                map("gr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
-                map(
-                    "gI",
-                    require("telescope.builtin").lsp_implementations,
-                    "[G]o to [I]mplementation"
-                )
-                map(
-                    "<leader>D",
-                    require("telescope.builtin").lsp_type_definitions,
-                    "Type [D]efinition"
-                )
-                map(
-                    "<leader>ds",
-                    require("telescope.builtin").lsp_document_symbols,
-                    "[D]ocument [S]ymbols"
-                )
-                map(
-                    "<leader>sp",
-                    require("telescope.builtin").spell_suggest,
-                    "[Sp]elling suggestions"
-                )
-                map(
-                    "<leader>ws",
-                    require("telescope.builtin").lsp_dynamic_workspace_symbols,
-                    "[W]orkspace [S]ymbols"
-                )
+                -- map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinition")
+                -- map("gr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
+                -- map(
+                --     "gI",
+                --     require("telescope.builtin").lsp_implementations,
+                --     "[G]o to [I]mplementation"
+                -- )
+                -- map(
+                --     "<leader>D",
+                --     require("telescope.builtin").lsp_type_definitions,
+                --     "Type [D]efinition"
+                -- )
+                -- map(
+                --     "<leader>ds",
+                --     require("telescope.builtin").lsp_document_symbols,
+                --     "[D]ocument [S]ymbols"
+                -- )
+                -- map(
+                --     "<leader>sp",
+                --     require("telescope.builtin").spell_suggest,
+                --     "[Sp]elling suggestions"
+                -- )
+                -- map(
+                --     "<leader>ws",
+                --     require("telescope.builtin").lsp_dynamic_workspace_symbols,
+                --     "[W]orkspace [S]ymbols"
+                -- )
                 map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame variable")
                 map("gD", vim.lsp.buf.declaration, "[G]o to [D]eclaration")
             end,
