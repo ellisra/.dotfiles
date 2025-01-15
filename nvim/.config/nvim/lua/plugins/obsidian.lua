@@ -7,7 +7,7 @@ return {
 
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
+        -- "nvim-telescope/telescope.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
 
@@ -67,7 +67,8 @@ return {
         end,
 
         picker = {
-            name = "telescope.nvim",
+            -- name = "telescope.nvim",
+            name = "fzf-lua",
             note_mappings = {
                 new = "<C-x>",
                 insert_link = "<C-l>",
