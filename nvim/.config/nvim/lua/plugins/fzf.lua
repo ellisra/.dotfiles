@@ -8,6 +8,12 @@ return {
             rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
         },
 
+        previewers = {
+            builtin = {
+                syntax_limit_b = 1024 * 100,
+            },
+        },
+
         winopts = {
             backdrop = 100,
 
@@ -106,11 +112,37 @@ return {
         {
             "<leader>gd",
             function()
-                require("fzf-lua").lsp_definitions()
+                require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
             end,
             desc = "[G]o to [D]efinition",
         },
-
-        -- map("gd", require("fzf-lua").lsp_definitions(), "[G]o to [D]efinition")
+        {
+            "<leader>gr",
+            function()
+                require("fzf-lua").lsp_references({ ignore_current_line = true })
+            end,
+            desc = "[G]o to [R]eference",
+        },
+        {
+            "<leader>ds",
+            function()
+                require("fzf-lua").lsp_document_symbols()
+            end,
+            desc = "[G]o to [R]eference",
+        },
+        {
+            "<leader>ws",
+            function()
+                require("fzf-lua").lsp_live_workspace_symbols()
+            end,
+            desc = "[G]o to [R]eference",
+        },
+        {
+            "<leader>sp",
+            function()
+                require("fzf-lua").spell_suggest()
+            end,
+            desc = "[S][P]elling suggestions",
+        },
     },
 }
