@@ -1,6 +1,7 @@
 return {
     "ibhagwan/fzf-lua",
 
+    lazy = false,
     dependencies = "echasnovski/mini.nvim",
 
     opts = {
