@@ -18,7 +18,7 @@ require("lazy").setup({
     require("plugins.lazydev"),
     require("plugins.mini.mini"),
     require("plugins.snacks"),
-    require("plugins.tiny"),
+    -- require("plugins.tiny"),
 
     -- Snippets
     require("plugins.luasnip"),
