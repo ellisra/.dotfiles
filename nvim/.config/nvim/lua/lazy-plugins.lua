@@ -15,7 +15,6 @@ require("lazy").setup({
     require("plugins.fzf"),
 
     -- QoL
-    require("plugins.indent-blankline"),
     require("plugins.lazydev"),
     require("plugins.mini.mini"),
     require("plugins.snacks"),
