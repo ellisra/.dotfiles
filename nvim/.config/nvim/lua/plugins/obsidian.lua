@@ -7,7 +7,7 @@ return {
 
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
         "nvim-treesitter/nvim-treesitter",
     },
 
@@ -67,7 +67,7 @@ return {
         end,
 
         picker = {
-            name = "telescope.nvim",
+            name = "fzf-lua",
             note_mappings = {
                 new = "<C-x>",
                 insert_link = "<C-l>",
@@ -124,5 +124,11 @@ return {
             { desc = "[S]earch [T]emplate" }
         )
         vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
+        -- vim.keymap.set(
+        --     "n",
+        --     "<leader>je",
+        --     "<cmd>ObsidianNew general/journal/entries/pu=strftime('%Y-%m-%d')<CR>",
+        --     { desc = "[J]ournal [E]ntry" }
+        -- )
     end,
 }

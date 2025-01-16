@@ -1,4 +1,6 @@
 return {
+    -- FIXME: Opening another float causes adverse behaviour
+
     require("mini.files").setup({
         mappings = {
             close = "<Esc>",
@@ -11,7 +13,7 @@ return {
 
         windows = {
             max_number = 1,
-            width_focus = 25,
+            width_focus = 50,
         },
     }),
 
@@ -42,13 +44,6 @@ return {
             MiniFiles.close()
             ---@diagnostic disable-next-line: undefined-global
             Snacks.rename.on_rename_file(event.data.from, event.data.to)
-        end,
-    }),
-
-    vim.api.nvim_create_autocmd("User", {
-        pattern = "TelescopePreviewerLoaded",
-        callback = function()
-            MiniFiles.close()
         end,
     }),
 }
