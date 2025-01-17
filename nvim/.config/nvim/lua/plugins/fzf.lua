@@ -9,6 +9,15 @@ return {
             rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
         },
 
+        keymaps = {
+            winopts = {
+                preview = {
+                    layout = "flex",
+                    horizontal = "right:40%",
+                },
+            },
+        },
+
         previewers = {
             builtin = {
                 syntax_limit_b = 1024 * 100,
@@ -129,7 +138,7 @@ return {
             function()
                 require("fzf-lua").lsp_document_symbols()
             end,
-            desc = "[G]o to [R]eference",
+            desc = "[D]ocument [S]ymbols",
         },
         {
             "<leader>ws",

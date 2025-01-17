@@ -7,23 +7,10 @@ return {
     config = function()
         require("snacks").setup({
             bigfile = { enabled = true },
-            dashboard = { enabled = true },
+            dashboard = require("plugins.snacks.dashboard"),
             quickfile = { enabled = true },
             rename = { enabled = true },
-            indent = {
-                enabled = true,
-                priority = 1,
-                char = "▏",
-                only_scope = false,
-                only_current = false,
-                indent = { char = "▏" },
-                animate = { enabled = false },
-                scope = { enabled = false, char = "▏" },
-                blank = {
-                    char = " ",
-                    hl = "SnacksIndentBlank",
-                },
-            },
+            indent = require("plugins.snacks.indent"),
 
             animate = { enabled = false },
             bufdelete = { enabled = false },

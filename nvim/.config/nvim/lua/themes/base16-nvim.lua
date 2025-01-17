@@ -58,6 +58,7 @@ return {
             vim.api.nvim_set_hl(0, "@property", { fg = blue })
             vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = fg1 })
             vim.api.nvim_set_hl(0, "Directory", { fg = green })
+            vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly.python", { fg = purple })
 
             vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = bg2 })
             vim.api.nvim_set_hl(0, "LspReferenceText", { link = "LspReferenceRead" })

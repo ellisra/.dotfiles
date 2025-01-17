@@ -1,3 +1,4 @@
+---@diagnostic disable: assign-type-mismatch
 return {
     "epwalsh/obsidian.nvim",
 
@@ -124,11 +125,13 @@ return {
             { desc = "[S]earch [T]emplate" }
         )
         vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
-        -- vim.keymap.set(
-        --     "n",
-        --     "<leader>je",
-        --     "<cmd>ObsidianNew general/journal/entries/pu=strftime('%Y-%m-%d')<CR>",
-        --     { desc = "[J]ournal [E]ntry" }
-        -- )
+        vim.keymap.set("n", "<leader>je", function()
+            local client = require("obsidian").get_client()
+            client:open_note(client:create_note({
+                title = os.date("%A, %d %B %Y"),
+                id = os.date("%Y-%m-%d"),
+                dir = client.dir / "general/journal/entries",
+            }))
+        end, { desc = "[J]ournal [E]ntry" })
     end,
 }

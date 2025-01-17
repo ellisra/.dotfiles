@@ -97,9 +97,9 @@ vim.keymap.set(
 -- Find and replace word under cursor
 vim.keymap.set(
     "n",
-    "<leader>r",
+    "<leader>rw",
     [[<cmd>%s/\<<C-r><C-w>\>//g<Left><Left>]],
-    { desc = "[R]eplace current word" }
+    { desc = "[R]eplace [W]ord" }
 )
 
 -- Insert type: ignore on current line
@@ -115,9 +115,4 @@ end, { desc = "Create [T]o [D]o note" })
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open [L]a[z]y.nvim" })
 
 -- Echo current filepath
-vim.keymap.set(
-    "n",
-    "<leader>cd",
-    "<cmd>echo expand('%<cmd>p')<CR>",
-    { desc = "[C]urrent [D]irectory" }
-)
+vim.keymap.set("n", "<leader>cd", "<cmd>echo expand('%p')<CR>", { desc = "[C]urrent [D]irectory" })
