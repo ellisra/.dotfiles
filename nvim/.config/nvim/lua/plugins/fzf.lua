@@ -29,7 +29,7 @@ return {
 
             preview = {
                 wrap = true,
-                vertical = "down:50%",
+                vertical = "down:80%",
             },
         },
     },

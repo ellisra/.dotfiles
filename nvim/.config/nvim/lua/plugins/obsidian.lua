@@ -116,7 +116,6 @@ return {
         },
     },
 
-    -- Keymaps to set on init
     init = function()
         vim.keymap.set(
             "n",
@@ -124,8 +123,14 @@ return {
             "<cmd>ObsidianTemplate<CR>",
             { desc = "[S]earch [T]emplate" }
         )
-        vim.keymap.set("n", "<leader>wp", "o%% Waypoint %%<Esc>", { desc = "Insert [W]ay[p]oint" })
-        vim.keymap.set("n", "<leader>je", function()
+        vim.keymap.set(
+            "n",
+            "<leader>wp",
+            "dGo%% Waypoint %%<Esc><cmd>w<CR><cmd>e<CR>",
+            { desc = "Insert [W]ay[p]oint" }
+        )
+
+        vim.api.nvim_create_user_command("JournalEntry", function()
             local client = require("obsidian").get_client()
             client:open_note(client:create_note({
                 title = os.date("%A, %d %B %Y"),
@@ -133,5 +138,15 @@ return {
                 dir = client.dir / "general/journal/entries",
             }))
         end, { desc = "[J]ournal [E]ntry" })
+
+        vim.api.nvim_create_user_command("WeeklyRecap", function()
+            local client = require("obsidian").get_client()
+            client:open_note(client:create_note({
+                title = string.format("Week %d, %d", os.date("%V"), os.date("%Y")),
+                id = string.format("%d-W%d", os.date("%Y"), os.date("%V")),
+                dir = client.dir / "calendar/weekly-notes",
+                template = "weekly-recap-template",
+            }))
+        end, { desc = "Create weekly recap note" })
     end,
 }
