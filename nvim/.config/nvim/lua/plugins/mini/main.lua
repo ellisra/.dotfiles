@@ -5,7 +5,7 @@ return {
         lazy = false,
         config = function()
             -- One-liners
-            require("mini.ai").setup({ n_lines = 500 }) -- Extended around/inside
+            require("mini.ai").setup({}) -- Extended around/inside
             require("mini.align").setup({}) -- Align text objects
             require("mini.icons").setup({}) -- Icons
             require("mini.pairs").setup({}) -- Autopairs
