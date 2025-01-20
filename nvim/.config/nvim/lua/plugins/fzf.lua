@@ -5,6 +5,10 @@ return {
     dependencies = "echasnovski/mini.nvim",
 
     opts = {
+        files = {
+            formatter = "path.filename_first",
+        },
+
         grep = {
             rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
         },
