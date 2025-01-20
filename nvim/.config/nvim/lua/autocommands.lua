@@ -11,25 +11,6 @@ vim.api.nvim_create_autocmd(
     { desc = "Resize splits if terminal resized", command = "wincmd =" }
 )
 
-vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-    desc = "Enable cursorline on focused window",
-    callback = function()
-        if vim.w.auto_cursorline then
-            vim.wo.cursorline = true
-            vim.w.auto_cursorline = false
-        end
-    end,
-})
-vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-    desc = "Disable cursorline on unfocused window",
-    callback = function()
-        if vim.wo.cursorline then
-            vim.w.auto_cursorline = true
-            vim.wo.cursorline = false
-        end
-    end,
-})
-
 vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "WinScrolled" }, {
     desc = "Enable scrolloff when at end of file",
     group = vim.api.nvim_create_augroup("ScrollEOF", { clear = true }),
