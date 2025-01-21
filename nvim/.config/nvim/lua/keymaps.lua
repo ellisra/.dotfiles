@@ -21,9 +21,6 @@ vim.keymap.set("i", "<C-j>", "<C-o><C-d><C-o>zz")
 vim.keymap.set("n", "<C-k>", lazykeys("<C-u>zz"))
 vim.keymap.set("i", "<C-k>", "<C-o><C-u><C-o>zz")
 
--- Centre cursorline at end of file
-vim.keymap.set("n", "G", "Gzz")
-
 -- Navigate to the start of the line with Home
 vim.keymap.set("n", "<Home>", "^")
 vim.keymap.set("i", "<Home>", "<C-o>^")
