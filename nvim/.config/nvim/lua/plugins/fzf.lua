@@ -5,8 +5,8 @@ return {
     dependencies = "echasnovski/mini.nvim",
 
     opts = {
-        files = {
-            formatter = "path.filename_first",
+        fzf_colors = {
+            ["gutter"] = { "bg", "Normal" },
         },
 
         grep = {
