@@ -9,8 +9,8 @@ return {
             ["gutter"] = { "bg", "Normal" },
         },
 
-        grep = {
-            rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
+        fzf_opts = {
+            ["--info"] = "inline",
         },
 
         keymaps = {
@@ -35,6 +35,15 @@ return {
                 wrap = true,
                 vertical = "down:80%",
             },
+        },
+
+        -- Pickers
+        defaults = {
+            formatter = "path.filename_first",
+        },
+
+        grep = {
+            rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
         },
     },
 
