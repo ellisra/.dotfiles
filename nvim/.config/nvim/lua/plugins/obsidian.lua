@@ -120,7 +120,7 @@ return {
         vim.keymap.set(
             "n",
             "<leader>st",
-            "<cmd>ObsidianTemplate<CR><cmd>12<CR>$",
+            "<cmd>ObsidianTemplate<CR>",
             { desc = "[S]earch [T]emplate" }
         )
         vim.keymap.set(
