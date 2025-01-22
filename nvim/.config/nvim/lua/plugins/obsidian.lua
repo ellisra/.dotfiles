@@ -120,7 +120,7 @@ return {
         vim.keymap.set(
             "n",
             "<leader>st",
-            "<cmd>ObsidianTemplate<CR>",
+            "<cmd>ObsidianTemplate<CR><cmd>12<CR>$",
             { desc = "[S]earch [T]emplate" }
         )
         vim.keymap.set(
@@ -143,7 +143,7 @@ return {
             local client = require("obsidian").get_client()
             client:open_note(client:create_note({
                 title = string.format("Week %d, %d", os.date("%V"), os.date("%Y")),
-                id = string.format("%d-W%d", os.date("%Y"), os.date("%V")),
+                id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
                 dir = client.dir / "calendar/weekly-notes",
                 template = "weekly-recap-template",
             }))
