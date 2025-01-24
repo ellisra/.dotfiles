@@ -5,6 +5,7 @@ return {
     version = "*",
     lazy = true,
     ft = "markdown",
+    cmd = { "ObsidianToday" },
 
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -128,6 +129,12 @@ return {
             "<leader>wp",
             "dGo%% Waypoint %%<Esc><cmd>w<CR><cmd>e<CR>",
             { desc = "Insert [W]ay[p]oint" }
+        )
+        vim.keymap.set(
+            "n",
+            "<leader>td",
+            "<cmd>ObsidianToday<CR><cmd>12<CR>$",
+            { desc = "[T]o [D]o note" }
         )
 
         vim.api.nvim_create_user_command("JournalEntry", function()
