@@ -98,7 +98,7 @@ return {
             vim.api.nvim_set_hl(0, "IblScope", { fg = fg3 })
         end
 
-        vim.cmd.colorscheme("vague")
+        vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
 
         set_highlights()
 
