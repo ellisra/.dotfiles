@@ -7,7 +7,6 @@ require("lazy").setup({
 
     -- Markdown
     require("plugins.obsidian"),
-    -- require("plugins.obsidian-bridge"),
     require("plugins.render-markdown"),
 
     -- Navigation
