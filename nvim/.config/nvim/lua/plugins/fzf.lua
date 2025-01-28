@@ -41,7 +41,7 @@ return {
         defaults = {
             find_opts = [[-type f -not -path '*/\.git/*']],
             rg_opts = [[--color=never --files --hidden --follow -g "!.git"]],
-            fd_opts = [[--color=never --type f --hidden --follow --exclude .git]],
+            fd_opts = [[--color=never --type f --hidden --follow --exclude .git -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.webp']],
 
             formatter = "path.filename_first",
             git_icons = true,
