@@ -12,9 +12,6 @@ return {
 
     init = function()
         local function set_highlights()
-            -- vim.highlight.priorities.semantic_tokens = 100
-            -- vim.highlight.priorities.treesitter = 125
-
             local colors = require("base16-colorscheme").colors
 
             local bg0 = colors.base00
