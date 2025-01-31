@@ -113,6 +113,7 @@ return {
                 ObsidianTag = { italic = true, fg = "#89ddff" },
                 ObsidianBlockID = { italic = true, fg = "#89ddff" },
                 ObsidianHighlightText = { bg = "#75662e" },
+                -- Seems to be overriden by render-markdown (I think?)
             },
         },
     },

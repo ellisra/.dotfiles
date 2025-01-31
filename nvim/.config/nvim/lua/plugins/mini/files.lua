@@ -1,5 +1,6 @@
 return {
     -- FIXME: Opening another float causes adverse behaviour
+    --        Need to find a way to call MiniFiles.close() on new float open
 
     require("mini.files").setup({
         mappings = {

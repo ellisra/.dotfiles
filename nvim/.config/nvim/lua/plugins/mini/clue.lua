@@ -15,7 +15,6 @@ return {
             { mode = "x", keys = "g" },
 
             -- Marks
-            -- { mode = "n", keys = "'" },
             { mode = "n", keys = "`" },
             { mode = "x", keys = "'" },
             { mode = "x", keys = "`" },
@@ -35,7 +34,7 @@ return {
         },
 
         clues = {
-            -- Enhance this by adding descriptions for <Leader> mapping groups
+            -- TODO: Enhance this by adding descriptions for <Leader> mapping groups
             miniclue.gen_clues.builtin_completion(),
             miniclue.gen_clues.g(),
             miniclue.gen_clues.marks(),
