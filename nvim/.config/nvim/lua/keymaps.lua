@@ -110,3 +110,7 @@ vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open [L]a[z]y.nvim"
 
 -- Echo current filepath
 vim.keymap.set("n", "<leader>cd", "<cmd>echo expand('%p')<CR>", { desc = "[C]urrent [D]irectory" })
+
+-- Move current line up/down
+vim.keymap.set("n", "<S-Down>", "ddp")
+vim.keymap.set("n", "<S-Up>", "ddkP")
