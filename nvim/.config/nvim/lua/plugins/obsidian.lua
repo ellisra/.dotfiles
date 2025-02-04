@@ -119,12 +119,7 @@ return {
     },
 
     init = function()
-        vim.keymap.set(
-            "n",
-            "<leader>st",
-            "<cmd>ObsidianTemplate<CR>",
-            { desc = "[S]earch [T]emplate" }
-        )
+        vim.keymap.set("n", "<leader>tm", "<cmd>ObsidianTemplate<CR>", { desc = "[T]e[M]plate" })
         vim.keymap.set(
             "n",
             "<leader>wp",
@@ -137,6 +132,7 @@ return {
             "<cmd>ObsidianToday<CR><cmd>12<CR>$",
             { desc = "[T]o [D]o note" }
         )
+        vim.keymap.set("n", "<leader>st", "<cmd>ObsidianTag<CR>", { desc = "[S]earch [T]ags" })
 
         vim.api.nvim_create_user_command("JournalEntry", function()
             local client = require("obsidian").get_client()
@@ -144,6 +140,7 @@ return {
                 title = os.date("%A, %d %B %Y"),
                 id = os.date("%Y-%m-%d"),
                 dir = client.dir / "general/journal/entries",
+                tags = "journal/entry",
             }))
         end, { desc = "[J]ournal [E]ntry" })
 

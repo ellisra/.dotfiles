@@ -39,7 +39,8 @@ local function set_highlights()
     set_hl("TSOperator", { fg = orange })
     set_hl("TSPunctSpecial", { fg = blue })
     set_hl("TSNamespace", { fg = yellow })
-    set_hl("TSNumber", { fg = purple })
+    set_hl("TSNumber", { fg = aqua })
+    set_hl("TSFloat", { fg = aqua })
     set_hl("TSTypeBuiltin", { cterm = { italic = false } })
     set_hl("@variable", { fg = fg2 })
     set_hl("@parameter", { fg = blue })
@@ -84,6 +85,11 @@ local function set_highlights()
     set_hl("MiniDiffSignChange", { fg = blue })
     set_hl("MiniDiffSignDelete", { fg = red })
 
+    set_hl("MiniHipatternsHack", { fg = bg0, bg = orange })
+    set_hl("MiniHipatternsTodo", { fg = bg0, bg = blue })
+    set_hl("MiniHipatternsFixme", { fg = bg0, bg = red })
+    set_hl("MiniHipatternsNote", { fg = bg0, bg = aqua })
+
     set_hl("IblScope", { fg = fg3 })
 end
 
@@ -100,7 +106,7 @@ return {
     end,
 
     init = function()
-        vim.cmd.colorscheme("vague")
+        vim.cmd.colorscheme("oldworld")
 
         set_highlights()
 
