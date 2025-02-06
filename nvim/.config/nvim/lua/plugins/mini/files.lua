@@ -48,5 +48,5 @@ return {
         end,
     }),
 
-    require("plugins.mini.files-git-integration"),
+    -- require("plugins.mini.files-git-integration"),
 }
