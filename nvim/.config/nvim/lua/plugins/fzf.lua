@@ -22,6 +22,10 @@ return {
             },
         },
 
+        oldfiles = {
+            ignore_current_session = true,
+        },
+
         previewers = {
             builtin = {
                 syntax_limit_b = 1024 * 100,
@@ -49,6 +53,10 @@ return {
 
         grep = {
             rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
+
+            rg_glob = true,
+            glob_flag = "--iglob",
+            glob_separator = "%s%-%-",
         },
     },
 

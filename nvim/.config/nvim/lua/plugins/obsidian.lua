@@ -135,7 +135,7 @@ return {
                 title = os.date("%A, %d %B %Y"),
                 id = os.date("%Y-%m-%d"),
                 dir = client.dir / "general/journal/entries",
-                tags = "journal/entry",
+                tags = { "journal", "journal-entry" },
             }))
         end, { desc = "[J]ournal [E]ntry" })
 
