@@ -144,7 +144,7 @@ return {
             client:open_note(client:create_note({
                 title = string.format("Week %d, %d", os.date("%V"), os.date("%Y")),
                 id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
-                dir = client.dir / "calendar/weekly-notes",
+                dir = client.dir / "general/journal/weekly-review",
                 template = "weekly-recap-template",
             }))
         end, { desc = "Create weekly recap note" })
