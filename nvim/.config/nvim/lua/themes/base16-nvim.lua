@@ -68,6 +68,9 @@ local function set_highlights()
     set_hl("LspDiagnosticsSignHint", { fg = aqua, bg = bg1 })
     set_hl("LspDiagnosticsSignInformation", { fg = blue, bg = bg1 })
 
+    set_hl("DiagnosticWarn", { fg = yellow })
+    set_hl("DiagnosticUnderlineWarn", { undercurl = true, sp = yellow })
+
     -- Markdown
     set_hl("@markup.heading.1", { fg = red, bold = true })
     set_hl("@markup.heading.2", { fg = orange, bold = true })
