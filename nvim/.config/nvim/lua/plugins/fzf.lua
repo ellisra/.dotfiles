@@ -148,7 +148,7 @@ return {
         {
             "<leader>gd",
             function()
-                require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+                require("fzf-lua").lsp_definitions({ jump1 = true })
             end,
             desc = "[G]o to [D]efinition",
         },
