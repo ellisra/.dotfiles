@@ -49,6 +49,7 @@ local function set_highlights()
     set_hl("Directory", { fg = green })
     set_hl("@lsp.typemod.variable.readonly.python", { fg = purple })
     set_hl("DiffText", { fg = yellow })
+    set_hl("CursorLineNr", { fg = orange, bg = bg1 })
 
     set_hl("LspReferenceRead", { bg = bg2 })
     set_hl("LspReferenceText", { link = "LspReferenceRead" })
@@ -80,6 +81,7 @@ local function set_highlights()
     set_hl("@markup.heading.6", { fg = purple, bold = true })
     set_hl("@markup.quote", { fg = fg3 })
     set_hl("@markup.list.checked", { fg = green })
+    set_hl("@markup.link.label.markdown_inline", { underdotted = true })
     set_hl("SpecialChar", { fg = orange })
 
     set_hl("FloatTitle", { link = "Normal" })
@@ -109,7 +111,7 @@ return {
     end,
 
     init = function()
-        vim.cmd.colorscheme("oldworld")
+        vim.cmd.colorscheme("b16-retrobox")
 
         set_highlights()
 
