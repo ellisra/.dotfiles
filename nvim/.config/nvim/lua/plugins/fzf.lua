@@ -171,7 +171,7 @@ return {
             function()
                 require("fzf-lua").lsp_live_workspace_symbols()
             end,
-            desc = "[G]o to [R]eference",
+            desc = "[W]orkspace [S]ymbols",
         },
         {
             "<leader>sp",
