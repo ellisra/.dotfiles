@@ -4,16 +4,16 @@ return {
     lazy = false,
     config = function()
         -- One-liners
-        require("mini.ai").setup({}) -- Extended around/inside
-        require("mini.align").setup({}) -- Align text objects
-        require("mini.icons").setup({}) -- Icons
-        require("mini.pairs").setup({}) -- Autopairs
+        require("mini.ai").setup({})
+        require("mini.align").setup({})
+        require("mini.icons").setup({})
+        require("mini.pairs").setup({})
 
         -- Configured Plugins
-        require("plugins.mini.clue") -- Keymap hints
-        require("plugins.mini.diff") -- Visualise git changes and allow git hunk interraction
-        require("plugins.mini.files") -- File system editing
-        require("plugins.mini.hipatterns") -- Highlight colour codes and other specified patterns
-        require("plugins.mini.surround") -- Add/delete/replace surroundings (brackets, quotes, etc.)
+        require("plugins.mini.clue")
+        require("plugins.mini.diff")
+        require("plugins.mini.files")
+        require("plugins.mini.hipatterns")
+        require("plugins.mini.surround")
     end,
 }

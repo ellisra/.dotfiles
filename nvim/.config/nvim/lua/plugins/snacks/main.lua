@@ -8,9 +8,9 @@ return {
         require("snacks").setup({
             bigfile = { enabled = true },
             dashboard = require("plugins.snacks.dashboard"),
+            indent = require("plugins.snacks.indent"),
             quickfile = { enabled = true },
             rename = { enabled = true },
-            indent = require("plugins.snacks.indent"),
 
             animate = { enabled = false },
             bufdelete = { enabled = false },
