@@ -3,8 +3,8 @@ require("base16-colorscheme").setup({
     base01 = "#343740", -- bg1
     base02 = "#3f424d", -- bg2
     base03 = "#666473", -- bg3
-    base04 = "#bfbfbf", -- fg3
-    base05 = "#cccccc", -- fg2
+    base04 = "#b3b3b3", -- fg3
+    base05 = "#d9d9d9", -- fg2
     base06 = "#d9d9d9", -- fg1
     base07 = "#eaeaea", -- fg0
     base08 = "#bf6b69", -- red
