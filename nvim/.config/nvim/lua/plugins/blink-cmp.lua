@@ -25,6 +25,15 @@ return {
             nerd_font_variant = "mono",
         },
 
+        cmdline = {
+            enabled = true,
+            completion = {
+                menu = {
+                    auto_show = true,
+                },
+            },
+        },
+
         completion = {
             accept = { auto_brackets = { enabled = true } },
 
