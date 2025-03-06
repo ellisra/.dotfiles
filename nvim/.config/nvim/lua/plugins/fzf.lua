@@ -23,7 +23,7 @@ return {
         },
 
         oldfiles = {
-            ignore_current_session = true,
+            ignore_current_session = false,
         },
 
         previewers = {
@@ -123,6 +123,20 @@ return {
                 require("fzf-lua").lsp_code_actions()
             end,
             desc = "[C]ode [A]ctions",
+        },
+        {
+            "<leade>sq",
+            function()
+                require("fzf-lua").quickfix()
+            end,
+            desc = "[S]earch [Q]uickfix",
+        },
+        {
+            "<leader>so",
+            function()
+                require("fzf-lua").oldfiles()
+            end,
+            desc = "[S]earch [O]ldfiles",
         },
         {
             "<leader><leader>",

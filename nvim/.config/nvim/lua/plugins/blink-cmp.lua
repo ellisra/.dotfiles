@@ -32,6 +32,13 @@ return {
                     auto_show = true,
                 },
             },
+
+            keymap = {
+                ["<Up>"] = { "select_prev", "fallback" },
+                ["<Down>"] = { "select_next", "fallback" },
+
+                ["<Tab>"] = { "select_and_accept", "fallback" },
+            },
         },
 
         completion = {
