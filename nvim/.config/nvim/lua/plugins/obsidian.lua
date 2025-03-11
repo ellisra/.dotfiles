@@ -1,6 +1,5 @@
----@diagnostic disable: assign-type-mismatch
 return {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
 
     version = "*",
     lazy = true,
@@ -33,6 +32,7 @@ return {
 
         completion = {
             nvim_cmp = false,
+            blink = false,
             min_chars = 2,
         },
 
@@ -97,7 +97,10 @@ return {
             },
 
             bullets = { char = "•", hl_group = "ObsidianBullet" },
-            external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+            external_link_icon = {
+                char = "",
+                hl_group = "ObsidianExtLinkIcon",
+            },
 
             reference_text = { hl_group = "ObsidianRefText" },
             highlight_text = { hl_group = "ObsidianHighlightText" },
@@ -119,21 +122,36 @@ return {
     },
 
     init = function()
-        vim.keymap.set("n", "<leader>tm", "<cmd>ObsidianTemplate<CR>", { desc = "[T]e[M]plate" })
+        vim.keymap.set(
+            "n",
+            "<leader>tm",
+            "<cmd>ObsidianTemplate<CR>",
+            { desc = "[T]e[M]plate" }
+        )
         vim.keymap.set(
             "n",
             "<leader>wp",
             "dGo%% Waypoint %%<Esc><cmd>w<CR><cmd>e<CR>",
             { desc = "Insert [W]ay[p]oint" }
         )
-        vim.keymap.set("n", "<leader>td", "<cmd>ObsidianToday<CR>", { desc = "[T]o [D]o note" })
-        vim.keymap.set("n", "<leader>st", "<cmd>ObsidianTag<CR>", { desc = "[S]earch [T]ags" })
+        vim.keymap.set(
+            "n",
+            "<leader>td",
+            "<cmd>ObsidianToday<CR>",
+            { desc = "[T]o [D]o note" }
+        )
+        vim.keymap.set(
+            "n",
+            "<leader>st",
+            "<cmd>ObsidianTag<CR>",
+            { desc = "[S]earch [T]ags" }
+        )
 
         vim.api.nvim_create_user_command("JournalEntry", function()
             local client = require("obsidian").get_client()
             client:open_note(client:create_note({
-                title = os.date("%A, %d %B %Y"),
-                id = os.date("%Y-%m-%d"),
+                title = tostring(os.date("%A, %d %B %Y")),
+                id = tostring(os.date("%Y-%m-%d")),
                 dir = client.dir / "general/journal/entries",
                 tags = { "journal", "journal-entry" },
             }))
@@ -142,7 +160,11 @@ return {
         vim.api.nvim_create_user_command("WeeklyRecap", function()
             local client = require("obsidian").get_client()
             client:open_note(client:create_note({
-                title = string.format("Week %d, %d", os.date("%V"), os.date("%Y")),
+                title = string.format(
+                    "Week %d, %d",
+                    os.date("%V"),
+                    os.date("%Y")
+                ),
                 id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
                 dir = client.dir / "general/journal/weekly-review",
                 template = "weekly-recap-template",

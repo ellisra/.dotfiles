@@ -3,7 +3,7 @@ return {
 
     -- event = "InsertEnter",
     event = "VeryLazy",
-    version = "v0.*",
+    version = "*",
 
     dependencies = {
         { "L3MON4D3/LuaSnip", version = "v2.*" },
