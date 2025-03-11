@@ -11,7 +11,12 @@ return {
             callback = function(event)
                 local map = function(keys, func, desc)
                     ---@diagnostic disable-next-line: missing-fields
-                    vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+                    vim.keymap.set(
+                        "n",
+                        keys,
+                        func,
+                        { buffer = event.buf, desc = "LSP: " .. desc }
+                    )
                 end
 
                 map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame variable")
@@ -75,7 +80,8 @@ return {
         }
 
         for server, config in pairs(servers) do
-            config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+            config.capabilities =
+                require("blink.cmp").get_lsp_capabilities(config.capabilities)
             require("lspconfig")[server].setup(config)
         end
 
