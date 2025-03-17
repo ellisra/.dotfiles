@@ -41,7 +41,7 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '{{ if .Venv }}(venv){{ end }} '
+    template = '{{ if .Venv }}({{ .Venv }}){{ end }} '
     foreground = 'cyan'
     type = 'python'
     style = 'plain'

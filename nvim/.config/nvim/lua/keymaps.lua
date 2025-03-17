@@ -28,7 +28,12 @@ vim.keymap.set("i", "<Home>", "<C-o>^")
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [L]ist" })
+vim.keymap.set(
+    "n",
+    "<leader>dl",
+    vim.diagnostic.setloclist,
+    { desc = "Open [D]iagnostic [L]ist" }
+)
 
 -- Exit built-in terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -103,13 +108,28 @@ vim.keymap.set(
 )
 
 -- Insert type: ignore on current line
-vim.keymap.set("n", "<leader>ti", "A  # type: ignore<Esc>", { desc = "[T]ype [I]gnore" })
+vim.keymap.set(
+    "n",
+    "<leader>ti",
+    "A  # type: ignore<Esc>",
+    { desc = "[T]ype [I]gnore" }
+)
 
 -- Open Lazy.nvim
-vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open [L]a[z]y.nvim" })
+vim.keymap.set(
+    "n",
+    "<leader>lz",
+    "<cmd>Lazy<CR>",
+    { desc = "Open [L]a[z]y.nvim" }
+)
 
 -- Echo current filepath
-vim.keymap.set("n", "<leader>cd", "<cmd>echo expand('%p')<CR>", { desc = "[C]urrent [D]irectory" })
+vim.keymap.set(
+    "n",
+    "<leader>cd",
+    "<cmd>echo expand('%p')<CR>",
+    { desc = "[C]urrent [D]irectory" }
+)
 
 -- Move current line up/down
 vim.keymap.set("n", "<S-Down>", "ddp")
