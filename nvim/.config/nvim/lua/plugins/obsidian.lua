@@ -130,12 +130,6 @@ return {
         )
         vim.keymap.set(
             "n",
-            "<leader>wp",
-            "dGo%% Waypoint %%<Esc><cmd>w<CR><cmd>e<CR>",
-            { desc = "Insert [W]ay[p]oint" }
-        )
-        vim.keymap.set(
-            "n",
             "<leader>td",
             "<cmd>ObsidianToday<CR>",
             { desc = "[T]o [D]o note" }
@@ -155,7 +149,22 @@ return {
                 dir = client.dir / "general/journal/entries",
                 tags = { "journal", "journal-entry" },
             }))
-        end, { desc = "[J]ournal [E]ntry" })
+        end, { desc = "Creates a journal entry note" })
+
+        vim.api.nvim_create_user_command("JournalThought", function(opts)
+            local client = require("obsidian").get_client()
+            local user_input = ": " .. opts.args
+
+            client:open_note(client:create_note({
+                title = tostring(os.date("%A, %d %B %Y")) .. user_input,
+                id = tostring(os.date("%Y-%m-%d")) .. user_input,
+                dir = client.dir / "general/journal/thoughts",
+                tags = { "journal", "journal-thought" },
+            }))
+        end, {
+            desc = "Creates a journal note on a topic (requires title)",
+            nargs = 1,
+        })
 
         vim.api.nvim_create_user_command("WeeklyRecap", function()
             local client = require("obsidian").get_client()
