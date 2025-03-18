@@ -47,8 +47,10 @@ local function toggle_temp_buffer()
     local filetype = vim.bo.filetype
 
     if not vim.api.nvim_win_is_valid(state.scratch.win) then
-        state.scratch =
-            create_floating_window({ buf = state.scratch.buf, title = " scratch buffer " })
+        state.scratch = create_floating_window({
+            buf = state.scratch.buf,
+            title = " scratch buffer ",
+        })
         vim.bo[state.scratch.buf].bufhidden = "hide"
         vim.bo[state.scratch.buf].buftype = "nofile"
         vim.bo[state.scratch.buf].filetype = filetype
@@ -58,7 +60,11 @@ local function toggle_temp_buffer()
             for _, client in ipairs(clients) do
                 ---@type table { filetypes: string[] }|nil
                 local config = client.config
-                if config and config.filetypes and vim.tbl_contains(config.filetypes, filetype) then
+                if
+                    config
+                    and config.filetypes
+                    and vim.tbl_contains(config.filetypes, filetype)
+                then
                     vim.lsp.buf_attach_client(state.scratch.buf, client.id)
                 end
             end
@@ -141,14 +147,17 @@ function M.setup()
         "<cmd>ScratchPad<CR>",
         { noremap = true, silent = true, desc = "[S]cratch [P]ad" }
     )
+
     vim.api.nvim_set_keymap("n", "<leader>rp", "<cmd>RunPad<CR>", {
         noremap = true,
         silent = true,
         desc = "[R]un Scratch [P]ad",
     })
+
     vim.keymap.set("n", "<leader>tt", function()
         toggle_terminal({ title = " floaterm " })
     end, { desc = "[T]oggle [T]erminal" })
+
     vim.keymap.set("n", "<leader>lg", function()
         toggle_terminal({
             title = " lazygit ",
@@ -157,6 +166,15 @@ function M.setup()
             term_command = "lazygit",
         })
     end, { desc = "[L]azy[G]it" })
+
+    vim.keymap.set("n", "<leader>lc", function()
+        toggle_terminal({
+            title = " calendar ",
+            width = math.floor(vim.o.columns * 0.8),
+            height = math.floor(vim.o.lines * 0.75),
+            term_command = "calcure",
+        })
+    end, { desc = "[L]oad [C]alendar" })
 end
 
 return M.setup()
