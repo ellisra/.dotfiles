@@ -1,7 +1,6 @@
 return {
     "saghen/blink.cmp",
 
-    -- event = "InsertEnter",
     event = "VeryLazy",
     version = "*",
 
@@ -71,7 +70,8 @@ return {
                 },
             },
             min_keyword_length = function()
-                if vim.fn.getcmdtype() == ":" then
+                local mode = vim.api.nvim_get_mode().mode
+                if mode == "c" then
                     return 3
                 else
                     return 1

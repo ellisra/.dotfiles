@@ -81,7 +81,10 @@ local function set_highlights()
     set_hl("@markup.heading.6", { fg = purple, bold = true })
     set_hl("@markup.quote", { fg = fg3 })
     set_hl("@markup.list.checked", { fg = green })
-    set_hl("@markup.link.label.markdown_inline", { underdotted = true })
+    set_hl(
+        "@markup.link.label.markdown_inline",
+        { fg = blue, underdotted = true }
+    )
     set_hl("SpecialChar", { fg = orange })
 
     set_hl("FloatTitle", { link = "Normal" })
