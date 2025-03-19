@@ -1,4 +1,6 @@
 require("lazy").setup({
+    { "HawkinsT/pathfinder.nvim" },
+
     -- Language Functionality
     require("plugins.blink-cmp"),
     require("plugins.conform"),
