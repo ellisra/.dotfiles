@@ -79,8 +79,9 @@ local function set_highlights()
     set_hl("@markup.heading.4", { fg = green, bold = true })
     set_hl("@markup.heading.5", { fg = blue, bold = true })
     set_hl("@markup.heading.6", { fg = purple, bold = true })
-    set_hl("@markup.quote", { fg = fg3 })
+    set_hl("@markup.quote", { fg = fg3, italic = true })
     set_hl("@markup.list.checked", { fg = green })
+    set_hl("@lsp.type.decorator.markdown", { fg = aqua })
     set_hl(
         "@markup.link.label.markdown_inline",
         { fg = blue, underdotted = true }
@@ -114,7 +115,7 @@ return {
     end,
 
     init = function()
-        vim.cmd.colorscheme("b16-retrobox")
+        vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
 
         set_highlights()
 
