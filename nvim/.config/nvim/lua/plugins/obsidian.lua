@@ -153,7 +153,7 @@ return {
 
         vim.api.nvim_create_user_command("JournalThought", function(opts)
             local client = require("obsidian").get_client()
-            local user_input = ": " .. opts.args
+            local user_input = " - " .. opts.args
 
             client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")) .. user_input,
