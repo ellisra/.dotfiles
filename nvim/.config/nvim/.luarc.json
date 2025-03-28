@@ -4,6 +4,7 @@
         "missing-fields"
     ],
     "diagnostics.globals": [
-        "Snacks"
+        "Snacks",
+        "MiniFiles"
     ]
 }
