@@ -5,8 +5,6 @@ require("lazy").setup({
     require("plugins.treesitter"),
 
     -- Markdown
-    { "HawkinsT/pathfinder.nvim" },
-
     require("plugins.obsidian"),
     require("plugins.render-markdown"),
 
