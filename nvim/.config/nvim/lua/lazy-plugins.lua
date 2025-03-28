@@ -2,7 +2,6 @@ require("lazy").setup({
     -- Language Functionality
     require("plugins.blink-cmp"),
     require("plugins.conform"),
-    require("plugins.lspconfig"),
     require("plugins.treesitter"),
 
     -- Markdown

@@ -3,7 +3,7 @@ return {
 
     lazy = true,
     dependencies = {
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
         "nvim-lua/plenary.nvim",
     },
 
@@ -27,5 +27,9 @@ return {
     event = {
         "BufReadPre *.md",
         "BufNewFile *.md",
+    },
+
+    opts = {
+        picker = "fzf_lua",
     },
 }

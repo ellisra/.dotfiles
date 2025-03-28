@@ -1,7 +1,4 @@
 return {
-    -- FIXME: Opening another float causes adverse behaviour
-    --        Need to find a way to call MiniFiles.close() on new float open
-
     require("mini.files").setup({
         mappings = {
             close = "<Esc>",
@@ -47,6 +44,4 @@ return {
             Snacks.rename.on_rename_file(event.data.from, event.data.to)
         end,
     }),
-
-    -- require("plugins.mini.files-git-integration"),
 }
