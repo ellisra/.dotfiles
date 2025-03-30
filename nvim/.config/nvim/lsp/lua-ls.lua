@@ -11,6 +11,7 @@ return {
             workspace = {
                 checkThirdParty = false,
                 library = {
+                    vim.fn.stdpath("data") .. "lazy.nvim/lua/lazy.lua",
                     vim.env.VIMRUNTIME,
                     "${3rd/love2d/library}",
                 },
