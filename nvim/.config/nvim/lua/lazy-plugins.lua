@@ -15,6 +15,7 @@ require("lazy").setup({
     -- QoL
     require("plugins.lazydev"),
     require("plugins.mini.main"),
+    require("plugins.no-neck-pain"),
     require("plugins.snacks.main"),
 
     -- Snippets
