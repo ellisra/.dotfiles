@@ -58,7 +58,7 @@ return {
         {
             pane = 2,
             section = "terminal",
-            cmd = "onefetch --include-hidden --nerd-fonts -d url --no-art",
+            cmd = "onefetch --include-hidden --nerd-fonts -d url --no-art --true-color never --text-colors 4 4 4 4 7 7",
             height = 30,
             indent = 8,
             align = "center",
