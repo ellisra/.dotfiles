@@ -5,7 +5,7 @@ return {
     version = "*",
 
     opts = {
-        width = 102,
+        width = 107,
     },
 
     keys = {
