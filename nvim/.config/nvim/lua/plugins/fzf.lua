@@ -7,6 +7,7 @@ return {
     opts = {
         fzf_colors = {
             ["gutter"] = { "bg", "Normal" },
+            ["bg+"] = { "bg", { "Cursorline" } },
         },
 
         fzf_opts = {
