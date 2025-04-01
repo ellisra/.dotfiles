@@ -14,5 +14,15 @@ return {
             "<cmd>NoNeckPain<CR>",
             desc = "[N]o [N]eck Pain",
         },
+        {
+            "<M-i>",
+            "<cmd>NoNeckPainWidthUp<CR>",
+            desc = "Increase width",
+        },
+        {
+            "<M-u>",
+            "<cmd>NoNeckPainWidthDown<CR>",
+            desc = "Decrease width",
+        },
     },
 }
