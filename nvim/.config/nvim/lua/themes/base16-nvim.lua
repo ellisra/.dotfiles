@@ -1,3 +1,5 @@
+---@param group string The highlight group name
+---@param options vim.api.keyset.highlight Highlight attributes
 local function set_hl(group, options)
     vim.api.nvim_set_hl(0, group, options)
 end
@@ -81,6 +83,7 @@ local function set_highlights()
     set_hl("@markup.heading.6", { fg = purple, bold = true })
     set_hl("@markup.quote", { fg = fg3, italic = true })
     set_hl("@markup.list.checked", { fg = green })
+    set_hl("@markup.strikethrough.markdown_inline", { strikethrough = true })
     set_hl("@lsp.type.decorator.markdown", { fg = aqua })
     set_hl(
         "@markup.link.label.markdown_inline",
@@ -115,7 +118,8 @@ return {
     end,
 
     init = function()
-        vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
+        -- vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
+        vim.cmd.colorscheme("base16-rose-pine-dawn")
 
         set_highlights()
 
