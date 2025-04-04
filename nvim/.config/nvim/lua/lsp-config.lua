@@ -24,9 +24,9 @@ return {
         "rust-analyzer",
     }),
 
-    -- vim.diagnostic.config({
-    --     virtual_lines = {
-    --         current_line = true,
-    --     },
-    -- }),
+    vim.diagnostic.config({
+        virtual_lines = {
+            current_line = true,
+        },
+    }),
 }
