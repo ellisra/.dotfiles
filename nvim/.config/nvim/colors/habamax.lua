@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "base16-habamax"
+
 require("base16-colorscheme").setup({
     base00 = "#1c1c1c", -- bg0
     base01 = "#303030", -- bg1
@@ -16,12 +22,3 @@ require("base16-colorscheme").setup({
     base0E = "#af87af", -- purple
     base0F = "#94aaa0", -- bonus
 })
-
--- #202020
--- #2a2827
--- #504945
--- #5a524c
--- #bdae93
--- #ddc7a1
--- #ebdbb2
--- #fbf1c7

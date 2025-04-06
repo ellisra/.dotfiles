@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "miasma"
+
 require("base16-colorscheme").setup({
     base00 = "#1c1c1c", -- bg0
     base01 = "#171717", -- bg1

@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "oldworld"
+
 require("base16-colorscheme").setup({
     base00 = "#252526", -- bg0
     base01 = "#313133", -- bg1

@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "ghostty"
+
 require("base16-colorscheme").setup({
     base00 = "#2a2c33", -- bg0
     base01 = "#343740", -- bg1

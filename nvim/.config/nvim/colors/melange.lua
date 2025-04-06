@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "melange"
+
 require("base16-colorscheme").setup({
     base00 = "#292522", -- bg0
     base01 = "#34302C", -- bg1
