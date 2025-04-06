@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "evergarden"
+
 require("base16-colorscheme").setup({
     base00 = "#1c2225", -- bg0
     base01 = "#232a2e", -- bg1

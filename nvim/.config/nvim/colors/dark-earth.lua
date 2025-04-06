@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "dark-earth"
+
 require("base16-colorscheme").setup({
     base00 = "#2c2826", -- bg0
     base01 = "#35302D", -- bg1
@@ -16,22 +22,3 @@ require("base16-colorscheme").setup({
     base0E = "#e6c2ac", -- purple
     base0F = "#fecb52", -- bonus
 })
-
--- "UNO1": "#ffdac2",
--- "UNO2": "#bd987f",
--- "UNO3": "#98755d",
--- "UNO4": "#705e51",
--- "UNO5": "#564b43",
---
--- "DUO1": "#fecb52",
--- "DUO2": "#b09045",
--- "DUO3": "#726546",
---
--- "BACKGROUND": "#2c2826",
--- "INVISIBLES": "#48413d",
--- "LINE_HIGHLIGHT": "#35302D",
--- "SELECTION": "#4D4642",
--- "INVALID": "#F8F8F0",
--- "INVALID_BG": "#F92672",
--- "DEPRECATED": "#F8F8F0",
--- "DEPRECATED_BG": "#AE81FF",

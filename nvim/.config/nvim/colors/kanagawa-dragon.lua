@@ -1,3 +1,9 @@
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
+vim.g.colors_name = "kanagawa-dragon"
+
 require("base16-colorscheme").setup({
     base00 = "#181616", -- bg0
     base01 = "#0d0c0c", -- bg1

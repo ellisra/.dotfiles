@@ -30,11 +30,11 @@ local function set_highlights()
     set_hl("@keyword.return", { fg = red })
     set_hl("TSAttribute", { fg = purple })
     set_hl("TSBoolean", { fg = purple })
-    set_hl("TSComment", { cterm = { italic = false }, fg = bg3 })
+    set_hl("TSComment", { italic = false, fg = bg3 })
     set_hl("TSConstant", { fg = purple })
     set_hl("TSConstructor", { fg = fg0 })
     set_hl("TSFunction", { fg = green })
-    set_hl("TSFuncBuiltin", { cterm = { italic = false }, fg = green })
+    set_hl("TSFuncBuiltin", { italic = false, fg = green })
     set_hl("TSMethod", { fg = green })
     set_hl("TSString", { fg = aqua })
     set_hl("TSInclude", { fg = red })
@@ -43,7 +43,7 @@ local function set_highlights()
     set_hl("TSNamespace", { fg = yellow })
     set_hl("TSNumber", { fg = aqua })
     set_hl("TSFloat", { fg = aqua })
-    set_hl("TSTypeBuiltin", { cterm = { italic = false } })
+    set_hl("TSTypeBuiltin", { italic = false })
     set_hl("@variable", { fg = fg2 })
     set_hl("@parameter", { fg = blue })
     set_hl("@property", { fg = blue })
@@ -111,15 +111,9 @@ return {
     lazy = false,
     priority = 1000,
 
-    config = function()
-        require("base16-colorscheme").with_config({
-            telescope = false,
-        })
-    end,
-
     init = function()
         -- vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
-        vim.cmd.colorscheme("base16-rose-pine-dawn")
+        vim.cmd.colorscheme("dawnfox")
 
         set_highlights()
 
