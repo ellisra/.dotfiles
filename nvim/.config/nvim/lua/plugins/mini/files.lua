@@ -40,7 +40,6 @@ return {
         pattern = "MiniFilesActionRename",
         callback = function(event)
             MiniFiles.close()
-            ---@diagnostic disable-next-line: undefined-global
             Snacks.rename.on_rename_file(event.data.from, event.data.to)
         end,
     }),
