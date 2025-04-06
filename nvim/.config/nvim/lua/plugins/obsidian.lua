@@ -20,9 +20,6 @@ return {
             },
         },
 
-        log_level = vim.log.levels.INFO,
-
-        -- Work todo
         daily_notes = {
             folder = "work/work-todo",
             date_format = "%Y-%m-%d - TODO",
