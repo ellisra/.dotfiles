@@ -173,7 +173,7 @@ return {
                 ),
                 id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
                 dir = client.dir / "general/journal/weekly-review",
-                template = "weekly-recap-template",
+                tags = { "journal", "weekly-recap" },
             }))
         end, { desc = "Create weekly recap note" })
     end,
