@@ -15,7 +15,7 @@ require("base16-colorscheme").setup({
     base07 = "#cecacd", -- fg0
     base08 = "#b4637a", -- red
     base09 = "#d7827e", -- orange
-    base0A = "#c79452", -- yellow
+    base0A = "#b38549", -- yellow
     base0B = "#618774", -- green
     base0C = "#56949f", -- aqua
     base0D = "#907aa9", -- blue

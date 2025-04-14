@@ -36,7 +36,12 @@ vim.keymap.set(
 )
 
 -- Exit built-in terminal
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set(
+    "t",
+    "<Esc><Esc>",
+    "<C-\\><C-n>",
+    { desc = "Exit terminal mode" }
+)
 
 -- Vim window split commands
 -- <leader>h/j/k/l opens a new window in that direction
