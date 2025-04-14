@@ -6,7 +6,7 @@ return {
 
     config = function()
         require("snacks").setup({
-            bigfile = { enabled = true },
+            bigfile = { enabled = false },
             dashboard = require("plugins.snacks.dashboard"),
             indent = require("plugins.snacks.indent"),
             quickfile = { enabled = true },
