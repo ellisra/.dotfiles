@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
     "obsidian-nvim/obsidian.nvim",
 
@@ -161,6 +162,19 @@ return {
         end, {
             desc = "Creates a journal note on a topic (requires title)",
             nargs = 1,
+        })
+
+        vim.api.nvim_create_user_command("JournalSecret", function()
+            local client = require("obsidian").get_client()
+
+            client:open_note(client:create_note({
+                title = tostring(os.date("%A, %d %B %Y")),
+                id = tostring(os.date("%Y-%m-%d")),
+                dir = client.dir / "general/journal/secrets",
+                tags = { "journal", "secret" },
+            }))
+        end, {
+            desc = "Create a secret note",
         })
 
         vim.api.nvim_create_user_command("WeeklyRecap", function()

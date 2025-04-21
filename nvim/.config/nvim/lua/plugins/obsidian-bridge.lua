@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
     "oflisback/obsidian-bridge.nvim",
 
