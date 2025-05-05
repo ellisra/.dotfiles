@@ -24,6 +24,13 @@ return {
             },
         },
 
+        lsp = {
+            code_actions = {
+                previewer = "codeaction_native",
+                preview_pager = "delta --width=$FZF_PREVIEW_COLUMNS --light",
+            },
+        },
+
         oldfiles = {
             ignore_current_session = false,
         },
