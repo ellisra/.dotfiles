@@ -55,7 +55,7 @@ local function toggle_temp_buffer()
         vim.bo[state.scratch.buf].buftype = "nofile"
         vim.bo[state.scratch.buf].filetype = filetype
 
-        if not vim.tbl_contains({ "markdonw" }, filetype) then
+        if not vim.tbl_contains({ "markdown" }, filetype) then
             local clients = vim.lsp.get_clients()
             for _, client in ipairs(clients) do
                 ---@type table { filetypes: string[] }|nil
