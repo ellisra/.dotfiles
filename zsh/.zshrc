@@ -40,12 +40,5 @@ toad() {
 }
 
 alias lg='lazygit'
-# alias e='nvim'
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-#
-# . "$HOME/.local/bin/env"
