@@ -157,7 +157,7 @@ return {
                 title = tostring(os.date("%A, %d %B %Y")) .. user_input,
                 id = tostring(os.date("%Y-%m-%d")) .. user_input,
                 dir = client.dir / "general/journal/thoughts",
-                tags = { "journal", "journal-thought" },
+                tags = { "journal", "thought" },
             }))
         end, {
             desc = "Creates a journal note on a topic (requires title)",

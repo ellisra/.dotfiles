@@ -76,7 +76,7 @@ return {
             position = "left",
             language_pad = 0,
             language_name = true,
-            left_pad = 1,
+            left_pad = 0,
             right_pad = 1,
             width = "block",
             min_width = 40,
