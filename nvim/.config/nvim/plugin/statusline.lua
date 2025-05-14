@@ -35,7 +35,11 @@ local function update_mode_colors()
         mode_color = "%#StatuslineAccent#"
     elseif current_mode == "i" or current_mode == "ic" then
         mode_color = "%#StatuslineInsertAccent#"
-    elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
+    elseif
+        current_mode == "v"
+        or current_mode == "V"
+        or current_mode == ""
+    then
         mode_color = "%#StatuslineVisualAccent#"
     elseif current_mode == "R" then
         mode_color = "%#StatuslineReplaceAccent#"
@@ -48,7 +52,8 @@ local function update_mode_colors()
 end
 
 local function git_info()
-    local git_branch = vim.fn.system("git branch --show-current 2>/dev/null | tr -d '\n'")
+    local git_branch =
+        vim.fn.system("git branch --show-current 2>/dev/null | tr -d '\n'")
     if vim.v.shell_error ~= 0 then
         return nil
     end
