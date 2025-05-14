@@ -22,6 +22,7 @@ return {
         "basedpyright",
         "markdown-oxide",
         "rust-analyzer",
+        "clangd",
     }),
 
     vim.diagnostic.config({
