@@ -10,6 +10,7 @@ return {
         indent = require("plugins.snacks.indent"),
         quickfile = { enabled = true },
         rename = { enabled = true },
+        picker = require("plugins.snacks.picker"),
 
         bigfile = { enabled = false },
         animate = { enabled = false },
@@ -21,7 +22,6 @@ return {
         lazygit = { enabled = false },
         notifier = { enabled = false },
         notify = { enabled = false },
-        picker = { enabled = false },
         profiler = { enabled = false },
         scope = { enabled = false },
         scratch = { enabled = false },
@@ -32,4 +32,10 @@ return {
         words = { enabled = false },
         zen = { enabled = false },
     },
+
+    init = function()
+        vim.keymap.set("n", "<leader>sf", function()
+            Snacks.picker.files()
+        end, { desc = "[S]earch [F]iles" })
+    end,
 }

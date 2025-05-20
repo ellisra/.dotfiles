@@ -112,8 +112,8 @@ return {
     priority = 1000,
 
     init = function()
-        -- vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
-        vim.cmd.colorscheme("dawnfox")
+        vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
+        -- vim.cmd.colorscheme("dawnfox")
 
         set_highlights()
 
