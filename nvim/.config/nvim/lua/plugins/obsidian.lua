@@ -138,6 +138,12 @@ return {
             "<cmd>ObsidianTag<CR>",
             { desc = "[S]earch [T]ags" }
         )
+        vim.keymap.set(
+            "n",
+            "<leader>O",
+            "<cmd>ObsidianOpen<CR>",
+            { desc = "[O]pen obsidian" }
+        )
 
         vim.api.nvim_create_user_command("JournalEntry", function()
             local client = require("obsidian").get_client()
