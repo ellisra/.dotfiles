@@ -10,7 +10,7 @@ require("lazy").setup({
 
     -- Navigation
     require("plugins.flash"),
-    -- require("plugins.fzf"),
+    require("plugins.fzf"),
 
     -- QoL
     require("plugins.lazydev"),

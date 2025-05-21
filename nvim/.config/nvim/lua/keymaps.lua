@@ -139,3 +139,10 @@ vim.keymap.set(
 -- Move current line up/down
 vim.keymap.set("n", "<S-Down>", "ddp")
 vim.keymap.set("n", "<S-Up>", "ddkP")
+
+vim.keymap.set("n", "]d", function()
+    vim.diagnostic.jump({ count = 1 })
+end, { desc = "Jump to next diagnostic" })
+vim.keymap.set("n", "[d", function()
+    vim.diagnostic.jump({ count = -1 })
+end, { desc = "Jump to previous diagnostic" })
