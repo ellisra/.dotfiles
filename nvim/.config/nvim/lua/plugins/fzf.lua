@@ -204,4 +204,8 @@ return {
             desc = "[S][P]elling suggestions",
         },
     },
+
+    init = function()
+        require("fzf-lua").register_ui_select()
+    end,
 }
