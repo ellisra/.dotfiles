@@ -15,15 +15,6 @@ return {
             ["--info"] = "inline",
         },
 
-        keymaps = {
-            winopts = {
-                preview = {
-                    layout = "flex",
-                    horizontal = "right:40%",
-                },
-            },
-        },
-
         lsp = {
             code_actions = {
                 previewer = "codeaction_native",
@@ -41,12 +32,26 @@ return {
             },
         },
 
+        keymap = {
+            builtin = {
+                ["<C-p>"] = "toggle-preview",
+                ["<S-Down>"] = "preview-page-down",
+                ["<S-Up>"] = "preview-page-up",
+            },
+        },
+
         winopts = {
             backdrop = 100,
 
+            height = 0.50,
+            width = 0.50,
+            row = 1,
+            col = 0,
+
             preview = {
                 wrap = true,
-                vertical = "down:80%",
+                vertical = "down:90%",
+                hidden = true,
             },
         },
 
@@ -66,6 +71,19 @@ return {
             rg_glob = true,
             glob_flag = "--iglob",
             glob_separator = "%s%-%-",
+
+            winopts = {
+                height = 0.5,
+                width = 1,
+                row = 1,
+                col = 0,
+
+                preview = {
+                    wrap = true,
+                    horizontal = "right:70%",
+                    hidden = false,
+                },
+            },
         },
     },
 
@@ -87,14 +105,32 @@ return {
         {
             "<leader>sm",
             function()
-                require("fzf-lua").helptags()
+                require("fzf-lua").helptags({
+                    winopts = {
+                        width = 1,
+                        preview = {
+                            hidden = false,
+                            layout = "horizontal",
+                            horizontal = "right:60%",
+                        },
+                    },
+                })
             end,
             desc = "[S]earch [M]anual",
         },
         {
             "<leader>sk",
             function()
-                require("fzf-lua").keymaps()
+                require("fzf-lua").keymaps({
+                    winopts = {
+                        width = 1,
+                        height = 0.4,
+                        preview = {
+                            layout = "vertical",
+                            vertical = "down:40%",
+                        },
+                    },
+                })
             end,
             desc = "[S]earch [K]eymaps",
         },
@@ -122,7 +158,9 @@ return {
         {
             "<leader>sc",
             function()
-                require("fzf-lua").colorschemes()
+                require("fzf-lua").colorschemes({
+                    winopts = { height = 0.20, width = 0.30 },
+                })
             end,
             desc = "[S]earch [C]olourschemes",
         },

@@ -13,7 +13,7 @@ return {
                 library = {
                     vim.fn.stdpath("data") .. "lazy.nvim/lua/lazy.lua",
                     vim.env.VIMRUNTIME,
-                    "${3rd/love2d/library}",
+                    "3rd/love2d/library",
                 },
             },
         },

@@ -1,43 +1,32 @@
-local function set_options(opts)
-    for k, v in pairs(opts) do
-        vim.opt[k] = v
-    end
-end
+-- Line numbers
+vim.o.number = true
+vim.o.relativenumber = true
 
-set_options({
-    -- Line numbers
-    number = true,
-    relativenumber = true,
+-- Sets how whitespace charactes are displayed
+vim.o.list = true
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 
-    -- Sets how whitespace charactes are displayed
-    list = true,
-    listchars = { tab = "  ", trail = "·", nbsp = "␣" },
+-- Set default tab size
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.tabstop = 4
+vim.o.autoindent = true
 
-    -- Set default tab size
-    expandtab = true,
-    shiftwidth = 4,
-    softtabstop = 4,
-    tabstop = 4,
-
-    -- General
-    breakindent = true, -- Makes wrapped lines wrap to the same indent level
-    cursorline = true, -- Highlight cursor line
-    ignorecase = true, -- Ignore case sensitivity in search
-    linebreak = true, -- Wrap lines on spaces rather than characters
-    mouse = "a", -- Allows mouse mode
-    scrolloff = 10, -- Minimum number of lines above or below the cursor
-    showmode = false, -- Display mode visual since I'm using a bar
-    signcolumn = "yes", -- Make sign column on by default
-    smartcase = true, -- Ignore case sensitivity in search
-    spelllang = "en_gb", -- Sets spelling language to british english
-    splitbelow = true, -- Default horizontal split direction
-    splitright = true, -- Default vertical split direction
-    timeoutlen = 300, -- Decrease mapped sequence wait time
-    undofile = true, -- Save undo history
-    updatetime = 250, -- Decreases update time
-})
-
--- Sync clipboard with OS, within Wayland sessions wl-clipboard must be installed
-vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
-end)
+-- General
+vim.o.breakindent = true -- Makes wrapped lines wrap to the same indent level
+vim.o.cursorline = true -- Highlight cursor line
+vim.o.ignorecase = true -- Ignore case sensitivity in search
+vim.o.linebreak = true -- Wrap lines on spaces rather than characters
+vim.o.mouse = "a" -- Allows mouse mode
+vim.o.scrolloff = 10 -- Minimum number of lines above or below the cursor
+vim.o.showmode = false -- Display mode visual since I'm using a bar
+vim.o.signcolumn = "yes" -- Make sign column on by default
+vim.o.smartcase = true -- Ignore case sensitivity in search
+vim.o.spelllang = "en_gb" -- Sets spelling language to british english
+vim.o.splitbelow = true -- Default horizontal split direction
+vim.o.splitright = true -- Default vertical split direction
+vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
+vim.o.undofile = true -- Save undo history
+vim.o.updatetime = 250 -- Decreases update time
+vim.o.clipboard = "unnamedplus"
