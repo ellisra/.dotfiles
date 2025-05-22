@@ -18,6 +18,7 @@ return {
         dim = { enabled = false },
         git = { enabled = false },
         gitbrowse = { enabled = false },
+        image = { enabled = false },
         lazygit = { enabled = false },
         notifier = { enabled = false },
         notify = { enabled = false },
