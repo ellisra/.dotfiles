@@ -6,10 +6,7 @@ return {
     dependencies = "echasnovski/mini.nvim",
 
     opts = {
-        fzf_colors = {
-            ["gutter"] = { "bg", "Normal" },
-            ["bg+"] = { "bg", { "Cursorline" } },
-        },
+        fzf_colors = true,
 
         fzf_opts = {
             ["--info"] = "inline",
