@@ -28,6 +28,9 @@ alias ll='eza -al --icons'
 alias la='eza -a --icons'
 alias lt='eza -a --tree --level=1 --icons'
 
+alias sb='cd ~/second-brain'
+alias df='cd ~/.dotfiles'
+
 # Other aliases
 # Make and cd into new directory
 mkcd() {
