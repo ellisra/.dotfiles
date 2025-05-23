@@ -101,8 +101,6 @@ local function set_highlights()
     set_hl("MiniHipatternsTodo", { fg = bg0, bg = blue })
     set_hl("MiniHipatternsFixme", { fg = bg0, bg = red })
     set_hl("MiniHipatternsNote", { fg = bg0, bg = aqua })
-
-    set_hl("IblScope", { fg = fg3 })
 end
 
 return {
@@ -114,6 +112,7 @@ return {
     init = function()
         -- vim.cmd.colorscheme("base16-gruvbox-material-dark-hard")
         vim.cmd.colorscheme("dawnfox")
+        -- vim.cmd.colorscheme("base16-kanagawa")
 
         set_highlights()
 
@@ -121,8 +120,8 @@ return {
             callback = function()
                 set_highlights()
             end,
-        })
 
-        vim.api.nvim_create_user_command("SetHighlights", set_highlights, {})
+            desc = "Reapply custom highlights on colorscheme change",
+        })
     end,
 }
