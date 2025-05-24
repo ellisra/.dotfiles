@@ -149,6 +149,13 @@ return {
             desc = "[S]earch [D]iagnostics",
         },
         {
+            "<leader>sD",
+            function()
+                require("fzf-lua").diagnostic_workspace()
+            end,
+            desc = "[S]earch workspace [D]iagnostics",
+        },
+        {
             "<leader>sr",
             function()
                 require("fzf-lua").resume()
@@ -241,9 +248,25 @@ return {
             end,
             desc = "[S][P]elling suggestions",
         },
+        {
+            "<leader>cp",
+            function()
+                require("fzf-lua").complete_path()
+            end,
+            desc = "[C]omplete [P]ath",
+        },
     },
 
     init = function()
-        require("fzf-lua").register_ui_select()
+        local FzfLua = require("fzf-lua")
+        -- local map = vim.keymap.set
+        FzfLua.register_ui_select()
+
+        -- map("n", "<leader>sf", function()
+        --     FzfLua.files()
+        -- end, { desc = "[S]earch [F]iles" })
+        -- map("n", "<leader>sg", function()
+        --     FzfLua.live_grep()
+        -- end, { desc = "[S]earch [G]rep" })
     end,
 }
