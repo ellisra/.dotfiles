@@ -20,7 +20,7 @@ return {
         },
 
         oldfiles = {
-            ignore_current_session = false,
+            include_current_session = true,
         },
 
         previewers = {
@@ -84,186 +84,112 @@ return {
         },
     },
 
-    keys = {
-        {
-            "<leader>sf",
-            function()
-                require("fzf-lua").files()
-            end,
-            desc = "[S]earch [F]iles",
-        },
-        {
-            "<leader>sg",
-            function()
-                require("fzf-lua").live_grep()
-            end,
-            desc = "[S]earch [G]rep",
-        },
-        {
-            "<leader>sm",
-            function()
-                require("fzf-lua").helptags({
-                    winopts = {
-                        width = 1,
-                        preview = {
-                            hidden = false,
-                            layout = "horizontal",
-                            horizontal = "right:60%",
-                        },
-                    },
-                })
-            end,
-            desc = "[S]earch [M]anual",
-        },
-        {
-            "<leader>sk",
-            function()
-                require("fzf-lua").keymaps({
-                    winopts = {
-                        width = 1,
-                        height = 0.4,
-                        preview = {
-                            layout = "vertical",
-                            vertical = "down:40%",
-                        },
-                    },
-                })
-            end,
-            desc = "[S]earch [K]eymaps",
-        },
-        {
-            "<leader>sw",
-            function()
-                require("fzf-lua").grep_cword()
-            end,
-            desc = "[S]earch current [W]ord",
-        },
-        {
-            "<leader>sd",
-            function()
-                require("fzf-lua").diagnostics_document()
-            end,
-            desc = "[S]earch [D]iagnostics",
-        },
-        {
-            "<leader>sD",
-            function()
-                require("fzf-lua").diagnostic_workspace()
-            end,
-            desc = "[S]earch workspace [D]iagnostics",
-        },
-        {
-            "<leader>sr",
-            function()
-                require("fzf-lua").resume()
-            end,
-            desc = "[S]earch [R]esume",
-        },
-        {
-            "<leader>sc",
-            function()
-                require("fzf-lua").colorschemes({
-                    winopts = { height = 0.20, width = 0.30 },
-                })
-            end,
-            desc = "[S]earch [C]olourschemes",
-        },
-        {
-            "<leader>ca",
-            function()
-                require("fzf-lua").lsp_code_actions()
-            end,
-            desc = "[C]ode [A]ctions",
-        },
-        {
-            "<leade>sq",
-            function()
-                require("fzf-lua").quickfix()
-            end,
-            desc = "[S]earch [Q]uickfix",
-        },
-        {
-            "<leader>so",
-            function()
-                require("fzf-lua").oldfiles()
-            end,
-            desc = "[S]earch [O]ldfiles",
-        },
-        {
-            "<leader><leader>",
-            function()
-                require("fzf-lua").buffers()
-            end,
-            desc = "[ ] Existing Buffers",
-        },
-        {
-            "<leader>sn",
-            function()
-                require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
-            end,
-            desc = "[S]earch [N]eovim config",
-        },
-        {
-            "<leader>sh",
-            function()
-                require("fzf-lua").highlights()
-            end,
-            desc = "[S]earch [H]ighlights",
-        },
-        {
-            "<leader>gd",
-            function()
-                require("fzf-lua").lsp_definitions({ jump1 = true })
-            end,
-            desc = "[G]o to [D]efinition",
-        },
-        {
-            "<leader>gr",
-            function()
-                require("fzf-lua").lsp_references({ ignore_current_line = true })
-            end,
-            desc = "[G]o to [R]eference",
-        },
-        {
-            "<leader>ds",
-            function()
-                require("fzf-lua").lsp_document_symbols()
-            end,
-            desc = "[D]ocument [S]ymbols",
-        },
-        {
-            "<leader>ws",
-            function()
-                require("fzf-lua").lsp_live_workspace_symbols()
-            end,
-            desc = "[W]orkspace [S]ymbols",
-        },
-        {
-            "<leader>sp",
-            function()
-                require("fzf-lua").spell_suggest()
-            end,
-            desc = "[S][P]elling suggestions",
-        },
-        {
-            "<leader>cp",
-            function()
-                require("fzf-lua").complete_path()
-            end,
-            desc = "[C]omplete [P]ath",
-        },
-    },
-
     init = function()
         local FzfLua = require("fzf-lua")
-        -- local map = vim.keymap.set
+        local map = vim.keymap.set
         FzfLua.register_ui_select()
 
-        -- map("n", "<leader>sf", function()
-        --     FzfLua.files()
-        -- end, { desc = "[S]earch [F]iles" })
-        -- map("n", "<leader>sg", function()
-        --     FzfLua.live_grep()
-        -- end, { desc = "[S]earch [G]rep" })
+        -- Buffers and Files
+        map("n", "<leader>sf", function()
+            FzfLua.files()
+        end, { desc = "[S]earch [F]iles" })
+
+        map("n", "<leader>so", function()
+            FzfLua.oldfiles()
+        end, { desc = "[S]earch [O]ldfiles" })
+
+        map("n", "<leader>sn", function()
+            FzfLua.files({ cwd = vim.fn.stdpath("config") })
+        end, { desc = "[S]earch [N]eovim config" })
+
+        map("n", "<leader><leader>", function()
+            FzfLua.buffers()
+        end, { desc = "[ ] Existing buffers" })
+
+        -- Grep
+        map("n", "<leader>sg", function()
+            FzfLua.live_grep()
+        end, { desc = "[S]earch [G]rep" })
+
+        -- LSP and Diagnostics
+        map("n", "<leader>sd", function()
+            FzfLua.diagnostics_document({
+                winopts = {
+                    width = 1,
+                    height = 0.2,
+                },
+            })
+        end, { desc = "[S]earch [D]iagnostics" })
+
+        map("n", "<leader>sD", function()
+            FzfLua.diagnostics_workspace({
+                winopts = {
+                    width = 1,
+                    height = 0.2,
+                },
+            })
+        end, { desc = "[S]earch workspace [D]iagnostics" })
+
+        map("n", "<leader>ca", function()
+            FzfLua.lsp_code_actions()
+        end, { desc = "[C]ode [A]ctions" })
+
+        map("n", "<leader>gd", function()
+            FzfLua.lsp_definitions({ jump1 = true })
+        end, { desc = "[G]o to [D]efinition" })
+
+        map("n", "<leader>gr", function()
+            FzfLua.lsp_references({ ignore_current_line = true })
+        end, { desc = "[G]o to [R]eference" })
+
+        -- Misc
+        map("n", "<leader>sm", function()
+            FzfLua.helptags({
+                winopts = {
+                    width = 1,
+                    preview = {
+                        hidden = false,
+                        layout = "horizontal",
+                        horizontal = "right:60%",
+                    },
+                },
+            })
+        end, { desc = "[S]earch [M]anual" })
+
+        map("n", "<leader>sk", function()
+            FzfLua.keymaps({
+                winopts = {
+                    width = 1,
+                    height = 0.4,
+                    preview = {
+                        layout = "vertical",
+                        vertical = "down:40%",
+                    },
+                },
+            })
+        end, { desc = "[S]earch [K]eymaps" })
+
+        map("n", "<leader>sr", function()
+            FzfLua.resume()
+        end, { desc = "[S]earch [R]esume" })
+
+        map("n", "<leader>sc", function()
+            FzfLua.colorschemes({
+                winopts = { height = 0.2, width = 0.2 },
+            })
+        end, { desc = "[S]earch [C]olorschemes" })
+
+        map("n", "<leader>sh", function()
+            FzfLua.highlights()
+        end, { desc = "[S]earch [H]ighlights" })
+
+        map("n", "<leader>sp", function()
+            FzfLua.spell_suggest()
+        end, { desc = "[S][p]elling suggestions" })
+
+        -- Completion
+        map("n", "<leader>cp", function()
+            FzfLua.complete_path()
+        end, { desc = "[C]omplete [P]ath" })
     end,
 }
