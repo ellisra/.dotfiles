@@ -180,11 +180,11 @@ return {
         end, { desc = "[S]earch [C]olorschemes" })
 
         map("n", "<leader>sh", function()
-            FzfLua.highlights()
+            FzfLua.highlights({ fzf_colors = true })
         end, { desc = "[S]earch [H]ighlights" })
 
         map("n", "<leader>sp", function()
-            FzfLua.spell_suggest()
+            FzfLua.spell_suggest({ winopts = { width = 0.1, height = 0.2 } })
         end, { desc = "[S][p]elling suggestions" })
 
         -- Completion
