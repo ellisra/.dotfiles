@@ -18,6 +18,7 @@ return {
                 "ruff_format",
                 "ruff_organize_imports",
             },
+            go = { "goimports", "gofmt" },
         },
     },
 }

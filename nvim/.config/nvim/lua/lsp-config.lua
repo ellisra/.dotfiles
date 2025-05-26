@@ -23,6 +23,7 @@ return {
         "markdown-oxide",
         "rust-analyzer",
         "clangd",
+        "gopls",
     }),
 
     vim.diagnostic.config({
