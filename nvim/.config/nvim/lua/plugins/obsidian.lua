@@ -22,9 +22,9 @@ return {
         },
 
         daily_notes = {
-            folder = "work/work-todo",
+            folder = "journal/todo",
             date_format = "%Y-%m-%d - TODO",
-            template = ".obsidian/templates/work-todo-template.md",
+            template = ".obsidian/templates/todo-template.md",
             default_tags = {},
         },
 
