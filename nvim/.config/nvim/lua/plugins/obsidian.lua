@@ -150,7 +150,7 @@ return {
             client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")),
                 id = tostring(os.date("%Y-%m-%d")),
-                dir = client.dir / "general/journal/entries",
+                dir = client.dir / "journal/entries",
                 tags = { "journal", "journal-entry" },
             }))
         end, { desc = "Creates a journal entry note" })
@@ -162,7 +162,7 @@ return {
             client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")) .. user_input,
                 id = tostring(os.date("%Y-%m-%d")) .. user_input,
-                dir = client.dir / "general/journal/thoughts",
+                dir = client.dir / "journal/thoughts",
                 tags = { "journal", "thought" },
             }))
         end, {
@@ -176,7 +176,7 @@ return {
             client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")),
                 id = tostring(os.date("%Y-%m-%d")),
-                dir = client.dir / "general/journal/secrets",
+                dir = client.dir / "journal/secrets",
                 tags = { "journal", "secret" },
             }))
         end, {
@@ -192,7 +192,7 @@ return {
                     os.date("%Y")
                 ),
                 id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
-                dir = client.dir / "general/journal/weekly-review",
+                dir = client.dir / "journal/weekly-review",
                 tags = { "journal", "weekly-recap" },
             }))
         end, { desc = "Create weekly recap note" })
