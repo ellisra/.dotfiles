@@ -73,7 +73,7 @@ return {
             min_keyword_length = function()
                 local mode = vim.api.nvim_get_mode().mode
                 if mode == "c" then
-                    return 3
+                    return 2
                 else
                     return 1
                 end
