@@ -22,7 +22,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# Set-up icons for files/folders in terminal using eza
+# Aliases
 alias ls='eza --icons'
 alias ll='eza -al --icons'
 alias la='eza -a --icons'
@@ -30,6 +30,8 @@ alias lt='eza -a --tree --level=1 --icons'
 
 alias sb='cd ~/second-brain'
 alias df='cd ~/.dotfiles'
+
+alias lg='lazygit'
 
 # Other aliases
 # Make and cd into new directory
@@ -41,7 +43,5 @@ mkcd() {
 toad() {
     touch "$1" && code "$1"
 }
-
-alias lg='lazygit'
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"

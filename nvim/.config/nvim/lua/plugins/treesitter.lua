@@ -11,6 +11,7 @@ return {
             "bash",
             "c",
             "diff",
+            "go",
             "html",
             "json",
             "lua",
@@ -24,6 +25,7 @@ return {
             "rust",
             "toml",
             "python",
+            "yaml",
         }
 
         require("nvim-treesitter").install(patterns)
