@@ -45,3 +45,5 @@ toad() {
 }
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
+
+PATH=/home/rob/bin:$PATH
