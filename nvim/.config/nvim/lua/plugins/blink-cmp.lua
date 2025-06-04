@@ -6,7 +6,7 @@ return {
     version = "*",
 
     dependencies = {
-        { "L3MON4D3/LuaSnip", version = "v2.*" },
+        -- { "L3MON4D3/LuaSnip", version = "v2.*" },
         "rafamadriz/friendly-snippets",
     },
 
@@ -58,7 +58,7 @@ return {
         },
 
         snippets = {
-            preset = "luasnip",
+            -- preset = "luasnip",
         },
 
         sources = {

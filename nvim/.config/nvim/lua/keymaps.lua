@@ -154,3 +154,9 @@ end, { desc = "Jump to last diagnostic" })
 vim.keymap.set("n", "#D", function()
     vim.diagnostic.jump({ count = -100, wrap = false })
 end, { desc = "Jump to first diagnostic" })
+
+vim.keymap.set("n", "'", function()
+    if vim.snippet.active({ direction = 1 }) then
+        vim.snippet.jump(1)
+    end
+end, { desc = "Jump to next snippet placeholder", expr = true, silent = true })

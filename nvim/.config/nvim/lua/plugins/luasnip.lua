@@ -2,6 +2,7 @@
 return {
     "L3MON4D3/LuaSnip",
 
+    enabled = false,
     event = "LspAttach",
     build = (function()
         if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then

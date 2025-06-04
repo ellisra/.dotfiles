@@ -2,14 +2,15 @@
 return {
     "folke/snacks.nvim",
 
+    enabled = false,
     priority = 1000,
     lazy = false,
 
     opts = {
-        dashboard = require("plugins.snacks.dashboard"),
-        indent = require("plugins.snacks.indent"),
-        quickfile = { enabled = true },
-        rename = { enabled = true },
+        -- dashboard = require("plugins.snacks.dashboard"),
+        -- indent = require("plugins.snacks.indent"),
+        -- quickfile = { enabled = true },
+        -- rename = { enabled = true },
 
         bigfile = { enabled = false },
         animate = { enabled = false },
