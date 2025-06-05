@@ -2,7 +2,6 @@ require("lazy").setup({
     -- Language Functionality
     require("plugins.blink-cmp"),
     require("plugins.conform"),
-    require("plugins.luasnip"),
     require("plugins.treesitter"),
 
     -- Markdown
@@ -17,7 +16,6 @@ require("lazy").setup({
     require("plugins.lazydev"),
     require("plugins.mini.main"),
     require("plugins.no-neck-pain"),
-    require("plugins.snacks.main"),
 
     -- Themes
     require("themes.base16-nvim"),
