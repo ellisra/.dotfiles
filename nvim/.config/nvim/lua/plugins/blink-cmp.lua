@@ -57,14 +57,7 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "lazydev" },
-            providers = {
-                lazydev = {
-                    name = "LazyDev",
-                    module = "lazydev.integrations.blink",
-                    score_offset = 100,
-                },
-            },
+            default = { "lsp", "path", "snippets", "buffer" },
             min_keyword_length = function()
                 local mode = vim.api.nvim_get_mode().mode
                 if mode == "c" then

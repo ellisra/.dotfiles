@@ -13,7 +13,6 @@ require("lazy").setup({
     require("plugins.fzf"),
 
     -- QoL
-    require("plugins.lazydev"),
     require("plugins.mini.main"),
     require("plugins.no-neck-pain"),
 
