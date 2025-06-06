@@ -25,6 +25,28 @@ return {
         items = custom_items,
 
         footer = function()
+            local function wrap_text(text, max_width)
+                local lines = {}
+                local current_line = ""
+
+                for word in text:gmatch("%S+") do
+                    if #current_line == 0 then
+                        current_line = word
+                    elseif #current_line + #word + 1 <= max_width then
+                        current_line = current_line .. " " .. word
+                    else
+                        table.insert(lines, current_line)
+                        current_line = word
+                    end
+                end
+
+                if #current_line > 0 then
+                    table.insert(lines, current_line)
+                end
+
+                return table.concat(lines, "\n")
+            end
+
             local handle = io.popen(
                 "wget -q http://www.brainyquote.com/link/quotebr.js -O - | grep -o -E \"[A-Z][^<]*\" | head -3"
             )
@@ -42,7 +64,12 @@ return {
                 end
 
                 if #lines >= 3 then
-                    result = lines[1] .. ":\n" .. lines[2] .. "\n- " .. lines[3]
+                    local wrapped_quote = wrap_text(lines[2], 50)
+                    result = lines[1]
+                        .. ":\n"
+                        .. wrapped_quote
+                        .. "\n- "
+                        .. lines[3]
                 else
                     result = output
                 end
