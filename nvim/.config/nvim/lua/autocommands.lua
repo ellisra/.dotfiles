@@ -6,10 +6,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.api.nvim_create_autocmd(
-    "VimResized",
-    { desc = "Resize splits if terminal resized", command = "wincmd =" }
-)
+vim.api.nvim_create_autocmd("VimResized", {
+    desc = "Resize splits if terminal resized",
+    command = "wincmd =",
+})
 
 vim.api.nvim_create_autocmd("BufReadPost", {
     desc = "Place curseor at last position on buffer entry",
