@@ -169,20 +169,20 @@ return {
                 dir = client.dir / "journal/entries",
                 tags = { "journal", "journal-entry" },
             }))
-        end, { desc = "Creates a journal entry note" })
+        end, { desc = "Creates a journal entry" })
 
-        vim.api.nvim_create_user_command("JournalThought", function(opts)
+        vim.api.nvim_create_user_command("JournalNote", function(opts)
             local client = require("obsidian").get_client()
-            local user_input = " - " .. opts.args
+            local title_cont = " - " .. opts.args
 
             client:open_note(client:create_note({
-                title = tostring(os.date("%A, %d %B %Y")) .. user_input,
-                id = tostring(os.date("%Y-%m-%d")) .. user_input,
-                dir = client.dir / "journal/thoughts",
-                tags = { "journal", "thought" },
+                title = tostring(os.date("%A, %d %B %Y")) .. title_cont,
+                id = tostring(os.date("%Y-%m-%d")) .. title_cont,
+                dir = client.dir / "journal/notes",
+                tags = { "journal", "note" },
             }))
         end, {
-            desc = "Creates a journal note on a topic (requires title)",
+            desc = "Creates a journal note (requires title)",
             nargs = 1,
         })
 
