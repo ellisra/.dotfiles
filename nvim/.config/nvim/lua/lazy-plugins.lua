@@ -20,7 +20,7 @@ require("lazy").setup({
     require("themes.base16-nvim"),
 }, {
     ui = {
-        border = "rounded",
+        border = "single",
         backdrop = 100,
         icons = vim.g.have_nerd_font and {} or {
             cmd = "⌘",
