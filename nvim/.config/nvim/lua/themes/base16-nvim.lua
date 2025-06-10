@@ -97,7 +97,7 @@ local function set_highlights()
     set_hl("MiniDiffSignAdd", { fg = green })
     set_hl("MiniDiffSignChange", { fg = blue })
     set_hl("MiniDiffSignDelete", { fg = red })
-
+    set_hl("MiniIndentscopeSymbol", { fg = bg3 })
     set_hl("MiniHipatternsHack", { fg = bg0, bg = orange })
     set_hl("MiniHipatternsTodo", { fg = bg0, bg = blue })
     set_hl("MiniHipatternsFixme", { fg = bg0, bg = red })
