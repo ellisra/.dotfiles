@@ -4,7 +4,10 @@ local function get_num_wraps()
     local winid = vim.api.nvim_get_current_win()
     local winwidth = vim.api.nvim_win_get_width(winid)
     local numberwidth = vim.wo.number and vim.wo.numberwidth or 0
-    local signwidth = vim.fn.exists("*sign_define") == 1 and vim.fn.sign_getdefined() and 2 or 0
+    local signwidth = vim.fn.exists("*sign_define") == 1
+            and vim.fn.sign_getdefined()
+            and 2
+        or 0
     local foldcolumn = vim.wo.foldcolumn
     local foldwidth = tonumber(foldcolumn) or 0
 
