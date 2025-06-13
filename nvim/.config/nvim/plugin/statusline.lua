@@ -65,15 +65,6 @@ local function git_info()
     end
 end
 
--- local function filepath()
---     local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.:h")
---     if fpath == "" or fpath == "." then
---         return " "
---     end
---
---     return string.format("%%<%s/", fpath)
--- end
-
 local function filename()
     local fname = vim.fn.expand("%:t")
     if fname == "" then
