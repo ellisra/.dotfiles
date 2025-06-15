@@ -47,13 +47,15 @@ return {
                 auto_show = true,
                 auto_show_delay_ms = 200,
                 treesitter_highlighting = true,
+
+                window = { border = "single" },
             },
+
+            ghost_text = { enabled = false },
 
             trigger = {
                 show_on_insert_on_trigger_character = false,
             },
-
-            ghost_text = { enabled = false },
         },
 
         sources = {
