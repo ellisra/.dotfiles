@@ -56,15 +56,18 @@ return {
         -- Pickers
         defaults = {
             find_opts = [[-type f -not -path '*/\.git/*']],
-            rg_opts = [[--color=never --files --hidden --follow -g "!.git"]],
-            fd_opts = [[--color=never --type f --hidden --follow --exclude .git -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.webp' -E '*.exe' -E '*.pyc' -E '*.svg']],
+            rg_opts = "--color=never --files --hidden --follow -g '!.git'",
+            fd_opts = "--color=never --type f --hidden --follow --exclude .git"
+                .. " -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.webp' -E '*.exe' -E"
+                .. " '*.pyc' -E '*.svg'",
 
             formatter = "path.filename_first",
             git_icons = true,
         },
 
         grep = {
-            rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git/' -e",
+            rg_opts = "--column --line-number --no-heading --color=always "
+                .. "--smart-case --max-columns=4096 --hidden -g '!.git/' -e",
 
             rg_glob = true,
             glob_flag = "--iglob",
