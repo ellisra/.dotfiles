@@ -16,7 +16,6 @@ return {
         require("plugins.mini.files")
         require("plugins.mini.hipatterns")
         require("plugins.mini.indentscope")
-        -- require("plugins.mini.starter")
         require("plugins.mini.surround")
     end,
 }
