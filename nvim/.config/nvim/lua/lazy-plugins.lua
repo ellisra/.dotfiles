@@ -13,7 +13,7 @@ require("lazy").setup({
     require("plugins.fzf"),
 
     -- QoL
-    require("plugins.mini.main"),
+    require("plugins.mini.mini-nvim"),
     require("plugins.no-neck-pain"),
 
     -- Themes
