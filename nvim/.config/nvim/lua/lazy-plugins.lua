@@ -17,7 +17,7 @@ require("lazy").setup({
     require("plugins.no-neck-pain"),
 
     -- Themes
-    require("themes.base16-nvim"),
+    -- require("themes.base16-nvim"),
 }, {
     ui = {
         border = "single",
