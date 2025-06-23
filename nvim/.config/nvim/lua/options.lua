@@ -17,6 +17,7 @@ vim.o.autoindent = true
 -- General
 vim.o.breakindent = true -- Makes wrapped lines wrap to the same indent level
 vim.o.clipboard = "unnamedplus" -- Sync yank register with system clipboard
+vim.o.confirm = true -- Ask if you want to save unsaved changes on :q or :e
 vim.o.cursorline = true -- Highlight cursor line
 vim.o.ignorecase = true -- Ignore case sensitivity in search
 vim.o.linebreak = true -- Wrap lines on spaces rather than characters
