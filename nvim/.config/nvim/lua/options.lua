@@ -5,6 +5,7 @@ vim.o.relativenumber = true
 -- Sets how whitespace charactes are displayed
 vim.o.list = true
 vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
+vim.opt.fillchars = { eob = " " }
 
 -- Set default tab size
 vim.o.expandtab = true

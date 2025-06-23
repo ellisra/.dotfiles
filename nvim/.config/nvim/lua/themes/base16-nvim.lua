@@ -102,6 +102,8 @@ local function set_highlights()
     set_hl("MiniHipatternsTodo", { fg = bg0, bg = blue })
     set_hl("MiniHipatternsFixme", { fg = bg0, bg = red })
     set_hl("MiniHipatternsNote", { fg = bg0, bg = aqua })
+
+    set_hl("FzfLuaLivePrompt", { link = "Normal" })
 end
 
 return {
