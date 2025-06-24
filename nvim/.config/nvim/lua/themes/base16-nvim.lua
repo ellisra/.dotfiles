@@ -113,8 +113,8 @@ return {
     priority = 1000,
 
     init = function()
-        -- vim.cmd.colorscheme("dawnfox")
-        vim.cmd.colorscheme("base16-kanagawa")
+        vim.cmd.colorscheme("dawnfox")
+        -- vim.cmd.colorscheme("base16-kanagawa")
 
         set_highlights()
 
