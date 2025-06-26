@@ -34,11 +34,13 @@ alias df='cd ~/.dotfiles'
 alias lg='lazygit'
 
 alias ga='git add'
-alias gaa='git add .'
 alias gc='git commit -m'
-alias gp='git pull'
-alias gP='git push'
-alias gss='git stash save'
+alias gu='git pull'
+alias gp='git push'
+alias gi='git init'
+alias gs='git switch'
+alias gcl='git clone'
+alias gss='git stash save temp'
 alias gsp='git stash pop'
 
 # Other aliases
