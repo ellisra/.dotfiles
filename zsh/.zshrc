@@ -33,6 +33,14 @@ alias df='cd ~/.dotfiles'
 
 alias lg='lazygit'
 
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gp='git pull'
+alias gP='git push'
+alias gss='git stash save'
+alias gsp='git stash pop'
+
 # Other aliases
 # Make and cd into new directory
 mkcd() {
