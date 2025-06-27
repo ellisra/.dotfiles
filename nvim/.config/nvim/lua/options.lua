@@ -20,6 +20,7 @@ vim.o.clipboard = "unnamedplus" -- Sync yank register with system clipboard
 vim.o.confirm = true -- Ask if you want to save unsaved changes on :q or :e
 vim.o.cursorline = true -- Highlight cursor line
 vim.o.ignorecase = true -- Ignore case sensitivity in search
+vim.o.lazyredraw = true
 vim.o.linebreak = true -- Wrap lines on spaces rather than characters
 vim.o.mouse = "a" -- Allows mouse mode
 vim.o.scrolloff = 10 -- Minimum number of lines above or below the cursor
