@@ -1,24 +1,11 @@
---- Reduces flickering when jumping around buffer
----@param keys string inputs from user
----@return function which uses lazyredraw to draw the buffer
-local function lazykeys(keys)
-    keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-    return function()
-        local old = vim.o.lazyredraw
-        vim.o.lazyredraw = true
-        vim.api.nvim_feedkeys(keys, "nx", false)
-        vim.o.lazyredraw = old
-    end
-end
-
 -- Make navigation keys handle wrapped text better in navigation mode
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "j", "gj")
 
 -- Ctrl + j/k navigates half page down/up and centres the cursor
-vim.keymap.set("n", "<C-j>", lazykeys("<C-d>zz"))
+vim.keymap.set("n", "<C-j>", "<C-d>zz")
 vim.keymap.set("i", "<C-j>", "<C-o><C-d><C-o>zz")
-vim.keymap.set("n", "<C-k>", lazykeys("<C-u>zz"))
+vim.keymap.set("n", "<C-k>", "<C-u>zz")
 vim.keymap.set("i", "<C-k>", "<C-o><C-u><C-o>zz")
 
 -- Navigate to the start of the line with Home
@@ -160,3 +147,8 @@ vim.keymap.set("n", "'", function()
         vim.snippet.jump(1)
     end
 end, { desc = "Jump to next snippet placeholder", expr = true, silent = true })
+
+vim.keymap.set("n", "<leader>at", function()
+    require("utils").select_markdown_table()
+    vim.cmd("normal! gA|")
+end, { desc = "[A]lign [T]able" })
