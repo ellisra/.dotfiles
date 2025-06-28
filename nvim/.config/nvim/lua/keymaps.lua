@@ -150,5 +150,5 @@ end, { desc = "Jump to next snippet placeholder", expr = true, silent = true })
 
 vim.keymap.set("n", "<leader>at", function()
     require("utils").select_markdown_table()
-    vim.cmd("normal! gA|")
+    vim.api.nvim_feedkeys("ga|", "x", false)
 end, { desc = "[A]lign [T]able" })

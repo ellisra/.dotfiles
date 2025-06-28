@@ -1,5 +1,6 @@
 local M = {}
 
+---Selects markdown table under cursor in visual line mode
 function M.select_markdown_table()
     local line_num = vim.fn.line(".")
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)

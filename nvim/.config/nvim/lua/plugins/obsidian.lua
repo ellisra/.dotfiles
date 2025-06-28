@@ -1,4 +1,3 @@
----@type LazySpec
 return {
     "obsidian-nvim/obsidian.nvim",
 
