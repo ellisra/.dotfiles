@@ -18,3 +18,9 @@ These are my personal configuration files, feel free to copy all or any part of 
 - zsh-syntax-highlighting `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 - zsh-autosuggestions `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 - Oh My Posh `curl -s https://ohmyposh.dev/install.sh | bash -s`
+
+| example | table |
+| ---     | ---   |
+| name    | foo   |
+| age     | bar   |
+

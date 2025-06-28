@@ -1,4 +1,4 @@
-local MiniStarter = require("mini.starter")
+local ministarter = require("mini.starter")
 local custom_items = {
     { name = "files", action = ":FzfLua files", section = "Pickers" },
     {
@@ -8,12 +8,12 @@ local custom_items = {
         end,
         section = "Pickers",
     },
-    MiniStarter.sections.recent_files(9, false, false),
-    MiniStarter.sections.builtin_actions(),
+    ministarter.sections.recent_files(9, false, false),
+    ministarter.sections.builtin_actions(),
 }
 
 return {
-    MiniStarter.setup({
+    ministarter.setup({
         header = function()
             local hour = tonumber(vim.fn.strftime("%H"))
             local part_id = math.floor((hour + 4) / 8) + 1
@@ -79,12 +79,12 @@ return {
         end,
 
         content_hooks = {
-            MiniStarter.gen_hook.adding_bullet(),
-            MiniStarter.gen_hook.indexing(
+            ministarter.gen_hook.adding_bullet(),
+            ministarter.gen_hook.indexing(
                 "all",
                 { "Builtin actions", "Pickers" }
             ),
-            MiniStarter.gen_hook.aligning("center", "center"),
+            ministarter.gen_hook.aligning("center", "center"),
         },
     }),
 }

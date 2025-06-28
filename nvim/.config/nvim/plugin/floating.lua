@@ -170,8 +170,8 @@ function M.setup()
     vim.keymap.set("n", "<leader>lc", function()
         toggle_terminal({
             title = " calendar ",
-            width = math.floor(vim.o.columns * 0.8),
-            height = math.floor(vim.o.lines * 0.75),
+            width = math.floor(vim.o.columns * 0.95),
+            height = math.floor(vim.o.lines * 0.95),
             term_command = "calcure",
         })
     end, { desc = "[L]oad [C]alendar" })

@@ -1,10 +1,11 @@
 {
-    "diagnostics.disable": [
-        "undefined-doc-name",
-        "missing-fields"
-    ],
+    "runtime.version": "LuaJIT",
     "diagnostics.globals": [
-        "Snacks",
-        "MiniFiles"
+        "vim"
+    ],
+    "workspace.checkThirdParty": false,
+    "workspace.library": [
+        "$VIMRUNTIME",
+        "${3rd}/luv/library"
     ]
 }
