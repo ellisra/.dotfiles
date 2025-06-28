@@ -1,4 +1,3 @@
----@type LazySpec
 return {
     "shortcuts/no-neck-pain.nvim",
 

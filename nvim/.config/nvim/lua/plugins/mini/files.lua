@@ -1,6 +1,8 @@
+local minifiles = require("mini.files")
+
 local function open_cwd()
-    MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-    MiniFiles.reveal_cwd()
+    minifiles.open(vim.api.nvim_buf_get_name(0), false)
+    minifiles.reveal_cwd()
 end
 
 return {
