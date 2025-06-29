@@ -43,6 +43,21 @@ local function create_floating_window(opts)
     return { buf = buf, win = win }
 end
 
+local function attach_lsp_to_buffer(filetype)
+    local clients = vim.lsp.get_clients()
+    for _, client in ipairs(clients) do
+        ---@type table { filetypes: string[] } | nil
+        local config = client.config
+        if
+            config
+            and config.filetypes
+            and vim.tbl_contains(config.filetypes, filetype)
+        then
+            vim.lsp.buf_attach_client(state.scratch.buf, client.id)
+        end
+    end
+end
+
 local function toggle_temp_buffer()
     local filetype = vim.bo.filetype
 
@@ -56,18 +71,7 @@ local function toggle_temp_buffer()
         vim.bo[state.scratch.buf].filetype = filetype
 
         if not vim.tbl_contains({ "markdown" }, filetype) then
-            local clients = vim.lsp.get_clients()
-            for _, client in ipairs(clients) do
-                ---@type table { filetypes: string[] }|nil
-                local config = client.config
-                if
-                    config
-                    and config.filetypes
-                    and vim.tbl_contains(config.filetypes, filetype)
-                then
-                    vim.lsp.buf_attach_client(state.scratch.buf, client.id)
-                end
-            end
+            attach_lsp_to_buffer(filetype)
         end
 
         vim.api.nvim_set_current_buf(state.scratch.buf)
