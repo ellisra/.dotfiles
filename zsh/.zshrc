@@ -57,3 +57,6 @@ toad() {
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
 
 PATH=/home/rob/bin:$PATH
+
+# Created by `pipx` on 2025-07-14 08:20:40
+export PATH="$PATH:/Users/roel99/.local/bin"
