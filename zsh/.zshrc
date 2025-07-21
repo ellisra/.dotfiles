@@ -60,3 +60,7 @@ PATH=/home/rob/bin:$PATH
 
 # Created by `pipx` on 2025-07-14 08:20:40
 export PATH="$PATH:/Users/roel99/.local/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
