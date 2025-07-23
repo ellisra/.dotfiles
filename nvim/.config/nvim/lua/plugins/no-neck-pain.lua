@@ -7,21 +7,16 @@ return {
         width = 107,
     },
 
+    config = function()
+        vim.keymap.set("n", "I", "<cmd>NoNeckPainWidthUp<CR>")
+        vim.keymap.set("n", "U", "<cmd>NoNeckPainWidthDown<CR>")
+    end,
+
     keys = {
         {
             "<leader>nn",
             "<cmd>NoNeckPain<CR>",
             desc = "[N]o [N]eck Pain",
-        },
-        {
-            "<M-i>",
-            "<cmd>NoNeckPainWidthUp<CR>",
-            desc = "Increase width",
-        },
-        {
-            "<M-u>",
-            "<cmd>NoNeckPainWidthDown<CR>",
-            desc = "Decrease width",
         },
     },
 }
