@@ -56,6 +56,10 @@ vim.keymap.set(
     "<cmd>leftabove split<CR>",
     { noremap = true, silent = true, desc = "New window up" }
 )
+vim.keymap.set("n", "H", "<cmd>vertical resize -1<CR>")
+vim.keymap.set("n", "J", "<cmd>resize -1<CR>")
+vim.keymap.set("n", "K", "<cmd>resize +1<CR>")
+vim.keymap.set("n", "L", "<cmd>vertical resize +1<CR>")
 
 -- <leader>H/J/K/L moves the cursor to the window in that direction
 vim.keymap.set(
