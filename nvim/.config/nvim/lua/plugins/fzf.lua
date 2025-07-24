@@ -6,7 +6,7 @@ return {
 
     opts = {
         fzf_colors = true,
-        file_icon_padding = "",
+        file_icon_padding = " ",
 
         fzf_opts = {
             ["--info"] = "inline",
