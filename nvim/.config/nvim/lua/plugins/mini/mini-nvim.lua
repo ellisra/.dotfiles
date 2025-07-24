@@ -12,7 +12,6 @@ return {
         -- Configured Plugins
         require("plugins.mini.clue")
         require("plugins.mini.diff")
-        require("plugins.mini.files")
         require("plugins.mini.hipatterns")
         require("plugins.mini.indentscope")
         require("plugins.mini.surround")
