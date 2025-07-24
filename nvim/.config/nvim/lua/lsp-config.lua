@@ -3,17 +3,21 @@ return {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 
         callback = function(event)
-            local map = function(keys, func, desc)
-                vim.keymap.set(
-                    "n",
-                    keys,
-                    func,
-                    { buffer = event.buf, desc = "LSP: " .. desc }
-                )
-            end
-
-            map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame variable")
-            map("gD", vim.lsp.buf.declaration, "[G]o to [D]eclaration")
+            vim.keymap.set(
+                "n",
+                "<leader>rn",
+                vim.lsp.buf.rename,
+                { desc = "[R]e[N]ame variable" }
+            )
+            vim.keymap.set(
+                "n",
+                "gD",
+                vim.lsp.buf.declaration,
+                { desc = "[G]o to [D]eclaration" }
+            )
+            vim.keymap.set("n", "K", function()
+                vim.lsp.buf.hover({ border = "single" })
+            end, { buffer = event.buf })
         end,
     }),
 
