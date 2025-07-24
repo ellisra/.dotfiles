@@ -8,7 +8,7 @@ return {
         views = {
             confirm = { width = 0.2, height = 0.2 },
             explorer = {
-                width = 0.15,
+                width = 0.2,
                 height = 1,
                 kind = "split:leftmost",
             },
@@ -22,5 +22,14 @@ return {
             "<cmd>Fyler<CR>",
             { desc = "[O]pen File Tree" }
         )
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "fyler",
+            callback = function()
+                vim.opt_local.statuscolumn = ""
+                vim.opt_local.number = false
+                vim.opt_local.relativenumber = false
+            end,
+        })
     end,
 }
