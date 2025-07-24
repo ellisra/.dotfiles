@@ -15,6 +15,7 @@ require("lazy").setup({
     -- QoL
     require("plugins.mini.mini-nvim"),
     require("plugins.no-neck-pain"),
+    require("plugins.fyler"),
 
     -- Themes
     require("themes.base16-nvim"),
