@@ -4,10 +4,10 @@ return {
     version = "*",
 
     opts = {
-        width = 107,
+        width = 120,
     },
 
-    config = function()
+    init = function()
         vim.keymap.set("n", "I", "<cmd>NoNeckPainWidthUp<CR>")
         vim.keymap.set("n", "U", "<cmd>NoNeckPainWidthDown<CR>")
     end,

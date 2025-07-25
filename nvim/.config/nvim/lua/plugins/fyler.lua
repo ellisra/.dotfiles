@@ -8,7 +8,7 @@ return {
         views = {
             confirm = { width = 0.2, height = 0.2 },
             explorer = {
-                width = 0.2,
+                width = 0.12,
                 height = 1,
                 kind = "split:leftmost",
             },
