@@ -21,9 +21,28 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup({
+    require("plugins.blink-cmp"),
+    require("plugins.conform"),
+    require("plugins.treesitter"),
+    require("plugins.obsidian"),
+    require("plugins.render-markdown"),
+    require("plugins.flash"),
+    require("plugins.fzf"),
+    require("plugins.mini.mini-nvim"),
+    require("plugins.no-neck-pain"),
+    require("plugins.fyler"),
+    require("themes.base16-nvim"),
+}, {
+    ui = {
+        border = "single",
+        backdrop = 100,
+        icons = vim.g.have_nerd_font and {},
+    },
+})
+
 -- Modules
 require("options") -- Vim options
-require("lazy-plugins") -- Plugins
 require("autocommands") -- General purpose autocommands
 require("user-commands") -- User commands
 require("lsp-config") -- LSP
