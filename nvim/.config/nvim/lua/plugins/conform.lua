@@ -28,7 +28,6 @@ end
 
 local default_format_options = {
     lsp_fallback = true,
-    async = false,
     timeout = 500,
 }
 
@@ -41,6 +40,31 @@ return {
 
     init = function()
         vim.g.format_modifications_only = true
+
+        vim.api.nvim_create_user_command("FormatDisable", function(args)
+            if args.bang then
+                vim.b.disable_autoformat = true
+            else
+                vim.g.disable_autoformat = true
+            end
+            vim.notify("Format on save disabled")
+        end, {
+            desc = "Disable format on save",
+            bang = true,
+        })
+
+        vim.api.nvim_create_user_command("FormatEnable", function()
+            vim.b.disable_autoformat = false
+            vim.g.disable_autoformat = false
+            vim.notify("Format on save enabled")
+        end, { desc = "Enable format on save" })
+
+        vim.keymap.set(
+            { "n", "v" },
+            "<leader>f",
+            ":lua require('conform').format()<CR>",
+            { desc = "[F]ormat selection" }
+        )
     end,
 
     opts = {
