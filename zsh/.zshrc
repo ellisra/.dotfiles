@@ -1,4 +1,5 @@
 source ~/.dotfiles/zsh/.zsh_paths
+source ~/.secrets
 
 if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
     source ~/.dotfiles/zsh/.zsh_work_settings

@@ -47,3 +47,6 @@ require("autocommands") -- General purpose autocommands
 require("user-commands") -- User commands
 require("lsp-config") -- LSP
 require("keymaps") -- Keymaps
+
+vim.cmd.colorscheme("base16-kanagawa")
+require("utils").set_highlights()
