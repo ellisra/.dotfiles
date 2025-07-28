@@ -4,10 +4,9 @@ return {
     version = "*",
     lazy = true,
     ft = "markdown",
-    cmd = { "ObsidianToday", "ObsidianTag" },
+    cmd = { "Obsidian" },
 
     dependencies = {
-        "nvim-lua/plenary.nvim",
         "ibhagwan/fzf-lua",
         "nvim-treesitter/nvim-treesitter",
     },
@@ -21,7 +20,7 @@ return {
         },
 
         daily_notes = {
-            folder = "journal/todo",
+            folder = "work/todo",
             date_format = "%Y-%m-%d - TODO",
             template = ".obsidian/templates/todo-template.md",
             default_tags = {},
@@ -31,21 +30,6 @@ return {
             nvim_cmp = false,
             blink = false,
             min_chars = 2,
-        },
-
-        mappings = {
-            ["gf"] = {
-                action = function()
-                    return require("obsidian").util.gf_passthrough()
-                end,
-                opts = { noremap = false, expr = true, buffer = true },
-            },
-            ["<cr>"] = {
-                action = function()
-                    return require("obsidian").util.smart_action()
-                end,
-                opts = { buffer = true, expr = true },
-            },
         },
 
         new_notes_location = "current_dir",
@@ -104,10 +88,10 @@ return {
             update_debounce = 200,
             max_file_length = 5000,
 
-            checkboxes = {
-                [" "] = { char = "", hl_group = "ObsidianTodo" },
-                ["x"] = { char = "", hl_group = "ObsidianDone" },
-            },
+            -- checkboxes = {
+            --     [" "] = { char = "", hl_group = "ObsidianTodo" },
+            --     ["x"] = { char = "", hl_group = "ObsidianDone" },
+            -- },
 
             bullets = { char = "•", hl_group = "ObsidianBullet" },
             external_link_icon = {
@@ -132,31 +116,34 @@ return {
                 -- Seems to be overriden by render-markdown (I think?)
             },
         },
+
+        checkbox = { order = { " ", "x" } },
+        legacy_commands = false,
     },
 
     init = function()
         vim.keymap.set(
             "n",
             "<leader>tm",
-            "<cmd>ObsidianTemplate<CR>",
+            "<cmd>Obsidian template<CR>",
             { desc = "[T]e[M]plate" }
         )
         vim.keymap.set(
             "n",
             "<leader>td",
-            "<cmd>ObsidianToday<CR>",
+            "<cmd>Obsidian today<CR>",
             { desc = "[T]o [D]o note" }
         )
         vim.keymap.set(
             "n",
             "<leader>st",
-            "<cmd>ObsidianTag<CR>",
+            "<cmd>Obsidian tag<CR>",
             { desc = "[S]earch [T]ags" }
         )
         vim.keymap.set(
             "n",
             "<leader>O",
-            "<cmd>ObsidianOpen<CR>",
+            "<cmd>Obsidian open<CR>",
             { desc = "[O]pen obsidian" }
         )
 
