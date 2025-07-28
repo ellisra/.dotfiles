@@ -19,6 +19,7 @@ return {
                     reportUnusedFunction = "warning",
                     reportUnusedVariable = "warning",
                     reportUnusedExpression = "warning",
+                    reportAttributeAccessIssue = "none",
                 },
             },
         },
