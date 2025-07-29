@@ -117,6 +117,12 @@ return {
             },
         },
 
+        footer = {
+            enabled = false,
+            separator = "",
+            format = "{{backlinks}} backlinks  {{properties}} properties  {{words}} words  {{chars}} chars",
+        },
+
         checkbox = { order = { " ", "x" } },
         legacy_commands = false,
     },
