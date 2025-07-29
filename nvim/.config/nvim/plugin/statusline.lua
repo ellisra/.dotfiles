@@ -120,6 +120,14 @@ local function lineinfo()
     return string.format("%s %s", mode_color, "%l:%c ")
 end
 
+local function md_info()
+    if vim.bo.filetype == "markdown" then
+        return string.format("%s words ", vim.fn.wordcount().words)
+    end
+
+    return ""
+end
+
 function M.setup()
     Statusline = {}
 
@@ -133,7 +141,9 @@ function M.setup()
             "%#Normal# ",
             filename(),
             "%#Normal#",
-            "%=%#StatusLineExtra#",
+            "%=",
+            md_info(),
+            "%#StatusLineExtra#",
             lsp(),
             filetype(),
             lineinfo(),
