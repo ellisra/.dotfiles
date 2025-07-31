@@ -8,9 +8,7 @@ return {
     config = function()
         local patterns = {
             "bash",
-            "c",
             "diff",
-            "go",
             "html",
             "json",
             "lua",
@@ -25,6 +23,8 @@ return {
             "toml",
             "python",
             "yaml",
+            "javascript",
+            "typescript",
         }
 
         require("nvim-treesitter").install(patterns)

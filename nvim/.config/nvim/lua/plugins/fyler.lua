@@ -54,12 +54,23 @@ return {
     },
 
     init = function()
-        vim.keymap.set(
-            "n",
-            "<leader>o",
-            "<cmd>Fyler<CR>",
-            { desc = "[O]pen File Tree" }
-        )
+        local Fyler = require("fyler")
+
+        vim.keymap.set("n", "<leader>o", function()
+            local window_width =
+                vim.api.nvim_win_get_width(vim.api.nvim_get_current_win())
+
+            -- NOTE: Changes behaviour to use whole nvim width
+            -- local window_width = tonumber(
+            --     vim.api.nvim_exec2("echo &columns", { output = true }).output
+            -- )
+
+            if window_width >= 150 then
+                Fyler.open()
+            else
+                Fyler.open({ kind = "float" })
+            end
+        end, { desc = "[O]pen File Tree" })
 
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "fyler",
