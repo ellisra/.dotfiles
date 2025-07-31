@@ -28,6 +28,7 @@ return {
         "rust-analyzer",
         "clangd",
         "gopls",
+        "vtsls",
     }),
 
     vim.diagnostic.config({
