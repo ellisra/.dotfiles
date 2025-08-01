@@ -128,6 +128,9 @@ return {
     },
 
     init = function()
+        local Obsidian = require("obsidian")
+        local Note = require("obsidian.note")
+
         vim.keymap.set(
             "n",
             "<leader>tm",
@@ -154,23 +157,22 @@ return {
         )
 
         vim.api.nvim_create_user_command("JournalEntry", function()
-            local client = require("obsidian").get_client()
-            client:open_note(client:create_note({
+            Note:open(Note:create({
                 title = tostring(os.date("%A, %d %B %Y")),
                 id = tostring(os.date("%Y-%m-%d")),
-                dir = client.dir / "journal/entries",
+                -- dir = tostring(Obsidian.dir) / "journal/entries",
+                dir = tostring(Obsidian.dir) / "journal/entries",
                 tags = { "journal", "journal-entry" },
             }))
         end, { desc = "Creates a journal entry" })
 
         vim.api.nvim_create_user_command("JournalNote", function(opts)
-            local client = require("obsidian").get_client()
             local title_cont = " - " .. opts.args
 
-            client:open_note(client:create_note({
+            Note:open(Note:create({
                 title = tostring(os.date("%A, %d %B %Y")) .. title_cont,
                 id = tostring(os.date("%Y-%m-%d")) .. title_cont,
-                dir = client.dir / "journal/notes",
+                dir = tostring(Obsidian.dir) / "journal/notes",
                 tags = { "journal", "note" },
             }))
         end, {
@@ -179,12 +181,10 @@ return {
         })
 
         vim.api.nvim_create_user_command("JournalSecret", function()
-            local client = require("obsidian").get_client()
-
-            client:open_note(client:create_note({
+            Note:open(Note:create({
                 title = tostring(os.date("%A, %d %B %Y")),
                 id = tostring(os.date("%Y-%m-%d")),
-                dir = client.dir / "journal/secrets",
+                dir = tostring(Obsidian.dir) / "journal/secrets",
                 tags = { "journal", "secret" },
             }))
         end, {
@@ -192,15 +192,14 @@ return {
         })
 
         vim.api.nvim_create_user_command("WeeklyRecap", function()
-            local client = require("obsidian").get_client()
-            client:open_note(client:create_note({
+            Note:open(Note:create({
                 title = string.format(
                     "Week %d, %d",
                     os.date("%V"),
                     os.date("%Y")
                 ),
                 id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
-                dir = client.dir / "journal/weekly-review",
+                dir = tostring(Obsidian.dir) / "journal/weekly-review",
                 tags = { "journal", "weekly-recap" },
             }))
         end, { desc = "Create weekly recap note" })

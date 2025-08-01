@@ -34,60 +34,61 @@ local default_format_options = {
 return {
     "stevearc/conform.nvim",
 
+    enabled = true,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     keys = {},
 
-    init = function()
-        vim.g.format_modifications_only = true
-
-        vim.api.nvim_create_user_command("FormatDisable", function(args)
-            if args.bang then
-                vim.b.disable_autoformat = true
-            else
-                vim.g.disable_autoformat = true
-            end
-            vim.notify("Format on save disabled")
-        end, {
-            desc = "Disable format on save",
-            bang = true,
-        })
-
-        vim.api.nvim_create_user_command("FormatEnable", function()
-            vim.b.disable_autoformat = false
-            vim.g.disable_autoformat = false
-            vim.notify("Format on save enabled")
-        end, { desc = "Enable format on save" })
-
-        vim.keymap.set(
-            { "n", "v" },
-            "<leader>f",
-            ":lua require('conform').format()<CR>",
-            { desc = "[F]ormat selection" }
-        )
-    end,
+    -- init = function()
+    --     vim.g.format_modifications_only = true
+    --
+    --     vim.api.nvim_create_user_command("FormatDisable", function(args)
+    --         if args.bang then
+    --             vim.b.disable_autoformat = true
+    --         else
+    --             vim.g.disable_autoformat = true
+    --         end
+    --         vim.notify("Format on save disabled")
+    --     end, {
+    --         desc = "Disable format on save",
+    --         bang = true,
+    --     })
+    --
+    --     vim.api.nvim_create_user_command("FormatEnable", function()
+    --         vim.b.disable_autoformat = false
+    --         vim.g.disable_autoformat = false
+    --         vim.notify("Format on save enabled")
+    --     end, { desc = "Enable format on save" })
+    --
+    --     vim.keymap.set(
+    --         { "n", "v" },
+    --         "<leader>f",
+    --         ":lua require('conform').format()<CR>",
+    --         { desc = "[F]ormat selection" }
+    --     )
+    -- end,
 
     opts = {
         notify_on_error = false,
         format_on_save = function(bufnr)
-            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-                return
-            end
-            if vim.g.format_modifications_only then
-                -- Prefer to format Git hunks over entire file
-                diff_format()
-            else
+            -- if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            --     return
+            -- end
+            -- if vim.g.format_modifications_only then
+            --     -- Prefer to format Git hunks over entire file
+            --     diff_format()
+            -- else
                 -- Format entire file
                 return default_format_options
-            end
+            -- end
         end,
         formatters_by_ft = {
             lua = { "stylua" },
-            python = {
-                "ruff_fix",
-                "ruff_format",
-                "ruff_organize_imports",
-            },
+            -- python = {
+            --     "ruff_fix",
+            --     "ruff_format",
+            --     "ruff_organize_imports",
+            -- },
             go = { "goimports", "gofmt" },
         },
     },
