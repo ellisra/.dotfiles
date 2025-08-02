@@ -2,7 +2,6 @@ return {
     "A7Lavinraj/fyler.nvim",
 
     opts = {
-        -- Changes configuration for associated view
         views = {
             confirm = {
                 win = {
@@ -16,22 +15,15 @@ return {
                 },
             },
             explorer = {
-                -- Changes explorer closing behaviour when a file get selected
                 close_on_select = true,
-                -- Changes explorer behaviour to auto confirm simple edits
                 confirm_simple = true,
-                -- Changes explorer behaviour to hijack NETRW
                 default_explorer = true,
-                -- Changes git statuses visibility
                 git_status = true,
-                -- Changes Indentation marker properties
                 indentscope = {
                     marker = "▏",
                 },
                 win = {
-                    -- Changes window border
                     border = "single",
-                    -- Changes buffer options
                     buf_opts = {
                         buflisted = false,
                         buftype = "acwrite",
@@ -40,9 +32,7 @@ return {
                         shiftwidth = 2,
                         syntax = "fyler",
                     },
-                    -- Changes window kind
                     kind = "split_left_most",
-                    -- Changes window kind preset
                     kind_presets = {
                         split_left_most = {
                             width = 0.12,
