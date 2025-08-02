@@ -1,12 +1,13 @@
 return {
     "obsidian-nvim/obsidian.nvim",
 
-    version = "*",
+    version = "3.11.0",
     lazy = true,
     ft = "markdown",
-    cmd = { "Obsidian" },
+    cmd = { "ObsidianToday", "ObsidianTag" },
 
     dependencies = {
+        "nvim-lua/plenary.nvim",
         "ibhagwan/fzf-lua",
         "nvim-treesitter/nvim-treesitter",
     },
@@ -20,7 +21,7 @@ return {
         },
 
         daily_notes = {
-            folder = "work/todo",
+            folder = "journal/todo",
             date_format = "%Y-%m-%d - TODO",
             template = ".obsidian/templates/todo-template.md",
             default_tags = {},
@@ -30,6 +31,21 @@ return {
             nvim_cmp = false,
             blink = false,
             min_chars = 2,
+        },
+
+        mappings = {
+            ["gf"] = {
+                action = function()
+                    return require("obsidian").util.gf_passthrough()
+                end,
+                opts = { noremap = false, expr = true, buffer = true },
+            },
+            ["<cr>"] = {
+                action = function()
+                    return require("obsidian").util.smart_action()
+                end,
+                opts = { buffer = true, expr = true },
+            },
         },
 
         new_notes_location = "current_dir",
@@ -88,10 +104,10 @@ return {
             update_debounce = 200,
             max_file_length = 5000,
 
-            -- checkboxes = {
-            --     [" "] = { char = "", hl_group = "ObsidianTodo" },
-            --     ["x"] = { char = "", hl_group = "ObsidianDone" },
-            -- },
+            checkboxes = {
+                [" "] = { char = "", hl_group = "ObsidianTodo" },
+                ["x"] = { char = "", hl_group = "ObsidianDone" },
+            },
 
             bullets = { char = "•", hl_group = "ObsidianBullet" },
             external_link_icon = {
@@ -116,63 +132,52 @@ return {
                 -- Seems to be overriden by render-markdown (I think?)
             },
         },
-
-        footer = {
-            enabled = false,
-            separator = "",
-            format = "{{backlinks}} backlinks  {{properties}} properties  {{words}} words  {{chars}} chars",
-        },
-
-        checkbox = { order = { " ", "x" } },
-        legacy_commands = false,
     },
 
     init = function()
-        local Obsidian = require("obsidian")
-        local Note = require("obsidian.note")
-
         vim.keymap.set(
             "n",
             "<leader>tm",
-            "<cmd>Obsidian template<CR>",
+            "<cmd>ObsidianTemplate<CR>",
             { desc = "[T]e[M]plate" }
         )
         vim.keymap.set(
             "n",
             "<leader>td",
-            "<cmd>Obsidian today<CR>",
+            "<cmd>ObsidianToday<CR>",
             { desc = "[T]o [D]o note" }
         )
         vim.keymap.set(
             "n",
             "<leader>st",
-            "<cmd>Obsidian tag<CR>",
+            "<cmd>ObsidianTag<CR>",
             { desc = "[S]earch [T]ags" }
         )
         vim.keymap.set(
             "n",
             "<leader>O",
-            "<cmd>Obsidian open<CR>",
+            "<cmd>ObsidianOpen<CR>",
             { desc = "[O]pen obsidian" }
         )
 
         vim.api.nvim_create_user_command("JournalEntry", function()
-            Note:open(Note:create({
+            local client = require("obsidian").get_client()
+            client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")),
                 id = tostring(os.date("%Y-%m-%d")),
-                -- dir = tostring(Obsidian.dir) / "journal/entries",
-                dir = tostring(Obsidian.dir) / "journal/entries",
+                dir = client.dir / "journal/entries",
                 tags = { "journal", "journal-entry" },
             }))
         end, { desc = "Creates a journal entry" })
 
         vim.api.nvim_create_user_command("JournalNote", function(opts)
+            local client = require("obsidian").get_client()
             local title_cont = " - " .. opts.args
 
-            Note:open(Note:create({
+            client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")) .. title_cont,
                 id = tostring(os.date("%Y-%m-%d")) .. title_cont,
-                dir = tostring(Obsidian.dir) / "journal/notes",
+                dir = client.dir / "journal/notes",
                 tags = { "journal", "note" },
             }))
         end, {
@@ -181,10 +186,12 @@ return {
         })
 
         vim.api.nvim_create_user_command("JournalSecret", function()
-            Note:open(Note:create({
+            local client = require("obsidian").get_client()
+
+            client:open_note(client:create_note({
                 title = tostring(os.date("%A, %d %B %Y")),
                 id = tostring(os.date("%Y-%m-%d")),
-                dir = tostring(Obsidian.dir) / "journal/secrets",
+                dir = client.dir / "journal/secrets",
                 tags = { "journal", "secret" },
             }))
         end, {
@@ -192,14 +199,15 @@ return {
         })
 
         vim.api.nvim_create_user_command("WeeklyRecap", function()
-            Note:open(Note:create({
+            local client = require("obsidian").get_client()
+            client:open_note(client:create_note({
                 title = string.format(
                     "Week %d, %d",
                     os.date("%V"),
                     os.date("%Y")
                 ),
                 id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
-                dir = tostring(Obsidian.dir) / "journal/weekly-review",
+                dir = client.dir / "journal/weekly-review",
                 tags = { "journal", "weekly-recap" },
             }))
         end, { desc = "Create weekly recap note" })
