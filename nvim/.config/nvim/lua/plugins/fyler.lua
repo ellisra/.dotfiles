@@ -15,10 +15,8 @@ return {
                 },
             },
             explorer = {
-                close_on_select = true,
                 confirm_simple = true,
                 default_explorer = true,
-                git_status = true,
                 indentscope = {
                     marker = "▏",
                 },
@@ -49,11 +47,6 @@ return {
         vim.keymap.set("n", "<leader>o", function()
             local window_width =
                 vim.api.nvim_win_get_width(vim.api.nvim_get_current_win())
-
-            -- NOTE: Changes behaviour to use whole nvim width
-            -- local window_width = tonumber(
-            --     vim.api.nvim_exec2("echo &columns", { output = true }).output
-            -- )
 
             if window_width >= 150 then
                 Fyler.open()

@@ -16,6 +16,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
+alias mv='NVIM_APPNAME=nvim-mini nvim'
 
 PROMPT_EOL_MARK=''
 HISTFILE=~/.zsh_history
@@ -56,6 +57,8 @@ toad() {
 }
 
 eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.toml)"
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 PATH=/home/rob/bin:$PATH
 
