@@ -78,8 +78,8 @@ return {
             --     -- Prefer to format Git hunks over entire file
             --     diff_format()
             -- else
-                -- Format entire file
-                return default_format_options
+            -- Format entire file
+            return default_format_options
             -- end
         end,
         formatters_by_ft = {
