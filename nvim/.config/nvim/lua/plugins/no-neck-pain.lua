@@ -4,7 +4,7 @@ return {
     version = "*",
 
     opts = {
-        width = 120,
+        width = 130,
     },
 
     init = function()
