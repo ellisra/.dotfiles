@@ -21,7 +21,7 @@ return {
         },
 
         daily_notes = {
-            folder = "journal/todo",
+            folder = "work/todo",
             date_format = "%Y-%m-%d - TODO",
             template = ".obsidian/templates/todo-template.md",
             default_tags = {},
