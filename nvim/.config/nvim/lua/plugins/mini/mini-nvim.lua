@@ -4,10 +4,11 @@ return {
     lazy = false,
     config = function()
         -- One-liners
-        require("mini.ai").setup({})
-        require("mini.align").setup({})
-        require("mini.icons").setup({})
-        require("mini.pairs").setup({})
+        require("mini.ai").setup()
+        require("mini.align").setup()
+        require("mini.icons").setup()
+        require("mini.pairs").setup()
+        require("mini.splitjoin").setup()
 
         -- Configured Plugins
         require("plugins.mini.clue")
