@@ -54,24 +54,24 @@ function M.set_hl(group, options)
 end
 
 function M.set_highlights()
-    local colors = require("base16-colorscheme").colors
+    local palette = require("base16-colorscheme").colors
 
-    local bg0 = colors.base00
-    local bg1 = colors.base01
-    local bg2 = colors.base02
-    local bg3 = colors.base03
-    local fg3 = colors.base04
-    local fg2 = colors.base05
-    local fg1 = colors.base06
-    local fg0 = colors.base07
-    local red = colors.base08
-    local orange = colors.base09
-    local yellow = colors.base0A
-    local green = colors.base0B
-    local aqua = colors.base0C
-    local blue = colors.base0D
-    local purple = colors.base0E
-    local bonus = colors.base0F
+    local bg0 = palette.base00
+    local bg1 = palette.base01
+    local bg2 = palette.base02
+    local bg3 = palette.base03
+    local fg3 = palette.base04
+    local fg2 = palette.base05
+    local fg1 = palette.base06
+    local fg0 = palette.base07
+    local red = palette.base08
+    local orange = palette.base09
+    local yellow = palette.base0A
+    local green = palette.base0B
+    local aqua = palette.base0C
+    local blue = palette.base0D
+    local purple = palette.base0E
+    local bonus = palette.base0F
 
     -- General
     M.set_hl("@keyword", { fg = red })
@@ -79,6 +79,7 @@ function M.set_highlights()
     M.set_hl("@keyword.return", { fg = red })
     M.set_hl("SnippetTabstop", { bg = nil })
     M.set_hl("TSAttribute", { fg = purple })
+    M.set_hl("TSLiteral", { fg = bonus })
     M.set_hl("TSBoolean", { fg = purple })
     M.set_hl("TSComment", { italic = false, fg = bg3 })
     M.set_hl("TSConstant", { fg = purple })

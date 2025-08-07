@@ -10,7 +10,7 @@ return {
     filetypes = { "python" },
     settings = {
         basedpyright = {
-            disableOrganizeImports = true,
+            disableOrganizeImports = false,
             analysis = {
                 typeCheckingMode = "standard",
                 diagnosticSeverityOverrides = {

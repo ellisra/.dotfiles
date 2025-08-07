@@ -8,8 +8,6 @@ return {
         "echasnovski/mini.nvim",
     },
 
-    --@module "render-markdown"
-    --@type render.md.UserConfig
     opts = {
         heading = {
             enabled = true,

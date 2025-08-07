@@ -21,5 +21,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        require("utils").set_highlights()
+    end,
+
+    desc = "Reapply custom highlights on colorscheme change",
+})
+
 -- Turn on spell checking for markdown files
 vim.cmd("autocmd FileType markdown setlocal spell")
