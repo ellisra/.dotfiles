@@ -32,7 +32,8 @@ require("lazy").setup({
     require("plugins.mini.mini-nvim"),
     require("plugins.no-neck-pain"),
     require("plugins.fyler"),
-    require("themes.base16-nvim"),
+
+    { "RRethy/base16-nvim" },
 }, {
     ui = {
         border = "single",
