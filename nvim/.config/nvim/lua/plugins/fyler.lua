@@ -8,8 +8,8 @@ return {
                     kind = "float",
                     kind_presets = {
                         float = {
-                            height = 0.2,
-                            width = 0.2,
+                            height = "0.2rel",
+                            width = "0.2rel",
                         },
                     },
                 },
@@ -30,10 +30,13 @@ return {
                         shiftwidth = 2,
                         syntax = "fyler",
                     },
-                    kind = "split_left_most",
+                    kind = "split_right_most",
                     kind_presets = {
                         split_left_most = {
-                            width = 0.12,
+                            width = "0.12rel",
+                        },
+                        split_right_most = {
+                            width = "0.15rel",
                         },
                     },
                 },
@@ -45,8 +48,7 @@ return {
         local Fyler = require("fyler")
 
         vim.keymap.set("n", "<leader>o", function()
-            local window_width =
-                vim.api.nvim_win_get_width(vim.api.nvim_get_current_win())
+            local window_width = vim.fn.winwidth(0)
 
             if window_width >= 150 then
                 Fyler.open()
