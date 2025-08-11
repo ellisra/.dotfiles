@@ -1,4 +1,4 @@
----@type vim.lsp.config
+---@type vim.lsp.Config
 return {
     cmd = { "clangd" },
     root_markers = {

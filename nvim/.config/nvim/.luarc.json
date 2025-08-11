@@ -1,7 +1,8 @@
 {
     "runtime.version": "LuaJIT",
     "diagnostics.globals": [
-        "vim"
+        "vim",
+        "Obsidian"
     ],
     "workspace.checkThirdParty": false,
     "workspace.library": [
