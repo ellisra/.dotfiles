@@ -154,3 +154,67 @@ vim.keymap.set("n", "<leader>at", function()
     require("utils").select_markdown_table()
     vim.api.nvim_feedkeys("ga|", "x", false)
 end, { desc = "[A]lign [T]able" })
+
+vim.keymap.set("n", "<leader>gb", function()
+    local line = vim.fn.line(".")
+    local file = vim.fn.expand("%")
+
+    local cmd = string.format(
+        "git blame --porcelain -L%d,%d -- \"%s\"",
+        line,
+        line,
+        file
+    )
+    local output = vim.fn.system(cmd)
+
+    if vim.v.shell_error ~= 0 then
+        vim.notify("Git blame failed: " .. output, vim.log.levels.ERROR)
+        return
+    end
+
+    local lines = vim.split(output, "\n")
+    local author, date = "", ""
+
+    for _, line_content in ipairs(lines) do
+        if line_content:match("^author ") then
+            author = line_content:gsub("^author ", "")
+        elseif line_content:match("^author%-time ") then
+            local timestamp = line_content:gsub("^author%-time ", "")
+            date = tostring(os.date("%Y-%m-%d", tonumber(timestamp)))
+        end
+    end
+
+    local content = string.format("%s • %s", author, date)
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { content })
+
+    local win = vim.api.nvim_open_win(buf, false, {
+        relative = "cursor",
+        row = -3,
+        col = 0,
+        width = #content,
+        height = 1,
+        style = "minimal",
+        border = "rounded",
+        focusable = false,
+    })
+
+    -- Auto-close logic (same as above)
+    local function close_float()
+        if vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+
+    local group = vim.api.nvim_create_augroup("GitBlameFloat", { clear = true })
+    vim.api.nvim_create_autocmd(
+        { "CursorMoved", "CursorMovedI", "InsertEnter", "BufLeave" },
+        {
+            group = group,
+            callback = function()
+                close_float()
+                vim.api.nvim_del_augroup_by_id(group)
+            end,
+        }
+    )
+end, { desc = "[G]it [B]lame" })
