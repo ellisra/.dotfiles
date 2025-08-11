@@ -50,7 +50,7 @@ return {
         vim.keymap.set("n", "<leader>o", function()
             local window_width = vim.fn.winwidth(0)
 
-            if window_width >= 150 then
+            if window_width >= 180 then
                 Fyler.open()
             else
                 Fyler.open({ kind = "float" })

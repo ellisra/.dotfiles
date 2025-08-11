@@ -123,11 +123,12 @@ end
 local function md_info()
     if vim.bo.filetype == "markdown" then
         return string.format(
-            "%s words %s   ",
-            vim.fn.wordcount().words,
-            #require("obsidian.search").find_backlinks(
-                require("obsidian.api").current_note(0)
-            )
+            -- "%s words %s   ",
+            "%s words ",
+            vim.fn.wordcount().words
+            -- #require("obsidian.search").find_backlinks(
+            --     require("obsidian.api").current_note(0)
+            -- )
         )
     end
 
