@@ -130,14 +130,14 @@ vim.keymap.set("n", "<S-Down>", "ddp")
 vim.keymap.set("n", "<S-Up>", "ddkP")
 
 -- Jump to diagnostics in buffer
-vim.keymap.set("n", ";d", function()
+vim.keymap.set("n", "\"d", function()
     vim.diagnostic.jump({ count = 1 })
 end, { desc = "Jump to next diagnostic" })
 vim.keymap.set("n", "#d", function()
     vim.diagnostic.jump({ count = -1 })
 end, { desc = "Jump to previous diagnostic" })
 
-vim.keymap.set("n", ";D", function()
+vim.keymap.set("n", "\"D", function()
     vim.diagnostic.jump({ count = 100, wrap = false })
 end, { desc = "Jump to last diagnostic" })
 vim.keymap.set("n", "#D", function()
