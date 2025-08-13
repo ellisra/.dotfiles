@@ -1,6 +1,7 @@
 return {
     "obsidian-nvim/obsidian.nvim",
 
+    commit = "3c0e1e3",
     lazy = true,
     ft = "markdown",
     cmd = { "Obsidian" },

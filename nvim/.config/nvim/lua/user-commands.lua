@@ -23,6 +23,7 @@ vim.api.nvim_create_user_command("WeeklyRecap", function()
     }):open()
 end, { desc = "Create weekly recap note" })
 
+-- FIXME: No frontmatter/title is being inserted into these notes on creation
 vim.api.nvim_create_user_command("JournalNote", function(opts)
     local Note = require("obsidian.note")
     local title_cont = " - " .. opts.args
