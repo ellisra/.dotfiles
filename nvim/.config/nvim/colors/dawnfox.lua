@@ -20,5 +20,5 @@ require("base16-colorscheme").setup({
     base0C = "#56949f", -- aqua
     base0D = "#907aa9", -- blue
     base0E = "#31748f", -- purple
-    base0F = "#cecacd", -- bonus
+    base0F = "#31748f", -- bonus
 })
