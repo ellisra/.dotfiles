@@ -52,7 +52,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/robert-russel.to
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-PATH=/home/rob/bin:$PATH
+export PATH="$PATH:$HOME/bin"
 
 # Created by `pipx` on 2025-07-14 08:20:40
 export PATH="$PATH:/Users/roel99/.local/bin"
