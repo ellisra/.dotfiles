@@ -55,6 +55,9 @@ end
 
 function M.set_highlights()
     local palette = require("base16-colorscheme").colors
+    if palette == nil then
+        return
+    end
 
     local bg0 = palette.base00
     local bg1 = palette.base01
