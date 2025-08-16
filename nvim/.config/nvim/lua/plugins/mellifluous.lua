@@ -12,11 +12,26 @@ return {
         utils.set_hl("@markup.heading.6", { bg = "NONE" })
 
         utils.set_hl("StatusLine", { bg = "#242424", fg = "#aeaeae" })
-        -- utils.set_hl("StatusLineAccent", { bg = fg3, fg = "#1a1a1a" })
-        -- utils.set_hl("StatuslineInsertAccent", { bg = green, fg = "#1a1a1a" })
-        -- utils.set_hl("StatuslineVisualAccent", { bg = red, fg = "#1a1a1a" })
-        -- utils.set_hl("StatuslineReplaceAccent", { bg = orange, fg = "#1a1a1a" })
-        -- utils.set_hl("StatuslineCmdLineAccent", { bg = blue, fg = "#1a1a1a" })
-        -- utils.set_hl("StatuslineTerminalAccent", { bg = purple, fg = "#1a1a1a" })
+        utils.set_hl("StatusLineAccent", { bg = "#aeaeae", fg = "#1a1a1a" })
+        utils.set_hl(
+            "StatuslineInsertAccent",
+            { bg = "#a8a1be", fg = "#1a1a1a" }
+        )
+        utils.set_hl(
+            "StatuslineVisualAccent",
+            { bg = "#d59192", fg = "#1a1a1a" }
+        )
+        utils.set_hl(
+            "StatuslineReplaceAccent",
+            { bg = "#cbaa88", fg = "#1a1a1a" }
+        )
+        utils.set_hl(
+            "StatuslineCmdLineAccent",
+            { bg = "#938ca8", fg = "#1a1a1a" }
+        )
+        utils.set_hl(
+            "StatuslineTerminalAccent",
+            { bg = "#938ca8", fg = "#1a1a1a" }
+        )
     end,
 }
