@@ -10,7 +10,12 @@ return {
                         float = {
                             height = "0.2rel",
                             width = "0.2rel",
+                            top = "0.35rel",
+                            left = "0.4rel",
                         },
+                    },
+                    win_opts = {
+                        winhighlight = "Normal:FzfLuaNormal,FloatBorder:FzfLuaBorder,FloatTitle:FzfLuaTitle",
                     },
                 },
             },
@@ -38,6 +43,14 @@ return {
                         split_right_most = {
                             width = "0.15rel",
                         },
+                        float = {
+                            width = "0.3rel",
+                            top = "0.1rel",
+                            left = "0.35rel",
+                        },
+                    },
+                    win_opts = {
+                        winhighlight = "FzfLuaNormal:FzfLuaNormal,FzfLuaBorder:FzfLuaBorder,FzfLuaTitle:FzfLuaTitle",
                     },
                 },
             },
