@@ -16,5 +16,8 @@ return {
         require("plugins.mini.hipatterns")
         require("plugins.mini.indentscope")
         require("plugins.mini.surround")
+
+        -- Mics Functions
+        require("mini.misc").setup_termbg_sync()
     end,
 }

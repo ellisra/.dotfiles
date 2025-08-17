@@ -60,6 +60,10 @@ return {
             },
         },
 
+        dash = {
+            highlight = "Normal",
+        },
+
         link = {
             enabled = true,
             wiki = { icon = "", highlight = "@markup.raw" },
