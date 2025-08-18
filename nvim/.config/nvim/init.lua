@@ -33,7 +33,6 @@ require("lazy").setup({
     require("plugins.no-neck-pain"),
     require("plugins.fyler"),
 
-    -- require("themes.mellifluous"),
     require("themes.e-ink"),
     { "RRethy/base16-nvim" },
 }, {
