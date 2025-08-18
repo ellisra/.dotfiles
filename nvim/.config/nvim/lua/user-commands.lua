@@ -20,6 +20,7 @@ vim.api.nvim_create_user_command("WeeklyRecap", function()
         id = string.format("%d-W%02d", os.date("%Y"), os.date("%V")),
         dir = Obsidian.dir / "journal/weekly-review",
         tags = { "journal", "weekly-recap" },
+        should_write = true,
     }):open()
 end, { desc = "Create weekly recap note" })
 
@@ -33,5 +34,6 @@ vim.api.nvim_create_user_command("JournalNote", function(opts)
         id = tostring(os.date("%Y-%m-%d")) .. title_cont,
         dir = Obsidian.dir / "journal/notes",
         tags = { "journal", "note" },
+        should_write = true,
     }):open()
 end, { desc = "Create a journal note (requires title)", nargs = 1 })
