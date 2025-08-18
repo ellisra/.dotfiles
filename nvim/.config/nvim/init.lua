@@ -33,7 +33,8 @@ require("lazy").setup({
     require("plugins.no-neck-pain"),
     require("plugins.fyler"),
 
-    require("plugins.mellifluous"),
+    -- require("themes.mellifluous"),
+    require("themes.e-ink"),
     { "RRethy/base16-nvim" },
 }, {
     ui = {
@@ -50,4 +51,4 @@ require("user-commands") -- User commands
 require("lsp-config") -- LSP
 require("keymaps") -- Keymaps
 
-vim.cmd.colorscheme("mellifluous")
+-- vim.cmd.colorscheme("base16-grayscale-dark")
