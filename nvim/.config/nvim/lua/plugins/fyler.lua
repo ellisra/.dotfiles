@@ -63,11 +63,11 @@ return {
         vim.keymap.set("n", "<leader>o", function()
             local window_width = vim.fn.winwidth(0)
 
-            if window_width >= 180 then
-                Fyler.open()
-            else
-                Fyler.open({ kind = "float" })
-            end
+            -- if window_width >= 180 then
+            --     Fyler.open()
+            -- else
+            Fyler.open({ kind = "float" })
+            -- end
         end, { desc = "[O]pen File Tree" })
 
         vim.api.nvim_create_autocmd("FileType", {
