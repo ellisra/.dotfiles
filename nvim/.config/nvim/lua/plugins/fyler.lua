@@ -42,7 +42,7 @@ return {
         local Fyler = require("fyler")
 
         vim.keymap.set("n", "<leader>o", function()
-            Fyler.open({ kind = "float" })
+            Fyler.open({})
         end, { desc = "[O]pen File Tree" })
 
         vim.api.nvim_create_autocmd("FileType", {
