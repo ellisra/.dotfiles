@@ -8,11 +8,11 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 vim.opt.fillchars = { eob = " " }
 
 -- Set default tab size
+vim.o.autoindent = true
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.tabstop = 4
-vim.o.autoindent = true
 
 -- General
 vim.o.clipboard = "unnamedplus" -- Sync yank register with system clipboard
