@@ -28,6 +28,3 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
     desc = "Reapply custom highlights on colorscheme change",
 })
-
--- Turn on spell checking for markdown files
-vim.cmd("autocmd FileType markdown setlocal spell")

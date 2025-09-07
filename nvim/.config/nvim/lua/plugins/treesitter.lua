@@ -15,7 +15,6 @@ return {
             "luadoc",
             "markdown",
             "markdown_inline",
-            "query",
             "regex",
             "vim",
             "vimdoc",
