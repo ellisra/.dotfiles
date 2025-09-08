@@ -28,7 +28,6 @@ vim.o.smartcase = true -- Ignore case sensitivity in search
 vim.o.spelllang = "en_gb" -- Sets spelling language to british english
 vim.o.splitbelow = true -- Default horizontal split direction
 vim.o.splitright = true -- Default vertical split direction
-vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
 vim.o.undofile = true -- Save undo history
 vim.o.undolevels = 25
 vim.o.updatetime = 250 -- Decreases update time
