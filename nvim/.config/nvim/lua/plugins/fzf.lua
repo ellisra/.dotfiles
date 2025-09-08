@@ -2,7 +2,7 @@ return {
     "ibhagwan/fzf-lua",
 
     lazy = false,
-    dependencies = "echasnovski/mini.nvim",
+    dependencies = "nvim-mini/mini.nvim",
 
     opts = {
         fzf_colors = true,
