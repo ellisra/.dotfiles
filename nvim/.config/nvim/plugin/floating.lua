@@ -179,15 +179,6 @@ function M.setup()
             term_command = "calcure",
         })
     end, { desc = "[L]oad [C]alendar" })
-
-    vim.keymap.set("n", "<leader>cc", function()
-        toggle_terminal({
-            title = " Claude code ",
-            width = math.floor(vim.o.columns * 0.8),
-            height = math.floor(vim.o.lines * 0.85),
-            term_command = "claude",
-        })
-    end, { desc = "[C]laude [C]ode" })
 end
 
 return M.setup()
