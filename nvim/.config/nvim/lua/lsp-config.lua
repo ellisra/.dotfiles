@@ -29,6 +29,7 @@ return {
         "clangd",
         "gopls",
         "vtsls",
+        "djlsp",
     }),
 
     vim.diagnostic.config({
