@@ -11,6 +11,30 @@ vim.api.nvim_create_user_command("AddFootnote", function(opts)
     vim.cmd("stopinsert")
 end, { nargs = 1 })
 
+-- Terminal Commands
+local function create_term_command(name, split_cmd)
+    vim.api.nvim_create_user_command(name, function(opts)
+        local cmd = split_cmd .. " | terminal"
+        if opts.args and opts.args ~= "" then
+            cmd = cmd
+                .. " "
+                .. vim.o.shell
+                .. " -c '"
+                .. opts.args
+                .. "; exec $SHELL'"
+        end
+        vim.cmd(cmd)
+        vim.cmd.startinsert()
+    end, {
+        nargs = "*",
+        complete = "shellcmd",
+        desc = "Open terminal in split",
+    })
+end
+
+create_term_command("HTerm", "split")
+create_term_command("VTerm", "vsplit")
+
 -- NOTE: These commands require obsidian.nvim
 vim.api.nvim_create_user_command("WeeklyRecap", function()
     local Note = require("obsidian.note")

@@ -1,6 +1,6 @@
 return {
     require("mini.pairs").setup({
-        modes = { insert = true, command = true, terminal = true },
+        modes = { insert = true, command = true },
         -- mappings = {
         --     [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
         --     ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
