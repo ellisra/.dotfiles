@@ -218,3 +218,10 @@ vim.keymap.set("n", "<leader>gb", function()
         }
     )
 end, { desc = "[G]it [B]lame" })
+
+vim.keymap.set(
+    "n",
+    "<leader>cc",
+    "<cmd>VTerm claude --continue<CR>",
+    { desc = "[C]laude [C]ode" }
+)
