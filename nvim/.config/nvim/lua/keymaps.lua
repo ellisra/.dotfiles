@@ -15,13 +15,6 @@ vim.keymap.set("i", "<Home>", "<C-o>^")
 -- Clear search highlight on Esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set(
-    "n",
-    "<leader>dl",
-    vim.diagnostic.setloclist,
-    { desc = "Open [D]iagnostic [L]ist" }
-)
-
 -- Exit built-in terminal
 vim.keymap.set(
     "t",
@@ -83,30 +76,6 @@ vim.keymap.set(
     "<leader>wK",
     "<cmd>wincmd k<CR>",
     { noremap = true, silent = true, desc = "Focus up window" }
-)
-
--- Insert the current date to make daily notes quicker
-vim.keymap.set(
-    "n",
-    "td",
-    "<cmd>pu=strftime('%Y-%m-%d')<CR>$a",
-    { desc = "Insert [T]oday's [D]ate" }
-)
-
--- Find and replace word under cursor
-vim.keymap.set(
-    "n",
-    "<leader>rw",
-    [[<cmd>%s/\<<C-r><C-w>\>//g<Left><Left>]],
-    { desc = "[R]eplace [W]ord" }
-)
-
--- Insert type: ignore on current line
-vim.keymap.set(
-    "n",
-    "<leader>ti",
-    "A  # type: ignore<Esc>",
-    { desc = "[T]ype [I]gnore" }
 )
 
 -- Open Lazy.nvim
