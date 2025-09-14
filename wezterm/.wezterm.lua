@@ -24,8 +24,8 @@ cfg = {
 	font = wez.font("JetBrainsMono Nerd Font Propo", { weight = "Regular" }),
 	font_size = 12,
 	bold_brightens_ansi_colors = "No",
-	freetype_load_flags = "NO_HINTING",
 	custom_block_glyphs = false,
+	hide_mouse_cursor_when_typing = true,
 
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,

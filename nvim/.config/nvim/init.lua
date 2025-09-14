@@ -50,4 +50,4 @@ require("user-commands") -- User commands
 require("lsp-config") -- LSP
 require("keymaps") -- Keymaps
 
--- vim.cmd.colorscheme("base16-grayscale-dark")
+vim.cmd.colorscheme("kanagawa-mod")
