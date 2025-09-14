@@ -149,6 +149,10 @@ function M.set_highlights()
     M.set_hl("MiniHipatternsNote", { fg = bg0, bg = aqua })
 
     M.set_hl("FzfLuaLivePrompt", { link = "Normal" })
+
+    M.set_hl("FylerGitModified", { fg = yellow })
+    M.set_hl("FylerGitUntracked", { fg = aqua })
+    M.set_hl("FylerGitRenamed", { fg = orange })
 end
 
 return M

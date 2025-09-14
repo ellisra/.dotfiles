@@ -8,6 +8,19 @@ return {
             marker = "▏",
         },
 
+        git_status = {
+            symbols = {
+                Untracked = "",
+                Added = "",
+                Modified = "",
+                Deleted = "",
+                Renamed = "",
+                Copied = "",
+                Conflict = "",
+                Ignored = "",
+            },
+        },
+
         win = {
             border = "single",
             buf_opts = {
