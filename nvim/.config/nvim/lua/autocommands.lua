@@ -28,3 +28,22 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
     desc = "Reapply custom highlights on colorscheme change",
 })
+
+-- Add parentheses after confirming a function/method completion
+vim.api.nvim_create_autocmd("CompleteDone", {
+    callback = function()
+        local completed = vim.v.completed_item
+        if completed.kind == "Function" or completed.kind == "Method" then
+            local col = vim.fn.col(".")
+            local line = vim.fn.getline(".")
+            if line:sub(col, col) ~= "(" then
+                vim.api.nvim_put({ "()" }, "c", true, true)
+                vim.api.nvim_feedkeys(
+                    vim.api.nvim_replace_termcodes("<Left>", true, false, true),
+                    "n",
+                    false
+                )
+            end
+        end
+    end,
+})

@@ -1,12 +1,9 @@
 return {
     "saghen/blink.cmp",
 
+    enabled = false,
     event = "VeryLazy",
     version = "*",
-
-    dependencies = {
-        "rafamadriz/friendly-snippets",
-    },
 
     opts = {
         keymap = {
