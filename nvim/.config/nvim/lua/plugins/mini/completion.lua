@@ -15,7 +15,7 @@ end
 
 return {
     require("mini.completion").setup({
-        delay = { completion = 50 },
+        delay = { completion = 0 },
         fallback_action = "",
         lsp_completion = { process_items = truncate_items },
     }),
