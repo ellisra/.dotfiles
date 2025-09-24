@@ -1,6 +1,8 @@
 return {
     "A7Lavinraj/fyler.nvim",
 
+    commit = "c2bd45c",
+
     opts = {
         confirm_simple = true,
         default_explorer = true,
