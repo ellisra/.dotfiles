@@ -22,7 +22,8 @@ cfg = {
 	color_scheme = scheme_for_appearance(get_appearance()),
 
 	font = wez.font("JetBrainsMono Nerd Font Propo", { weight = "Regular" }),
-	font_size = 12,
+	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	font_size = 11.3,
 	bold_brightens_ansi_colors = "No",
 	custom_block_glyphs = false,
 	hide_mouse_cursor_when_typing = true,
