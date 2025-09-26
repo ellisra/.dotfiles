@@ -36,7 +36,7 @@ return {
             position = 'inline',
             unchecked = {
                 icon = '',
-                highlight = 'RenderMarkdownChecked',
+                highlight = 'RenderMarkdownUnchecked',
                 scope_highlight = nil,
             },
             checked = {
