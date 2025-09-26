@@ -32,11 +32,9 @@ require('lazy').setup({
     require('plugins.mini.mini-nvim'),
     require('plugins.no-neck-pain'),
     require('plugins.fyler'),
-
-    { 'RRethy/base16-nvim' },
+    -- { 'RRethy/base16-nvim' },
 }, {
     ui = {
-        border = 'single',
         backdrop = 100,
         icons = vim.g.have_nerd_font and {},
     },
@@ -49,4 +47,4 @@ require('user-commands') -- User commands
 require('lsp-config') -- LSP
 require('keymaps') -- Keymaps
 
-vim.cmd.colorscheme('kanagawa-mod')
+vim.cmd.colorscheme('kanagawa')

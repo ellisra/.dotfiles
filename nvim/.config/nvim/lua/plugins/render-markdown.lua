@@ -15,6 +15,14 @@ return {
             icons = { ' ', ' ', ' ', ' ', ' ', ' ' },
             width = 'block',
             right_pad = 2,
+            foregrounds = {
+                '@markup.heading.1',
+                '@markup.heading.2',
+                '@markup.heading.3',
+                '@markup.heading.4',
+                '@markup.heading.5',
+                '@markup.heading.6',
+            },
             backgrounds = {
                 'Heading1Bg',
                 'Heading2Bg',
