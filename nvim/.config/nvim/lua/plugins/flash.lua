@@ -1,6 +1,6 @@
 return {
-    "folke/flash.nvim",
-    event = "VeryLazy",
+    'folke/flash.nvim',
+    event = 'VeryLazy',
     opts = {
         modes = {
             char = {
@@ -11,20 +11,20 @@ return {
 
     keys = {
         {
-            "s",
-            mode = { "n", "x", "o" },
+            's',
+            mode = { 'n', 'x', 'o' },
             function()
-                require("flash").jump()
+                require('flash').jump()
             end,
-            desc = "Flash",
+            desc = 'Flash',
         },
         {
-            "S",
-            mode = { "n", "x", "o" },
+            'S',
+            mode = { 'n', 'x', 'o' },
             function()
-                require("flash").treesitter()
+                require('flash').treesitter()
             end,
-            desc = "Flash Treesitter",
+            desc = 'Flash Treesitter',
         },
     },
 }

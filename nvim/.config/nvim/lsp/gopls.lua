@@ -4,20 +4,20 @@ local mod_cache = nil
 ---@return string?
 local function get_root(fname)
     if mod_cache and fname:sub(1, #mod_cache) == mod_cache then
-        local clients = vim.lsp.get_clients({ name = "gopls" })
+        local clients = vim.lsp.get_clients({ name = 'gopls' })
         if #clients > 0 then
             return clients[#clients].config.root_dir
         end
     end
-    return vim.fs.root(fname, "go.work")
-        or vim.fs.root(fname, "go.mod")
-        or vim.fs.root(fname, ".git")
+    return vim.fs.root(fname, 'go.work')
+        or vim.fs.root(fname, 'go.mod')
+        or vim.fs.root(fname, '.git')
 end
 
 ---@type vim.lsp.Config
 return {
-    cmd = { "gopls" },
-    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    cmd = { 'gopls' },
+    filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
     root_dir = function(bufnr, on_dir)
         local fname = vim.api.nvim_buf_get_name(bufnr)
         -- see: https://github.com/neovim/nvim-lspconfig/issues/804
@@ -25,7 +25,7 @@ return {
             on_dir(get_root(fname))
             return
         end
-        local cmd = { "go", "env", "GOMODCACHE" }
+        local cmd = { 'go', 'env', 'GOMODCACHE' }
         vim.system(cmd, { text = true }, function(output)
             if output.code == 0 then
                 if output.stdout then
@@ -35,7 +35,7 @@ return {
             else
                 vim.schedule(function()
                     vim.notify(
-                        ("[gopls] cmd failed with code %d: %s\n%s"):format(
+                        ('[gopls] cmd failed with code %d: %s\n%s'):format(
                             output.code,
                             cmd,
                             output.stderr

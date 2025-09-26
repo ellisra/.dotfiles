@@ -1,10 +1,10 @@
 return {
-    require("mini.indentscope").setup({
+    require('mini.indentscope').setup({
         draw = {
             delay = 30,
-            animation = require("mini.indentscope").gen_animation.none(),
+            animation = require('mini.indentscope').gen_animation.none(),
         },
 
-        symbol = "▏",
+        symbol = '▏',
     }),
 }

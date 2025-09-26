@@ -1,29 +1,29 @@
 local M = {}
 
 function M.select_markdown_table()
-    local line_num = vim.fn.line(".")
+    local line_num = vim.fn.line('.')
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 
     local start_line = line_num
-    while start_line > 1 and lines[start_line]:match("^%s*|") do
+    while start_line > 1 and lines[start_line]:match('^%s*|') do
         start_line = start_line - 1
     end
-    if not lines[start_line]:match("^%s*|") then
+    if not lines[start_line]:match('^%s*|') then
         start_line = start_line + 1
     end
 
     local end_line = line_num
-    while end_line <= #lines and lines[end_line]:match("^%s*|") do
+    while end_line <= #lines and lines[end_line]:match('^%s*|') do
         end_line = end_line + 1
     end
     end_line = end_line - 1
 
-    if start_line <= #lines and lines[start_line]:match("^%s*|") then
+    if start_line <= #lines and lines[start_line]:match('^%s*|') then
         vim.fn.cursor(start_line, 1)
-        vim.cmd("normal! V")
+        vim.cmd('normal! V')
         vim.fn.cursor(end_line, 1)
     else
-        print("No table found at cursor")
+        print('No table found at cursor')
     end
 end
 
@@ -36,7 +36,7 @@ function M.tint_colour(hex_colour, r_tint, g_tint, b_tint)
     g = math.min(255, math.max(0, g + g_tint))
     b = math.min(255, math.max(0, b + b_tint))
 
-    return string.format("#%02X%02X%02X", r, g, b)
+    return string.format('#%02X%02X%02X', r, g, b)
 end
 
 ---@param group string The highlight group name
@@ -46,7 +46,7 @@ function M.set_hl(group, options)
 end
 
 function M.set_highlights()
-    local palette = require("base16-colorscheme").colors
+    local palette = require('base16-colorscheme').colors
     if palette == nil then
         return
     end
@@ -69,90 +69,87 @@ function M.set_highlights()
     local bonus = palette.base0F
 
     -- General
-    M.set_hl("@keyword", { fg = red })
-    M.set_hl("@keyword.function", { fg = red })
-    M.set_hl("@keyword.return", { fg = red })
-    M.set_hl("SnippetTabstop", { bg = nil })
-    M.set_hl("TSAttribute", { fg = purple })
-    M.set_hl("TSLiteral", { fg = bonus })
-    M.set_hl("TSBoolean", { fg = purple })
-    M.set_hl("TSComment", { italic = false, fg = bg3 })
-    M.set_hl("TSConstant", { fg = purple })
-    M.set_hl("TSConstructor", { fg = fg1 })
-    M.set_hl("TSFunction", { fg = green })
-    M.set_hl("TSFuncBuiltin", { italic = false, fg = green })
-    M.set_hl("TSMethod", { fg = green })
-    M.set_hl("TSString", { fg = aqua })
-    M.set_hl("TSInclude", { fg = red })
-    M.set_hl("TSOperator", { fg = orange })
-    M.set_hl("TSPunctSpecial", { fg = blue })
-    M.set_hl("TSNamespace", { fg = yellow })
-    M.set_hl("TSNumber", { fg = aqua })
-    M.set_hl("TSFloat", { fg = aqua })
-    M.set_hl("TSTypeBuiltin", { italic = false })
-    M.set_hl("TSURI", { fg = blue, underdotted = true })
-    M.set_hl("@variable", { fg = fg2 })
-    M.set_hl("@parameter", { fg = blue })
-    M.set_hl("@property", { fg = blue })
-    M.set_hl("@punctuation.delimiter", { fg = fg1 })
-    M.set_hl("Directory", { fg = green })
-    M.set_hl("@lsp.typemod.variable.readonly.python", { fg = purple })
-    M.set_hl("DiffText", { fg = yellow })
+    M.set_hl('@keyword', { fg = red })
+    M.set_hl('@keyword.function', { fg = red })
+    M.set_hl('@keyword.return', { fg = red })
+    M.set_hl('SnippetTabstop', { bg = nil })
+    M.set_hl('TSAttribute', { fg = purple })
+    M.set_hl('TSLiteral', { fg = bonus })
+    M.set_hl('TSBoolean', { fg = purple })
+    M.set_hl('TSComment', { italic = false, fg = bg3 })
+    M.set_hl('TSConstant', { fg = purple })
+    M.set_hl('TSConstructor', { fg = fg1 })
+    M.set_hl('TSFunction', { fg = green })
+    M.set_hl('TSFuncBuiltin', { italic = false, fg = green })
+    M.set_hl('TSMethod', { fg = green })
+    M.set_hl('TSString', { fg = aqua })
+    M.set_hl('TSInclude', { fg = red })
+    M.set_hl('TSOperator', { fg = orange })
+    M.set_hl('TSPunctSpecial', { fg = blue })
+    M.set_hl('TSNamespace', { fg = yellow })
+    M.set_hl('TSNumber', { fg = aqua })
+    M.set_hl('TSFloat', { fg = aqua })
+    M.set_hl('TSTypeBuiltin', { italic = false })
+    M.set_hl('TSURI', { fg = blue, underdotted = true })
+    M.set_hl('@variable', { fg = fg2 })
+    M.set_hl('@parameter', { fg = blue })
+    M.set_hl('@property', { fg = blue })
+    M.set_hl('@punctuation.delimiter', { fg = fg1 })
+    M.set_hl('Directory', { fg = green })
+    M.set_hl('@lsp.typemod.variable.readonly.python', { fg = purple })
+    M.set_hl('DiffText', { fg = yellow })
 
-    M.set_hl("LspReferenceRead", { bg = bg2 })
-    M.set_hl("LspReferenceText", { link = "LspReferenceRead" })
-    M.set_hl("LspReferenceWrite", { link = "LspReferenceRead" })
+    M.set_hl('LspReferenceRead', { bg = bg2 })
+    M.set_hl('LspReferenceText', { link = 'LspReferenceRead' })
+    M.set_hl('LspReferenceWrite', { link = 'LspReferenceRead' })
 
     -- Statusline
-    M.set_hl("StatusLine", { bg = bg1, fg = fg2 })
-    M.set_hl("StatusLineAccent", { bg = fg3, fg = bg0 })
-    M.set_hl("StatuslineInsertAccent", { bg = green, fg = bg0 })
-    M.set_hl("StatuslineVisualAccent", { bg = red, fg = bg0 })
-    M.set_hl("StatuslineReplaceAccent", { bg = orange, fg = bg0 })
-    M.set_hl("StatuslineCmdLineAccent", { bg = blue, fg = bg0 })
-    M.set_hl("StatuslineTerminalAccent", { bg = purple, fg = bg0 })
+    M.set_hl('StatusLine', { bg = bg1, fg = fg2 })
+    M.set_hl('StatusLineAccent', { bg = fg3, fg = bg0 })
+    M.set_hl('StatuslineInsertAccent', { bg = green, fg = bg0 })
+    M.set_hl('StatuslineVisualAccent', { bg = red, fg = bg0 })
+    M.set_hl('StatuslineReplaceAccent', { bg = orange, fg = bg0 })
+    M.set_hl('StatuslineCmdLineAccent', { bg = blue, fg = bg0 })
+    M.set_hl('StatuslineTerminalAccent', { bg = purple, fg = bg0 })
 
-    M.set_hl("LspDiagnosticsSignError", { fg = red, bg = bg1 })
-    M.set_hl("LspDiagnosticsSignWarning", { fg = yellow, bg = bg1 })
-    M.set_hl("LspDiagnosticsSignHint", { fg = aqua, bg = bg1 })
-    M.set_hl("LspDiagnosticsSignInformation", { fg = blue, bg = bg1 })
+    M.set_hl('LspDiagnosticsSignError', { fg = red, bg = bg1 })
+    M.set_hl('LspDiagnosticsSignWarning', { fg = yellow, bg = bg1 })
+    M.set_hl('LspDiagnosticsSignHint', { fg = aqua, bg = bg1 })
+    M.set_hl('LspDiagnosticsSignInformation', { fg = blue, bg = bg1 })
 
-    M.set_hl("DiagnosticWarn", { fg = yellow })
-    M.set_hl("DiagnosticUnderlineWarn", { undercurl = true, sp = yellow })
+    M.set_hl('DiagnosticWarn', { fg = yellow })
+    M.set_hl('DiagnosticUnderlineWarn', { undercurl = true, sp = yellow })
 
     -- Markdown
-    M.set_hl("@markup.heading.1", { fg = red, bold = true })
-    M.set_hl("@markup.heading.2", { fg = orange, bold = true })
-    M.set_hl("@markup.heading.3", { fg = yellow, bold = true })
-    M.set_hl("@markup.heading.4", { fg = green, bold = true })
-    M.set_hl("@markup.heading.5", { fg = blue, bold = true })
-    M.set_hl("@markup.heading.6", { fg = purple, bold = true })
-    M.set_hl("@markup.quote", { fg = fg3, italic = true })
-    M.set_hl("@markup.list.checked", { fg = green })
-    M.set_hl("@markup.strikethrough.markdown_inline", { strikethrough = true })
-    M.set_hl("@lsp.type.decorator.markdown", { fg = aqua })
-    M.set_hl(
-        "@markup.link.label.markdown_inline",
-        { fg = blue, underdotted = true }
-    )
-    M.set_hl("SpecialChar", { fg = orange })
+    M.set_hl('@markup.heading.1', { fg = red, bold = true })
+    M.set_hl('@markup.heading.2', { fg = orange, bold = true })
+    M.set_hl('@markup.heading.3', { fg = yellow, bold = true })
+    M.set_hl('@markup.heading.4', { fg = green, bold = true })
+    M.set_hl('@markup.heading.5', { fg = blue, bold = true })
+    M.set_hl('@markup.heading.6', { fg = purple, bold = true })
+    M.set_hl('@markup.quote', { fg = fg3, italic = true })
+    M.set_hl('@markup.list.checked', { fg = green })
+    M.set_hl('@markup.strikethrough.markdown_inline', { strikethrough = true })
+    M.set_hl('@lsp.type.decorator.markdown', { fg = aqua })
+    M.set_hl('@markup.link.label.markdown_inline', { fg = blue, underdotted = true })
+    M.set_hl('SpecialChar', { fg = orange })
 
-    M.set_hl("FloatTitle", { link = "Normal" })
+    M.set_hl('FloatTitle', { link = 'Normal' })
 
-    M.set_hl("MiniDiffSignAdd", { fg = green })
-    M.set_hl("MiniDiffSignChange", { fg = blue })
-    M.set_hl("MiniDiffSignDelete", { fg = red })
-    M.set_hl("MiniIndentscopeSymbol", { fg = bg3 })
-    M.set_hl("MiniHipatternsHack", { fg = bg0, bg = orange })
-    M.set_hl("MiniHipatternsTodo", { fg = bg0, bg = blue })
-    M.set_hl("MiniHipatternsFixme", { fg = bg0, bg = red })
-    M.set_hl("MiniHipatternsNote", { fg = bg0, bg = aqua })
+    M.set_hl('MiniDiffSignAdd', { fg = green })
+    M.set_hl('MiniDiffSignChange', { fg = blue })
+    M.set_hl('MiniDiffSignDelete', { fg = red })
+    M.set_hl('MiniIndentscopeSymbol', { fg = bg3 })
+    M.set_hl('MiniHipatternsHack', { fg = bg0, bg = orange })
+    M.set_hl('MiniHipatternsTodo', { fg = bg0, bg = blue })
+    M.set_hl('MiniHipatternsFixme', { fg = bg0, bg = red })
+    M.set_hl('MiniHipatternsNote', { fg = bg0, bg = aqua })
 
-    M.set_hl("FzfLuaLivePrompt", { link = "Normal" })
+    M.set_hl('FzfLuaLivePrompt', { link = 'Normal' })
 
-    M.set_hl("FylerGitModified", { fg = yellow })
-    M.set_hl("FylerGitUntracked", { fg = aqua })
-    M.set_hl("FylerGitRenamed", { fg = orange })
+    M.set_hl('FylerGitModified', { fg = yellow })
+    M.set_hl('FylerGitUntracked', { fg = aqua })
+    M.set_hl('FylerGitRenamed', { fg = orange })
 end
 
 return M

@@ -1,22 +1,22 @@
 return {
-    "shortcuts/no-neck-pain.nvim",
+    'shortcuts/no-neck-pain.nvim',
 
-    version = "*",
+    version = '*',
 
     opts = {
         width = 130,
     },
 
     init = function()
-        vim.keymap.set("n", "I", "<cmd>NoNeckPainWidthUp<CR>")
-        vim.keymap.set("n", "U", "<cmd>NoNeckPainWidthDown<CR>")
+        vim.keymap.set('n', 'I', '<cmd>NoNeckPainWidthUp<CR>')
+        vim.keymap.set('n', 'U', '<cmd>NoNeckPainWidthDown<CR>')
     end,
 
     keys = {
         {
-            "<leader>nn",
-            "<cmd>NoNeckPain<CR>",
-            desc = "[N]o [N]eck Pain",
+            '<leader>nn',
+            '<cmd>NoNeckPain<CR>',
+            desc = '[N]o [N]eck Pain',
         },
     },
 }
