@@ -1,5 +1,5 @@
 return {
-    "stevearc/conform.nvim",
+    'stevearc/conform.nvim',
 
     enabled = true,
     opts = {
@@ -8,7 +8,7 @@ return {
             timeout = 500,
         },
         formatters_by_ft = {
-            lua = { "stylua" },
+            lua = { 'stylua' },
         },
     },
 }

@@ -1,23 +1,23 @@
 return {
-    "saghen/blink.cmp",
+    'saghen/blink.cmp',
 
     enabled = false,
-    event = "VeryLazy",
-    version = "*",
+    event = 'VeryLazy',
+    version = '*',
 
     opts = {
         keymap = {
-            preset = "default",
+            preset = 'default',
 
-            ["<Up>"] = { "select_prev", "fallback" },
-            ["<Down>"] = { "select_next", "fallback" },
+            ['<Up>'] = { 'select_prev', 'fallback' },
+            ['<Down>'] = { 'select_next', 'fallback' },
 
-            ["<Tab>"] = { "select_and_accept", "fallback" },
-            ["<C-Enter>"] = { "select_and_accept", "fallback" },
+            ['<Tab>'] = { 'select_and_accept', 'fallback' },
+            ['<C-Enter>'] = { 'select_and_accept', 'fallback' },
         },
         appearance = {
             use_nvim_cmp_as_default = false,
-            nerd_font_variant = "propo",
+            nerd_font_variant = 'propo',
         },
 
         cmdline = {
@@ -29,10 +29,10 @@ return {
             },
 
             keymap = {
-                ["<Up>"] = { "select_prev", "fallback" },
-                ["<Down>"] = { "select_next", "fallback" },
+                ['<Up>'] = { 'select_prev', 'fallback' },
+                ['<Down>'] = { 'select_next', 'fallback' },
 
-                ["<Tab>"] = { "select_and_accept", "fallback" },
+                ['<Tab>'] = { 'select_and_accept', 'fallback' },
             },
         },
 
@@ -44,7 +44,7 @@ return {
                 auto_show_delay_ms = 200,
                 treesitter_highlighting = true,
 
-                window = { border = "single" },
+                window = { border = 'single' },
             },
 
             ghost_text = { enabled = false },
@@ -55,11 +55,11 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer" },
-            per_filetype = { markdown = { "lsp" } },
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            per_filetype = { markdown = { 'lsp' } },
             min_keyword_length = function()
                 local mode = vim.api.nvim_get_mode().mode
-                if mode == "c" then
+                if mode == 'c' then
                     return 2
                 else
                     return 1
@@ -68,5 +68,5 @@ return {
         },
     },
 
-    opts_extend = { "sources.default" },
+    opts_extend = { 'sources.default' },
 }

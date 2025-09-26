@@ -1,21 +1,21 @@
 return {
-    "ibhagwan/fzf-lua",
+    'ibhagwan/fzf-lua',
 
     lazy = false,
-    dependencies = "nvim-mini/mini.nvim",
+    dependencies = 'nvim-mini/mini.nvim',
 
     opts = {
         fzf_colors = true,
-        file_icon_padding = " ",
+        file_icon_padding = ' ',
 
         fzf_opts = {
-            ["--info"] = "inline",
+            ['--info'] = 'inline',
         },
 
         lsp = {
             code_actions = {
-                previewer = "codeaction_native",
-                preview_pager = "delta --width=$FZF_PREVIEW_COLUMNS --light",
+                previewer = 'codeaction_native',
+                preview_pager = 'delta --width=$FZF_PREVIEW_COLUMNS --light',
             },
         },
 
@@ -31,9 +31,9 @@ return {
 
         keymap = {
             builtin = {
-                ["<C-p>"] = "toggle-preview",
-                ["<S-Down>"] = "preview-page-down",
-                ["<S-Up>"] = "preview-page-up",
+                ['<C-p>'] = 'toggle-preview',
+                ['<S-Down>'] = 'preview-page-down',
+                ['<S-Up>'] = 'preview-page-up',
             },
         },
 
@@ -47,7 +47,7 @@ return {
 
             preview = {
                 wrap = true,
-                vertical = "down:90%",
+                vertical = 'down:90%',
                 hidden = true,
             },
         },
@@ -56,21 +56,21 @@ return {
         defaults = {
             find_opts = [[-type f -not -path '*/\.git/*']],
             rg_opts = "--color=never --files --hidden --follow -g '!.git'",
-            fd_opts = "--color=never --type f --hidden --follow --exclude .git"
+            fd_opts = '--color=never --type f --hidden --follow --exclude .git'
                 .. " -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.webp' -E '*.exe' -E"
                 .. " '*.pyc' -E '*.svg'",
 
-            formatter = "path.filename_first",
+            formatter = 'path.filename_first',
             git_icons = true,
         },
 
         grep = {
-            rg_opts = "--column --line-number --no-heading --color=always "
+            rg_opts = '--column --line-number --no-heading --color=always '
                 .. "--smart-case --max-columns=4096 --hidden -g '!.git/' -e",
 
             rg_glob = true,
-            glob_flag = "--iglob",
-            glob_separator = "%s%-%-",
+            glob_flag = '--iglob',
+            glob_separator = '%s%-%-',
 
             winopts = {
                 height = 0.5,
@@ -80,7 +80,7 @@ return {
 
                 preview = {
                     wrap = true,
-                    horizontal = "right:70%",
+                    horizontal = 'right:70%',
                     hidden = false,
                 },
             },
@@ -88,111 +88,111 @@ return {
     },
 
     init = function()
-        local FzfLua = require("fzf-lua")
-        local map = vim.keymap.set
+        local FzfLua = require('fzf-lua')
+        local keymap = vim.keymap.set
         FzfLua.register_ui_select()
 
         -- Buffers and Files
-        map("n", "<leader>sf", function()
+        keymap('n', '<leader>sf', function()
             FzfLua.files()
-        end, { desc = "[S]earch [F]iles" })
+        end, { desc = '[S]earch [F]iles' })
 
-        map("n", "<leader>so", function()
+        keymap('n', '<leader>so', function()
             FzfLua.oldfiles()
-        end, { desc = "[S]earch [O]ldfiles" })
+        end, { desc = '[S]earch [O]ldfiles' })
 
-        map("n", "<leader>sn", function()
-            FzfLua.files({ cwd = vim.fn.stdpath("config") })
-        end, { desc = "[S]earch [N]eovim config" })
+        keymap('n', '<leader>sn', function()
+            FzfLua.files({ cwd = vim.fn.stdpath('config') })
+        end, { desc = '[S]earch [N]eovim config' })
 
-        map("n", "<leader><leader>", function()
+        keymap('n', '<leader><leader>', function()
             FzfLua.buffers()
-        end, { desc = "[ ] Existing buffers" })
+        end, { desc = '[ ] Existing buffers' })
 
         -- Grep
-        map("n", "<leader>sg", function()
+        keymap('n', '<leader>sg', function()
             FzfLua.live_grep()
-        end, { desc = "[S]earch [G]rep" })
+        end, { desc = '[S]earch [G]rep' })
 
         -- LSP and Diagnostics
-        map("n", "<leader>sd", function()
+        keymap('n', '<leader>sd', function()
             FzfLua.diagnostics_document({
                 winopts = {
                     width = 1,
                     height = 0.2,
                 },
             })
-        end, { desc = "[S]earch [D]iagnostics" })
+        end, { desc = '[S]earch [D]iagnostics' })
 
-        map("n", "<leader>sD", function()
+        keymap('n', '<leader>sD', function()
             FzfLua.diagnostics_workspace({
                 winopts = {
                     width = 1,
                     height = 0.2,
                 },
             })
-        end, { desc = "[S]earch workspace [D]iagnostics" })
+        end, { desc = '[S]earch workspace [D]iagnostics' })
 
-        map("n", "<leader>ca", function()
+        keymap('n', '<leader>ca', function()
             FzfLua.lsp_code_actions()
-        end, { desc = "[C]ode [A]ctions" })
+        end, { desc = '[C]ode [A]ctions' })
 
-        map("n", "<leader>gd", function()
+        keymap('n', '<leader>gd', function()
             FzfLua.lsp_definitions({ jump1 = true })
-        end, { desc = "[G]o to [D]efinition" })
+        end, { desc = '[G]o to [D]efinition' })
 
-        map("n", "<leader>gr", function()
+        keymap('n', '<leader>gr', function()
             FzfLua.lsp_references({ ignore_current_line = true })
-        end, { desc = "[G]o to [R]eference" })
+        end, { desc = '[G]o to [R]eference' })
 
         -- Misc
-        map("n", "<leader>sm", function()
+        keymap('n', '<leader>sm', function()
             FzfLua.helptags({
                 winopts = {
                     width = 1,
                     preview = {
                         hidden = false,
-                        layout = "horizontal",
-                        horizontal = "right:60%",
+                        layout = 'horizontal',
+                        horizontal = 'right:60%',
                     },
                 },
             })
-        end, { desc = "[S]earch [M]anual" })
+        end, { desc = '[S]earch [M]anual' })
 
-        map("n", "<leader>sk", function()
+        keymap('n', '<leader>sk', function()
             FzfLua.keymaps({
                 winopts = {
                     width = 1,
                     height = 0.4,
                     preview = {
-                        layout = "vertical",
-                        vertical = "down:40%",
+                        layout = 'vertical',
+                        vertical = 'down:40%',
                     },
                 },
             })
-        end, { desc = "[S]earch [K]eymaps" })
+        end, { desc = '[S]earch [K]eymaps' })
 
-        map("n", "<leader>sr", function()
+        keymap('n', '<leader>sr', function()
             FzfLua.resume()
-        end, { desc = "[S]earch [R]esume" })
+        end, { desc = '[S]earch [R]esume' })
 
-        map("n", "<leader>sc", function()
+        keymap('n', '<leader>sc', function()
             FzfLua.colorschemes({
                 winopts = { height = 0.2, width = 0.2 },
             })
-        end, { desc = "[S]earch [C]olorschemes" })
+        end, { desc = '[S]earch [C]olorschemes' })
 
-        map("n", "<leader>sh", function()
+        keymap('n', '<leader>sh', function()
             FzfLua.highlights({ fzf_colors = true })
-        end, { desc = "[S]earch [H]ighlights" })
+        end, { desc = '[S]earch [H]ighlights' })
 
-        map("n", "<leader>sp", function()
+        keymap('n', '<leader>sp', function()
             FzfLua.spell_suggest({ winopts = { width = 0.1, height = 0.2 } })
-        end, { desc = "[S][p]elling suggestions" })
+        end, { desc = '[S][p]elling suggestions' })
 
         -- Completion
-        map("n", "<leader>cp", function()
+        keymap('n', '<leader>cp', function()
             FzfLua.complete_path()
-        end, { desc = "[C]omplete [P]ath" })
+        end, { desc = '[C]omplete [P]ath' })
     end,
 }

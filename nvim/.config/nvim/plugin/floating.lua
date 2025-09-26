@@ -15,7 +15,7 @@ local function create_floating_window(opts)
     opts = opts or {}
     local width = opts.width or math.floor(vim.o.columns * 0.7)
     local height = opts.height or math.floor(vim.o.lines * 0.7)
-    local title = opts.title or " "
+    local title = opts.title or ' '
 
     local col = math.floor((vim.o.columns - width) / 2)
     local row = math.floor((vim.o.lines - height) / 2)
@@ -28,13 +28,13 @@ local function create_floating_window(opts)
     end
 
     local win_config = {
-        relative = "editor",
+        relative = 'editor',
         width = width,
         height = height,
         col = col,
         row = row,
-        style = "minimal",
-        border = "rounded",
+        style = 'minimal',
+        border = 'rounded',
         title = title,
     }
 
@@ -64,13 +64,13 @@ local function toggle_temp_buffer()
     if not vim.api.nvim_win_is_valid(state.scratch.win) then
         state.scratch = create_floating_window({
             buf = state.scratch.buf,
-            title = " scratch buffer ",
+            title = ' scratch buffer ',
         })
-        vim.bo[state.scratch.buf].bufhidden = "hide"
-        vim.bo[state.scratch.buf].buftype = "nofile"
+        vim.bo[state.scratch.buf].bufhidden = 'hide'
+        vim.bo[state.scratch.buf].buftype = 'nofile'
         vim.bo[state.scratch.buf].filetype = filetype
 
-        if not vim.tbl_contains({ "markdown" }, filetype) then
+        if not vim.tbl_contains({ 'markdown' }, filetype) then
             attach_lsp_to_buffer(filetype)
         end
 
@@ -83,26 +83,26 @@ end
 local function execute_buffer()
     local filetype = vim.bo.filetype
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-    local content = table.concat(lines, "\n")
+    local content = table.concat(lines, '\n')
 
-    local tmpfile = vim.fn.tempname() .. "." .. filetype
+    local tmpfile = vim.fn.tempname() .. '.' .. filetype
 
-    local f = io.open(tmpfile, "w")
+    local f = io.open(tmpfile, 'w')
     if f then
         f:write(content)
         f:close()
     end
 
     local cmd = {
-        python = "python3 " .. tmpfile,
-        lua = "lua " .. tmpfile,
-        sh = "bash " .. tmpfile,
+        python = 'python3 ' .. tmpfile,
+        lua = 'lua ' .. tmpfile,
+        sh = 'bash ' .. tmpfile,
     }
 
     if cmd[filetype] then
-        vim.cmd("! " .. cmd[filetype])
+        vim.cmd('! ' .. cmd[filetype])
     else
-        print("No execution command defined for filetype: " .. filetype)
+        print('No execution command defined for filetype: ' .. filetype)
     end
 
     os.remove(tmpfile)
@@ -122,13 +122,13 @@ local toggle_terminal = function(opts)
             width = width,
             height = height,
         })
-        if vim.bo[state.terminal.buf].buftype ~= "terminal" then
+        if vim.bo[state.terminal.buf].buftype ~= 'terminal' then
             vim.cmd.terminal()
         end
 
         if term_command then
             vim.defer_fn(function()
-                vim.fn.chansend(vim.b.terminal_job_id, term_command .. "\n")
+                vim.fn.chansend(vim.b.terminal_job_id, term_command .. '\n')
             end, 100)
         end
 
@@ -141,44 +141,44 @@ local toggle_terminal = function(opts)
 end
 
 function M.setup()
-    vim.api.nvim_create_user_command("ScratchPad", toggle_temp_buffer, {})
-    vim.api.nvim_create_user_command("RunPad", execute_buffer, {})
-    vim.api.nvim_create_user_command("Floaterm", toggle_terminal, {})
+    vim.api.nvim_create_user_command('ScratchPad', toggle_temp_buffer, {})
+    vim.api.nvim_create_user_command('RunPad', execute_buffer, {})
+    vim.api.nvim_create_user_command('Floaterm', toggle_terminal, {})
 
     vim.api.nvim_set_keymap(
-        "n",
-        "<leader>tp",
-        "<cmd>ScratchPad<CR>",
-        { noremap = true, silent = true, desc = "[S]cratch [P]ad" }
+        'n',
+        '<leader>tp',
+        '<cmd>ScratchPad<CR>',
+        { noremap = true, silent = true, desc = '[S]cratch [P]ad' }
     )
 
-    vim.api.nvim_set_keymap("n", "<leader>rp", "<cmd>RunPad<CR>", {
+    vim.api.nvim_set_keymap('n', '<leader>rp', '<cmd>RunPad<CR>', {
         noremap = true,
         silent = true,
-        desc = "[R]un Scratch [P]ad",
+        desc = '[R]un Scratch [P]ad',
     })
 
-    vim.keymap.set("n", "<leader>tt", function()
-        toggle_terminal({ title = " floaterm " })
-    end, { desc = "[T]oggle [T]erminal" })
+    vim.keymap.set('n', '<leader>tt', function()
+        toggle_terminal({ title = ' floaterm ' })
+    end, { desc = '[T]oggle [T]erminal' })
 
-    vim.keymap.set("n", "<leader>lg", function()
+    vim.keymap.set('n', '<leader>lg', function()
         toggle_terminal({
-            title = " lazygit ",
+            title = ' lazygit ',
             width = math.floor(vim.o.columns * 0.8),
             height = math.floor(vim.o.lines * 0.85),
-            term_command = "lazygit",
+            term_command = 'lazygit',
         })
-    end, { desc = "[L]azy[G]it" })
+    end, { desc = '[L]azy[G]it' })
 
-    vim.keymap.set("n", "<leader>lc", function()
+    vim.keymap.set('n', '<leader>lc', function()
         toggle_terminal({
-            title = " calendar ",
+            title = ' calendar ',
             width = math.floor(vim.o.columns * 0.95),
             height = math.floor(vim.o.lines * 0.95),
-            term_command = "calcure",
+            term_command = 'calcure',
         })
-    end, { desc = "[L]oad [C]alendar" })
+    end, { desc = '[L]oad [C]alendar' })
 end
 
 return M.setup()

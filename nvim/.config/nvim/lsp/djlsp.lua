@@ -1,6 +1,6 @@
 ---@type vim.lsp.Config
 return {
-    cmd = { "djlsp" },
-    filetypes = { "html", "htmldjango" },
-    root_markers = { "pyproject.toml", "requirements.txt", ".git" },
+    cmd = { 'djlsp' },
+    filetypes = { 'html', 'htmldjango' },
+    root_markers = { 'pyproject.toml', 'requirements.txt', '.git' },
 }

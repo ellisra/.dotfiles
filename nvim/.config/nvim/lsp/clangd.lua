@@ -1,18 +1,18 @@
 ---@type vim.lsp.Config
 return {
-    cmd = { "clangd" },
+    cmd = { 'clangd' },
     root_markers = {
-        ".clangd",
-        ".clang-tidy",
-        ".clang-format",
-        "compile_commands.json",
-        "compile_flags.txt",
-        "configure.ac",
-        ".git",
+        '.clangd',
+        '.clang-tidy',
+        '.clang-format',
+        'compile_commands.json',
+        'compile_flags.txt',
+        'configure.ac',
+        '.git',
     },
-    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
     settings = {
-        offsetEncoding = { "utf-8", "utf-16" },
+        offsetEncoding = { 'utf-8', 'utf-16' },
         textDocument = {
             completion = {
                 editsNearCursor = true,
