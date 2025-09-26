@@ -22,8 +22,8 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 vim.api.nvim_create_autocmd('ColorScheme', {
-    callback = function()
-        require('utils').set_highlights()
+    callback = function(event)
+        require('utils').set_highlights(event.match)
     end,
 
     desc = 'Reapply custom highlights on colorscheme change',
