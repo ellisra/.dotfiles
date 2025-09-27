@@ -36,7 +36,7 @@ return {
         bullet = {
             enabled = true,
             icons = { '•' },
-            highlight = '@text.title',
+            highlight = '@markup.heading.5',
         },
 
         checkbox = {

@@ -52,9 +52,7 @@ function M.set_highlights(colorscheme_name)
         vim.fn.stdpath('config') .. '/colors/' .. colors_name .. '.lua'
     ) == 1
 
-    if palette == nil or not is_custom_scheme then
-        return
-    end
+    if palette == nil or not is_custom_scheme then return end
 
     M.set_hl('@keyword', { fg = palette.base08 })
     M.set_hl('@keyword', { fg = palette.base08 })
@@ -69,6 +67,14 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('Delimiter', { fg = palette.base06 })
     M.set_hl('Special', { fg = palette.base06 })
     M.set_hl('Operator', { fg = palette.base09 })
+    M.set_hl('NormalFloat', { link = 'Normal' })
+    M.set_hl('Float', { link = 'Normal' })
+    M.set_hl('DiagnosticWarn', { fg = palette.base0A })
+    M.set_hl('DiagnosticFloatingWarn', { link = 'DiagnosticWarn' })
+    M.set_hl('DiagnosticFloatingHint', { link = 'DiagnosticHint' })
+    M.set_hl('DiagnosticFloatingError', { link = 'DiagnosticError' })
+    M.set_hl('DiagnosticFloatingInfo', { link = 'DiagnosticInfo' })
+    M.set_hl('MiniClueTitle', { link = 'Normal' })
 
     M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })
     M.set_hl('MiniDiffSignChange', { fg = palette.base0D })
@@ -103,11 +109,13 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@markup.heading.5', { fg = palette.base0D, bold = true })
     M.set_hl('@markup.heading.6', { fg = palette.base0E, bold = true })
     M.set_hl('@markup.quote', { fg = palette.base04, italic = true })
-    -- M.set_hl('@markup.list.checked', { fg = green })
     M.set_hl('@markup.strikethrough.markdown_inline', { strikethrough = true })
     M.set_hl('@lsp.type.decorator.markdown', { fg = palette.base0C })
     M.set_hl('@markup.link.label.markdown_inline', { fg = palette.base0D, underdotted = true })
-    -- M.set_hl('SpecialChar', { fg = orange })
+
+    M.set_hl('FylerGitModified', { fg = palette.base0A })
+    M.set_hl('FylerGitUntracked', { fg = palette.base0C })
+    M.set_hl('FylerGitRenamed', { fg = palette.base09 })
 end
 
 -- function M.set_highlights()
