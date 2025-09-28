@@ -1,8 +1,7 @@
 return {
     'A7Lavinraj/fyler.nvim',
 
-    commit = 'd87303e',
-    -- commit = 'c2bd45c',
+    branch = 'stable',
 
     opts = {
         confirm_simple = true,
@@ -30,9 +29,9 @@ return {
                 buflisted = false,
                 buftype = 'acwrite',
                 expandtab = true,
-                filetype = 'fyler',
+                filetype = 'Fyler',
                 shiftwidth = 2,
-                syntax = 'fyler',
+                syntax = 'Fyler',
             },
             kind = 'float',
             kind_presets = {
@@ -62,7 +61,7 @@ return {
         end, { desc = '[O]pen File Tree' })
 
         vim.api.nvim_create_autocmd('FileType', {
-            pattern = 'fyler',
+            pattern = 'Fyler',
             callback = function()
                 vim.opt_local.statuscolumn = ''
                 vim.opt_local.number = false
