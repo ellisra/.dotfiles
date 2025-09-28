@@ -52,12 +52,17 @@ function M.set_highlights(colorscheme_name)
         vim.fn.stdpath('config') .. '/colors/' .. colors_name .. '.lua'
     ) == 1
 
-    if palette == nil or not is_custom_scheme then return end
+    if palette == nil or not is_custom_scheme then
+        return
+    end
 
     M.set_hl('@keyword', { fg = palette.base08 })
     M.set_hl('@keyword', { fg = palette.base08 })
     M.set_hl('@keyword.conditional', { fg = palette.base0E })
     M.set_hl('@keyword.operator', { fg = palette.base0E })
+    M.set_hl('@variable.parameter', { fg = palette.base0D })
+    M.set_hl('@lsp.type.macro', { fg = palette.base08 })
+    M.set_hl('@lsp.type.namespace', { fg = palette.base0A })
     M.set_hl('Constant', { fg = palette.base0E })
     M.set_hl('Boolean', { fg = palette.base0E })
     M.set_hl('Function', { fg = palette.base0B })
@@ -66,6 +71,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('Number', { fg = palette.base0C })
     M.set_hl('Delimiter', { fg = palette.base06 })
     M.set_hl('Special', { fg = palette.base06 })
+    M.set_hl('SpecialChar', { fg = palette.base09 })
     M.set_hl('Operator', { fg = palette.base09 })
     M.set_hl('NormalFloat', { link = 'Normal' })
     M.set_hl('Float', { link = 'Normal' })
@@ -118,9 +124,14 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('FylerGitRenamed', { fg = palette.base09 })
 end
 
--- function M.set_highlights()
+-- function M.set_highlights(colorscheme_name)
 --     local palette = require('base16-colorscheme').colors
---     if palette == nil then
+--     local colors_name = colorscheme_name or vim.g.colors_name
+--     local is_custom_scheme = vim.fn.filereadable(
+--         vim.fn.stdpath('config') .. '/colors/' .. colors_name .. '.lua'
+--     ) == 1
+--
+--     if palette == nil or not is_custom_scheme then
 --         return
 --     end
 --

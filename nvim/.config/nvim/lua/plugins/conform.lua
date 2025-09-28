@@ -1,7 +1,7 @@
 return {
     'stevearc/conform.nvim',
 
-    enabled = false,
+    enabled = true,
     opts = {
         format_on_save = {
             lsp_fallback = true,
