@@ -33,5 +33,5 @@ vim.o.undofile = true -- Save undo history
 vim.o.undolevels = 25
 vim.o.updatetime = 250 -- Decreases update time
 vim.o.wrap = false
-vim.o.completeopt = 'menuone,noselect,fuzzy,nosort'
+vim.o.completeopt = 'menuone,noselect,fuzzy'
 vim.o.pumheight = 10

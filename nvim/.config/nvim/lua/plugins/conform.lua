@@ -2,6 +2,7 @@ return {
     'stevearc/conform.nvim',
 
     enabled = true,
+    ft = 'lua',
     opts = {
         format_on_save = {
             lsp_fallback = true,
