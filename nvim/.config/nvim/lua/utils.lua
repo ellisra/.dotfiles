@@ -118,11 +118,15 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@markup.quote', { fg = palette.base04, italic = true })
     M.set_hl('@markup.strikethrough.markdown_inline', { strikethrough = true })
     M.set_hl('@lsp.type.decorator.markdown', { fg = palette.base0C })
-    M.set_hl('@markup.link.label.markdown_inline', { fg = palette.base0D, underdotted = true })
+    M.set_hl(
+        '@markup.link.label.markdown_inline',
+        { fg = palette.base0D, underdotted = true }
+    )
 
     M.set_hl('FylerGitModified', { fg = palette.base0A })
     M.set_hl('FylerGitUntracked', { fg = palette.base0C })
     M.set_hl('FylerGitRenamed', { fg = palette.base09 })
+    M.set_hl('FylerConfirmRed', { fg = palette.base08 })
 end
 
 -- function M.set_highlights(colorscheme_name)

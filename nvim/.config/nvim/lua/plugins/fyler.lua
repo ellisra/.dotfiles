@@ -6,9 +6,8 @@ return {
     opts = {
         confirm_simple = true,
         default_explorer = true,
-        indentscope = {
-            marker = '▏',
-        },
+        indentscope = { marker = '▏' },
+        popups = { permission = { width = '0.3rel', left = '0.35rel' } },
 
         git_status = {
             symbols = {
@@ -25,14 +24,6 @@ return {
 
         win = {
             border = 'single',
-            buf_opts = {
-                buflisted = false,
-                buftype = 'acwrite',
-                expandtab = true,
-                filetype = 'Fyler',
-                shiftwidth = 2,
-                syntax = 'Fyler',
-            },
             kind = 'float',
             kind_presets = {
                 split_left_most = {
@@ -46,9 +37,6 @@ return {
                     top = '0.1rel',
                     left = '0.35rel',
                 },
-            },
-            win_opts = {
-                winhighlight = 'FzfLuaNormal:FzfLuaNormal,FzfLuaBorder:FzfLuaBorder,FzfLuaTitle:FzfLuaTitle',
             },
         },
     },
