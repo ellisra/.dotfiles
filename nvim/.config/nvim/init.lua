@@ -47,4 +47,4 @@ require('user-commands') -- User commands
 require('lsp-config') -- LSP
 require('keymaps') -- Keymaps
 
-vim.cmd.colorscheme('dawnfox')
+vim.cmd.colorscheme('kanagawa')
