@@ -52,20 +52,6 @@ return {
                 highlight = 'RenderMarkdownChecked',
                 scope_highlight = nil,
             },
-            custom = {
-                blocked = {
-                    raw = '[>]',
-                    rendered = '󰛂',
-                    highlight = '',
-                    scope_highlight = nil,
-                },
-                partial = {
-                    raw = '[~]',
-                    rendered = '󰎃',
-                    highlight = '',
-                    scope_highlight = nil,
-                },
-            },
         },
 
         dash = {

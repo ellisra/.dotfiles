@@ -89,8 +89,23 @@ return {
     },
 
     init = function()
-        vim.keymap.set('n', '<leader>tm', '<cmd>Obsidian template<CR>', { desc = '[T]e[M]plate' })
-        vim.keymap.set('n', '<leader>td', '<cmd>Obsidian today<CR>', { desc = '[T]o [D]o note' })
-        vim.keymap.set('n', '<leader>st', '<cmd>Obsidian tag<CR>', { desc = '[S]earch [T]ags' })
+        vim.keymap.set(
+            'n',
+            '<leader>tm',
+            '<cmd>Obsidian template<CR>',
+            { desc = '[T]e[M]plate' }
+        )
+        vim.keymap.set(
+            'n',
+            '<leader>td',
+            '<cmd>Obsidian today<CR>',
+            { desc = '[T]o [D]o note' }
+        )
+        vim.keymap.set(
+            'n',
+            '<leader>st',
+            '<cmd>Obsidian tag<CR>',
+            { desc = '[S]earch [T]ags' }
+        )
     end,
 }
