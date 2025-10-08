@@ -52,6 +52,12 @@ function M.set_highlights(colorscheme_name)
         vim.fn.stdpath('config') .. '/colors/' .. colors_name .. '.lua'
     ) == 1
 
+    -- Special case for retrobox colorscheme
+    if colors_name == 'retrobox' then
+        M.set_hl('@lsp.type.variable', { fg = '#ebdbb2' })
+        return
+    end
+
     if palette == nil or not is_custom_scheme then
         return
     end
