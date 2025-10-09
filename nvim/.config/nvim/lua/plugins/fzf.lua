@@ -137,7 +137,7 @@ return {
             FzfLua.lsp_code_actions()
         end, { desc = '[C]ode [A]ctions' })
 
-        keymap('n', '<leader>gd', function()
+        keymap('n', 'gd', function()
             FzfLua.lsp_definitions({ jump1 = true })
         end, { desc = '[G]o to [D]efinition' })
 

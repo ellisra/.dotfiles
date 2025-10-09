@@ -1,7 +1,7 @@
 return {
     'obsidian-nvim/obsidian.nvim',
 
-    version = '*',
+    version = 'v3.13.1',
     lazy = true,
     ft = 'markdown',
     cmd = { 'Obsidian' },
