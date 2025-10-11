@@ -1,7 +1,7 @@
 return {
     'stevearc/conform.nvim',
 
-    enabled = true,
+    enabled = false,
     ft = 'lua',
     opts = {
         format_on_save = {
