@@ -8,6 +8,7 @@ return {
     config = function()
         local patterns = {
             'bash',
+            'c',
             'diff',
             'html',
             'json',

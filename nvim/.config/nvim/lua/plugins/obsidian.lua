@@ -49,21 +49,23 @@ return {
             vim.ui.open(url)
         end,
 
-        note_frontmatter_func = function(note)
-            local out = { id = note.id, tags = note.tags }
+        frontmatter = {
+            func = function(note)
+                local out = { id = note.id, tags = note.tags }
 
-            if note.aliases ~= nil and not vim.tbl_isempty(note.aliases) then
-                out.aliases = note.aliases
-            end
-
-            if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-                for k, v in pairs(note.metadata) do
-                    out[k] = v
+                if note.aliases ~= nil and not vim.tbl_isempty(note.aliases) then
+                    out.aliases = note.aliases
                 end
-            end
 
-            return out
-        end,
+                if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+                    for k, v in pairs(note.metadata) do
+                        out[k] = v
+                    end
+                end
+
+                return out
+            end
+        },
 
         picker = {
             name = 'fzf-lua',
