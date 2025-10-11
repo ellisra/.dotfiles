@@ -5,25 +5,25 @@ local function get_appearance()
 	if wez.gui then
 		return wez.gui.get_appearance()
 	end
-	return "Dark"
+	return 'Dark'
 end
 
 local function scheme_for_appearance(appearance)
-	if appearance:find("Dark") then
-		return "Kanagawa (Gogh)"
+	if appearance:find('Dark') then
+		return 'Kanagawa (Gogh)'
 	else
-		return "dawnfox"
+		return 'dawnfox'
 	end
 end
 
 cfg = {
-	audible_bell = "Disabled",
+	audible_bell = 'Disabled',
 
 	color_scheme = scheme_for_appearance(get_appearance()),
 
-	font = wez.font("JetBrainsMono Nerd Font Propo", { weight = "Regular" }),
+    font = wez.font('JetBrainsMono Nerd Font Propo', { weight = 'Medium' }),
 	-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-	font_size = 11.3,
+	font_size = 10,
 	bold_brightens_ansi_colors = "No",
 	custom_block_glyphs = false,
 	hide_mouse_cursor_when_typing = true,
