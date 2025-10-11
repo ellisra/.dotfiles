@@ -75,6 +75,7 @@ return {
             width = 'block',
             min_width = 40,
             border = 'thin',
+            highlight_inline = 'Special'
         },
 
         pipe_table = {
