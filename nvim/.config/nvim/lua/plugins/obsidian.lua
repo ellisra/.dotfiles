@@ -1,6 +1,7 @@
 return {
     'obsidian-nvim/obsidian.nvim',
 
+    enabled = false,
     version = 'v3.13.1',
     lazy = true,
     ft = 'markdown',
@@ -64,7 +65,8 @@ return {
                 end
 
                 return out
-            end
+            end,
+            sort = { 'id', 'tags' }
         },
 
         picker = {
