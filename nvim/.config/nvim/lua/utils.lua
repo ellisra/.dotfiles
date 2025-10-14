@@ -150,4 +150,24 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('FylerConfirmRed', { fg = palette.base08 })
 end
 
+function M.get_current_filename()
+    local filename = vim.fn.expand('%:t')
+    return filename:gsub('%.%w+$','')
+end
+
+function M.read_file(path)
+    local file = io.open(path, 'r')
+    if not file then return nil end
+    local content = file:read('*a')
+    file:close()
+    return content
+end
+
+function M.insert_template(path, filename)
+    local lines = M.read_file(path)
+    if not lines then return nil end
+    lines = lines:gsub('{{title}}', filename)
+    vim.api.nvim_put(vim.split(lines, '\n'), 'c', true, true)
+end
+
 return M
