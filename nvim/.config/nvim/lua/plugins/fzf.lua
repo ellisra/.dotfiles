@@ -1,3 +1,5 @@
+local constants = require('constants')
+
 return {
     'ibhagwan/fzf-lua',
 
@@ -197,7 +199,7 @@ return {
         end, { desc = '[C]omplete [P]ath' })
 
         keymap('n', '<leader>tm', function()
-            local template_dir = vim.fn.expand('~/second-brain/.obsidian/templates/')
+            local template_dir = vim.fn.expand(constants.MD_TEMPLATE_DIR)
             local p = vim.loop.fs_scandir(template_dir)
             if not p then return end
             local entries = {}

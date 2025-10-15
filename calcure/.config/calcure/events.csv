@@ -134,7 +134,7 @@
 133,2025,12,26,"Boxing Day Bank Holiday",1,once,normal
 134,2025,12,24,"Christmas Eve Holiday",1,once,normal
 135,2025,12,31,"New Year's Eve Holiday",1,once,normal
-136,2025,11,3,"Birthday Holiday",1,once,normal
+136,2025,11,3,"PTO",1,once,normal
 137,2025,9,15,"13:05 MAN-OSL Flight",1,once,normal
 138,2025,9,17,"19:35 OSL-MAN Flight",1,once,normal
 139,2025,9,13,"Pickleball",1,once,normal
@@ -155,5 +155,9 @@
 154,2025,10,5,"DND: Village in the Mists",1,once,normal
 155,2025,10,3,"CR C4 Watch Party",1,once,normal
 156,2025,10,6,"Gym",1,once,normal
-158,2025,10,15,"DND: The Coming Night",1,once,normal
-159,2025,10,16,"Work Dinner",1,once,normal
+157,2025,10,15,"DND: The Coming Night",1,once,normal
+158,2025,10,16,"Work Dinner",1,once,normal
+159,2025,10,17,"Film: Rental Family",1,once,normal
+160,2025,10,18,"Pickleball",1,once,normal
+161,2025,10,31,"PTO",1,once,normal
+162,2025,11,4,"PTO",1,once,normal
