@@ -6,7 +6,6 @@ return {
     settings = {
         Lua = {
             telemetry = { enable = false },
-            completion = { callSnippet = 'Replace' },
             runtime = {
                 version = 'LuaJIT',
                 path = { 'lua/?.lua', 'lua/?/init.lua' },

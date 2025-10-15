@@ -30,28 +30,46 @@ end
 create_term_command('HTerm', 'split')
 create_term_command('VTerm', 'vsplit')
 
--- NOTE: These commands require obsidian.nvim
-vim.api.nvim_create_user_command('WeeklyRecap', function()
-    local Note = require('obsidian.note')
+-- -- NOTE: These commands require obsidian.nvim
+-- vim.api.nvim_create_user_command('WeeklyRecap', function()
+--     local Note = require('obsidian.note')
+--
+--     Note.create({
+--         title = string.format('Week %d, %d', os.date('%V'), os.date('%Y')),
+--         id = string.format('%d-W%02d', os.date('%Y'), os.date('%V')),
+--         dir = Obsidian.dir / 'journal/weekly-review',
+--         tags = { 'journal', 'weekly-recap' },
+--         should_write = true,
+--     }):open()
+-- end, { desc = 'Create weekly recap note' })
+--
+-- vim.api.nvim_create_user_command('JournalNote', function(opts)
+--     local Note = require('obsidian.note')
+--     local title_cont = ' - ' .. opts.args
+--
+--     Note.create({
+--         title = tostring(os.date('%A, %d %B %Y')) .. title_cont,
+--         id = tostring(os.date('%Y-%m-%d')) .. title_cont,
+--         dir = Obsidian.dir / 'journal/notes',
+--         tags = { 'journal', 'note' },
+--         should_write = true,
+--     }):open()
+-- end, { desc = 'Create a journal note (requires title)', nargs = 1 })
 
-    Note.create({
-        title = string.format('Week %d, %d', os.date('%V'), os.date('%Y')),
-        id = string.format('%d-W%02d', os.date('%Y'), os.date('%V')),
-        dir = Obsidian.dir / 'journal/weekly-review',
-        tags = { 'journal', 'weekly-recap' },
-        should_write = true,
-    }):open()
-end, { desc = 'Create weekly recap note' })
+vim.api.nvim_create_user_command('Note', function(opts)
+    local args = vim.split(opts.args, ' ', { trimempty = true })
+    local dirpath = args[1]
+    local filename = args[2]
+    local template_path = nil
+    local tags = {}
 
-vim.api.nvim_create_user_command('JournalNote', function(opts)
-    local Note = require('obsidian.note')
-    local title_cont = ' - ' .. opts.args
+    if args[3] and args[3]:match('%.md$') then
+        template_path = args[3]
+    else
+        for i = 3, #args do
+            table.insert(tags, args[i])
+        end
+    end
 
-    Note.create({
-        title = tostring(os.date('%A, %d %B %Y')) .. title_cont,
-        id = tostring(os.date('%Y-%m-%d')) .. title_cont,
-        dir = Obsidian.dir / 'journal/notes',
-        tags = { 'journal', 'note' },
-        should_write = true,
-    }):open()
-end, { desc = 'Create a journal note (requires title)', nargs = 1 })
+    require('utils').create_note(dirpath, filename, tags, template_path)
+end, { desc = 'Create a note', nargs = '+', complete = 'dir' })

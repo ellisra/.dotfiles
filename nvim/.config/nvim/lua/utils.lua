@@ -170,4 +170,46 @@ function M.insert_template(path, filename)
     vim.api.nvim_put(vim.split(lines, '\n'), 'c', true, true)
 end
 
+function M.toggle_checkbox()
+    local line = vim.api.nvim_get_current_line()
+    local checkbox_checked_pattern = '^%s*%- %[x%]'
+    local checkbox_unchecked_pattern = '^%s*%- %[ %]'
+    local list_item_pattern = '^%s*%- '
+    local new_line
+
+    if line:match(checkbox_checked_pattern) then
+        new_line = line:gsub('%[x%]', '[ ]')
+    elseif line:match(checkbox_unchecked_pattern) then
+        new_line = line:gsub('%[ %]', '[x]')
+    elseif line:match(list_item_pattern) then
+        new_line = line:gsub('(^%s*- )', '%1[ ] ')
+    else
+        local indent = line:match('^%s*') or ''
+        new_line = indent .. '- [ ] ' .. line:gsub('^%s*', '')
+    end
+
+    vim.api.nvim_set_current_line(new_line)
+end
+
+function M.create_note(dir_path, filename, tags, template_path)
+    local filepath = string.format('%s.md', vim.fs.joinpath(dir_path, filename))
+    vim.cmd('edit ' .. vim.fn.fnameescape(filepath))
+
+    if vim.fn.line('$') == 1 and vim.fn.getline(1) == '' then
+        if template_path and template_path ~= '' then
+            M.insert_template(vim.fn.expand(template_path), filename)
+        elseif tags and #tags > 0 then
+            local content = {'---', 'tags:'}
+            for _, tag in ipairs(tags) do
+                table.insert(content, '  - ' .. tag)
+            end
+            table.insert(content, '---')
+            table.insert(content, '')
+            table.insert(content, '# ' .. filename)
+            table.insert(content, '')
+            vim.api.nvim_buf_set_lines(0, 0, 0, false, content)
+        end
+    end
+end
+
 return M

@@ -1,3 +1,6 @@
+local utils = require('utils')
+local constants = require('constants')
+
 -- Make navigation keys handle wrapped text better in navigation mode
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', 'j', 'gj')
@@ -110,7 +113,7 @@ vim.keymap.set('n', "'", function()
 end, { desc = 'Jump to next snippet placeholder', expr = true, silent = true })
 
 vim.keymap.set('n', '<leader>at', function()
-    require('utils').select_markdown_table()
+    utils.select_markdown_table()
     vim.api.nvim_feedkeys('ga|', 'x', false)
 end, { desc = '[A]lign [T]able' })
 
@@ -179,3 +182,12 @@ vim.keymap.set(
     '<cmd>VTerm claude --continue<CR>',
     { desc = '[C]laude [C]ode' }
 )
+
+vim.keymap.set('n', '<leader>td', function()
+    utils.create_note(
+        constants.VAULT_DIR .. 'work/todo/',
+        tostring(os.date('%Y-%m-%d - TODO')),
+        {},
+        constants.MD_TEMPLATE_DIR .. 'todo-template.md'
+    )
+end, { desc = '[T]o[D]o Note'})
