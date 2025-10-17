@@ -185,7 +185,7 @@ vim.keymap.set(
 
 vim.keymap.set('n', '<leader>td', function()
     utils.create_note({
-        dir_path = constants.VAULT_DIR,
+        dirpath = constants.VAULT_DIR,
         filename = tostring(os.date('%Y-%m-%d - TODO')),
         template_path = constants.MD_TEMPLATE_DIR .. 'todo-template.md',
     })

@@ -27,14 +27,15 @@ function M.select_markdown_table()
     end
 end
 
-function M.tint_colour(hex_colour, r_tint, g_tint, b_tint)
-    local r = tonumber(string.sub(hex_colour, 2, 3), 16)
-    local g = tonumber(string.sub(hex_colour, 4, 5), 16)
-    local b = tonumber(string.sub(hex_colour, 6, 7), 16)
+---@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
+function M.tint_colour(t)
+    local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
+    local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
+    local b = tonumber(string.sub(t.hex_colour, 6, 7), 16)
 
-    r = math.min(255, math.max(0, r + r_tint))
-    g = math.min(255, math.max(0, g + g_tint))
-    b = math.min(255, math.max(0, b + b_tint))
+    r = math.min(255, math.max(0, r + t.r_tint))
+    g = math.min(255, math.max(0, g + t.g_tint))
+    b = math.min(255, math.max(0, b + t.b_tint))
 
     return string.format('#%02X%02X%02X', r, g, b)
 end
@@ -69,7 +70,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('String', { fg = palette.base0C })
     M.set_hl('Number', { fg = palette.base0C })
     M.set_hl('Delimiter', { fg = palette.base06 })
-    M.set_hl('Special', { fg = palette.base0E, italic = true })
+    M.set_hl('Special', { link = 'Delimiter' })
     M.set_hl('SpecialChar', { fg = palette.base09 })
     M.set_hl('Operator', { fg = palette.base09 })
     M.set_hl('NormalFloat', { link = 'Normal' })
@@ -163,10 +164,12 @@ function M.read_file(path)
     return content
 end
 
-function M.insert_template(path, filename)
-    local lines = M.read_file(path)
+---blah
+---@param t { path: string, filename: string }
+function M.insert_template(t)
+    local lines = M.read_file(t.path)
     if not lines then return nil end
-    lines = lines:gsub('{{title}}', filename)
+    lines = lines:gsub('{{title}}', t.filename)
     vim.api.nvim_put(vim.split(lines, '\n'), 'c', true, true)
 end
 
@@ -191,18 +194,16 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
----@param opts {dir_path: string, filename: string, tags?: string[], template_path?:string}
-function M.create_note(opts)
-    local dir_path = opts.dir_path
-    local filename = opts.filename
-    local tags = opts.tags or {}
-    local template_path = opts.template_path or ''
-    local filepath = string.format('%s.md', vim.fs.joinpath(dir_path, filename))
+---@param t { dirpath: string, filename: string, template_path?: string, tags?: string[] }
+function M.create_note(t)
+    local template_path = t.template_path or ''
+    local tags = t.tags or {}
+    local filepath = string.format('%s.md', vim.fs.joinpath(t.dirpath, t.filename))
     vim.cmd('edit ' .. vim.fn.fnameescape(filepath))
 
     if vim.fn.line('$') == 1 and vim.fn.getline(1) == '' then
         if template_path and template_path ~= '' then
-            M.insert_template(vim.fn.expand(template_path), filename)
+            M.insert_template({ vim.fn.expand(template_path), t.filename })
         elseif tags and #tags > 0 then
             local content = {'---', 'tags:'}
             for _, tag in ipairs(tags) do
@@ -210,9 +211,10 @@ function M.create_note(opts)
             end
             table.insert(content, '---')
             table.insert(content, '')
-            table.insert(content, '# ' .. filename)
-            table.insert(content, '')
+            table.insert(content, '# ' .. t.filename)
             vim.api.nvim_buf_set_lines(0, 0, 0, false, content)
+        else
+            vim.api.nvim_buf_set_lines(0, 0, 0, false, { '# ' .. t.filename })
         end
     end
 end
