@@ -216,7 +216,7 @@ return {
                         local choice = selected[1]
                         if not choice then return end
                         local path = template_dir .. choice
-                        utils.insert_template(path, utils.get_current_filename())
+                        utils.insert_template({ path=path, filename=utils.get_current_filename() })
                     end,
                     },
                 })

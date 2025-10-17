@@ -26,15 +26,15 @@ return {
         pattern = '*',
         callback = function()
             vim.api.nvim_set_hl(0, 'MiniDiffOverAdd', {
-                bg = utils.tint_colour(
-                    string.format(
+                bg = utils.tint_colour({
+                    hex_colour = string.format(
                         '#%06X',
                         vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
                     ),
-                    -10,
-                    10,
-                    -10
-                ),
+                    r_tint = -10,
+                    g_tint = 10,
+                    b_tint = -10
+                }),
             })
 
             vim.api.nvim_set_hl(0, 'MiniDiffOverChange', {
@@ -42,27 +42,27 @@ return {
             })
 
             vim.api.nvim_set_hl(0, 'MiniDiffOverDelete', {
-                bg = utils.tint_colour(
-                    string.format(
+                bg = utils.tint_colour({
+                    hex_colour = string.format(
                         '#%06X',
                         vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
                     ),
-                    20,
-                    -10,
-                    -10
-                ),
+                    r_tint = 20,
+                    g_tint = -10,
+                    b_tint = -10
+                 }),
             })
 
             vim.api.nvim_set_hl(0, 'MiniDiffOverContext', {
-                bg = utils.tint_colour(
-                    string.format(
+                bg = utils.tint_colour({
+                    hex_colour = string.format(
                         '#%06X',
                         vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
                     ),
-                    20,
-                    -10,
-                    -10
-                ),
+                    r_tint = 20,
+                    g_tint = -10,
+                    b_tint = -10
+                }),
             })
         end,
     }),
