@@ -1,3 +1,6 @@
+local utils = require('utils')
+local constants = require('constants')
+
 vim.api.nvim_create_user_command('W', 'w', {})
 
 vim.api.nvim_create_user_command('AddFootnote', function(opts)
@@ -71,5 +74,13 @@ vim.api.nvim_create_user_command('Note', function(opts)
         end
     end
 
-    require('utils').create_note(dirpath, filename, tags, template_path)
+    utils.create_note(dirpath, filename, tags, template_path)
 end, { desc = 'Create a note', nargs = '+', complete = 'dir' })
+
+-- vim.api.nvim_create_user_command('WeeklyRecap', function()
+--     utils.create_note(
+--         constants.VAULT_DIR .. 'journal/weekly/',
+--         string.format('%d-W%02d', os.date('%Y'), os.date('%V')),
+--         { 'journal', 'weekly-recap' },
+--     )
+-- end)

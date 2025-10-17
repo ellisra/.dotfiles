@@ -69,7 +69,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('String', { fg = palette.base0C })
     M.set_hl('Number', { fg = palette.base0C })
     M.set_hl('Delimiter', { fg = palette.base06 })
-    M.set_hl('Special', { fg = palette.base06 })
+    M.set_hl('Special', { fg = palette.base0E, italic = true })
     M.set_hl('SpecialChar', { fg = palette.base09 })
     M.set_hl('Operator', { fg = palette.base09 })
     M.set_hl('NormalFloat', { link = 'Normal' })
@@ -182,7 +182,7 @@ function M.toggle_checkbox()
     elseif line:match(checkbox_unchecked_pattern) then
         new_line = line:gsub('%[ %]', '[x]')
     elseif line:match(list_item_pattern) then
-        new_line = line:gsub('(^%s*- )', '%1[ ] ')
+        new_line = line:gsub('^(%s*%- )', '%1[ ] ')
     else
         local indent = line:match('^%s*') or ''
         new_line = indent .. '- [ ] ' .. line:gsub('^%s*', '')
@@ -191,7 +191,12 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
-function M.create_note(dir_path, filename, tags, template_path)
+---@param opts {dir_path: string, filename: string, tags?: string[], template_path?:string}
+function M.create_note(opts)
+    local dir_path = opts.dir_path
+    local filename = opts.filename
+    local tags = opts.tags or {}
+    local template_path = opts.template_path or ''
     local filepath = string.format('%s.md', vim.fs.joinpath(dir_path, filename))
     vim.cmd('edit ' .. vim.fn.fnameescape(filepath))
 
