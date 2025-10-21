@@ -164,7 +164,6 @@ function M.read_file(path)
     return content
 end
 
----blah
 ---@param t { path: string, filename: string }
 function M.insert_template(t)
     local lines = M.read_file(t.path)
@@ -203,7 +202,7 @@ function M.create_note(t)
 
     if vim.fn.line('$') == 1 and vim.fn.getline(1) == '' then
         if template_path and template_path ~= '' then
-            M.insert_template({ vim.fn.expand(template_path), t.filename })
+            M.insert_template({ path=vim.fn.expand(template_path), filename=t.filename })
         elseif tags and #tags > 0 then
             local content = {'---', 'tags:'}
             for _, tag in ipairs(tags) do

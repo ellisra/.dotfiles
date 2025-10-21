@@ -23,9 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     require('plugins.blink-cmp'),
-    require('plugins.conform'),
     require('plugins.treesitter'),
-    require('plugins.obsidian'),
     require('plugins.render-markdown'),
     require('plugins.flash'),
     require('plugins.fzf'),
