@@ -30,6 +30,11 @@ require('lazy').setup({
     require('plugins.mini.mini-nvim'),
     require('plugins.no-neck-pain'),
     require('plugins.fyler'),
+    {
+        'kamwitsta/flatwhite-vim',
+        lazy = false,
+        priority = 100,
+    },
 }, {
     ui = {
         border = 'single',
@@ -45,4 +50,4 @@ require('user-commands') -- User commands
 require('lsp-config') -- LSP
 require('keymaps') -- Keymaps
 
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('gruvbox')

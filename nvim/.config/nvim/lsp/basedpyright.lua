@@ -25,7 +25,7 @@ return {
                     reportUnusedVariable = 'info',
                     reportUnusedExpression = 'info',
                     reportAttributeAccessIssue = 'none',
-                    reportArgumentType = false,
+                    -- reportArgumentType = false,
                 },
             },
         },
