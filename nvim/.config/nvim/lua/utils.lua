@@ -27,7 +27,12 @@ function M.select_markdown_table()
     end
 end
 
----@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
+---@param t {
+---    hex_colour: string,
+---    r_tint: integer,
+---    g_tint: integer,
+---    b_tint: integer,
+---}
 function M.tint_colour(t)
     local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
     local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
@@ -68,7 +73,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('Function', { fg = palette.base0B })
     M.set_hl('Identifier', { fg = palette.base0D })
     M.set_hl('String', { fg = palette.base0C })
-    M.set_hl('Number', { fg = palette.base0C })
+    M.set_hl('Number', { fg = palette.base0E })
     M.set_hl('Delimiter', { fg = palette.base06 })
     M.set_hl('Special', { link = 'Delimiter' })
     M.set_hl('SpecialChar', { fg = palette.base09 })
@@ -88,12 +93,12 @@ function M.set_highlights(colorscheme_name)
 
     -- LSP tags
     M.set_hl('@keyword', { fg = palette.base08 })
-    M.set_hl('@keyword.conditional', { fg = palette.base0E })
-    M.set_hl('@keyword.operator', { fg = palette.base0E })
+    -- M.set_hl('@variable', { fg = palette.base06 })
     M.set_hl('@variable.parameter', { fg = palette.base0D })
     M.set_hl('@lsp.type.macro', { fg = palette.base08 })
-    M.set_hl('@lsp.type.namespace', { fg = palette.base0A })
+    M.set_hl('@lsp.type.namespace', { link = 'Constant' })
     M.set_hl('@lsp.type.builtinType', { fg = palette.base0A })
+    -- M.set_hl('@lsp.type.variable', { fg = palette.base06 })
     M.set_hl('@type.builtin', { fg = palette.base0A })
     M.set_hl('@constant.builtin', { fg = palette.base0E })
     M.set_hl('@number.float', { link = 'Number' })
@@ -193,7 +198,12 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
----@param t { dirpath: string, filename: string, template_path?: string, tags?: string[] }
+---@param t {
+---    dirpath: string,
+---    filename: string,
+---    template_path?: string,
+---    tags?: string[],
+---}
 function M.create_note(t)
     local template_path = t.template_path or ''
     local tags = t.tags or {}
