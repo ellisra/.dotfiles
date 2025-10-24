@@ -36,7 +36,6 @@ return {
         bullet = {
             enabled = true,
             icons = { '•' },
-            highlight = '@markup.heading.5',
         },
 
         checkbox = {
@@ -75,7 +74,7 @@ return {
             width = 'block',
             min_width = 40,
             border = 'thin',
-            highlight_inline = 'Special'
+            highlight_inline = '@nospell.markdown_inline'
         },
 
         pipe_table = {
