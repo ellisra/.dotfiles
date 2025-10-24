@@ -65,6 +65,8 @@ function M.set_highlights(colorscheme_name)
     end
 
     if palette == nil or not is_custom_scheme then
+        M.set_hl('@keyword.directive.markdown', { link = 'Normal' })
+        M.set_hl('@string.documentation.python', { link = 'Comment' })
         return
     end
 
@@ -90,19 +92,19 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('LspDiagnosticsSignWarning', { link = 'DiagnosticWarn' })
     M.set_hl('LspDiagnosticsSignHint', { link = 'DiagnosticHint' })
     M.set_hl('LspDiagnosticsSignInformation', { link = 'DiagnosticInfo' })
+    M.set_hl('RenderMarkdownBullet', { link = 'Identifier' })
 
     -- LSP tags
     M.set_hl('@keyword', { fg = palette.base08 })
-    -- M.set_hl('@variable', { fg = palette.base06 })
     M.set_hl('@variable.parameter', { fg = palette.base0D })
     M.set_hl('@lsp.type.macro', { fg = palette.base08 })
     M.set_hl('@lsp.type.namespace', { link = 'Constant' })
     M.set_hl('@lsp.type.builtinType', { fg = palette.base0A })
-    -- M.set_hl('@lsp.type.variable', { fg = palette.base06 })
     M.set_hl('@type.builtin', { fg = palette.base0A })
     M.set_hl('@constant.builtin', { fg = palette.base0E })
     M.set_hl('@number.float', { link = 'Number' })
     M.set_hl('@lsp.mod.readonly', { link = 'Constant' })
+    M.set_hl('@string.documentation.python', { link = 'Comment' })
 
     -- mini.nvim
     M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })
@@ -143,7 +145,9 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@markup.quote', { fg = palette.base04, italic = true })
     M.set_hl('@markup.list', { fg = palette.base0D })
     M.set_hl('@markup.strikethrough.markdown_inline', { strikethrough = true })
+    M.set_hl('@keyword.directive.markdown', { link = 'Normal' })
     M.set_hl('@lsp.type.decorator.markdown', { fg = palette.base0C })
+    M.set_hl('@nospell.markdown_inline', { fg = palette.base09, italic = true })
     M.set_hl(
         '@markup.link.label.markdown_inline',
         { fg = palette.base0D, underdotted = true }
