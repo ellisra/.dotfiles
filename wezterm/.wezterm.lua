@@ -10,7 +10,7 @@ end
 
 local function scheme_for_appearance(appearance)
 	if appearance:find('Dark') then
-		return 'Kanagawa (Gogh)'
+		return 'Gruvbox dark, hard (base16)'
 	else
 		return 'dawnfox'
 	end
@@ -21,9 +21,9 @@ cfg = {
 
 	color_scheme = scheme_for_appearance(get_appearance()),
 
-    font = wez.font('JetBrainsMono Nerd Font Propo', { weight = 'Medium' }),
+    font = wez.font('JetBrainsMono Nerd Font Propo', { weight = 'DemiBold' }),
 	-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-	font_size = 11,
+	font_size = 10.5,
 	bold_brightens_ansi_colors = "No",
 	custom_block_glyphs = false,
 	hide_mouse_cursor_when_typing = true,
