@@ -20,7 +20,6 @@ return {
     filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
     root_dir = function(bufnr, on_dir)
         local fname = vim.api.nvim_buf_get_name(bufnr)
-        -- see: https://github.com/neovim/nvim-lspconfig/issues/804
         if mod_cache then
             on_dir(get_root(fname))
             return
