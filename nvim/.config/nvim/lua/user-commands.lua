@@ -59,6 +59,6 @@ vim.api.nvim_create_user_command('WeeklyRecap', function()
     utils.create_note({
         dirpath = constants.VAULT_DIR .. 'journal/weekly/',
         filename = string.format('%d-W%02d', os.date('%Y'), os.date('%V')),
-        tags = { 'journal', 'weekly-recap' },
+        tags = { 'journal', 'weekly' },
     })
 end, { desc = 'Create a weekly journal note' })

@@ -134,6 +134,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('FoldColumn', { fg = palette.base03, bg = palette.base00 })
     M.set_hl('CursorLineNr', { fg = palette.base03, bg = palette.base01 })
     M.set_hl('CursorLineSign', { fg = palette.base03, bg = palette.base01 })
+    M.set_hl('FzfLuaFzfMatch', { fg = palette.base0D })
 
     -- markdown
     M.set_hl('@markup.heading.1', { fg = palette.base08, bold = true })
@@ -147,7 +148,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@markup.strikethrough.markdown_inline', { strikethrough = true })
     M.set_hl('@keyword.directive.markdown', { link = 'Normal' })
     M.set_hl('@lsp.type.decorator.markdown', { fg = palette.base0C })
-    M.set_hl('@nospell.markdown_inline', { fg = palette.base09, italic = true })
+    M.set_hl('@nospell.markdown_inline', { fg = palette.base09 })
     M.set_hl(
         '@markup.link.label.markdown_inline',
         { fg = palette.base0D, underdotted = true }
