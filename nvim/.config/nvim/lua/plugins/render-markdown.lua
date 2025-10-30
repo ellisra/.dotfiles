@@ -60,6 +60,7 @@ return {
         link = {
             enabled = true,
             wiki = { icon = '', highlight = '@markup.raw' },
+            footnote = { icon = '' },
         },
 
         code = {
