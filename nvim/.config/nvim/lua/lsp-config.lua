@@ -27,7 +27,6 @@ return {
         'markdown-oxide',
         'rust-analyzer',
         'clangd',
-        'gopls',
         'vtsls',
     }),
 
