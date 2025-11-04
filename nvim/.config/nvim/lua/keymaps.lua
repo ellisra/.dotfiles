@@ -47,34 +47,6 @@ vim.keymap.set(
     '<cmd>leftabove split<CR>',
     { noremap = true, silent = true, desc = 'New window up' }
 )
-vim.keymap.set('n', 'H', '<cmd>vertical resize -1<CR>')
-vim.keymap.set('n', 'L', '<cmd>vertical resize +1<CR>')
-
--- <leader>H/J/K/L moves the cursor to the window in that direction
-vim.keymap.set(
-    'n',
-    '<leader>wL',
-    '<cmd>wincmd l<CR>',
-    { noremap = true, silent = true, desc = 'Focus right window' }
-)
-vim.keymap.set(
-    'n',
-    '<leader>wH',
-    '<cmd>wincmd h<CR>',
-    { noremap = true, silent = true, desc = 'Focus left window' }
-)
-vim.keymap.set(
-    'n',
-    '<leader>wJ',
-    '<cmd>wincmd j<CR>',
-    { noremap = true, silent = true, desc = 'Focus down window' }
-)
-vim.keymap.set(
-    'n',
-    '<leader>wK',
-    '<cmd>wincmd k<CR>',
-    { noremap = true, silent = true, desc = 'Focus up window' }
-)
 
 -- Open Lazy.nvim
 vim.keymap.set('n', '<leader>lz', '<cmd>Lazy<CR>', { desc = 'Open [L]a[z]y.nvim' })
