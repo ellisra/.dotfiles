@@ -220,6 +220,6 @@ return {
                     end,
                     },
                 })
-        end, { desc = '[T]em[P]late'})
+        end, { desc = '[T]em[P]late' })
     end,
 }
