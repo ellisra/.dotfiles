@@ -84,11 +84,6 @@ vim.keymap.set('n', "'", function()
     end
 end, { desc = 'Jump to next snippet placeholder', expr = true, silent = true })
 
-vim.keymap.set('n', '<leader>at', function()
-    utils.select_markdown_table()
-    vim.api.nvim_feedkeys('ga|', 'x', false)
-end, { desc = '[A]lign [T]able' })
-
 vim.keymap.set('n', '<leader>gb', function()
     local line = vim.fn.line('.')
     local file = vim.fn.expand('%')
