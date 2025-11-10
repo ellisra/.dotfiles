@@ -62,7 +62,3 @@ vim.api.nvim_create_user_command('WeeklyRecap', function()
         tags = { 'journal', 'weekly' },
     })
 end, { desc = 'Create a weekly journal note' })
-
-vim.api.nvim_create_user_command('ISort', function()
-    vim.cmd('!ruff check --select I --fix %')
-end, { desc = 'isort current python file with ruff' })
