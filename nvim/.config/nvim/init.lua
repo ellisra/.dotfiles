@@ -31,9 +31,9 @@ require('lazy').setup({
     require('plugins.no-neck-pain'),
     require('plugins.fyler'),
     {
-        'kamwitsta/flatwhite-vim',
+        'wtfox/jellybeans.nvim',
         lazy = false,
-        priority = 100,
+        priority = 1000,
     },
 }, {
     ui = {
@@ -50,4 +50,4 @@ require('user-commands') -- User commands
 require('lsp-config') -- LSP
 require('keymaps') -- Keymaps
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('jellybeans')
