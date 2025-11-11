@@ -11,3 +11,14 @@ vim.keymap.set('n', '<leader>at', function()
     utils.select_markdown_table()
     vim.api.nvim_feedkeys('ga|', 'x', false)
 end, { desc = '[A]lign [T]able', buffer = true })
+
+vim.api.nvim_create_user_command('AddFootnote', function(opts)
+    local footnote_num = opts.args
+
+    vim.api.nvim_put({ '[^' .. footnote_num .. ']' }, 'c', true, true)
+
+    vim.cmd('normal! G')
+    vim.cmd('normal! o')
+    vim.api.nvim_put({ '[^' .. footnote_num .. ']: ' }, 'c', false, true)
+    vim.cmd('stopinsert')
+end, { nargs = 1 })

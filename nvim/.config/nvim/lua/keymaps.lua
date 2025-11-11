@@ -59,10 +59,6 @@ vim.keymap.set(
     { desc = '[C]urrent [D]irectory' }
 )
 
--- Move current line up/down
-vim.keymap.set('n', '<S-Down>', 'ddp')
-vim.keymap.set('n', '<S-Up>', 'ddkP')
-
 -- Jump to diagnostics in buffer
 vim.keymap.set('n', '"d', function()
     vim.diagnostic.jump({ count = 1 })
