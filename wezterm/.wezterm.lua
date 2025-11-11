@@ -1,4 +1,4 @@
-local wez = require("wezterm")
+local wez = require('wezterm')
 local cfg = wez.config_builder()
 
 local function get_appearance()
@@ -21,10 +21,10 @@ cfg = {
 
 	color_scheme = scheme_for_appearance(get_appearance()),
 
-    font = wez.font('JetBrainsMono Nerd Font Propo', { weight = 'Medium' }),
+    font = wez.font('JetBrainsMono Nerd Font Propo', { weight = 'Light' }),
 	-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-	font_size = 10.5,
-	bold_brightens_ansi_colors = "No",
+	font_size = 10.8,
+	bold_brightens_ansi_colors = 'No',
 	custom_block_glyphs = false,
 	hide_mouse_cursor_when_typing = true,
 
@@ -34,8 +34,8 @@ cfg = {
 	tab_bar_at_bottom = true,
 	tab_max_width = 24,
 
-	window_decorations = "RESIZE",
-	window_close_confirmation = "NeverPrompt",
+	window_decorations = 'RESIZE',
+	window_close_confirmation = 'NeverPrompt',
 }
 
 return cfg
