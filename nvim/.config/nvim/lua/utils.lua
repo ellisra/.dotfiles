@@ -3,22 +3,23 @@ local M = {}
 function M.select_markdown_table()
     local line_num = vim.fn.line('.')
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local pattern = '^%s*|'
 
     local start_line = line_num
-    while start_line > 1 and lines[start_line]:match('^%s*|') do
+    while start_line > 1 and lines[start_line]:match(pattern) do
         start_line = start_line - 1
     end
-    if not lines[start_line]:match('^%s*|') then
+    if not lines[start_line]:match(pattern) then
         start_line = start_line + 1
     end
 
     local end_line = line_num
-    while end_line <= #lines and lines[end_line]:match('^%s*|') do
+    while end_line <= #lines and lines[end_line]:match(pattern) do
         end_line = end_line + 1
     end
     end_line = end_line - 1
 
-    if start_line <= #lines and lines[start_line]:match('^%s*|') then
+    if start_line <= #lines and lines[start_line]:match(pattern) then
         vim.fn.cursor(start_line, 1)
         vim.cmd('normal! V')
         vim.fn.cursor(end_line, 1)
