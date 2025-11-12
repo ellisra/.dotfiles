@@ -30,11 +30,7 @@ require('lazy').setup({
     require('plugins.mini.mini-nvim'),
     require('plugins.no-neck-pain'),
     require('plugins.fyler'),
-    {
-        'wtfox/jellybeans.nvim',
-        lazy = false,
-        priority = 1000,
-    },
+    require('plugins.colorschemes.jellybeans'),
 }, {
     ui = {
         border = 'single',
