@@ -28,12 +28,7 @@ function M.select_markdown_table()
     end
 end
 
----@param t {
----    hex_colour: string,
----    r_tint: integer,
----    g_tint: integer,
----    b_tint: integer,
----}
+---@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
 function M.tint_colour(t)
     local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
     local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
@@ -206,12 +201,7 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
----@param t {
----    dirpath: string,
----    filename: string,
----    template_path?: string,
----    tags?: string[],
----}
+---@param t { dirpath: string, filename: string, template_path?: string, tags?: string[] }
 function M.create_note(t)
     local template_path = t.template_path or ''
     local tags = t.tags or {}

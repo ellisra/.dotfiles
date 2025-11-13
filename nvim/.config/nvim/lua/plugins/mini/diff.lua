@@ -37,9 +37,7 @@ return {
                 }),
             })
 
-            vim.api.nvim_set_hl(0, 'MiniDiffOverChange', {
-                link = 'visual',
-            })
+            vim.api.nvim_set_hl(0, 'MiniDiffOverChange', { link = 'visual' })
 
             vim.api.nvim_set_hl(0, 'MiniDiffOverDelete', {
                 bg = utils.tint_colour({
