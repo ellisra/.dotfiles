@@ -16,17 +16,26 @@ local function scheme_for_appearance(appearance)
 	end
 end
 
+local font_family = 'JetBrainsMono NFP'
+
 cfg = {
 	audible_bell = 'Disabled',
 
 	color_scheme = scheme_for_appearance(get_appearance()),
 
-    font = wez.font('JetBrainsMono Nerd Font Propo', { weight = 'Light' }),
+    font = wez.font({ family = font_family, weight = 'Light' }),
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	font_size = 10.8,
 	bold_brightens_ansi_colors = 'No',
 	custom_block_glyphs = false,
 	hide_mouse_cursor_when_typing = true,
+    font_rules = {
+        {
+            intensity = 'Bold',
+            italic = false,
+            font = wez.font({ family = font_family, weight = 'Bold' })
+        }
+    },
 
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
