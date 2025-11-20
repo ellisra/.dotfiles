@@ -23,10 +23,23 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function(event)
-        require('utils').set_highlights(event.match)
+        vim.schedule(function()
+            require('utils').set_highlights(event.match)
+        end)
     end,
 
     desc = 'Reapply custom highlights on colorscheme change',
+})
+
+vim.api.nvim_create_autocmd('OptionSet', {
+    pattern = 'background',
+    callback = function()
+        if vim.o.background == 'light' then
+            vim.cmd.colorscheme('dawnfox')
+        else
+            vim.cmd.colorscheme('gruvbox')
+        end
+    end,
 })
 
 -- vim.api.nvim_create_autocmd('CompleteDone', {
