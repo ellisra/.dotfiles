@@ -16,14 +16,23 @@ local function scheme_for_appearance(appearance)
 	end
 end
 
+local function weight_for_appearance(appearance)
+    if appearance:find('Dark') then
+        return 'Light'
+    else
+        return 'Medium'
+    end
+end
+
 local font_family = 'JetBrainsMono NFP'
+local appearance = get_appearance()
 
 cfg = {
 	audible_bell = 'Disabled',
 
-	color_scheme = scheme_for_appearance(get_appearance()),
+	color_scheme = scheme_for_appearance(appearance),
 
-    font = wez.font({ family = font_family, weight = 'Light' }),
+    font = wez.font({ family = font_family, weight = weight_for_appearance(appearance) }),
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	font_size = 10.8,
 	bold_brightens_ansi_colors = 'No',

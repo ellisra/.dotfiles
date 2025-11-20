@@ -111,6 +111,8 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@number.float', { link = 'Number' })
     M.set_hl('@lsp.mod.readonly', { link = 'Constant' })
     M.set_hl('@string.documentation.python', { link = 'Comment' })
+    M.set_hl('@function.builtin.lua', { link = 'Function' })
+    M.set_hl('@constructor.lua', { link = 'Delimiter' })
 
     -- mini.nvim
     M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })

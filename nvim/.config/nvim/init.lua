@@ -46,4 +46,8 @@ require('user-commands') -- User commands
 require('lsp-config') -- LSP
 require('keymaps') -- Keymaps
 
-vim.cmd.colorscheme('gruvbox')
+if vim.o.background == 'light' then
+    vim.cmd.colorscheme('dawnfox')
+else
+    vim.cmd.colorscheme('gruvbox')
+end

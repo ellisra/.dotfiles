@@ -4,8 +4,8 @@ return {
     root_markers = { 'Cargo.toml' },
     filetypes = { 'rust' },
     settings = {
-        autoformat = true,
-        cargo = { allFeatures = true },
-        checkOnSave = { command = 'clippy' },
+        ['rust-analyzer'] = {
+            completion = { callable = { snippets = 'add_parentheses' } }
+        }
     },
 }
