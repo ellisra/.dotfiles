@@ -18,7 +18,7 @@ end
 
 local function weight_for_appearance(appearance)
     if appearance:find('Dark') then
-        return 'Light'
+        return 'Regular'
     else
         return 'Medium'
     end
