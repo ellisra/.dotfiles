@@ -22,11 +22,11 @@ return {
     }),
 
     vim.lsp.enable({
-        'lua-ls',
         'basedpyright',
+        'clangd',
+        'lua-ls',
         'markdown-oxide',
         'rust-analyzer',
-        'clangd',
         'vtsls',
     }),
 
