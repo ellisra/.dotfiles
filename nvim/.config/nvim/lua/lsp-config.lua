@@ -24,6 +24,7 @@ return {
     vim.lsp.enable({
         'basedpyright',
         'clangd',
+        'gopls',
         'lua-ls',
         'markdown-oxide',
         'rust-analyzer',
