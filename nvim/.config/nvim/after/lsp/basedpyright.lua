@@ -15,7 +15,7 @@ return {
                 typeCheckingMode = 'standard',
                 diagnosticSeverityOverrides = {
                     useLibraryCodeForTypes = true,
-                    reportUnknownParameterType = false,
+                    reportUnknownParameterType = 'warning',
                     reportImportCycles = 'warning',
                     reportDuplicateImport = 'warning',
                     reportConstantRedefinition = 'none',
@@ -25,7 +25,6 @@ return {
                     reportUnusedVariable = 'info',
                     reportUnusedExpression = 'info',
                     reportAttributeAccessIssue = 'none',
-                    -- reportArgumentType = false,
                 },
             },
         },
