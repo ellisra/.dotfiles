@@ -27,6 +27,7 @@ return {
         'gopls',
         'lua-ls',
         'markdown-oxide',
+        'roslyn-ls',
         'rust-analyzer',
         'vtsls',
     }),

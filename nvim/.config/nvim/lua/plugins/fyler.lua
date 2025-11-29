@@ -23,9 +23,9 @@ return {
                 },
 
                 icon = {
-                    directory_collapsed = ' ',
-                    directory_expanded = ' ',
-                    directory_empty = ' ',
+                    directory_collapsed = '',
+                    directory_expanded = '',
+                    directory_empty = '',
                 },
 
                 win = {
