@@ -5,7 +5,6 @@ local function in_comment(marker)
     }
 
     return function(bufnr)
-        -- Only render hipatterns inside comments, if comment syntax provided
         local comment = comment_tbl[vim.bo[bufnr].filetype]
         if comment == nil then
             return nil
