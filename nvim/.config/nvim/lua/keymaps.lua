@@ -22,7 +22,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Vim window split commands
--- <leader>h/j/k/l opens a new window in that direction
+-- <leader>w+h/j/k/l opens a new window in that direction
 vim.keymap.set(
     'n',
     '<leader>wl',
@@ -104,7 +104,7 @@ vim.keymap.set('n', '<leader>gb', function()
         end
     end
 
-    local content = string.format('%s • %s', author, date)
+    local content = string.format('  %s • %s', author, date)
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, { content })
 
