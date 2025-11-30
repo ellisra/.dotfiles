@@ -9,6 +9,7 @@ return {
         local patterns = {
             'bash',
             'c',
+            'cpp',
             'c_sharp',
             'diff',
             'go',
