@@ -127,6 +127,20 @@ return {
             })
         end, { desc = '[S]earch [D]iagnostics' })
 
+        keymap('n', 'grr', function()
+            FzfLua.lsp_references({
+                winopts = {
+                    width = 1,
+                    height = 0.2,
+                    preview = {
+                        hidden = false,
+                        layout = 'horizontal',
+                        horizontal = 'right:60%',
+                    },
+                }
+            })
+        end)
+
         keymap('n', '<leader>sD', function()
             FzfLua.diagnostics_workspace({
                 winopts = {
