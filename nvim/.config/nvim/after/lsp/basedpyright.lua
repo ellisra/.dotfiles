@@ -1,24 +1,23 @@
 ---@type vim.lsp.Config
 return {
     cmd = { 'basedpyright-langserver', '--stdio' },
+    filetypes = { 'python' },
     root_markers = {
         'pyproject.toml',
         'pyrightconfig.json',
         'requirements.txt',
         '.git',
     },
-    filetypes = { 'python' },
     settings = {
         basedpyright = {
-            disableOrganizeImports = false,
             analysis = {
                 typeCheckingMode = 'standard',
+                useLibraryCodeForTypes = true,
                 diagnosticSeverityOverrides = {
-                    useLibraryCodeForTypes = true,
                     reportUnknownParameterType = 'warning',
                     reportImportCycles = 'warning',
                     reportDuplicateImport = 'warning',
-                    reportConstantRedefinition = 'none',
+                    reportConstantRedefinition = 'warning',
                     reportUnnecessaryTypeIgnoreComment = 'warning',
                     reportUnusedClass = 'info',
                     reportUnusedFunction = 'info',

@@ -82,9 +82,9 @@ return {
         textDocument = {
             completion = {
                 editsNearCursor = true,
-                completionItem = {
-                    snippetSupport = false,
-                },
+                -- completionItem = {
+                --     snippetSupport = false,
+                -- },
             },
         },
         offsetEncoding = { 'utf-8', 'utf-16' },
