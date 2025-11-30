@@ -1,7 +1,9 @@
 local utils = require('utils')
 
 vim.opt_local.wrap = true
-vim.opt_local.spell = true
+if vim.bo.buftype == '' then
+    vim.opt_local.spell = true
+end
 
 vim.keymap.set('n', '-', function()
     utils.toggle_checkbox()
