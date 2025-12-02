@@ -11,11 +11,11 @@
       "version": "'stable'"
     },
     "fzf-lua": {
-      "rev": "ed140c90465a18f893bb2f5fcfbc23c661e583cd",
+      "rev": "cae96b04f6cad98a3ad24349731df5e56b384c3c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "mini.nvim": {
-      "rev": "c007f4b3822c99b98328bc214589a721c69d1514",
+      "rev": "dca98843fab66d080779cd973e7139e258ff164c",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
@@ -23,7 +23,7 @@
       "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
     "nvim-treesitter": {
-      "rev": "17885756e63df73ed90db62e4630f744ceda6514",
+      "rev": "00c906abb9550e72bc0c640545b5499b9525bb40",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     }

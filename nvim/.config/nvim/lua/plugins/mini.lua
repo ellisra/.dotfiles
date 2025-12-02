@@ -1,9 +1,10 @@
 require('mini.ai').setup()
 require('mini.align').setup()
+require('mini.bracketed').setup()
 require('mini.icons').setup()
 require('mini.jump').setup()
-require('mini.splitjoin').setup()
 require('mini.pairs').setup({ modes = { insert = true, command = true } })
+require('mini.splitjoin').setup()
 
 require('plugins.mini-clue')
 require('plugins.mini-diff')
