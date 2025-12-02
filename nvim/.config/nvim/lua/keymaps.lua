@@ -48,9 +48,6 @@ vim.keymap.set(
     { noremap = true, silent = true, desc = 'New window up' }
 )
 
--- Open Lazy.nvim
-vim.keymap.set('n', '<leader>lz', '<cmd>Lazy<CR>', { desc = 'Open [L]a[z]y.nvim' })
-
 -- Echo current filepath
 vim.keymap.set(
     'n',
