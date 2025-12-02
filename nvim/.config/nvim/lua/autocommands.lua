@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     desc = 'Reapply custom highlights on colorscheme change',
 })
 
-vim.api.nvim_create_autocmd('OptionSet', {
+vim.api.nvim_create_autocmd('VimEnter', {
     pattern = 'background',
     callback = function()
         if vim.o.background == 'light' then
