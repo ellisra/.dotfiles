@@ -35,6 +35,8 @@ return {
             -- Additional triggers
             { mode = 'n', keys = 'm' },
             { mode = 'n', keys = '#' },
+            { mode = 'n', keys = '[' },
+            { mode = 'n', keys = ']' },
         },
 
         clues = {

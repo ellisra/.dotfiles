@@ -112,6 +112,19 @@ return {
             FzfLua.buffers()
         end, { desc = '[ ] Existing buffers' })
 
+        keymap('n', '<leader>sj', function()
+            FzfLua.jumps({
+                winopts = {
+                    width = 1,
+                    preview = {
+                        hidden = false,
+                        layout = 'horizontal',
+                        horizontal = 'right:60%',
+                    }
+                }
+            })
+        end, { desc = '[S]earch [J]umps' })
+
         -- Grep
         keymap('n', '<leader>sg', function()
             FzfLua.live_grep()
