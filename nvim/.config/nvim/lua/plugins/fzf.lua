@@ -35,9 +35,7 @@ return {
         },
 
         grep = {
-            rg_opts = [[
-                column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g "!.git/" -e
-            ]],
+            rg_opts = '--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g "!.git" -e',
 
             winopts = {
                 height = 0.5,
@@ -129,7 +127,16 @@ return {
         end, { desc = '[S]earch workspace [D]iagnostics' })
 
         keymap('n', '<leader>ca', function()
-            FzfLua.lsp_code_actions()
+            FzfLua.lsp_code_actions({
+                winopts = {
+                    width = 1,
+                    preview = {
+                        hidden = false,
+                        layout = 'horizontal',
+                        horizontal = 'right:70%'
+                    }
+                }
+            })
         end, { desc = '[C]ode [A]ctions' })
 
         keymap('n', 'gd', function()
