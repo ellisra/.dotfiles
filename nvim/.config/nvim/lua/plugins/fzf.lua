@@ -109,7 +109,7 @@ keymap('n', '<leader>sr', function()
             },
         }
     })
-end)
+end, { desc = '[S]earch [R]eferences' })
 
 keymap('n', '<leader>ca', function()
     FzfLua.lsp_code_actions({
