@@ -9,27 +9,8 @@ return {
     opts = {
         fzf_colors = true,
         file_icon_padding = ' ',
-
-        fzf_opts = {
-            ['--info'] = 'inline',
-        },
-
-        lsp = {
-            code_actions = {
-                previewer = 'codeaction_native',
-                preview_pager = 'delta --width=$FZF_PREVIEW_COLUMNS --light',
-            },
-        },
-
-        oldfiles = {
-            include_current_session = true,
-        },
-
-        previewers = {
-            builtin = {
-                syntax_limit_b = 1024 * 100,
-            },
-        },
+        oldfiles = { include_current_session = true },
+        defaults = { formatter = 'path.filename_first', git_icons = true },
 
         keymap = {
             builtin = {
@@ -41,7 +22,6 @@ return {
 
         winopts = {
             backdrop = 100,
-
             height = 0.50,
             width = 0.50,
             row = 1,
@@ -54,25 +34,10 @@ return {
             },
         },
 
-        -- Pickers
-        defaults = {
-            find_opts = [[-type f -not -path '*/\.git/*']],
-            rg_opts = "--color=never --files --hidden --follow -g '!.git'",
-            fd_opts = '--color=never --type f --hidden --follow --exclude .git'
-                .. " -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.webp' -E '*.exe' -E"
-                .. " '*.pyc' -E '*.svg'",
-
-            formatter = 'path.filename_first',
-            git_icons = true,
-        },
-
         grep = {
-            rg_opts = '--column --line-number --no-heading --color=always '
-                .. "--smart-case --max-columns=4096 --hidden -g '!.git/' -e",
-
-            rg_glob = true,
-            glob_flag = '--iglob',
-            glob_separator = '%s%-%-',
+            rg_opts = [[
+                column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g "!.git/" -e
+            ]],
 
             winopts = {
                 height = 0.5,
@@ -109,8 +74,8 @@ return {
         end, { desc = '[S]earch [N]eovim config' })
 
         keymap('n', '<leader><leader>', function()
-            FzfLua.buffers()
-        end, { desc = '[ ] Existing buffers' })
+            FzfLua.resume()
+        end, { desc = '[ ] Resume previous search' })
 
         keymap('n', '<leader>sj', function()
             FzfLua.jumps({
@@ -140,7 +105,7 @@ return {
             })
         end, { desc = '[S]earch [D]iagnostics' })
 
-        keymap('n', 'grr', function()
+        keymap('n', '<leader>sr', function()
             FzfLua.lsp_references({
                 winopts = {
                     width = 1,
@@ -201,10 +166,6 @@ return {
                 },
             })
         end, { desc = '[S]earch [K]eymaps' })
-
-        keymap('n', '<leader>sr', function()
-            FzfLua.resume()
-        end, { desc = '[S]earch [R]esume' })
 
         keymap('n', '<leader>sc', function()
             FzfLua.colorschemes({
