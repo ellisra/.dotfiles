@@ -12,7 +12,7 @@ vim.keymap.set('n', '<C-k>', '<C-u>zz')
 vim.keymap.set('i', '<C-k>', '<C-o><C-u><C-o>zz')
 
 -- Navigate to the start of the line with Home
-vim.keymap.set('n', '<Home>', '^')
+vim.keymap.set({ 'n', 'v' }, '<Home>', '^')
 vim.keymap.set('i', '<Home>', '<C-o>^')
 
 -- Clear search highlight on Esc

@@ -6,17 +6,10 @@ return {
     settings = {
         Lua = {
             telemetry = { enable = false },
-            runtime = {
-                version = 'LuaJIT',
-                path = { 'lua/?.lua', 'lua/?/init.lua' },
-            },
+            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
             workspace = {
                 checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME,
-                    '$XDG_DATA_HOME/nvim/lazy',
-                    '${3rd}/luv/library',
-                },
+                library = { vim.env.VIMRUNTIME, '${3rd}/luv/library' },
             },
         },
     },
