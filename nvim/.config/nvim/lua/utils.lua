@@ -103,7 +103,7 @@ function M.set_highlights(colorscheme_name)
 
     -- LSP tags
     M.set_hl('@keyword', { fg = palette.base08 })
-    M.set_hl('@variable.parameter', { fg = palette.base0D })
+    M.set_hl('@variable.parameter', { italic = true })
     M.set_hl('@lsp.type.macro', { fg = palette.base08 })
     M.set_hl('@lsp.type.namespace', { link = 'Constant' })
     M.set_hl('@lsp.type.builtinType', { fg = palette.base0A })

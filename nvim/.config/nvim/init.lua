@@ -28,6 +28,7 @@ require('lazy').setup({
     require('plugins.mini.mini-nvim'),
     require('plugins.no-neck-pain'),
     require('plugins.fyler'),
+    { 'olivercederborg/poimandres.nvim' },
 }, {
     ui = {
         border = 'single',
@@ -46,5 +47,5 @@ require('keymaps') -- Keymaps
 if vim.o.background == 'light' then
     vim.cmd.colorscheme('dawnfox')
 else
-    vim.cmd.colorscheme('gruvbox')
+    vim.cmd.colorscheme('poimandres')
 end

@@ -14,7 +14,7 @@ return {
                 typeCheckingMode = 'standard',
                 useLibraryCodeForTypes = true,
                 diagnosticSeverityOverrides = {
-                    reportUnknownParameterType = 'warning',
+                    reportUnknownParameterType = 'none',
                     reportImportCycles = 'warning',
                     reportDuplicateImport = 'warning',
                     reportConstantRedefinition = 'warning',
