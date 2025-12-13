@@ -138,3 +138,10 @@ vim.keymap.set('n', '<leader>td', function()
         template_path = constants.MD_TEMPLATE_DIR .. 'todo-template.md',
     })
 end, { desc = '[T]o[D]o Note'})
+
+vim.keymap.set('n', 'D', function()
+    vim.diagnostic.open_float({
+        border = 'single',
+        max_width = 70,
+    })
+end, { desc = '[D]iagnostic float' })

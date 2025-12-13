@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd('OptionSet', {
         if vim.o.background == 'light' then
             vim.cmd.colorscheme('dawnfox')
         else
-            vim.cmd.colorscheme('gruvbox')
+            vim.cmd.colorscheme('poimandres')
         end
     end,
 })

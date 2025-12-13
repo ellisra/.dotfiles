@@ -20,10 +20,6 @@ return {
     }),
 
     vim.diagnostic.config({
-        virtual_lines = {
-            current_line = true,
-        },
-
         signs = {
             priority = 200,
             text = {
