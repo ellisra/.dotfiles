@@ -28,7 +28,6 @@ require('lazy').setup({
     require('plugins.mini.mini-nvim'),
     require('plugins.no-neck-pain'),
     require('plugins.fyler'),
-    { 'olivercederborg/poimandres.nvim' },
 }, {
     ui = {
         border = 'single',

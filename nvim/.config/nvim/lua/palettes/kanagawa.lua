@@ -7,13 +7,13 @@ local palette = {
     fg2    = '#dcd7ba',
     fg1    = '#c8c093',
     fg0    = '#899696',
-    red    = '#c34043',
+    red    = '#957fb8',
     orange = '#ffa066',
     yellow = '#c0a36e',
     green  = '#76946a',
     aqua   = '#6a9589',
     blue   = '#7e9cd8',
-    purple = '#957fb8',
+    purple = '#c34043',
     error  = '#c34043',
 }
 

@@ -55,7 +55,7 @@ return {
         },
 
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            default = { 'lsp', 'path', 'buffer' },
             per_filetype = { markdown = { 'lsp' } },
             min_keyword_length = function()
                 local mode = vim.api.nvim_get_mode().mode
