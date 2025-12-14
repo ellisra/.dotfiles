@@ -35,6 +35,7 @@ vim.o.spelllang = 'en_gb'
 vim.o.spellcapcheck = ''
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.swapfile = false
 vim.o.undofile = true
 vim.o.undolevels = 1000
 vim.o.updatetime = 250
