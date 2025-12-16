@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local M = {}
 
 local modes = {
@@ -30,19 +32,19 @@ end
 
 local function update_mode_colors()
     local current_mode = vim.api.nvim_get_mode().mode
-    local mode_color = '%#StatusLineAccent#'
+    local mode_color = '%#MiniStatuslineModeNormal#'
     if current_mode == 'n' then
-        mode_color = '%#StatuslineAccent#'
+        mode_color = '%#MiniStatuslineModeNormal#'
     elseif current_mode == 'i' or current_mode == 'ic' then
-        mode_color = '%#StatuslineInsertAccent#'
+        mode_color = '%#MiniStatuslineModeVisual#'
     elseif current_mode == 'v' or current_mode == 'V' or current_mode == '' then
-        mode_color = '%#StatuslineVisualAccent#'
+        mode_color = '%#MiniStatuslineModeCommand#'
     elseif current_mode == 'R' then
-        mode_color = '%#StatuslineReplaceAccent#'
+        mode_color = '%#MiniStatuslineModeReplace#'
     elseif current_mode == 'c' then
-        mode_color = '%#StatuslineCmdLineAccent#'
+        mode_color = '%#MiniStatuslineModeInsert#'
     elseif current_mode == 't' then
-        mode_color = '%#StatuslineTerminalAccent#'
+        mode_color = '%#MiniStatuslineModeOther#'
     end
     return mode_color
 end
@@ -63,13 +65,18 @@ end
 
 local function filename()
     local fname = vim.fn.expand('%:t')
+    local modified = ''
+    if vim.bo.modified then
+        modified = ' [+]'
+    end
+
     if fname == '' then
         return ''
     end
-    return fname .. ' '
+    return fname .. modified .. ' '
 end
 
-local function lsp()
+local function diagnostics()
     local count = {}
     local levels = {
         errors = 'Error',
@@ -89,23 +96,29 @@ local function lsp()
     local info = ''
 
     if count['errors'] ~= 0 then
-        errors = ' %#LspDiagnosticsSignError# ' .. count['errors']
+        errors = ' %#StatusLineDiagnosticError# ' .. count['errors']
     end
     if count['warnings'] ~= 0 then
-        warnings = ' %#LspDiagnosticsSignWarning# ' .. count['warnings']
+        warnings = ' %#StatusLineDiagnosticWarn# ' .. count['warnings']
     end
     if count['hints'] ~= 0 then
-        hints = ' %#LspDiagnosticsSignHint# ' .. count['hints']
+        hints = ' %#StatusLineDiagnosticHint# ' .. count['hints']
     end
     if count['info'] ~= 0 then
-        info = ' %#LspDiagnosticsSignInformation# ' .. count['info']
+        info = ' %#StatusLineDiagnosticInfo# ' .. count['info']
     end
 
     return errors .. warnings .. hints .. info .. '%#Normal#'
 end
 
-local function filetype()
-    return string.format('%s %s ', '%#Statusline#', vim.bo.filetype)
+local function lsp()
+    local clients = vim.lsp.get_clients()
+    if #clients == 0 then
+        return ' No active LSP '
+    end
+    local lsp_name = clients[1].name
+
+    return ' ' .. lsp_name .. ' '
 end
 
 local function lineinfo()
@@ -132,19 +145,18 @@ function M.setup()
 
     Statusline.active = function()
         return table.concat({
-            '%#Statusline#',
+            '%#StatusLine#',
             update_mode_colors(),
             mode(),
-            '%#Statusline#',
+            '%#StatusLineNC#',
             git_info(),
             '%#Normal# ',
             filename(),
-            '%#Normal#',
             '%=',
             md_info(),
-            '%#StatusLineExtra#',
+            diagnostics(),
+            ' %#StatusLineNC#',
             lsp(),
-            filetype(),
             lineinfo(),
         })
     end
