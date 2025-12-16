@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight yanked text',
     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -24,7 +26,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function(event)
         vim.schedule(function()
-            require('utils').set_highlights(event.match)
+            utils.set_highlights(event.match)
         end)
     end,
 

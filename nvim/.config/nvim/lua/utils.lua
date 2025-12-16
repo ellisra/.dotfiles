@@ -54,6 +54,11 @@ function M.set_highlights(colorscheme_name)
         vim.fn.stdpath('config') .. '/colors/' .. colors_name .. '.lua'
     ) == 1
 
+    M.set_hl('StatusLineDiagnosticError', M.combine_hl('DiagnosticError', 'Normal'))
+    M.set_hl('StatusLineDiagnosticWarn', M.combine_hl('DiagnosticWarn', 'Normal'))
+    M.set_hl('StatusLineDiagnosticHint', M.combine_hl('DiagnosticHint', 'Normal'))
+    M.set_hl('StatusLineDiagnosticInfo', M.combine_hl('DiagnosticInfo', 'Normal'))
+
     -- Special case for retrobox colorscheme
     if colors_name == 'retrobox' then
         M.set_hl('@lsp.type.variable', { fg = '#ebdbb2' })
@@ -86,10 +91,6 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('DiagnosticFloatingError', { link = 'DiagnosticError' })
     M.set_hl('DiagnosticFloatingInfo', { link = 'DiagnosticInfo' })
     M.set_hl('DiagnosticUnderlineWarn', { sp = palette.base0A, undercurl = true })
-    M.set_hl('LspDiagnosticsSignError', { link = 'DiagnosticError' })
-    M.set_hl('LspDiagnosticsSignWarning', { link = 'DiagnosticWarn' })
-    M.set_hl('LspDiagnosticsSignHint', { link = 'DiagnosticHint' })
-    M.set_hl('LspDiagnosticsSignInformation', { link = 'DiagnosticInfo' })
     M.set_hl('WinSeparator', { fg = palette.base03 })
     M.set_hl('SignColumn', { bg = palette.base00 })
     M.set_hl('LineNr', { fg = palette.base03, bg = palette.base00 })
@@ -99,6 +100,11 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('CursorLineNr', { fg = palette.base03, bg = palette.base01 })
     M.set_hl('CursorLineSign', { fg = palette.base03, bg = palette.base01 })
     M.set_hl('MatchParen', { bg = palette.base02, underline = true })
+    M.set_hl('StatusLineNC', { fg = palette.base05, bg = palette.base01 })
+    M.set_hl('StatusLineDiagnosticError', { fg = palette.base08, bg = palette.base00 })
+    M.set_hl('StatusLineDiagnosticWarn', { fg = palette.base0A, bg = palette.base00 })
+    M.set_hl('StatusLineDiagnosticHint', { fg = palette.base0D, bg = palette.base00 })
+    M.set_hl('StatusLineDiagnosticInfo', { fg = palette.base0C, bg = palette.base00 })
 
     M.set_hl('RenderMarkdownBullet', { link = 'Identifier' })
     M.set_hl('FzfLuaFzfMatch', { fg = palette.base0D })
@@ -114,6 +120,8 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@constant.builtin', { fg = palette.base0E })
     M.set_hl('@number.float', { link = 'Number' })
     M.set_hl('@lsp.mod.readonly', { link = 'Constant' })
+    M.set_hl('@lsp.type.variable.python', {})
+    M.set_hl('@lsp.typemod.typeParameter', { link = '@type' })
     M.set_hl('@string.documentation.python', { link = 'Comment' })
     M.set_hl('@function.builtin.lua', { link = 'Function' })
     M.set_hl('@constructor.lua', { link = 'Delimiter' })
@@ -130,15 +138,6 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('MiniHipatternsNote', { fg = palette.base00, bg = palette.base0C })
     M.set_hl('MiniClueTitle', { link = 'Normal' })
     M.set_hl('MiniJump', { link = 'Visual' })
-
-    -- statusline
-    M.set_hl('StatusLine', { bg = palette.base01, fg = palette.base05 })
-    M.set_hl('StatusLineAccent', { bg = palette.base04, fg = palette.base00 })
-    M.set_hl('StatuslineInsertAccent', { bg = palette.base0B, fg = palette.base00 })
-    M.set_hl('StatuslineVisualAccent', { bg = palette.base08, fg = palette.base00 })
-    M.set_hl('StatuslineReplaceAccent', { bg = palette.base09, fg = palette.base00 })
-    M.set_hl('StatuslineCmdLineAccent', { bg = palette.base0D, fg = palette.base00 })
-    M.set_hl('StatuslineTerminalAccent', { bg = palette.base0E, fg = palette.base00 })
 
     -- markdown
     M.set_hl('@markup.heading.1', { fg = palette.base08, bold = true })
@@ -166,6 +165,16 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('FylerGitUntracked', { fg = palette.base0C })
     M.set_hl('FylerGitRenamed', { fg = palette.base09 })
     M.set_hl('FylerConfirmRed', { fg = palette.base08 })
+end
+
+---@param fg_group string
+---@param bg_group string
+---@return { fg: string, bg: string }
+function M.combine_hl(fg_group, bg_group)
+    local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
+    local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
+
+    return { fg = fg_hl.fg, bg = bg_hl.bg }
 end
 
 function M.get_current_filename()
