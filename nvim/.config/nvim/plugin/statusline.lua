@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 local M = {}
 
 local modes = {
@@ -96,16 +94,16 @@ local function diagnostics()
     local info = ''
 
     if count['errors'] ~= 0 then
-        errors = ' %#StatusLineDiagnosticError# ' .. count['errors']
+        errors = '%#StatusLineDiagnosticError# ' .. count['errors'] .. ' '
     end
     if count['warnings'] ~= 0 then
-        warnings = ' %#StatusLineDiagnosticWarn# ' .. count['warnings']
+        warnings = '%#StatusLineDiagnosticWarn# ' .. count['warnings'] .. ' '
     end
     if count['hints'] ~= 0 then
-        hints = ' %#StatusLineDiagnosticHint# ' .. count['hints']
+        hints = '%#StatusLineDiagnosticHint# ' .. count['hints'] .. ' '
     end
     if count['info'] ~= 0 then
-        info = ' %#StatusLineDiagnosticInfo# ' .. count['info']
+        info = '%#StatusLineDiagnosticInfo# ' .. count['info'] .. ' '
     end
 
     return errors .. warnings .. hints .. info .. '%#Normal#'
@@ -155,7 +153,7 @@ function M.setup()
             '%=',
             md_info(),
             diagnostics(),
-            ' %#StatusLineNC#',
+            '%#StatusLineNC#',
             lsp(),
             lineinfo(),
         })

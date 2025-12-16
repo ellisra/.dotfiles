@@ -29,6 +29,7 @@ function M.select_markdown_table()
 end
 
 ---@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
+---@return string
 function M.tint_colour(t)
     local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
     local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
@@ -47,6 +48,25 @@ function M.set_hl(group, options)
     vim.api.nvim_set_hl(0, group, options)
 end
 
+---@param fg_group string
+---@param bg_group string
+---@return { fg: string, bg: string }
+function M.combine_hl(fg_group, bg_group)
+    local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
+    local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
+
+    return { fg = fg_hl.fg, bg = bg_hl.bg }
+end
+
+---@param group_name string
+---@return { fg: string, bg: string }
+function M.invert_hl(group_name)
+    local hl = vim.api.nvim_get_hl(0, { name = group_name })
+
+    return { fg = hl.bg, bg = hl.fg }
+end
+
+---@param colorscheme_name string
 function M.set_highlights(colorscheme_name)
     local palette = require('mini.base16').config.palette
     local colors_name = colorscheme_name or vim.g.colors_name
@@ -167,21 +187,15 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('FylerConfirmRed', { fg = palette.base08 })
 end
 
----@param fg_group string
----@param bg_group string
----@return { fg: string, bg: string }
-function M.combine_hl(fg_group, bg_group)
-    local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
-    local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
-
-    return { fg = fg_hl.fg, bg = bg_hl.bg }
-end
-
+---@return string
 function M.get_current_filename()
     local filename = vim.fn.expand('%:t')
-    return filename:gsub('%.%w+$','')
+    filename, _ = filename:gsub('%.%w+$','')
+
+    return filename
 end
 
+---@param path string
 function M.read_file(path)
     local file = io.open(path, 'r')
     if not file then return nil end
