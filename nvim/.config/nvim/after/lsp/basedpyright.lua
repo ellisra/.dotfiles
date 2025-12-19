@@ -18,6 +18,7 @@ return {
                     reportDuplicateImport = 'warning',
                     reportConstantRedefinition = 'warning',
                     reportUnnecessaryTypeIgnoreComment = 'info',
+                    reportAttributeAccessIssue = 'none',
                 },
             },
         },
