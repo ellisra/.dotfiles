@@ -24,16 +24,16 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 vim.api.nvim_create_autocmd('ColorScheme', {
+    desc = 'Reapply custom highlights on colorscheme change',
     callback = function(event)
         vim.schedule(function()
             utils.set_highlights(event.match)
         end)
     end,
-
-    desc = 'Reapply custom highlights on colorscheme change',
 })
 
 vim.api.nvim_create_autocmd('OptionSet', {
+    desc = 'Set colorscheme depending on terminal bg',
     pattern = 'background',
     callback = function()
         if vim.o.background == 'light' then

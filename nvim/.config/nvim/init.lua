@@ -37,11 +37,11 @@ require('lazy').setup({
 })
 
 -- Modules
-require('options') -- Vim options
-require('autocommands') -- General purpose autocommands
-require('user-commands') -- User commands
-require('lsp-config') -- LSP
-require('keymaps') -- Keymaps
+require('options')
+require('autocommands')
+require('user-commands')
+require('lsp-config')
+require('keymaps')
 
 if vim.o.background == 'light' then
     vim.cmd.colorscheme('dawnfox')
