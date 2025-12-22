@@ -16,7 +16,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
-# alias mvim='NVIM_APPNAME=nvim-mini nvim'
+alias mvim='NVIM_APPNAME=nvim-mini nvim'
+alias nnvim='~/.local/nvim-nightly/bin/nvim'
 
 PROMPT_EOL_MARK=''
 HISTFILE=~/.zsh_history
@@ -59,10 +60,12 @@ export PATH="$PATH:$HOME/bin"
 # Created by `pipx` on 2025-07-14 08:20:40
 export PATH="$PATH:/Users/roel99/.local/bin"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 export CLAUDE_CODE_USE_VERTEX=1
 export ANTHROPIC_VERTEX_PROJECT_ID=prj-t-vertex-ai-04bc
 export CLOUD_ML_REGION=europe-west1
+
+export PATH="$HOME/.roslyn-ls/content/LanguageServer/linux-x64:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

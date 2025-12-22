@@ -91,15 +91,15 @@ function M.set_highlights(colorscheme_name)
         return
     end
 
-    M.set_hl('Constant', { link = "@variable" })
-    M.set_hl('Character', { link = "String" })
-    M.set_hl('Boolean', { fg = palette.base0E })
+    M.set_hl('Constant', { link = '@variable' })
+    M.set_hl('Character', { link = 'String' })
+    M.set_hl('Boolean', { link = '@keyword' })
     M.set_hl('Function', { fg = palette.base0B })
     M.set_hl('Identifier', { fg = palette.base0D })
     M.set_hl('String', { fg = palette.base0C })
     M.set_hl('Number', { fg = palette.base0E })
     M.set_hl('Delimiter', { fg = palette.base05 })
-    M.set_hl('Special', { link = 'Normal' })
+    M.set_hl('Special', { fg = palette.base09 })
     M.set_hl('SpecialChar', { fg = palette.base09 })
     M.set_hl('Operator', { fg = palette.base07 })
     M.set_hl('NormalFloat', { link = 'Normal' })
@@ -132,7 +132,7 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('FzfLuaFzfMatch', { fg = palette.base0D })
 
     -- LSP tags
-    M.set_hl('@keyword', { fg = palette.base08 })
+    M.set_hl('@keyword', { fg = palette.base08, bold = true })
     M.set_hl('@variable.parameter', { fg = palette.base04 })
     M.set_hl('@lsp.type.macro', { fg = palette.base08 })
     M.set_hl('@lsp.type.namespace', { link = 'Constant' })
@@ -147,6 +147,10 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@string.documentation.python', { link = 'Comment' })
     M.set_hl('@function.builtin.lua', { link = 'Function' })
     M.set_hl('@constructor.lua', { link = 'Delimiter' })
+    M.set_hl('@type.builtin.cpp', { link = '@keyword' })
+    M.set_hl('@function.builtin', { link = 'Function' })
+    M.set_hl('@variable.builtin', { link = 'Variable' })
+    M.set_hl('@attribute.builtin', { link = 'Macro' })
 
     -- mini.nvim
     M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })
@@ -182,11 +186,16 @@ function M.set_highlights(colorscheme_name)
         { fg = palette.base0D, underdotted = true }
     )
 
-    -- fyler
+    -- Fyler
     M.set_hl('FylerGitModified', { fg = palette.base0A })
     M.set_hl('FylerGitUntracked', { fg = palette.base0C })
     M.set_hl('FylerGitRenamed', { fg = palette.base09 })
     M.set_hl('FylerConfirmRed', { fg = palette.base08 })
+
+    -- Blink
+    M.set_hl('BlinkCmpLabelMatch', { link = 'String' })
+    M.set_hl('BlinkCmpMenu', { link = 'CursorLine' })
+    M.set_hl('BlinkCmpMenuSelection', { link = 'Visual' })
 end
 
 ---@return string

@@ -37,9 +37,9 @@ vim.api.nvim_create_autocmd('OptionSet', {
     pattern = 'background',
     callback = function()
         if vim.o.background == 'light' then
-            vim.cmd.colorscheme('dawnfox')
+            vim.cmd.colorscheme(vim.g.light_default)
         else
-            vim.cmd.colorscheme('gruvbox')
+            vim.cmd.colorscheme(vim.g.dark_default)
         end
     end,
 })
