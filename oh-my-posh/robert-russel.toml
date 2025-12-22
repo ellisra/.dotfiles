@@ -3,7 +3,7 @@ version = 3
 final_space = true
 
 [transient_prompt]
-template = '<cyan>{{ .PWD }}</> ➜ '
+template = '<cyan>{{ .PWD }}</>  '
 foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
 [[blocks]]
@@ -23,7 +23,7 @@ newline = true
         style = 'full'
 
     [[blocks.segments]]
-    template = ' git:({{ if or (.Working.Changed) (.Staging.Changed) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}){{ if or (.Working.Changed) (.Staging.Changed) }} <yellow>✗</>{{ end }}'
+    template = ' git:({{ if or (.Working.Changed) (.Staging.Changed) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}){{ if or (.Working.Changed) (.Staging.Changed) }} <yellow></>{{ end }}'
     foreground = 'blue'
     type = 'git'
     style = 'plain'
@@ -51,7 +51,7 @@ newline = true
         fetch_virtual_env = true
 
     [[blocks.segments]]
-    template = '➜'
+    template = ''
     type = 'text'
     style = 'plain'
     foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']

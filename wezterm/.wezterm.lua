@@ -10,7 +10,7 @@ end
 
 local function scheme_for_appearance(appearance)
 	if appearance:find('Dark') then
-		return 'Gruvbox dark, hard (base16)'
+		return 'Gruber (base16)'
 	else
 		return 'dawnfox'
 	end
@@ -18,23 +18,25 @@ end
 
 local function weight_for_appearance(appearance)
     if appearance:find('Dark') then
-        return 'Regular'
-    else
         return 'Medium'
+    else
+        return 'DemiBold'
     end
 end
 
-local font_family = 'JetBrainsMono NFP'
+-- local font_family = 'JetBrainsMono NFP'
+local font_family = 'Iosevka Nerd Font Propo'
 local appearance = get_appearance()
 
 cfg = {
+	term = 'wezterm',
 	audible_bell = 'Disabled',
 
 	color_scheme = scheme_for_appearance(appearance),
 
     font = wez.font({ family = font_family, weight = weight_for_appearance(appearance) }),
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-	font_size = 11,
+	font_size = 13,
 	bold_brightens_ansi_colors = 'No',
 	custom_block_glyphs = false,
 	hide_mouse_cursor_when_typing = true,
