@@ -1,26 +1,14 @@
 local M = {}
 
 local modes = {
-    ['n'] = 'NORMAL',
-    ['no'] = 'NORMAL',
-    ['v'] = 'VISUAL',
-    ['V'] = 'VISUAL LINE',
-    [''] = 'VISUAL BLOCK',
-    ['s'] = 'SELECT',
-    ['S'] = 'SELECT LINE',
-    [''] = 'SELECT BLOCK',
-    ['i'] = 'INSERT',
-    ['ic'] = 'INSERT',
-    ['R'] = 'REPLACE',
-    ['Rv'] = 'VISUAL REPLACE',
-    ['c'] = 'COMMAND',
-    ['cv'] = 'VIM EX',
-    ['ce'] = 'EX',
-    ['r'] = 'PROMPT',
-    ['rm'] = 'MOAR',
-    ['r?'] = 'CONFIRM',
-    ['!'] = 'SHELL',
-    ['t'] = 'TERMINAL',
+    ['n'] = 'NORMAL',  ['no'] = 'NORMAL',
+    ['v'] = 'VISUAL',  ['V'] = 'VISUAL LINE', [''] = 'VISUAL BLOCK',
+    ['s'] = 'SELECT',  ['S'] = 'SELECT LINE', [''] = 'SELECT BLOCK',
+    ['i'] = 'INSERT',  ['ic'] = 'INSERT',
+    ['R'] = 'REPLACE', ['Rv'] = 'VISUAL REPLACE',
+    ['c'] = 'COMMAND', ['cv'] = 'VIM EX',     ['ce'] = 'EX',
+    ['r'] = 'PROMPT',  ['rm'] = 'MOAR',       ['r?'] = 'CONFIRM',
+    ['!'] = 'SHELL',   ['t'] = 'TERMINAL',
 }
 
 local function mode()
@@ -114,9 +102,8 @@ local function lsp()
     if #clients == 0 then
         return ' No active LSP '
     end
-    local lsp_name = clients[1].name
 
-    return ' ' .. lsp_name .. ' '
+    return ' ' .. clients[1].name .. ' '
 end
 
 local function lineinfo()
@@ -124,6 +111,7 @@ local function lineinfo()
         return ''
     end
     local mode_color = update_mode_colors()
+
     return string.format('%s %s', mode_color, '%l:%c ')
 end
 
@@ -167,17 +155,14 @@ function M.setup()
         return '%#StatusLineNC#'
     end
 
-    vim.api.nvim_exec2(
-        [[
-            augroup Statusline
-            au!
-            au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
-            au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
-            au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
-            augroup END
-        ]],
-        { output = false }
-    )
+    vim.api.nvim_exec2([[
+        augroup Statusline
+        au!
+        au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+        au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
+        au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
+        augroup END
+    ]], { output = false })
 end
 
 return M.setup()
