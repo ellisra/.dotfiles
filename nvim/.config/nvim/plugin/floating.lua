@@ -170,15 +170,6 @@ function M.setup()
             term_command = 'lazygit',
         })
     end, { desc = '[L]azy[G]it' })
-
-    vim.keymap.set('n', '<leader>lc', function()
-        toggle_terminal({
-            title = ' calendar ',
-            width = math.floor(vim.o.columns * 0.95),
-            height = math.floor(vim.o.lines * 0.95),
-            term_command = 'calcure',
-        })
-    end, { desc = '[L]oad [C]alendar' })
 end
 
 return M.setup()
