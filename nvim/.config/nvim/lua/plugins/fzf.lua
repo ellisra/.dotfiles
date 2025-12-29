@@ -88,6 +88,10 @@ return {
             })
         end, { desc = '[S]earch [J]umps' })
 
+        keymap('n', '<leader>sb', function()
+            FzfLua.buffers()
+        end, { desc = '[S]earch [B]uffers' })
+
         -- Grep
         keymap('n', '<leader>sg', function()
             FzfLua.live_grep()
@@ -142,10 +146,6 @@ return {
         keymap('n', 'gd', function()
             FzfLua.lsp_definitions({ jump1 = true })
         end, { desc = '[G]o to [D]efinition' })
-
-        keymap('n', '<leader>gr', function()
-            FzfLua.lsp_references({ ignore_current_line = true })
-        end, { desc = '[G]o to [R]eference' })
 
         -- Misc
         keymap('n', '<leader>sm', function()
@@ -215,6 +215,6 @@ return {
                     end,
                     },
                 })
-        end, { desc = '[T]em[P]late' })
+        end, { desc = '[T]e[M]plate' })
     end,
 }

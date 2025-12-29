@@ -79,12 +79,6 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('StatusLineDiagnosticHint', M.combine_hl('DiagnosticHint', 'Normal'))
     M.set_hl('StatusLineDiagnosticInfo', M.combine_hl('DiagnosticInfo', 'Normal'))
 
-    -- Special case for retrobox colorscheme
-    if colors_name == 'retrobox' then
-        M.set_hl('@lsp.type.variable', { fg = '#ebdbb2' })
-        return
-    end
-
     if palette == nil or not is_custom_scheme then
         M.set_hl('@keyword.directive.markdown', { link = 'Normal' })
         M.set_hl('@string.documentation.python', { link = 'Comment' })
@@ -152,19 +146,6 @@ function M.set_highlights(colorscheme_name)
     M.set_hl('@variable.builtin', { link = 'Variable' })
     M.set_hl('@attribute.builtin', { link = 'Macro' })
 
-    -- mini.nvim
-    M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })
-    M.set_hl('MiniDiffSignChange', { fg = palette.base0D })
-    M.set_hl('MiniDiffSignDelete', { fg = palette.base08 })
-    M.set_hl('MiniIndentscopeSymbol', { fg = palette.base03 })
-    M.set_hl('MiniIndentscopeSymbolOff', { fg = palette.base03 })
-    M.set_hl('MiniHipatternsHack', { fg = palette.base00, bg = palette.base09 })
-    M.set_hl('MiniHipatternsTodo', { fg = palette.base00, bg = palette.base0D })
-    M.set_hl('MiniHipatternsFixme', { fg = palette.base00, bg = palette.base08 })
-    M.set_hl('MiniHipatternsNote', { fg = palette.base00, bg = palette.base0C })
-    M.set_hl('MiniClueTitle', { link = 'Normal' })
-    M.set_hl('MiniJump', { link = 'Visual' })
-
     -- markdown
     M.set_hl('@markup.heading.1', { fg = palette.base08, bold = true })
     M.set_hl('@markup.heading.2', { fg = palette.base09, bold = true })
@@ -185,6 +166,19 @@ function M.set_highlights(colorscheme_name)
         '@markup.link.label.markdown_inline',
         { fg = palette.base0D, underdotted = true }
     )
+
+    -- mini.nvim
+    M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })
+    M.set_hl('MiniDiffSignChange', { fg = palette.base0D })
+    M.set_hl('MiniDiffSignDelete', { fg = palette.base08 })
+    M.set_hl('MiniIndentscopeSymbol', { fg = palette.base03 })
+    M.set_hl('MiniIndentscopeSymbolOff', { fg = palette.base03 })
+    M.set_hl('MiniHipatternsHack', { fg = palette.base00, bg = palette.base09 })
+    M.set_hl('MiniHipatternsTodo', { fg = palette.base00, bg = palette.base0D })
+    M.set_hl('MiniHipatternsFixme', { fg = palette.base00, bg = palette.base08 })
+    M.set_hl('MiniHipatternsNote', { fg = palette.base00, bg = palette.base0C })
+    M.set_hl('MiniClueTitle', { link = 'Normal' })
+    M.set_hl('MiniJump', { link = 'Visual' })
 
     -- Fyler
     M.set_hl('FylerGitModified', { fg = palette.base0A })
@@ -267,6 +261,73 @@ function M.create_note(t)
             vim.api.nvim_buf_set_lines(0, 0, 0, false, { '# ' .. t.filename })
         end
     end
+end
+
+function M.show_git_blame()
+    local line = vim.fn.line('.')
+    local file = vim.fn.expand('%')
+    local cmd = string.format('git blame --porcelain -L%d,%d -- "%s"', line, line, file)
+    local output = vim.fn.system(cmd)
+
+    if vim.v.shell_error ~= 0 then
+        vim.notify('Git blame failed: ' .. output, vim.log.levels.ERROR)
+        return
+    end
+
+    local lines = vim.split(output, '\n')
+    local author, date = '', ''
+
+    for _, line_content in ipairs(lines) do
+        if line_content:match('^author ') then
+            author = line_content:gsub('^author ', '')
+        elseif line_content:match('^author%-time ') then
+            local timestamp = line_content:gsub('^author%-time ', '')
+            date = tostring(os.date('%Y-%m-%d', tonumber(timestamp)))
+        end
+    end
+
+    local content = string.format('  %s • %s', author, date)
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { content })
+
+    local win = vim.api.nvim_open_win(buf, false, {
+        relative = 'cursor',
+        row = -3,
+        col = 0,
+        width = #content,
+        height = 1,
+        style = 'minimal',
+        border = 'single',
+        focusable = false,
+    })
+
+    local function close_float()
+        if vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+
+    local group = vim.api.nvim_create_augroup('GitBlameFloat', { clear = true })
+    vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'InsertEnter', 'BufLeave' }, {
+        group = group,
+        callback = function()
+            close_float()
+            vim.api.nvim_del_augroup_by_id(group)
+        end,
+    })
+end
+
+---@param name string
+---@param split_cmd string
+function M.create_split_term_command(name, split_cmd)
+    vim.api.nvim_create_user_command(name, function(opts)
+        local cmd = split_cmd .. ' | terminal'
+        if opts.args and opts.args ~= '' then
+            cmd = cmd .. ' ' .. vim.o.shell .. ' -c "' .. opts.args .. '; exec $SHELL"'
+        end
+        vim.cmd(cmd)
+        vim.cmd.startinsert()
+    end, { nargs = '*', complete = 'shellcmd', desc = 'Open teminal in split' })
 end
 
 return M

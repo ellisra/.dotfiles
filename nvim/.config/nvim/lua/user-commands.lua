@@ -2,47 +2,8 @@ local utils = require('utils')
 local constants = require('constants')
 
 vim.api.nvim_create_user_command('W', 'w', {})
-
-local function create_term_command(name, split_cmd)
-    vim.api.nvim_create_user_command(name, function(opts)
-        local cmd = split_cmd .. ' | terminal'
-        if opts.args and opts.args ~= '' then
-            cmd = cmd .. ' ' .. vim.o.shell .. ' -c "' .. opts.args .. '; exec $SHELL"'
-        end
-        vim.cmd(cmd)
-        vim.cmd.startinsert()
-    end, {
-        nargs = '*',
-        complete = 'shellcmd',
-        desc = 'Open terminal in split',
-    })
-end
-
-create_term_command('HTerm', 'split')
-create_term_command('VTerm', 'vsplit')
-
-vim.api.nvim_create_user_command('Note', function(opts)
-    local args = vim.split(opts.args, ' ', { trimempty = true })
-    local dirpath = args[1]
-    local filename = args[2]
-    local template_path = nil
-    local tags = {}
-
-    if args[3] and args[3]:match('%.md$') then
-        template_path = args[3]
-    else
-        for i = 3, #args do
-            table.insert(tags, args[i])
-        end
-    end
-
-    utils.create_note({
-        dirpath = dirpath,
-        filename = filename,
-        template_path = template_path,
-        tags = tags,
-    })
-end, { desc = 'Create a note', nargs = '+', complete = 'dir' })
+utils.create_split_term_command('HTerm', 'split')
+utils.create_split_term_command('VTerm', 'vsplit')
 
 vim.api.nvim_create_user_command('WeeklyRecap', function()
     utils.create_note({

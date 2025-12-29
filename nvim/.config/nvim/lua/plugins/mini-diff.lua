@@ -1,26 +1,11 @@
 local utils = require('utils')
 
 return {
-    require('mini.diff').setup({
-        view = {
-            style = 'number',
-            signs = { add = '│', change = '│', delete = '_' },
-            priority = 199,
-        },
-    }),
+    require('mini.diff').setup({ view = { style = 'number' } }),
 
-    vim.api.nvim_create_user_command(
-        'GitDiff',
-        'lua MiniDiff.toggle_overlay()',
-        { desc = '[G]it [D]iff' }
-    ),
-
-    vim.keymap.set(
-        'n',
-        '<leader>tg',
-        '<cmd>GitDiff<CR>',
-        { desc = '[T]oggle [G]it diff' }
-    ),
+    vim.keymap.set('n', '<leader>tg', function()
+        require('mini.diff').toggle_overlay()
+    end, { desc = '[T]oggle [G]it diff' }),
 
     vim.api.nvim_create_autocmd('ColorScheme', {
         pattern = '*',

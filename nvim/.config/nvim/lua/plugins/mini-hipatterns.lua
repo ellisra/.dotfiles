@@ -1,7 +1,8 @@
 local function in_comment(marker)
     local comment_tbl = {
         python = '#',
-        lua = '--',
+        lua    = '--',
+        cpp    = '//',
     }
 
     return function(bufnr)

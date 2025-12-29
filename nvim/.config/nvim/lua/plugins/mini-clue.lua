@@ -33,8 +33,7 @@ return {
             { mode = 'x', keys = 'z' },
 
             -- Additional triggers
-            { mode = 'n', keys = 'm' },
-            { mode = 'n', keys = '#' },
+            { mode = 'n', keys = 's' },
             { mode = 'n', keys = '[' },
             { mode = 'n', keys = ']' },
         },
@@ -48,9 +47,6 @@ return {
             miniclue.gen_clues.z(),
         },
 
-        window = {
-            delay = 100,
-            config = { width = 50 },
-        },
+        window = { delay = 100, config = { width = 50 } },
     }),
 }
