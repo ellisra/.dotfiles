@@ -8,13 +8,13 @@ local palette = {
     foreground = '#c8c093',
     operator   = '#899696',
     keyword    = '#957fb8',
-    orange     = '#ffa066',
     class      = '#c0a36e',
     func       = '#76946a',
     string     = '#6a9589',
-    attribute  = '#7e9cd8',
-    number     = '#c34043',
+    number     = '#6a9589',
     error      = '#c34043',
+    warning    = '#c0a36e',
+    hint       = '#7e9cd8',
 }
 
 return palette
