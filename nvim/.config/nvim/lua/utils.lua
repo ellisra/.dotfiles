@@ -28,44 +28,6 @@ function M.select_markdown_table()
     end
 end
 
----@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
----@return string
-function M.tint_colour(t)
-    local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
-    local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
-    local b = tonumber(string.sub(t.hex_colour, 6, 7), 16)
-
-    r = math.min(255, math.max(0, r + t.r_tint))
-    g = math.min(255, math.max(0, g + t.g_tint))
-    b = math.min(255, math.max(0, b + t.b_tint))
-
-    return string.format('#%02X%02X%02X', r, g, b)
-end
-
----@param group string The highlight group name
----@param options vim.api.keyset.highlight Highlight attributes
-function M.set_hl(group, options)
-    vim.api.nvim_set_hl(0, group, options)
-end
-
----@param fg_group string
----@param bg_group string
----@return { fg: string, bg: string }
-function M.combine_hl(fg_group, bg_group)
-    local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
-    local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
-
-    return { fg = fg_hl.fg, bg = bg_hl.bg }
-end
-
----@param group_name string
----@return { fg: string, bg: string }
-function M.invert_hl(group_name)
-    local hl = vim.api.nvim_get_hl(0, { name = group_name })
-
-    return { fg = hl.bg, bg = hl.fg }
-end
-
 ---@return string
 function M.get_current_filename()
     local filename = vim.fn.expand('%:t')
@@ -204,11 +166,49 @@ function M.create_split_term_command(name, split_cmd)
     end, { nargs = '*', complete = 'shellcmd', desc = 'Open teminal in split' })
 end
 
+---@param group string The highlight group name
+---@param options vim.api.keyset.highlight Highlight attributes
+local function hi(group, options)
+    vim.api.nvim_set_hl(0, group, options)
+end
+
 local function set_statusline_highlights()
-    M.set_hl('StatusLineDiagnosticError', M.combine_hl('DiagnosticError', 'Normal'))
-    M.set_hl('StatusLineDiagnosticWarn', M.combine_hl('DiagnosticWarn', 'Normal'))
-    M.set_hl('StatusLineDiagnosticHint', M.combine_hl('DiagnosticHint', 'Normal'))
-    M.set_hl('StatusLineDiagnosticInfo', M.combine_hl('DiagnosticInfo', 'Normal'))
+    hi('StatusLineDiagnosticError', M.combine_hl('DiagnosticError', 'Normal'))
+    hi('StatusLineDiagnosticWarn', M.combine_hl('DiagnosticWarn', 'Normal'))
+    hi('StatusLineDiagnosticHint', M.combine_hl('DiagnosticHint', 'Normal'))
+    hi('StatusLineDiagnosticInfo', M.combine_hl('DiagnosticInfo', 'Normal'))
+end
+
+---@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
+---@return string
+function M.tint_colour(t)
+    local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
+    local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
+    local b = tonumber(string.sub(t.hex_colour, 6, 7), 16)
+
+    r = math.min(255, math.max(0, r + t.r_tint))
+    g = math.min(255, math.max(0, g + t.g_tint))
+    b = math.min(255, math.max(0, b + t.b_tint))
+
+    return string.format('#%02X%02X%02X', r, g, b)
+end
+
+---@param fg_group string
+---@param bg_group string
+---@return { fg: string, bg: string }
+function M.combine_hl(fg_group, bg_group)
+    local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
+    local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
+
+    return { fg = fg_hl.fg, bg = bg_hl.bg }
+end
+
+---@param group_name string
+---@return { fg: string, bg: string }
+function M.invert_hl(group_name)
+    local hl = vim.api.nvim_get_hl(0, { name = group_name })
+
+    return { fg = hl.bg, bg = hl.fg }
 end
 
 ---@param colorscheme_name string
@@ -218,109 +218,109 @@ function M.set_highlights(colorscheme_name)
 
     local is_custom = vim.fn.filereadable(vim.fn.stdpath('config') .. '/colors/' .. colors_name .. '.lua') == 1
     if palette == nil or not is_custom then
-        M.set_hl('@keyword.directive.markdown', { link = 'Normal' })
-        M.set_hl('@string.documentation.python', { link = 'Comment' })
+        hi('@keyword.directive.markdown', { link = 'Normal' })
+        hi('@string.documentation.python', { link = 'Comment' })
         set_statusline_highlights()
         return
     end
 
-    M.set_hl('Constant', { link = '@variable' })
-    M.set_hl('Character', { link = 'String' })
-    M.set_hl('Boolean', { link = '@keyword' })
-    M.set_hl('Function', { fg = palette.base0B })
-    M.set_hl('Identifier', { fg = palette.base04 })
-    M.set_hl('String', { fg = palette.base0C })
-    M.set_hl('Number', { fg = palette.base0E })
-    M.set_hl('Delimiter', { fg = palette.base05 })
-    M.set_hl('Special', { fg = palette.base09 })
-    M.set_hl('SpecialChar', { fg = palette.base09 })
-    M.set_hl('Operator', { fg = palette.base07 })
-    M.set_hl('NormalFloat', { link = 'Normal' })
-    M.set_hl('Float', { link = 'Normal' })
-    M.set_hl('SnippetTabstop', { bg = nil })
-    M.set_hl('DiagnosticError', { fg = palette.base0F })
-    M.set_hl('DiagnosticWarn', { fg = palette.base09 })
-    M.set_hl('DiagnosticFloatingWarn', { link = 'DiagnosticWarn' })
-    M.set_hl('DiagnosticFloatingHint', { link = 'DiagnosticHint' })
-    M.set_hl('DiagnosticFloatingError', { link = 'DiagnosticError' })
-    M.set_hl('DiagnosticFloatingInfo', { link = 'DiagnosticInfo' })
-    M.set_hl('DiagnosticUnderlineError', { sp = palette.base0F, underline = true })
-    M.set_hl('DiagnosticUnderlineWarn', { sp = palette.base0A, undercurl = true })
-    M.set_hl('WinSeparator', { fg = palette.base03 })
-    M.set_hl('SignColumn', { bg = palette.base00 })
-    M.set_hl('LineNr', { fg = palette.base03, bg = palette.base00 })
-    M.set_hl('LineNrAbove', { fg = palette.base03, bg = palette.base00 })
-    M.set_hl('LineNrBelow', { fg = palette.base03, bg = palette.base00 })
-    M.set_hl('FoldColumn', { fg = palette.base03, bg = palette.base00 })
-    M.set_hl('CursorLineNr', { fg = palette.base03, bg = palette.base01 })
-    M.set_hl('CursorLineSign', { fg = palette.base03, bg = palette.base01 })
-    M.set_hl('MatchParen', { bg = palette.base02, underline = true })
-    M.set_hl('StatusLineNC', { fg = palette.base05, bg = palette.base01 })
+    hi('Constant', { link = '@variable' })
+    hi('Character', { link = 'String' })
+    hi('Boolean', { link = '@keyword' })
+    hi('Function', { fg = palette.base0B })
+    hi('Identifier', { fg = palette.base04 })
+    hi('String', { fg = palette.base0C })
+    hi('Number', { fg = palette.base0E })
+    hi('Delimiter', { fg = palette.base05 })
+    hi('Special', { fg = palette.base09 })
+    hi('SpecialChar', { fg = palette.base09 })
+    hi('Operator', { fg = palette.base07 })
+    hi('NormalFloat', { link = 'Normal' })
+    hi('Float', { link = 'Normal' })
+    hi('SnippetTabstop', { bg = nil })
+    hi('DiagnosticError', { fg = palette.base0F })
+    hi('DiagnosticWarn', { fg = palette.base09 })
+    hi('DiagnosticFloatingWarn', { link = 'DiagnosticWarn' })
+    hi('DiagnosticFloatingHint', { link = 'DiagnosticHint' })
+    hi('DiagnosticFloatingError', { link = 'DiagnosticError' })
+    hi('DiagnosticFloatingInfo', { link = 'DiagnosticInfo' })
+    hi('DiagnosticUnderlineError', { sp = palette.base0F, underline = true })
+    hi('DiagnosticUnderlineWarn', { sp = palette.base0A, undercurl = true })
+    hi('WinSeparator', { fg = palette.base03 })
+    hi('SignColumn', { bg = palette.base00 })
+    hi('LineNr', { fg = palette.base03, bg = palette.base00 })
+    hi('LineNrAbove', { fg = palette.base03, bg = palette.base00 })
+    hi('LineNrBelow', { fg = palette.base03, bg = palette.base00 })
+    hi('FoldColumn', { fg = palette.base03, bg = palette.base00 })
+    hi('CursorLineNr', { fg = palette.base03, bg = palette.base01 })
+    hi('CursorLineSign', { fg = palette.base03, bg = palette.base01 })
+    hi('MatchParen', { bg = palette.base02, underline = true })
+    hi('StatusLineNC', { fg = palette.base05, bg = palette.base01 })
 
-    M.set_hl('FzfLuaFzfMatch', { fg = palette.base0D })
+    hi('FzfLuaFzfMatch', { fg = palette.base0D })
 
     -- LSP tags
-    M.set_hl('@keyword', { fg = palette.base08, bold = true })
-    M.set_hl('@variable.parameter', { fg = palette.base04 })
-    M.set_hl('@lsp.type.macro', { fg = palette.base08 })
-    M.set_hl('@lsp.type.namespace', { link = 'Constant' })
-    M.set_hl('@lsp.type.builtinType', { fg = palette.base0A })
-    M.set_hl('@lsp.typemod.method', { link = 'Function' })
-    M.set_hl('@type.builtin', { fg = palette.base0A })
-    M.set_hl('@constant.builtin', { fg = palette.base0E })
-    M.set_hl('@number.float', { link = 'Number' })
-    M.set_hl('@lsp.mod.readonly', { link = 'Constant' })
-    M.set_hl('@lsp.type.variable.python', {})
-    M.set_hl('@lsp.typemod.typeParameter', { link = '@type' })
-    M.set_hl('@string.documentation.python', { link = 'Comment' })
-    M.set_hl('@function.builtin.lua', { link = 'Function' })
-    M.set_hl('@constructor.lua', { link = 'Delimiter' })
-    M.set_hl('@type.builtin.cpp', { link = '@keyword' })
-    M.set_hl('@function.builtin', { link = 'Function' })
-    M.set_hl('@variable.builtin', { link = 'Variable' })
-    M.set_hl('@attribute.builtin', { link = 'Macro' })
+    hi('@keyword', { fg = palette.base08, bold = true })
+    hi('@variable.parameter', { fg = palette.base04 })
+    hi('@lsp.type.macro', { fg = palette.base08 })
+    hi('@lsp.type.namespace', { link = 'Constant' })
+    hi('@lsp.type.builtinType', { fg = palette.base0A })
+    hi('@lsp.typemod.method', { link = 'Function' })
+    hi('@type.builtin', { fg = palette.base0A })
+    hi('@constant.builtin', { fg = palette.base0E })
+    hi('@number.float', { link = 'Number' })
+    hi('@lsp.mod.readonly', { link = 'Constant' })
+    hi('@lsp.type.variable.python', {})
+    hi('@lsp.typemod.typeParameter', { link = '@type' })
+    hi('@string.documentation.python', { link = 'Comment' })
+    hi('@function.builtin.lua', { link = 'Function' })
+    hi('@constructor.lua', { link = 'Delimiter' })
+    hi('@type.builtin.cpp', { link = '@keyword' })
+    hi('@function.builtin', { link = 'Function' })
+    hi('@variable.builtin', { link = 'Variable' })
+    hi('@attribute.builtin', { link = 'Macro' })
 
     -- markdown
-    M.set_hl('@markup.heading.1', { fg = palette.base08, bold = true })
-    M.set_hl('@markup.heading.2', { fg = palette.base09, bold = true })
-    M.set_hl('@markup.heading.3', { fg = palette.base0A, bold = true })
-    M.set_hl('@markup.heading.4', { fg = palette.base0B, bold = true })
-    M.set_hl('@markup.heading.5', { fg = palette.base0D, bold = true })
-    M.set_hl('@markup.heading.6', { fg = palette.base0E, bold = true })
-    M.set_hl('@markup.quote', { fg = palette.base04, italic = true })
-    M.set_hl('@markup.list', { fg = palette.base0D })
-    M.set_hl('@markup.strikethrough.markdown_inline', { strikethrough = true })
-    M.set_hl('@markup.list.checked', { fg = palette.base0B })
-    M.set_hl('@markup.raw.markdown_inline', { bg = palette.base01 })
-    M.set_hl('@markup.link.label.markdown_inline', { fg = palette.base0D, underdotted = true })
-    M.set_hl('@punctuation.special.markdown', { fg = palette.base05 })
-    M.set_hl('@keyword.directive.markdown', { fg = palette.base05 })
-    M.set_hl('@lsp.type.decorator.markdown', { fg = palette.base0C })
-    M.set_hl('@nospell.markdown_inline', { fg = palette.base07 })
+    hi('@markup.heading.1', { fg = palette.base06, bold = true, underline = true })
+    hi('@markup.heading.2', { link = '@markup.heading.1' })
+    hi('@markup.heading.3', { link = '@markup.heading.1' })
+    hi('@markup.heading.4', { link = '@markup.heading.1' })
+    hi('@markup.heading.5', { link = '@markup.heading.1' })
+    hi('@markup.heading.6', { link = '@markup.heading.1' })
+    hi('@markup.quote', { fg = palette.base04, italic = true })
+    hi('@markup.list', { fg = palette.base0D })
+    hi('@markup.strikethrough.markdown_inline', { strikethrough = true })
+    hi('@markup.list.checked', { fg = palette.base0B })
+    hi('@markup.raw.markdown_inline', { bg = palette.base01 })
+    hi('@markup.link.label.markdown_inline', { fg = palette.base0D, underdotted = true })
+    hi('@punctuation.special.markdown', { fg = palette.base05 })
+    hi('@keyword.directive.markdown', { fg = palette.base05 })
+    hi('@lsp.type.decorator.markdown', { fg = palette.base0C })
+    hi('@nospell.markdown_inline', { fg = palette.base07 })
 
     -- mini.nvim
-    M.set_hl('MiniDiffSignAdd', { fg = palette.base0B })
-    M.set_hl('MiniDiffSignChange', { fg = palette.base0D })
-    M.set_hl('MiniDiffSignDelete', { fg = palette.base08 })
-    M.set_hl('MiniIndentscopeSymbol', { fg = palette.base03 })
-    M.set_hl('MiniIndentscopeSymbolOff', { fg = palette.base03 })
-    M.set_hl('MiniHipatternsHack', { fg = palette.base00, bg = palette.base09 })
-    M.set_hl('MiniHipatternsTodo', { fg = palette.base00, bg = palette.base0D })
-    M.set_hl('MiniHipatternsFixme', { fg = palette.base00, bg = palette.base08 })
-    M.set_hl('MiniHipatternsNote', { fg = palette.base00, bg = palette.base0C })
-    M.set_hl('MiniClueTitle', { link = 'Normal' })
-    M.set_hl('MiniJump', { link = 'Visual' })
+    hi('MiniDiffSignAdd', { fg = palette.base0B })
+    hi('MiniDiffSignChange', { fg = palette.base0D })
+    hi('MiniDiffSignDelete', { fg = palette.base08 })
+    hi('MiniIndentscopeSymbol', { fg = palette.base03 })
+    hi('MiniIndentscopeSymbolOff', { fg = palette.base03 })
+    hi('MiniHipatternsHack', { fg = palette.base00, bg = palette.base09 })
+    hi('MiniHipatternsTodo', { fg = palette.base00, bg = palette.base0D })
+    hi('MiniHipatternsFixme', { fg = palette.base00, bg = palette.base08 })
+    hi('MiniHipatternsNote', { fg = palette.base00, bg = palette.base0C })
+    hi('MiniClueTitle', { link = 'Normal' })
+    hi('MiniJump', { link = 'Visual' })
 
     -- Fyler
-    M.set_hl('FylerGitModified', { fg = palette.base0A })
-    M.set_hl('FylerGitUntracked', { fg = palette.base0C })
-    M.set_hl('FylerGitRenamed', { fg = palette.base09 })
-    M.set_hl('FylerConfirmRed', { fg = palette.base08 })
+    hi('FylerGitModified', { fg = palette.base0A })
+    hi('FylerGitUntracked', { fg = palette.base0C })
+    hi('FylerGitRenamed', { fg = palette.base09 })
+    hi('FylerConfirmRed', { fg = palette.base08 })
 
     -- Blink
-    M.set_hl('BlinkCmpLabelMatch', { link = 'String' })
-    M.set_hl('BlinkCmpMenu', { link = 'CursorLine' })
-    M.set_hl('BlinkCmpMenuSelection', { link = 'Visual' })
+    hi('BlinkCmpLabelMatch', { link = 'String' })
+    hi('BlinkCmpMenu', { link = 'CursorLine' })
+    hi('BlinkCmpMenuSelection', { link = 'Visual' })
 
     set_statusline_highlights()
 end
