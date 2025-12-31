@@ -3,6 +3,7 @@ local function in_comment(marker)
         python = '#',
         lua    = '--',
         cpp    = '//',
+        rust   = '//',
     }
 
     return function(bufnr)

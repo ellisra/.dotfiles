@@ -44,6 +44,8 @@ require('autocommands')
 require('user-commands')
 require('lsp-config')
 require('keymaps')
+require('statusline')
+require('floating-windows')
 
 if vim.o.background == 'light' then
     vim.cmd.colorscheme(vim.g.light_default)
