@@ -281,7 +281,7 @@ function M.set_highlights(colorscheme_name)
     hi('@attribute.builtin', { link = 'Macro' })
 
     -- markdown
-    hi('@markup.heading.1', { fg = palette.base06, bold = true, underline = true })
+    hi('@markup.heading.1', { fg = palette.base06, bold = true, underdotted = true })
     hi('@markup.heading.2', { link = '@markup.heading.1' })
     hi('@markup.heading.3', { link = '@markup.heading.1' })
     hi('@markup.heading.4', { link = '@markup.heading.1' })
