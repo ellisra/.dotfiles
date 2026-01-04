@@ -7,6 +7,7 @@ return {
     dependencies = 'nvim-mini/mini.nvim',
 
     opts = {
+        ui_select = true,
         fzf_colors = true,
         file_icon_padding = ' ',
         oldfiles = { include_current_session = true },
@@ -56,7 +57,6 @@ return {
         local FzfLua = require('fzf-lua')
         local utils = require('utils')
         local keymap = vim.keymap.set
-        FzfLua.register_ui_select()
 
         -- Buffers and Files
         keymap('n', '<leader>sf', function()
