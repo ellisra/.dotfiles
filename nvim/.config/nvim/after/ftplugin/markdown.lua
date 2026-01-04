@@ -30,3 +30,6 @@ vim.api.nvim_create_user_command('AddTags', function()
     vim.api.nvim_win_set_cursor(0, {3, 5})
     vim.cmd('startinsert!')
 end, { desc = 'Add markdown tag block' })
+
+vim.fn.matchadd('MdLinkBrackets', '\\[\\[')
+vim.fn.matchadd('MdLinkBrackets', '\\]\\]')
