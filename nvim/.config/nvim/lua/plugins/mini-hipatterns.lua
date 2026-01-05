@@ -1,6 +1,7 @@
 local function in_comment(marker)
     local comment_tbl = {
         python = '#',
+        yaml   = '#',
         lua    = '--',
         cpp    = '//',
         rust   = '//',
