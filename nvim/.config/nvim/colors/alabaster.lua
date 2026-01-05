@@ -17,7 +17,7 @@ require('mini.base16').setup({
         base07 = palette.operator,
         base08 = palette.keyword,
         base09 = palette.warning,
-        base0A = palette.class,
+        base0A = palette.foreground,
         base0B = palette.func,
         base0C = palette.string,
         base0D = palette.hint,
