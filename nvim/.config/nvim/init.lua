@@ -12,7 +12,7 @@ vim.pack.add({
     { src = github .. 'A7Lavinraj/fyler.nvim', version = 'stable' },
     { src = github .. 'nvim-mini/mini.nvim' },
     { src = github .. 'shortcuts/no-neck-pain.nvim', version = 'v2.5.2' },
-    { src = github .. 'nvim-treesitter/nvim-treesitter', version = 'main' },
+    { src = github .. 'nvim-treesitter/nvim-treesitter' },
 })
 
 require('plugins.blink-cmp')
