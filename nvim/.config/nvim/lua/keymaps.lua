@@ -35,7 +35,7 @@ end, { desc = 'Jump to next snippet placeholder', expr = true, silent = true })
 vim.keymap.set('n', '<leader>td', function()
     utils.create_note({
         dirpath = constants.VAULT_DIR .. 'work/todo/',
-        filename = tostring(os.date('%Y-%m-%d - TODO')),
+        filename = tostring(os.date('%Y-%m-%d TODO')),
         template_path = constants.MD_TEMPLATE_DIR .. 'todo-template.md',
     })
 end, { desc = 'Create [T]o[D]o Note'})
