@@ -1,0 +1,32 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1.8.0'"
+    },
+    "fyler.nvim": {
+      "rev": "bb8b9f30c652c948d35211958b0deec3496bcc08",
+      "src": "https://github.com/A7Lavinraj/fyler.nvim",
+      "version": "'stable'"
+    },
+    "fzf-lua": {
+      "rev": "a03d68e40eea835a1cdbd9f93049708dab3621e6",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "mini.nvim": {
+      "rev": "fb4ccfed03c1f0d9db702f93a65cb4c0c6c2832b",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "no-neck-pain.nvim": {
+      "rev": "d871043474c06995c062413c91c987d0cb602632",
+      "src": "https://github.com/shortcuts/no-neck-pain.nvim",
+      "version": "'v2.5.2'"
+    },
+    "nvim-treesitter": {
+      "rev": "de878155ca66c49b027b1380e4e60a6c665b2630",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
+    }
+  }
+}
