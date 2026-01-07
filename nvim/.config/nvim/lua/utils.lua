@@ -74,10 +74,17 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
----@param t { dirpath: string, filename: string, template_path?: string, tags?: string[] }
+---@param t {
+---    dirpath: string,
+---    filename: string,
+---    template_path?: string,
+---    tags?: string[],
+---    title?: string,
+---}
 function M.create_note(t)
     local template_path = t.template_path or ''
     local tags = t.tags or {}
+    local title = t.title or t.filename
     local filepath = string.format('%s.md', vim.fs.joinpath(t.dirpath, t.filename))
     vim.cmd('edit ' .. vim.fn.fnameescape(filepath))
 
@@ -91,7 +98,7 @@ function M.create_note(t)
             end
             table.insert(content, '---')
             table.insert(content, '')
-            table.insert(content, '# ' .. t.filename)
+            table.insert(content, '# ' .. title)
             vim.api.nvim_buf_set_lines(0, 0, 0, false, content)
         else
             vim.api.nvim_buf_set_lines(0, 0, 0, false, { '# ' .. t.filename })
@@ -296,7 +303,7 @@ function M.set_highlights(colorscheme_name)
     hi('@punctuation.special.markdown', { fg = palette.base05 })
     hi('@keyword.directive.markdown', { fg = palette.base05 })
     hi('@lsp.type.decorator.markdown', {})
-    hi('MdLinkBrackets', { fg = palette.base03 })
+    hi('MdLinkBrackets', { fg = palette.base01 })
 
     -- mini.nvim
     hi('MiniDiffSignAdd', { fg = palette.base0B })
