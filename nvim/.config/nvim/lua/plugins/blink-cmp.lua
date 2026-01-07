@@ -55,7 +55,6 @@ require('blink.cmp').setup({
                 return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
             end, items)
         end
-        },
     },
 
     completion = {

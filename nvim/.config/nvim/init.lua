@@ -18,7 +18,7 @@ vim.pack.add({
 require('plugins.blink-cmp')
 require('plugins.fzf')
 require('plugins.fyler')
-require('plugins.mini.mini-nvim')
+require('plugins.mini')
 require('plugins.no-neck-pain')
 require('plugins.treesitter')
 
