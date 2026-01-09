@@ -74,13 +74,7 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
----@param t {
----    dirpath: string,
----    filename: string,
----    template_path?: string,
----    tags?: string[],
----    title?: string,
----}
+---@param t { dirpath: string, filename: string, template_path?: string, tags?: string[], title?: string }
 function M.create_note(t)
     local template_path = t.template_path or ''
     local tags = t.tags or {}
@@ -255,7 +249,7 @@ function M.set_highlights(colorscheme_name)
     hi('DiagnosticUnderlineWarn', { sp = palette.base09, undercurl = true })
     hi('WinSeparator', { fg = palette.base04 })
     hi('SignColumn', { bg = palette.base00 })
-    hi('LineNr', { fg = palette.base04, bg = palette.base00 })
+    hi('LineNr', { fg = palette.base03, bg = palette.base00 })
     hi('LineNrAbove', { link = 'LineNr' })
     hi('LineNrBelow', { link = 'LineNr' })
     hi('FoldColumn', { link = 'LineNr' })
@@ -303,7 +297,7 @@ function M.set_highlights(colorscheme_name)
     hi('@punctuation.special.markdown', { fg = palette.base05 })
     hi('@keyword.directive.markdown', { fg = palette.base05 })
     hi('@lsp.type.decorator.markdown', {})
-    hi('MdLinkBrackets', { fg = palette.base01 })
+    hi('MdLinkBrackets', { link = 'Comment' })
 
     -- mini.nvim
     hi('MiniDiffSignAdd', { fg = palette.base0B })
