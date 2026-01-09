@@ -121,6 +121,20 @@ return {
             })
         end)
 
+        keymap('n', '<leader>si', function()
+            FzfLua.lsp_implementations({
+                winopts = {
+                    width = 1,
+                    height = 0.2,
+                    preview = {
+                        hidden = false,
+                        layout = 'horizontal',
+                        horizontal = 'right:60%',
+                    },
+                }
+            })
+        end)
+
         keymap('n', '<leader>sD', function()
             FzfLua.diagnostics_workspace({
                 winopts = {
