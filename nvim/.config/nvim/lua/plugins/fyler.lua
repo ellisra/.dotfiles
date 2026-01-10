@@ -32,7 +32,9 @@ return {
                     kind = 'float',
                     kinds = {
                         float = { width = '30%', top = '10%', left = '35%' },
-                    }
+                    },
+
+                    win_opts = { cursorline = true },
                 },
             }
         },

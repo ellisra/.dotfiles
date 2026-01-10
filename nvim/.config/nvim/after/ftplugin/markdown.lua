@@ -1,3 +1,4 @@
+local constants = require('constants')
 local utils = require('utils')
 
 vim.opt_local.wrap = true
@@ -30,6 +31,30 @@ vim.api.nvim_create_user_command('AddTags', function()
     vim.api.nvim_win_set_cursor(0, {3, 5})
     vim.cmd('startinsert!')
 end, { desc = 'Add markdown tag block' })
+
+vim.api.nvim_create_user_command('Template', function ()
+    local template_dir = vim.fn.expand(constants.MD_TEMPLATE_DIR)
+    local p = vim.loop.fs_scandir(template_dir)
+    if not p then return end
+    local entries = {}
+    while true do
+        local name, type = vim.loop.fs_scandir_next(p)
+        if not name then break end
+        if type == 'file' then
+            table.insert(entries, name)
+        end
+    end
+    require('fzf-lua').fzf_exec(entries, {
+        actions = {
+            ['default'] = function (selected)
+                local choice = selected[1]
+                if not choice then return end
+                local path = template_dir .. choice
+                utils.insert_template({ path = path, filename = utils.get_current_filename() })
+            end
+        }
+    })
+end, { desc = 'Open template picker' })
 
 vim.fn.matchadd('MdLinkBrackets', '\\[\\[')
 vim.fn.matchadd('MdLinkBrackets', '\\]\\]')
