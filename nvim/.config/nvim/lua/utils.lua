@@ -319,7 +319,7 @@ function M.set_highlights(colorscheme_name)
     hi('FylerConfirmRed', { fg = palette.base08 })
 
     -- Blink
-    hi('BlinkCmpLabelMatch', { link = 'String' })
+    hi('BlinkCmpLabelMatch', { link = 'Function' })
     hi('BlinkCmpMenu', { link = 'CursorLine' })
     hi('BlinkCmpMenuSelection', { link = 'Visual' })
 
