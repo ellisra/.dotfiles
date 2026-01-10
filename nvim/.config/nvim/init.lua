@@ -25,11 +25,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     require('plugins.blink-cmp'),
-    require('plugins.treesitter'),
+    require('plugins.dap'),
+    require('plugins.fyler'),
     require('plugins.fzf'),
     require('plugins.mini'),
     require('plugins.no-neck-pain'),
-    require('plugins.fyler'),
+    require('plugins.treesitter'),
 }, {
     ui = {
         border = 'single',
