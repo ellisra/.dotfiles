@@ -119,7 +119,7 @@ return {
                     },
                 }
             })
-        end)
+        end, { desc = '[S]earch [R]eferences' })
 
         keymap('n', '<leader>si', function()
             FzfLua.lsp_implementations({
@@ -133,7 +133,7 @@ return {
                     },
                 }
             })
-        end)
+        end, { desc = '[S]earch [I]mplementations' })
 
         keymap('n', '<leader>sD', function()
             FzfLua.diagnostics_workspace({
@@ -142,7 +142,7 @@ return {
                     height = 0.2,
                 },
             })
-        end, { desc = '[S]earch workspace [D]iagnostics' })
+        end, { desc = '[S]earch [D]iagnostics (workspace)' })
 
         keymap('n', '<leader>ca', function()
             FzfLua.lsp_code_actions({
@@ -206,29 +206,5 @@ return {
         keymap('n', '<leader>cp', function()
             FzfLua.complete_path()
         end, { desc = '[C]omplete [P]ath' })
-
-        keymap('n', '<leader>tm', function()
-            local template_dir = vim.fn.expand(constants.MD_TEMPLATE_DIR)
-            local p = vim.loop.fs_scandir(template_dir)
-            if not p then return end
-            local entries = {}
-            while true do
-                local name, type = vim.loop.fs_scandir_next(p)
-                if not name then break end
-                if type == 'file' then
-                    table.insert(entries, name)
-                end
-            end
-            FzfLua.fzf_exec(entries, {
-                actions = {
-                    ['default'] = function(selected)
-                        local choice = selected[1]
-                        if not choice then return end
-                        local path = template_dir .. choice
-                        utils.insert_template({ path=path, filename=utils.get_current_filename() })
-                    end,
-                    },
-                })
-        end, { desc = '[T]e[M]plate' })
     end,
 }
