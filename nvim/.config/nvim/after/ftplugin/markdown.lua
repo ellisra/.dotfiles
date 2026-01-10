@@ -32,7 +32,7 @@ vim.api.nvim_create_user_command('AddTags', function()
     vim.cmd('startinsert!')
 end, { desc = 'Add markdown tag block' })
 
-vim.api.nvim_create_user_command('Template', function ()
+vim.api.nvim_create_user_command('Template', function()
     local template_dir = vim.fn.expand(constants.MD_TEMPLATE_DIR)
     local p = vim.loop.fs_scandir(template_dir)
     if not p then return end
@@ -46,7 +46,7 @@ vim.api.nvim_create_user_command('Template', function ()
     end
     require('fzf-lua').fzf_exec(entries, {
         actions = {
-            ['default'] = function (selected)
+            ['default'] = function(selected)
                 local choice = selected[1]
                 if not choice then return end
                 local path = template_dir .. choice
