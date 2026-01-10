@@ -48,8 +48,7 @@ local function attach_lsp_to_buffer(filetype)
     for _, client in ipairs(clients) do
         ---@type table { filetypes: string[] } | nil
         local config = client.config
-        if
-            config
+        if config
             and config.filetypes
             and vim.tbl_contains(config.filetypes, filetype)
         then
@@ -145,12 +144,11 @@ function M.setup()
     vim.api.nvim_create_user_command('RunPad', execute_buffer, {})
     vim.api.nvim_create_user_command('Floaterm', toggle_terminal, {})
 
-    vim.api.nvim_set_keymap(
-        'n',
-        '<leader>tp',
-        '<cmd>ScratchPad<CR>',
-        { noremap = true, silent = true, desc = '[S]cratch [P]ad' }
-    )
+    vim.api.nvim_set_keymap('n', '<leader>tp', '<cmd>ScratchPad<CR>', {
+        noremap = true,
+        silent = true,
+        desc = '[S]cratch [P]ad',
+    })
 
     vim.api.nvim_set_keymap('n', '<leader>rp', '<cmd>RunPad<CR>', {
         noremap = true,

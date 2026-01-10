@@ -17,10 +17,10 @@ return {
             windows = { terminal = { position = 'right' } },
         })
 
-        require('nvim-dap-virtual-text').setup()
+        require('nvim-dap-virtual-text').setup({ virt_text_pos = 'eol' })
         require('dap-python').setup('uv')
 
-        vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
+        vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = '[B]reakpoint' })
         vim.keymap.set('n', '<F10>', dap.continue)
         vim.keymap.set('n', '<F9>', dap.step_over)
         vim.keymap.set('n', '<F8>', dap.step_into)
