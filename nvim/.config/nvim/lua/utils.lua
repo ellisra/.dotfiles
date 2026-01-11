@@ -144,7 +144,7 @@ function M.show_git_blame()
         end
     end
 
-    local group = vim.api.nvim_create_augroup('GitBlameFloat', { clear = true })
+    local group = vim.api.nvim_create_augroup('ellisra.git_blame_float', { clear = true })
     vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'InsertEnter', 'BufLeave' }, {
         group = group,
         callback = function()

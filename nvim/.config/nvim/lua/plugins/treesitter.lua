@@ -35,11 +35,13 @@ return {
         require('nvim-treesitter').install(patterns)
 
         vim.api.nvim_create_autocmd('FileType', {
+            desc = 'Start treesitter for filetype',
+            group = vim.api.nvim_create_augroup('ellisra.treesitter_start', { clear = true }),
             pattern = patterns,
             callback = function()
                 vim.treesitter.start()
                 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                vim.bo.indentexpr = "v:lua.require'nvim_treesitter'.indentexpr()"
             end,
         })
     end,
