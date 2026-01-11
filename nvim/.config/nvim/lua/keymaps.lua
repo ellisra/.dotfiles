@@ -5,11 +5,11 @@ local constants = require('constants')
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', 'j', 'gj')
 
--- Ctrl + j/k navigates half page down/up and centres the cursor
+-- Keep cursor centred on jumps
 vim.keymap.set('n', '<C-j>', '<C-d>zz')
-vim.keymap.set('i', '<C-j>', '<C-o><C-d><C-o>zz')
 vim.keymap.set('n', '<C-k>', '<C-u>zz')
-vim.keymap.set('i', '<C-k>', '<C-o><C-u><C-o>zz')
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
 
 -- Navigate to the start of the line with Home
 vim.keymap.set({ 'n', 'v' }, '<Home>', '^')
