@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     desc = 'Place curseor at last position on buffer entry',
     group = vim.api.nvim_create_augroup('ellisra.auto_last_position', { clear = true }),
     callback = function(args)
-        local position = vim.api.nvim_buf_get_mark(args.buf, [["]])
+        local position = vim.api.nvim_buf_get_mark(args.buf, '"')
         local winid = vim.fn.bufwinid(args.buf)
         pcall(vim.api.nvim_win_set_cursor, winid, position)
     end,

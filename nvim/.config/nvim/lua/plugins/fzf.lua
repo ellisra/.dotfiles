@@ -1,5 +1,3 @@
-local constants = require('constants')
-
 return {
     'ibhagwan/fzf-lua',
 
@@ -55,10 +53,8 @@ return {
 
     init = function()
         local FzfLua = require('fzf-lua')
-        local utils = require('utils')
         local keymap = vim.keymap.set
 
-        -- Buffers and Files
         keymap('n', '<leader>sf', function()
             FzfLua.files()
         end, { desc = '[S]earch [F]iles' })
@@ -92,12 +88,10 @@ return {
             FzfLua.buffers()
         end, { desc = '[S]earch [B]uffers' })
 
-        -- Grep
         keymap('n', '<leader>sg', function()
             FzfLua.live_grep()
         end, { desc = '[S]earch [G]rep' })
 
-        -- LSP and Diagnostics
         keymap('n', '<leader>sd', function()
             FzfLua.diagnostics_document({
                 winopts = {
@@ -161,7 +155,6 @@ return {
             FzfLua.lsp_definitions({ jump1 = true })
         end, { desc = '[G]o to [D]efinition' })
 
-        -- Misc
         keymap('n', '<leader>sm', function()
             FzfLua.helptags({
                 winopts = {
@@ -202,7 +195,6 @@ return {
             FzfLua.spell_suggest({ winopts = { width = 0.1, height = 0.2 } })
         end, { desc = '[S][p]elling suggestions' })
 
-        -- Completion
         keymap('n', '<leader>cp', function()
             FzfLua.complete_path()
         end, { desc = '[C]omplete [P]ath' })
