@@ -7,7 +7,10 @@ return {
         require('mini.diff').toggle_overlay()
     end, { desc = '[T]oggle [G]it diff' }),
 
+    -- FIXME: These highlights aren't applying properly anymore
     vim.api.nvim_create_autocmd('ColorScheme', {
+        desc = 'Apply better mini.diff overlay colours',
+        group = vim.api.nvim_create_augroup('ellisra.mini_diff_overlay', { clear = true }),
         pattern = '*',
         callback = function()
             vim.api.nvim_set_hl(0, 'MiniDiffOverAdd', {
