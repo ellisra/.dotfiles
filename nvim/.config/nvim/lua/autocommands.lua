@@ -1,22 +1,25 @@
 local utils = require('utils')
 
-vim.api.nvim_create_autocmd('TextYankPost', {
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = function(name) vim.api.nvim_create_augroup(name, { clear = true }) end
+
+autocmd('TextYankPost', {
     desc = 'Highlight yanked text',
-    group = vim.api.nvim_create_augroup('ellisra.highlight_yank', { clear = true }),
+    group = augroup('ellisra.highlight_yank'),
     callback = function()
         vim.hl.on_yank()
     end,
 })
 
-vim.api.nvim_create_autocmd('VimResized', {
+autocmd('VimResized', {
     desc = 'Resize splits if terminal resized',
-    group = vim.api.nvim_create_augroup('ellisra.resize_windows', { clear = true }),
+    group = augroup('ellisra.resize_windows'),
     command = 'wincmd =',
 })
 
-vim.api.nvim_create_autocmd('BufReadPost', {
-    desc = 'Place curseor at last position on buffer entry',
-    group = vim.api.nvim_create_augroup('ellisra.auto_last_position', { clear = true }),
+autocmd('BufReadPost', {
+    desc = 'Place cursor at last position on buffer entry',
+    group = augroup('ellisra.auto_last_position'),
     callback = function(args)
         local position = vim.api.nvim_buf_get_mark(args.buf, '"')
         local winid = vim.fn.bufwinid(args.buf)
@@ -24,9 +27,9 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end,
 })
 
-vim.api.nvim_create_autocmd('ColorScheme', {
+autocmd('ColorScheme', {
     desc = 'Reapply custom highlights on colorscheme change',
-    group = vim.api.nvim_create_augroup('ellisra.apply_highlights', { clear = true }),
+    group = augroup('ellisra.apply_highlights'),
     callback = function(event)
         vim.schedule(function()
             utils.set_highlights(event.match)
@@ -34,9 +37,9 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end,
 })
 
-vim.api.nvim_create_autocmd('OptionSet', {
+autocmd('OptionSet', {
     desc = 'Set colorscheme depending on terminal bg',
-    group = vim.api.nvim_create_augroup('ellisra.sync_term_bg', { clear = true }),
+    group = augroup('ellisra.sync_term_bg'),
     pattern = 'background',
     callback = function()
         if vim.o.background == 'light' then
@@ -44,5 +47,21 @@ vim.api.nvim_create_autocmd('OptionSet', {
         else
             vim.cmd.colorscheme(vim.g.dark_default)
         end
+    end,
+})
+
+autocmd('FileType', {
+    desc = 'Disable auto comment on newline',
+    group = augroup('ellisra.disable_auto_comment'),
+    callback = function()
+        vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
+    end,
+})
+
+autocmd('TermOpen', {
+    desc = 'Start terminal in insert mode',
+    group = augroup('ellisra.terminal_insert'),
+    callback = function()
+        vim.cmd.startinsert()
     end,
 })
