@@ -163,7 +163,6 @@ function M.create_split_term_command(name, split_cmd)
             cmd = cmd .. ' ' .. vim.o.shell .. ' -c "' .. opts.args .. '; exec $SHELL"'
         end
         vim.cmd(cmd)
-        vim.cmd.startinsert()
     end, { nargs = '*', complete = 'shellcmd', desc = 'Open teminal in split' })
 end
 
