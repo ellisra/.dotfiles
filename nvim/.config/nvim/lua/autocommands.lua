@@ -58,6 +58,7 @@ autocmd('FileType', {
     end,
 })
 
+-- FIXME: This is causing startinsert to be called when starting a DAP session
 autocmd('TermOpen', {
     desc = 'Start terminal in insert mode',
     group = augroup('ellisra.terminal_insert'),
