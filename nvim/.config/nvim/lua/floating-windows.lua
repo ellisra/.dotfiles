@@ -130,6 +130,10 @@ local toggle_terminal = function(opts)
                 vim.fn.chansend(vim.b.terminal_job_id, term_command .. '\n')
             end, 100)
         end
+
+        -- vim.defer_fn(function()
+        --     vim.cmd.startinsert()
+        -- end, 30)
     else
         vim.api.nvim_win_hide(state.terminal.win)
     end
