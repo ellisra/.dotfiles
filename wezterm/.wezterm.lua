@@ -35,7 +35,7 @@ cfg = {
 
     font = wez.font({ family = font_family, weight = weight_for_appearance(appearance) }),
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-	font_size = 11,
+	font_size = 12,
     line_height = 1.0,
 	bold_brightens_ansi_colors = 'No',
 	custom_block_glyphs = false,
