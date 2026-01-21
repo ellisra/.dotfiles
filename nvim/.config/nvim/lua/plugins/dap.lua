@@ -1,10 +1,11 @@
 return {
     'mfussenegger/nvim-dap',
 
+    ft = { 'python', 'rust' },
     dependencies = {
         'igorlfs/nvim-dap-view',
         'theHamsta/nvim-dap-virtual-text',
-        'mfussenegger/nvim-dap-python',
+        { 'mfussenegger/nvim-dap-python', ft = 'python' },
     },
 
     config = function()

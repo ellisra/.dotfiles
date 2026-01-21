@@ -6,7 +6,7 @@ vim.g.colors_name = 'amyas'
 
 local palette = {
     background = '#1b1818',
-    cursorline = '#1a1818',
+    cursorline = '#121010',
     visual     = '#3f2b25',
     comment    = '#6d6769',
     argument   = '#d0bbae',
@@ -20,7 +20,7 @@ local palette = {
     number     = '#d5a466',
     error      = '#bb645c',
     warning    = '#d7a373',
-    hint       = '#d0bbae',
+    hint       = '#d5a466',
 }
 
 require('mini.base16').setup({
