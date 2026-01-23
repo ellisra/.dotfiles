@@ -7,7 +7,7 @@
   "no-neck-pain.nvim": { "branch": "main", "commit": "d871043474c06995c062413c91c987d0cb602632" },
   "nvim-dap": { "branch": "master", "commit": "085386b9359ddf8d76ad89b98973b8e332dc5ba3" },
   "nvim-dap-python": { "branch": "master", "commit": "1808458eba2b18f178f990e01376941a42c7f93b" },
-  "nvim-dap-view": { "branch": "main", "commit": "7a7aef3f0067fecbd37d3071636334c6169d2b4a" },
+  "nvim-dap-view": { "branch": "main", "commit": "bd667e3a2d44a2ad6de2ba416247fc5072438bff" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6" },
   "nvim-treesitter": { "branch": "main", "commit": "ec034813775d7e2974c7551c8c34499a828963f8" }
 }

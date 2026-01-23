@@ -19,7 +19,7 @@ local palette = {
     string     = '#f4e9bb',
     number     = '#f4e9bb',
     error      = '#d55a38',
-    warning    = '#f4e9bb',
+    warning    = '#E5A27A',
     hint       = '#88bab9',
 }
 
