@@ -22,6 +22,7 @@ vim.o.breakindent = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.confirm = true
 vim.o.cursorline = true
+vim.o.exrc = true
 vim.o.ignorecase = true
 vim.o.lazyredraw = true
 vim.o.linebreak = true

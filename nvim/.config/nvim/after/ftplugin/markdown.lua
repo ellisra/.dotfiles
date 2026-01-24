@@ -55,6 +55,3 @@ vim.api.nvim_create_user_command('Template', function()
         }
     })
 end, { desc = 'Open template picker' })
-
-vim.fn.matchadd('MdLinkBrackets', '\\[\\[')
-vim.fn.matchadd('MdLinkBrackets', '\\]\\]')
