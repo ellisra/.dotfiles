@@ -226,7 +226,7 @@ function M.set_highlights(colorscheme_name)
 
     hi('Constant', { link = '@variable' })
     hi('Character', { link = 'String' })
-    hi('Boolean', { link = '@keyword' })
+    hi('Boolean', { link = 'Number' })
     hi('Function', { fg = palette.base0B })
     hi('Identifier', { fg = palette.base04 })
     hi('String', { fg = palette.base0C })
