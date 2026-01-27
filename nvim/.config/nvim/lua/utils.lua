@@ -262,6 +262,7 @@ function M.set_highlights(colorscheme_name)
 
     -- LSP tags
     hi('@keyword', { fg = palette.base08, bold = true })
+    hi('@keyword.return', { link = '@keyword' })
     hi('@variable.parameter', { fg = palette.base04 })
     hi('@lsp.type.macro', { fg = palette.base08 })
     hi('@lsp.type.namespace', { link = 'Type' })
