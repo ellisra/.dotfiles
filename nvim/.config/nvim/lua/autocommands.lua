@@ -58,11 +58,16 @@ autocmd('FileType', {
     end,
 })
 
--- FIXME: This is causing startinsert to be called when starting a DAP session
 autocmd('TermOpen', {
     desc = 'Start terminal in insert mode',
     group = augroup('ellisra.terminal_insert'),
     callback = function()
-        vim.cmd.startinsert()
+        vim.defer_fn(function()
+            if vim.bo.filetype == 'dap-view-term' then
+                return
+            elseif vim.bo.buftype == 'terminal' then
+                vim.cmd.startinsert()
+            end
+        end, 1)
     end,
 })
