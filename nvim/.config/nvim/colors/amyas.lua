@@ -20,7 +20,7 @@ local palette = {
     number     = '#d5a466',
     error      = '#bb645c',
     warning    = '#d7a373',
-    hint       = '#d5a466',
+    hint       = '#d0bbae',
 }
 
 require('mini.base16').setup({

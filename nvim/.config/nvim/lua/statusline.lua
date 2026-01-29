@@ -18,19 +18,19 @@ end
 
 local function update_mode_colors()
     local current_mode = vim.api.nvim_get_mode().mode
-    local mode_color = '%#MiniStatuslineModeNormal#'
+    local mode_color = '%#StatuslineModeNormal#'
     if current_mode == 'n' then
-        mode_color = '%#MiniStatuslineModeNormal#'
+        mode_color = '%#StatuslineModeNormal#'
     elseif current_mode == 'i' or current_mode == 'ic' then
-        mode_color = '%#MiniStatuslineModeVisual#'
+        mode_color = '%#StatuslineModeInsert#'
     elseif current_mode == 'v' or current_mode == 'V' or current_mode == '' then
-        mode_color = '%#MiniStatuslineModeCommand#'
+        mode_color = '%#StatuslineModeVisual#'
     elseif current_mode == 'R' then
-        mode_color = '%#MiniStatuslineModeReplace#'
+        mode_color = '%#StatuslineModeReplace#'
     elseif current_mode == 'c' then
-        mode_color = '%#MiniStatuslineModeInsert#'
+        mode_color = '%#StatuslineModeCommand#'
     elseif current_mode == 't' then
-        mode_color = '%#MiniStatuslineModeOther#'
+        mode_color = '%#StatuslineModeCommand#'
     end
     return mode_color
 end
@@ -82,16 +82,16 @@ local function diagnostics()
     local info = ''
 
     if count['errors'] ~= 0 then
-        errors = '%#StatusLineDiagnosticError# ' .. count['errors'] .. ' '
+        errors = '%#StatuslineDiagnosticError# ' .. count['errors'] .. ' '
     end
     if count['warnings'] ~= 0 then
-        warnings = '%#StatusLineDiagnosticWarn# ' .. count['warnings'] .. ' '
+        warnings = '%#StatuslineDiagnosticWarn# ' .. count['warnings'] .. ' '
     end
     if count['hints'] ~= 0 then
-        hints = '%#StatusLineDiagnosticHint# ' .. count['hints'] .. ' '
+        hints = '%#StatuslineDiagnosticHint# ' .. count['hints'] .. ' '
     end
     if count['info'] ~= 0 then
-        info = '%#StatusLineDiagnosticInfo# ' .. count['info'] .. ' '
+        info = '%#StatuslineDiagnosticInfo# ' .. count['info'] .. ' '
     end
 
     return errors .. warnings .. hints .. info .. '%#Normal#'
@@ -131,17 +131,17 @@ function M.setup()
 
     Statusline.active = function()
         return table.concat({
-            '%#StatusLine#',
+            '%#Statusline#',
             update_mode_colors(),
             mode(),
-            '%#StatusLineNC#',
+            '%#StatuslineNC#',
             git_info(),
             '%#Normal# ',
             filename(),
             '%=',
             md_info(),
             diagnostics(),
-            '%#StatusLineNC#',
+            '%#StatuslineNC#',
             lsp(),
             lineinfo(),
         })
@@ -152,7 +152,7 @@ function M.setup()
     end
 
     function Statusline.short()
-        return '%#StatusLineNC#'
+        return '%#StatuslineNC#'
     end
 
     vim.api.nvim_exec2([[

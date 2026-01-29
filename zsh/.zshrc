@@ -35,6 +35,7 @@ alias sb='cd ~/second-brain'
 alias df='cd ~/.dotfiles'
 alias suws='cd ~/suws-scalability && source .venv/bin/activate'
 alias claims='cd ~/claims-ai && source .venv/bin/activate'
+alias agent='cd ~/ai-agent-library && source .venv/bin/activate'
 
 alias lg='lazygit'
 

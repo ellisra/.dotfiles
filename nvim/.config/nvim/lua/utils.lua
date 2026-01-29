@@ -173,10 +173,16 @@ local function hi(group, options)
 end
 
 local function set_statusline_highlights()
-    hi('StatusLineDiagnosticError', M.combine_hl('DiagnosticError', 'Normal'))
-    hi('StatusLineDiagnosticWarn', M.combine_hl('DiagnosticWarn', 'Normal'))
-    hi('StatusLineDiagnosticHint', M.combine_hl('DiagnosticHint', 'Normal'))
-    hi('StatusLineDiagnosticInfo', M.combine_hl('DiagnosticInfo', 'Normal'))
+    hi('StatuslineDiagnosticError', M.combine_hl('DiagnosticError', 'Normal'))
+    hi('StatuslineDiagnosticWarn', M.combine_hl('DiagnosticWarn', 'Normal'))
+    hi('StatuslineDiagnosticHint', M.combine_hl('DiagnosticHint', 'Normal'))
+    hi('StatuslineDiagnosticInfo', M.combine_hl('DiagnosticInfo', 'Normal'))
+    hi('NormalFunction', M.combine_hl('Function', 'Normal'))
+    hi('StatuslineModeNormal', M.invert_hl('Normal'))
+    hi('StatuslineModeInsert', M.invert_hl('NormalFunction'))
+    hi('StatuslineModeVisual', M.invert_hl('StatuslineDiagnosticError'))
+    hi('StatuslineModeReplace', M.invert_hl('StatuslineDiagnosticWarn'))
+    hi('StatuslineModeCommand', M.invert_hl('StatuslineDiagnosticHint'))
 end
 
 ---@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
@@ -255,7 +261,7 @@ function M.set_highlights(colorscheme_name)
     hi('CursorLineNr', { fg = palette.base04, bg = palette.base01 })
     hi('CursorLineSign', { link = 'CursorLineNr' })
     hi('MatchParen', { fg = palette.base09, bg = palette.base02, underline = true })
-    hi('StatusLineNC', { fg = palette.base05, bg = palette.base01 })
+    hi('StatuslineNC', { fg = palette.base05, bg = palette.base01 })
     hi('SpellBad', { sp = palette.base0F, undercurl = true })
 
     hi('FzfLuaFzfMatch', { fg = palette.base0D })
@@ -301,9 +307,9 @@ function M.set_highlights(colorscheme_name)
     hi('MdLinkBrackets', { link = 'Comment' })
 
     -- mini.nvim
-    hi('MiniDiffSignAdd', { fg = palette.base0B })
+    hi('MiniDiffSignAdd', { fg = palette.base0C })
     hi('MiniDiffSignChange', { fg = palette.base0D })
-    hi('MiniDiffSignDelete', { fg = palette.base08 })
+    hi('MiniDiffSignDelete', { fg = palette.base0F })
     hi('MiniIndentscopeSymbol', { link = 'Comment' })
     hi('MiniIndentscopeSymbolOff', { link = 'MiniIndentscopeSymbol' })
     hi('MiniHipatternsHack', { fg = palette.base00, bg = palette.base09 })
