@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
-vim.g.dark_default = 'no-clown-fiesta'
+vim.g.dark_default = 'alabaster'
 vim.g.light_default = 'dawnfox'
 
 -- Lazy bootstrap

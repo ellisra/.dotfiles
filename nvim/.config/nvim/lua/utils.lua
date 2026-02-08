@@ -304,6 +304,7 @@ function M.set_highlights(colorscheme_name)
     hi('@keyword.directive.markdown', { fg = palette.base05 })
     hi('@lsp.type.decorator.markdown', {})
     hi('@markup.link.markdown_inline', { link = 'Comment' })
+    hi('@lsp.typemod.enumMember.defaultLibrary.rust', { link = 'Type' })
     hi('MdLinkBrackets', { link = 'Comment' })
 
     -- mini.nvim
