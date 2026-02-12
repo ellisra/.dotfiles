@@ -5,17 +5,15 @@ STATE="$HOME/.cache/theme-mode"
 if [ "$(cat "$STATE" 2>/dev/null)" = "light" ]; then
     echo "dark" > "$STATE"
 
-    # GTK dark
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
-    kitty +kitten themes --reload-in=all Arthur
+    notify-send "Set dark theme"
 else
     echo "light" > "$STATE"
 
-    # GTK light
     gsettings set org.gnome.desktop.interface color-scheme 'default'
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
 
-    kitty +kitten themes --reload-in=all Dayfox
+    notify-send "Set light theme"
 fi
