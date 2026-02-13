@@ -1,12 +1,6 @@
 source ~/.dotfiles/zsh/.zsh_paths
 source ~/.secrets
 
-if [ -f /proc/version ] && grep -q Microsoft /proc/version; then
-    source ~/.dotfiles/zsh/.zsh_work_settings
-else
-    export OBSIDIAN_REST_API_KEY="d963040f65b48167c66eb822e7699064e14b016aabc3245e432cc4b50376746c"
-fi
-
 plugins=(
     git
     zsh-autosuggestions
@@ -36,6 +30,7 @@ alias df='cd ~/.dotfiles'
 alias suws='cd ~/suws-scalability && source .venv/bin/activate'
 alias claims='cd ~/claims-ai && source .venv/bin/activate'
 alias agent='cd ~/ai-agent-library && source .venv/bin/activate'
+alias initpy='cd ~/initializr-python && source .venv/bin/activate'
 
 alias lg='lazygit'
 

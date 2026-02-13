@@ -267,9 +267,10 @@ function M.set_highlights(colorscheme_name)
     hi('FzfLuaFzfMatch', { fg = palette.base0D })
 
     -- LSP tags
-    hi('@keyword', { fg = palette.base08, bold = true })
+    -- hi('@keyword', { fg = palette.base08, bold = true })
+    hi('@keyword', { fg = palette.base08 })
     hi('@keyword.return', { link = '@keyword' })
-    hi('@variable.parameter', { fg = palette.base04 })
+    hi('@variable.parameter', { italic = true })
     hi('@lsp.type.macro', { fg = palette.base08 })
     hi('@lsp.type.namespace', { link = 'Type' })
     hi('@lsp.typemod.method', { link = 'Function' })
@@ -328,7 +329,7 @@ function M.set_highlights(colorscheme_name)
     hi('FylerGrey', { link = 'Comment' })
 
     -- Blink
-    hi('BlinkCmpLabelMatch', { link = 'Function' })
+    hi('BlinkCmpLabelMatch', { link = 'String' })
     hi('BlinkCmpMenu', { link = 'CursorLine' })
     hi('BlinkCmpMenuSelection', { link = 'Visual' })
 
