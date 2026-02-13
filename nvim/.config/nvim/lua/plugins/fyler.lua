@@ -29,7 +29,7 @@ return {
                 },
 
                 win = {
-                    kind = 'float',
+                    kind = 'replace',
                     kinds = {
                         float = { width = '30%', top = '10%', left = '35%' },
                     },

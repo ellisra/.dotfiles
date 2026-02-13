@@ -58,6 +58,17 @@ autocmd('FileType', {
     end,
 })
 
+autocmd('FileType', {
+    desc = 'Set 2-space indent for heavily nested filetypes',
+    group = augroup('ellisra.indent_2_spaces'),
+    pattern = { 'yaml', 'json', 'jsonc' },
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.tabstop = 2
+    end
+})
+
 autocmd('TermOpen', {
     desc = 'Start terminal in insert mode',
     group = augroup('ellisra.terminal_insert'),

@@ -57,4 +57,14 @@ cfg = {
 	window_close_confirmation = 'NeverPrompt',
 }
 
+cfg.keys = {}
+
+for i = 1, 8 do
+    table.insert(cfg.keys, {
+        key = tostring(i),
+        mods = 'CMD|ALT',
+        action = wez.action.MoveTab(i - 1),
+    })
+end
+
 return cfg
