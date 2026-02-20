@@ -61,7 +61,7 @@ autocmd('FileType', {
 autocmd('FileType', {
     desc = 'Set 2-space indent for heavily nested filetypes',
     group = augroup('ellisra.indent_2_spaces'),
-    pattern = { 'yaml', 'json', 'jsonc' },
+    pattern = { 'yaml', 'json', 'jsonc', 'markdown' },
     callback = function()
         vim.opt_local.shiftwidth = 2
         vim.opt_local.softtabstop = 2
