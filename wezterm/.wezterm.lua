@@ -12,7 +12,7 @@ local function scheme_for_appearance(appearance)
 	if appearance:find('Dark') then
 		return 'Arthur (Gogh)'
 	else
-		return 'dawnfox'
+		return 'dayfox'
 	end
 end
 
