@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.g.dark_default = 'habamax'
-vim.g.light_default = 'dawnfox'
+vim.g.light_default = 'dayfox'
 
 -- Lazy bootstrap
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
