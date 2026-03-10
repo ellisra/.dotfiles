@@ -2,25 +2,25 @@ vim.cmd('hi clear')
 if vim.fn.exists('syntax_on') then
     vim.cmd('syntax reset')
 end
-vim.g.colors_name = 'orbital'
+vim.g.colors_name = 'habamax-aaa'
 
 local palette = {
-    background = '#0d1017',
-    cursorline = '#000000',
-    visual     = '#25282e',
-    comment    = '#56585d',
-    argument   = '#babab8',
-    delimeter  = '#e0e3e8',
-    foreground = '#e0e3e8',
-    operator   = '#9aa5cd',
-    keyword    = '#c7693e',
-    class      = '#9aa5cd',
-    func       = '#7aaafa',
-    string     = '#88bab9',
-    number     = '#88bab9',
-    error      = '#d55a38',
-    warning    = '#E5A27A',
-    hint       = '#88bab9',
+    background = '#141414',
+    cursorline = '#262626',
+    visual     = '#1a3456',
+    comment    = '#a3a3a3',
+    argument   = '#BED1D0',
+    delimeter  = '#c7c7c7',
+    foreground = '#c7c7c7',
+    operator   = '#d7af87',
+    keyword    = '#bf9abf',
+    type       = '#8aaed0',
+    func       = '#94bbbb',
+    string     = '#73c373',
+    number     = '#73c373',
+    error      = '#ef9595',
+    warning    = '#d7af87',
+    hint       = '#94bbbb',
 }
 
 require('mini.base16').setup({
@@ -35,7 +35,7 @@ require('mini.base16').setup({
         base07 = palette.operator,
         base08 = palette.keyword,
         base09 = palette.warning,
-        base0A = palette.class,
+        base0A = palette.type,
         base0B = palette.func,
         base0C = palette.string,
         base0D = palette.hint,
