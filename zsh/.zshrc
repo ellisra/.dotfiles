@@ -62,6 +62,7 @@ export ANTHROPIC_VERTEX_PROJECT_ID=prj-t-vertex-ai-04bc
 export CLOUD_ML_REGION=europe-west1
 
 export PATH="$HOME/.roslyn-ls/content/LanguageServer/linux-x64:$PATH"
+export PATH="$PATH:$HOME/opt/ols"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
