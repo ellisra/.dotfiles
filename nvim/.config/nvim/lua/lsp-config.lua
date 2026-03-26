@@ -9,6 +9,7 @@ return {
     }),
 
     vim.lsp.enable({
+        -- 'pyrefly',
         'basedpyright',
         'clangd',
         'gopls',
