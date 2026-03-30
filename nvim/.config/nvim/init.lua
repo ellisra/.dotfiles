@@ -5,38 +5,22 @@ vim.g.have_nerd_font = true
 vim.g.dark_default = 'gruber'
 vim.g.light_default = 'dayfox'
 
--- Lazy bootstrap
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.uv.fs_stat(lazypath) then
-    local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-    local out = vim.fn.system({
-        'git',
-        'clone',
-        '--filter=blob:none',
-        '--branch=stable',
-        lazyrepo,
-        lazypath,
-    })
-    if vim.v.shell_error ~= 0 then
-        error('Error cloning lazy.nvim:\n' .. out)
-    end
-end
-vim.opt.rtp:prepend(lazypath)
-
-require('lazy').setup({
-    require('plugins.blink-cmp'),
-    require('plugins.fyler'),
-    require('plugins.fzf'),
-    require('plugins.mini'),
-    require('plugins.no-neck-pain'),
-    require('plugins.treesitter'),
-}, {
-    ui = {
-        border = 'single',
-        backdrop = 100,
-        icons = vim.g.have_nerd_font and {},
-    },
+local github = 'https://github.com/'
+vim.pack.add({
+    { src = github .. 'nvim-mini/mini.nvim' },
+    { src = github .. 'ibhagwan/fzf-lua' },
+    { src = github .. 'nvim-treesitter/nvim-treesitter' },
+    { src = github .. 'saghen/blink.cmp', version = vim.version.range('*') },
+    { src = github .. 'A7Lavinraj/fyler.nvim', version = 'stable' },
+    { src = github .. 'shortcuts/no-neck-pain.nvim', version = vim.version.range('v2.5.2') },
 })
+
+require('plugins.blink-cmp')
+require('plugins.fyler')
+require('plugins.fzf')
+require('plugins.mini')
+require('plugins.no-neck-pain')
+require('plugins.treesitter')
 
 -- Modules
 require('options')
