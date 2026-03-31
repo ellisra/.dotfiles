@@ -128,7 +128,6 @@ end
 
 function M.setup()
     Statusline = {}
-
     Statusline.active = function()
         return table.concat({
             '%#Statusline#',
@@ -151,18 +150,24 @@ function M.setup()
         return ' %F'
     end
 
-    function Statusline.short()
-        return '%#StatuslineNC#'
-    end
+    local group = vim.api.nvim_create_augroup('ellisra.statusline', { clear = true })
+    vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+        group = group,
+        callback = function ()
+            if vim.api.nvim_win_get_config(0).relative ~= '' then
+                vim.wo.statusline = ''
+            else
+                vim.wo.statusline = '%!v:lua.Statusline.active()'
+            end
+        end,
+    })
 
-    vim.api.nvim_exec2([[
-        augroup Statusline
-        au!
-        au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
-        au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
-        au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
-        augroup END
-    ]], { output = false })
+    vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
+        group = group,
+        callback = function ()
+            vim.wo.statusline = '%!v:lua.Statusline.inactive()'
+        end,
+    })
 end
 
 return M.setup()
