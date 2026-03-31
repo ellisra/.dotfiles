@@ -15,13 +15,29 @@
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "mini.nvim": {
-      "rev": "af5f75c9ce572a4d1f0c77d6fb4ea764d16c1b3c",
+      "rev": "90c402eaf6c923b0c169b7325d7143a8766e8905",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
       "rev": "d871043474c06995c062413c91c987d0cb602632",
       "src": "https://github.com/shortcuts/no-neck-pain.nvim",
       "version": "2.5.2 - 2.5.2"
+    },
+    "nvim-dap": {
+      "rev": "4f5deb110d9ff8994d96c21df95e2271d11214f9",
+      "src": "https://codeberg.org/mfussenegger/nvim-dap"
+    },
+    "nvim-dap-python": {
+      "rev": "1808458eba2b18f178f990e01376941a42c7f93b",
+      "src": "https://codeberg.org/mfussenegger/nvim-dap-python"
+    },
+    "nvim-dap-view": {
+      "rev": "af144cfbdeafd90dfdaa3d406e3f8e06ddc4f0e3",
+      "src": "https://github.com/igorlfs/nvim-dap-view"
+    },
+    "nvim-dap-virtual-text": {
+      "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
+      "src": "https://github.com/thehamsta/nvim-dap-virtual-text"
     },
     "nvim-treesitter": {
       "rev": "7caec274fd19c12b55902a5b795100d21531391f",

@@ -12,3 +12,7 @@ vim.api.nvim_create_user_command('WeeklyRecap', function()
         tags = { 'journal', 'weekly' },
     })
 end, { desc = 'Create a weekly journal note' })
+
+vim.api.nvim_create_user_command('PackUpdate', function()
+    vim.pack.update()
+end, { desc = 'Update plugins' })
