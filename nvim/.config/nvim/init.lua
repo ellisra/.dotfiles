@@ -1,4 +1,3 @@
--- Global variables
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
@@ -28,7 +27,6 @@ require('plugins.fyler')
 require('plugins.no-neck-pain')
 require('plugins.dap')
 
--- Modules
 require('options')
 require('autocommands')
 require('user-commands')
