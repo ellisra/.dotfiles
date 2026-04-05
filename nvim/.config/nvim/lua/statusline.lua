@@ -1,5 +1,3 @@
-local M = {}
-
 local modes = {
     ['n'] = 'NORMAL',  ['no'] = 'NORMAL',
     ['v'] = 'VISUAL',  ['V'] = 'VISUAL LINE', [''] = 'VISUAL BLOCK',
@@ -36,10 +34,8 @@ local function update_mode_colors()
 end
 
 local function git_info()
-    local ok, summary = pcall(function ()
-        return vim.b.minigit_summary
-    end)
-    if not ok or not summary then return '' end
+    local summary = vim.b.minigit_summary
+    if not summary then return '' end
 
     local branch = summary.head_name
     if not branch or branch == '' then return '  No Branch ' end
@@ -53,9 +49,7 @@ local function filename()
         modified = ' [+]'
     end
 
-    if fname == '' then
-        return ''
-    end
+    if fname == '' then return '' end
     return fname .. modified .. ' '
 end
 
@@ -69,7 +63,7 @@ local function diagnostics()
     }
 
     for k, level in pairs(levels) do
-        count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
+        count[k] = #vim.diagnostic.get(0, { severity = level })
     end
 
     local errors = ''
@@ -98,8 +92,9 @@ local function lsp()
     if #clients == 0 then
         return ' No active LSP '
     end
+    local names = vim.tbl_map(function (c) return c.name end, clients)
 
-    return ' ' .. clients[1].name .. ' '
+    return ' ' .. table.concat(names, ', ') .. ' '
 end
 
 local function lineinfo()
@@ -113,57 +108,50 @@ end
 
 local function md_info()
     if vim.bo.filetype == 'markdown' then
-        return string.format(
-            '%s words ',
-            vim.fn.wordcount().words
-        )
+        return string.format(' %s words ', vim.fn.wordcount().words)
     end
 
     return ''
 end
 
-function M.setup()
-    Statusline = {}
-    Statusline.active = function ()
-        return table.concat({
-            '%#Statusline#',
-            update_mode_colors(),
-            mode(),
-            '%#StatuslineNC#',
-            git_info(),
-            '%#Normal# ',
-            filename(),
-            '%=',
-            md_info(),
-            diagnostics(),
-            '%#StatuslineNC#',
-            lsp(),
-            lineinfo(),
-        })
-    end
-
-    function Statusline.inactive()
-        return ' %F'
-    end
-
-    local group = vim.api.nvim_create_augroup('ellisra.statusline', { clear = true })
-    vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
-        group = group,
-        callback = function ()
-            if vim.api.nvim_win_get_config(0).relative ~= '' then
-                vim.wo.statusline = ''
-            else
-                vim.wo.statusline = '%!v:lua.Statusline.active()'
-            end
-        end,
-    })
-
-    vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
-        group = group,
-        callback = function ()
-            vim.wo.statusline = '%!v:lua.Statusline.inactive()'
-        end,
+Statusline = {}
+Statusline.active = function ()
+    return table.concat({
+        '%#Statusline#',
+        update_mode_colors(),
+        mode(),
+        '%#StatuslineNC#',
+        git_info(),
+        '%#Normal# ',
+        filename(),
+        '%=',
+        md_info(),
+        diagnostics(),
+        '%#StatuslineNC#',
+        lsp(),
+        lineinfo(),
     })
 end
 
-return M.setup()
+Statusline.inactive = function ()
+    return ' %F'
+end
+
+local group = vim.api.nvim_create_augroup('ellisra.statusline', { clear = true })
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+    group = group,
+    callback = function ()
+        if vim.api.nvim_win_get_config(0).relative ~= '' then
+            vim.wo.statusline = ''
+        else
+            vim.wo.statusline = '%!v:lua.Statusline.active()'
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
+    group = group,
+    callback = function ()
+        vim.wo.statusline = '%!v:lua.Statusline.inactive()'
+    end,
+})

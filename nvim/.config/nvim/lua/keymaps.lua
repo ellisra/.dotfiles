@@ -24,14 +24,14 @@ vim.keymap.set('n', '<leader>wk', '<cmd>leftabove split<CR>', { desc = 'New wind
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>cd', "<cmd>echo expand('%p')<CR>", { desc = '[C]urrent [D]irectory' })
-vim.keymap.set('n', '<leader>gb', function() utils.show_git_blame() end, { desc = '[G]it [B]lame' })
+vim.keymap.set('n', '<leader>gb', function () utils.show_git_blame() end, { desc = '[G]it [B]lame' })
 vim.keymap.set('n', '<leader>cc', '<cmd>VTerm claude --continue<CR>', { desc = '[C]laude [C]ode' })
 
-vim.keymap.set('n', "'", function()
+vim.keymap.set('n', "'", function ()
     if vim.snippet.active({ direction = 1 }) then vim.snippet.jump(1) end
 end, { desc = 'Jump to next snippet placeholder', expr = true, silent = true })
 
-vim.keymap.set('n', '<leader>td', function()
+vim.keymap.set('n', '<leader>td', function ()
     utils.create_note({
         dirpath = constants.VAULT_DIR .. 'work/todo/',
         filename = tostring(os.date('%Y-%m-%d TODO')),
@@ -39,6 +39,6 @@ vim.keymap.set('n', '<leader>td', function()
     })
 end, { desc = 'Create [T]o[D]o Note'})
 
-vim.keymap.set('n', 'D', function()
+vim.keymap.set('n', 'D', function ()
     vim.diagnostic.open_float({ border = 'single', max_width = 70 })
 end, { desc = '[D]iagnostic float' })

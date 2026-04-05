@@ -7,7 +7,7 @@ local function in_comment(marker)
         rust   = '//',
     }
 
-    return function(bufnr)
+    return function (bufnr)
         local comment = comment_tbl[vim.bo[bufnr].filetype]
         if comment == nil then
             return nil

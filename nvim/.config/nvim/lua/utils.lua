@@ -147,7 +147,7 @@ function M.show_git_blame()
     local group = vim.api.nvim_create_augroup('ellisra.git_blame_float', { clear = true })
     vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'InsertEnter', 'BufLeave' }, {
         group = group,
-        callback = function()
+        callback = function ()
             close_float()
             vim.api.nvim_del_augroup_by_id(group)
         end,
@@ -164,6 +164,14 @@ function M.create_split_term_command(name, split_cmd)
         end
         vim.cmd(cmd)
     end, { nargs = '*', complete = 'shellcmd', desc = 'Open teminal in split' })
+end
+
+function M.set_colorscheme_on_bg()
+    if vim.o.background == 'light' then
+        vim.cmd.colorscheme(vim.g.light_default)
+    else
+        vim.cmd.colorscheme(vim.g.dark_default)
+    end
 end
 
 ---@param group string The highlight group name

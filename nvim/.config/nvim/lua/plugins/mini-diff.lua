@@ -3,7 +3,7 @@ local utils = require('utils')
 return {
     require('mini.diff').setup({ view = { style = 'number' } }),
 
-    vim.keymap.set('n', '<leader>tg', function()
+    vim.keymap.set('n', '<leader>tg', function ()
         require('mini.diff').toggle_overlay()
     end, { desc = '[T]oggle [G]it diff' }),
 
@@ -12,7 +12,7 @@ return {
         desc = 'Apply better mini.diff overlay colours',
         group = vim.api.nvim_create_augroup('ellisra.mini_diff_overlay', { clear = true }),
         pattern = '*',
-        callback = function()
+        callback = function ()
             vim.api.nvim_set_hl(0, 'MiniDiffOverAdd', {
                 bg = utils.tint_colour({
                     hex_colour = string.format(

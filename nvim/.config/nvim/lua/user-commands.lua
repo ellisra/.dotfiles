@@ -5,7 +5,7 @@ vim.api.nvim_create_user_command('W', 'w', {})
 utils.create_split_term_command('HTerm', 'split')
 utils.create_split_term_command('VTerm', 'vsplit')
 
-vim.api.nvim_create_user_command('WeeklyRecap', function()
+vim.api.nvim_create_user_command('WeeklyRecap', function ()
     utils.create_note({
         dirpath = constants.VAULT_DIR .. 'journal/weekly/',
         filename = string.format('%d-W%02d', os.date('%Y'), os.date('%V')),
@@ -13,6 +13,6 @@ vim.api.nvim_create_user_command('WeeklyRecap', function()
     })
 end, { desc = 'Create a weekly journal note' })
 
-vim.api.nvim_create_user_command('PackUpdate', function()
+vim.api.nvim_create_user_command('PackUpdate', function ()
     vim.pack.update()
 end, { desc = 'Update plugins' })

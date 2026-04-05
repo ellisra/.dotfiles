@@ -53,7 +53,7 @@ return {
     vim.api.nvim_create_autocmd('BufEnter', {
         desc = 'Ensure triggers are enabled if mini.clue is loaded',
         group = vim.api.nvim_create_augroup('ellisra.enable_miniclue_triggers', { clear = true }),
-        callback = function(args)
+        callback = function (args)
             ---@diagnostic disable-next-line: undefined-field
             if _G.MiniClue then
                 ---@diagnostic disable-next-line: undefined-global

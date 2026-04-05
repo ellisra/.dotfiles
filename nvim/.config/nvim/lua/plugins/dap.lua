@@ -24,7 +24,7 @@ table.insert(dap.configurations.python, {
     request = 'launch',
     name = 'django:command',
     program = '${workspaceFolder}/manage.py',
-    args = function()
+    args = function ()
         local input = vim.fn.input('Management command: ')
         local args = {}
         for arg in input:gmatch('%S+') do
@@ -43,6 +43,6 @@ vim.keymap.set('n', '<F9>', dap.step_over)
 vim.keymap.set('n', '<F8>', dap.step_into)
 vim.keymap.set('n', '<F7>', dap.step_out)
 vim.keymap.set('n', '<F6>', dap.restart)
-vim.keymap.set('n', '<leader>dk', function()
+vim.keymap.set('n', '<leader>dk', function ()
     dap.terminate({ all = true })
 end, { desc = 'Kill debug processes' })

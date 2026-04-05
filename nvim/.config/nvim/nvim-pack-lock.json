@@ -11,7 +11,7 @@
       "version": "'stable'"
     },
     "fzf-lua": {
-      "rev": "8f5a5ae708451adc3e2ac4d965ac3452dc3ce5a6",
+      "rev": "9f0432fdd7825ab163520045831a40b6df82ea28",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "mini.nvim": {

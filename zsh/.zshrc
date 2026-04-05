@@ -10,8 +10,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
-alias mvim='NVIM_APPNAME=nvim-mini nvim'
-alias nnvim='~/.local/nvim-nightly/bin/nvim'
 
 PROMPT_EOL_MARK=''
 HISTFILE=~/.zsh_history
