@@ -1,5 +1,6 @@
 require('mini.ai').setup({ mappings = { around_next = '', inside_next = '' } })
 require('mini.align').setup()
+require('mini.git').setup()
 require('mini.icons').setup()
 require('mini.jump').setup()
 require('mini.pairs').setup({ modes = { insert = true, command = true } })

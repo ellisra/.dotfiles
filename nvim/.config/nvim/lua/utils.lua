@@ -232,7 +232,6 @@ function M.set_highlights(colorscheme_name)
 
     hi('Constant', { link = 'Number' })
     hi('Comment', { fg = palette.base06 })
-    -- hi('Comment', { link = 'LineNr' })
     hi('Character', { link = 'String' })
     hi('Boolean', { link = 'Number' })
     hi('Function', { fg = palette.base0B })
@@ -267,8 +266,9 @@ function M.set_highlights(colorscheme_name)
     hi('StatuslineNC', { fg = palette.base05, bg = palette.base01 })
     hi('SpellBad', { sp = palette.base0F, undercurl = true })
 
-    hi('FzfLuaFzfMatch', { fg = palette.base0D })
+    hi('FzfLuaFzfMatch', { link = 'String' })
     hi('FzfLuaDirPart', { link = 'LineNr' })
+    hi('FzfLuaFzfPrompt', { link = 'LineNr' })
 
     -- LSP tags
     -- hi('@keyword', { fg = palette.base08, bold = true })

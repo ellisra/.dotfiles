@@ -36,17 +36,14 @@ local function update_mode_colors()
 end
 
 local function git_info()
-    local git_branch =
-        vim.fn.system("git branch --show-current 2>/dev/null | tr -d '\n'")
-    if vim.v.shell_error ~= 0 then
-        return nil
-    end
+    local ok, summary = pcall(function ()
+        return vim.b.minigit_summary
+    end)
+    if not ok or not summary then return '' end
 
-    if git_branch ~= '' then
-        return string.format('  %s ', git_branch)
-    else
-        return '  No Branch '
-    end
+    local branch = summary.head_name
+    if not branch or branch == '' then return '  No Branch ' end
+    return string.format('  %s ', branch)
 end
 
 local function filename()
@@ -72,7 +69,6 @@ local function diagnostics()
     }
 
     for k, level in pairs(levels) do
-        ---@diagnostic disable-next-line: assign-type-mismatch
         count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
     end
 
@@ -128,7 +124,7 @@ end
 
 function M.setup()
     Statusline = {}
-    Statusline.active = function()
+    Statusline.active = function ()
         return table.concat({
             '%#Statusline#',
             update_mode_colors(),
