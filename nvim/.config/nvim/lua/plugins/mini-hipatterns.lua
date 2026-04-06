@@ -20,22 +20,11 @@ end
 return {
     require('mini.hipatterns').setup({
         highlighters = {
-            fixme = {
-                pattern = in_comment('FIXME'),
-                group = 'MiniHipatternsFixme',
-            },
-            hack = {
-                pattern = in_comment('HACK'),
-                group = 'MiniHipatternsHack',
-            },
-            todo = {
-                pattern = in_comment('TODO'),
-                group = 'MiniHipatternsTodo',
-            },
-            note = {
-                pattern = in_comment('NOTE'),
-                group = 'MiniHipatternsNote',
-            },
+            fixme = { pattern = in_comment('FIXME'), group = 'MiniHipatternsFixme' },
+            hack  = { pattern = in_comment('HACK'),  group = 'MiniHipatternsHack' },
+            todo  = { pattern = in_comment('TODO'),  group = 'MiniHipatternsTodo' },
+            note  = { pattern = in_comment('NOTE'),  group = 'MiniHipatternsNote' },
+            trail = { pattern = '%f[%s]%s*$', group = 'Error' },
 
             hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
         },
