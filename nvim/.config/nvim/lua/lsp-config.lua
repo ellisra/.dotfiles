@@ -1,13 +1,4 @@
 return {
-    vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('ellisra.lsp_attach', { clear = true }),
-        callback = function (event)
-            vim.keymap.set('n', 'K', function ()
-                vim.lsp.buf.hover({ border = 'single' })
-            end, { buffer = event.buf })
-        end,
-    }),
-
     vim.lsp.enable({
         -- 'pyrefly',
         'basedpyright',

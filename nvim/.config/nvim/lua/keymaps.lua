@@ -42,3 +42,5 @@ end, { desc = 'Create [T]o[D]o Note'})
 vim.keymap.set('n', 'D', function ()
     vim.diagnostic.open_float({ border = 'single', max_width = 70 })
 end, { desc = '[D]iagnostic float' })
+
+vim.keymap.set('n', 'K', function () vim.lsp.buf.hover({ border = 'single' }) end)
