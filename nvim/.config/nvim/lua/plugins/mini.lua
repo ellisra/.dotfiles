@@ -6,6 +6,7 @@ require('mini.jump').setup()
 require('mini.pairs').setup({ modes = { insert = true, command = true } })
 require('mini.splitjoin').setup()
 require('mini.surround').setup()
+require('mini.trailspace').setup()
 
 require('plugins.mini-clue')
 require('plugins.mini-diff')
