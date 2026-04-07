@@ -15,13 +15,12 @@
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "mini.nvim": {
-      "rev": "402ee6c6ec8ea44b22330446c8fb4e615fd3953e",
+      "rev": "2431902e78b76f435542d1e606f08475360068ca",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
-      "rev": "d871043474c06995c062413c91c987d0cb602632",
-      "src": "https://github.com/shortcuts/no-neck-pain.nvim",
-      "version": "2.5.2 - 2.5.2"
+      "rev": "4bc52782524fd50c5658685d584df6fa48fe49f9",
+      "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
     "nvim-dap": {
       "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",

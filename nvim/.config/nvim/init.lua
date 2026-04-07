@@ -5,19 +5,19 @@ vim.g.light_default = 'dayfox'
 
 require('options')
 
-local github = 'https://github.com/'
-local codeberg = 'https://codeberg.org/'
+local gh = 'https://github.com/'
+local cb = 'https://codeberg.org/'
 vim.pack.add({
-    { src = github .. 'nvim-mini/mini.nvim' },
-    { src = github .. 'ibhagwan/fzf-lua' },
-    { src = github .. 'nvim-treesitter/nvim-treesitter' },
-    { src = github .. 'saghen/blink.cmp', version = vim.version.range('*') },
-    { src = github .. 'A7Lavinraj/fyler.nvim', version = 'stable' },
-    { src = github .. 'shortcuts/no-neck-pain.nvim', version = vim.version.range('v2.5.2') },
-    { src = github .. 'igorlfs/nvim-dap-view' },
-    { src = github .. 'theHamsta/nvim-dap-virtual-text' },
-    { src = codeberg .. 'mfussenegger/nvim-dap-python' },
-    { src = codeberg .. 'mfussenegger/nvim-dap' },
+    { src = gh .. 'nvim-mini/mini.nvim' },
+    { src = gh .. 'ibhagwan/fzf-lua' },
+    { src = gh .. 'nvim-treesitter/nvim-treesitter' },
+    { src = gh .. 'saghen/blink.cmp', version = vim.version.range('*') },
+    { src = gh .. 'A7Lavinraj/fyler.nvim', version = 'stable' },
+    { src = gh .. 'shortcuts/no-neck-pain.nvim' },
+    { src = gh .. 'igorlfs/nvim-dap-view' },
+    { src = gh .. 'theHamsta/nvim-dap-virtual-text' },
+    { src = cb .. 'mfussenegger/nvim-dap-python' },
+    { src = cb .. 'mfussenegger/nvim-dap' },
 })
 
 require('plugins.mini')
