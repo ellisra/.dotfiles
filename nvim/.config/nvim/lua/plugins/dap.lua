@@ -1,5 +1,4 @@
 require('nvim-dap-virtual-text').setup({ virt_text_pos = 'eol' })
-require('dap-python').setup('uv')
 require('dap-view').setup({
     auto_toggle = true,
     winbar = { default_section = 'scopes' },
@@ -7,6 +6,19 @@ require('dap-view').setup({
 })
 
 local dap = require('dap')
+
+vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = '[B]reakpoint' })
+vim.keymap.set('n', '<F10>', dap.continue)
+vim.keymap.set('n', '<F9>', dap.step_over)
+vim.keymap.set('n', '<F8>', dap.step_into)
+vim.keymap.set('n', '<F7>', dap.step_out)
+vim.keymap.set('n', '<F6>', dap.restart)
+vim.keymap.set('n', '<leader>dk', function ()
+    dap.terminate({ all = true })
+end, { desc = 'Kill debug processes' })
+
+-- Python
+require('dap-python').setup('uv')
 
 table.insert(dap.configurations.python, {
     type = 'python',
@@ -36,13 +48,3 @@ table.insert(dap.configurations.python, {
     console = 'integratedTerminal',
     justMyCode = true,
 })
-
-vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = '[B]reakpoint' })
-vim.keymap.set('n', '<F10>', dap.continue)
-vim.keymap.set('n', '<F9>', dap.step_over)
-vim.keymap.set('n', '<F8>', dap.step_into)
-vim.keymap.set('n', '<F7>', dap.step_out)
-vim.keymap.set('n', '<F6>', dap.restart)
-vim.keymap.set('n', '<leader>dk', function ()
-    dap.terminate({ all = true })
-end, { desc = 'Kill debug processes' })

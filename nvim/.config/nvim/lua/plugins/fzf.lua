@@ -1,7 +1,7 @@
-local Fzf = require('fzf-lua')
+local fzf = require('fzf-lua')
 local keymap = vim.keymap.set
 
-Fzf.setup({
+fzf.setup({
     ui_select = true,
     fzf_colors = true,
     file_icon_padding = ' ',
@@ -48,18 +48,18 @@ Fzf.setup({
     },
 })
 
-keymap('n', '<leader>sf', function () Fzf.files() end, { desc = '[S]earch [F]iles' })
-keymap('n', '<leader>so', function () Fzf.oldfiles() end, { desc = '[S]earch [O]ldfiles' })
-keymap('n', '<leader><leader>', function () Fzf.resume() end, { desc = '[ ] Resume search' })
-keymap('n', '<leader>sb', function () Fzf.buffers() end, { desc = '[S]earch [B]uffers' })
-keymap('n', '<leader>sg', function () Fzf.live_grep() end, { desc = '[S]earch [G]rep' })
+keymap('n', '<leader>sf', fzf.files, { desc = '[S]earch [F]iles' })
+keymap('n', '<leader>so', fzf.oldfiles, { desc = '[S]earch [O]ldfiles' })
+keymap('n', '<leader><leader>', fzf.resume, { desc = '[ ] Resume search' })
+keymap('n', '<leader>sb', fzf.buffers, { desc = '[S]earch [B]uffers' })
+keymap('n', '<leader>sg', fzf.live_grep, { desc = '[S]earch [G]rep' })
 
 keymap('n', '<leader>sn', function ()
-    Fzf.files({ cwd = vim.fn.stdpath('config') })
+    fzf.files({ cwd = vim.fn.stdpath('config') })
 end, { desc = '[S]earch [N]eovim config' })
 
 keymap('n', '<leader>sd', function ()
-    Fzf.diagnostics_document({
+    fzf.diagnostics_document({
         winopts = {
             width = 1,
             height = 0.2,
@@ -68,7 +68,7 @@ keymap('n', '<leader>sd', function ()
 end, { desc = '[S]earch [D]iagnostics' })
 
 keymap('n', '<leader>sr', function ()
-    Fzf.lsp_references({
+    fzf.lsp_references({
         winopts = {
             width = 1,
             height = 0.2,
@@ -82,7 +82,7 @@ keymap('n', '<leader>sr', function ()
 end, { desc = '[S]earch [R]eferences' })
 
 keymap('n', '<leader>ca', function ()
-    Fzf.lsp_code_actions({
+    fzf.lsp_code_actions({
         winopts = {
             width = 1,
             preview = {
@@ -95,11 +95,11 @@ keymap('n', '<leader>ca', function ()
 end, { desc = '[C]ode [A]ctions' })
 
 keymap('n', 'gd', function ()
-    Fzf.lsp_definitions({ jump1 = true })
+    fzf.lsp_definitions({ jump1 = true })
 end, { desc = '[G]o to [D]efinition' })
 
 keymap('n', '<leader>sm', function ()
-    Fzf.helptags({
+    fzf.helptags({
         winopts = {
             width = 1,
             preview = {
@@ -112,7 +112,7 @@ keymap('n', '<leader>sm', function ()
 end, { desc = '[S]earch [M]anual' })
 
 keymap('n', '<leader>sk', function ()
-    Fzf.keymaps({
+    fzf.keymaps({
         winopts = {
             width = 1,
             height = 0.4,
@@ -125,16 +125,16 @@ keymap('n', '<leader>sk', function ()
 end, { desc = '[S]earch [K]eymaps' })
 
 keymap('n', '<leader>sc', function ()
-    Fzf.colorschemes({
+    fzf.colorschemes({
         winopts = { height = 0.2, width = 0.2 },
     })
 end, { desc = '[S]earch [C]olorschemes' })
 
 keymap('n', '<leader>sh', function ()
-    Fzf.highlights({ fzf_colors = true })
+    fzf.highlights({ fzf_colors = true })
 end, { desc = '[S]earch [H]ighlights' })
 
 keymap('n', '<leader>sp', function ()
-    Fzf.spell_suggest({ winopts = { width = 0.1, height = 0.2 } })
+    fzf.spell_suggest({ winopts = { width = 0.1, height = 0.2 } })
 end, { desc = '[S][p]elling suggestions' })
 

@@ -114,28 +114,26 @@ local function md_info()
     return ''
 end
 
-Statusline = {}
-Statusline.active = function ()
-    return table.concat({
-        '%#Statusline#',
-        update_mode_colors(),
-        mode(),
-        '%#StatuslineNC#',
-        git_info(),
-        '%#Normal# ',
-        filename(),
-        '%=',
-        md_info(),
-        diagnostics(),
-        '%#StatuslineNC#',
-        lsp(),
-        lineinfo(),
-    })
-end
-
-Statusline.inactive = function ()
-    return ' %F'
-end
+Statusline = {
+    active = function ()
+        return table.concat({
+            '%#Statusline#',
+            update_mode_colors(),
+            mode(),
+            '%#StatuslineNC#',
+            git_info(),
+            '%#Normal# ',
+            filename(),
+            '%=',
+            md_info(),
+            diagnostics(),
+            '%#StatuslineNC#',
+            lsp(),
+            lineinfo(),
+        })
+    end,
+    inactive = function () return ' %F' end,
+}
 
 local group = vim.api.nvim_create_augroup('ellisra.statusline', { clear = true })
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
