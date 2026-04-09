@@ -16,3 +16,7 @@ end, { desc = 'Create a weekly journal note' })
 vim.api.nvim_create_user_command('PackUpdate', function ()
     vim.pack.update()
 end, { desc = 'Update plugins' })
+
+vim.api.nvim_create_user_command('PackUninstall', function (opts)
+    vim.pack.del(opts.fargs)
+end, { nargs = '+', desc = 'Uninstall given plugins' })
