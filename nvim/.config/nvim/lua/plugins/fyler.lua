@@ -1,4 +1,6 @@
-require('fyler').setup({
+local fyler = require('fyler')
+
+fyler.setup({
     views = {
         finder = {
             confirm_simple = true,
@@ -19,6 +21,4 @@ require('fyler').setup({
     },
 })
 
-vim.keymap.set('n', '<leader>o', function ()
-        require('fyler').open({})
-end, { desc = '[O]pen File Tree' })
+vim.keymap.set('n', '<leader>o', fyler.open, { desc = '[O]pen File Tree' })

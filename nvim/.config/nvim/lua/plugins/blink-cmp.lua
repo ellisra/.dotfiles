@@ -1,15 +1,8 @@
 require('blink.cmp').setup({
     keymap = {
         preset = 'default',
-        ['<Up>'] = { 'select_prev', 'fallback' },
-        ['<Down>'] = { 'select_next', 'fallback' },
         ['<Tab>'] = { 'select_and_accept', 'fallback' },
         ['<C-Enter>'] = { 'select_and_accept', 'fallback' },
-    },
-
-    appearance = {
-        use_nvim_cmp_as_default = false,
-        nerd_font_variant = 'propo',
     },
 
     cmdline = {
@@ -23,20 +16,13 @@ require('blink.cmp').setup({
     },
 
     completion = {
-        accept = { auto_brackets = { enabled = true } },
+        trigger = { show_on_insert_on_trigger_character = false },
 
         documentation = {
             auto_show = true,
             auto_show_delay_ms = 200,
             treesitter_highlighting = true,
-
             window = { border = 'single' },
-        },
-
-        ghost_text = { enabled = false },
-
-        trigger = {
-            show_on_insert_on_trigger_character = false,
         },
     },
 
@@ -51,10 +37,10 @@ require('blink.cmp').setup({
                 return 1
             end
         end,
-        transform_items = function (_, items)
-            return vim.tbl_filter(function (item)
-                return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
-            end, items)
-        end
+        -- transform_items = function (_, items)
+        --     return vim.tbl_filter(function (item)
+        --         return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
+        --     end, items)
+        -- end
     },
 })

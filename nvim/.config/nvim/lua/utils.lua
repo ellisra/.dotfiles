@@ -28,7 +28,19 @@ function M.select_markdown_table()
     end
 end
 
----@return string
+--- Get characters surrounding cursor for pair logic
+--- @param range? integer number of chars to capture on each side (default 1)
+--- @return string before, string after
+function M.get_pair_context(range)
+    range = range or 1
+    local line = vim.api.nvim_get_current_line()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    local before = line:sub(col - range + 1, col)
+    local after = line:sub(col + 1, col + range)
+    return before, after
+end
+
+--- @return string
 function M.get_current_filename()
     local filename = vim.fn.expand('%:t')
     filename, _ = filename:gsub('%.%w+$','')
@@ -36,7 +48,7 @@ function M.get_current_filename()
     return filename
 end
 
----@param path string
+--- @param path string
 function M.read_file(path)
     local file = io.open(path, 'r')
     if not file then return nil end
@@ -45,7 +57,7 @@ function M.read_file(path)
     return content
 end
 
----@param t { path: string, filename: string }
+--- @param t { path: string, filename: string }
 function M.insert_template(t)
     local lines = M.read_file(t.path)
     if not lines then return nil end
@@ -74,7 +86,7 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
----@param t { dirpath: string, filename: string, template_path?: string, tags?: string[], title?: string }
+--- @param t { dirpath: string, filename: string, template_path?: string, tags?: string[], title?: string }
 function M.create_note(t)
     local template_path = t.template_path or ''
     local tags = t.tags or {}
@@ -154,8 +166,8 @@ function M.show_git_blame()
     })
 end
 
----@param name string
----@param split_cmd string
+--- @param name string
+--- @param split_cmd string
 function M.create_split_term_command(name, split_cmd)
     vim.api.nvim_create_user_command(name, function(opts)
         local cmd = split_cmd .. ' | terminal'
@@ -174,8 +186,8 @@ function M.set_colorscheme_on_bg()
     end
 end
 
----@param group string The highlight group name
----@param options vim.api.keyset.highlight Highlight attributes
+--- @param group string The highlight group name
+--- @param options vim.api.keyset.highlight Highlight attributes
 local function hi(group, options)
     vim.api.nvim_set_hl(0, group, options)
 end
@@ -193,8 +205,8 @@ local function set_statusline_highlights()
     hi('StatuslineModeCommand', M.invert_hl('StatuslineDiagnosticHint'))
 end
 
----@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
----@return string
+--- @param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
+--- @return string
 function M.tint_colour(t)
     local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
     local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
@@ -207,9 +219,9 @@ function M.tint_colour(t)
     return string.format('#%02X%02X%02X', r, g, b)
 end
 
----@param fg_group string
----@param bg_group string
----@return { fg: string, bg: string }
+--- @param fg_group string
+--- @param bg_group string
+--- @return { fg: string, bg: string }
 function M.combine_hl(fg_group, bg_group)
     local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
     local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
@@ -217,15 +229,15 @@ function M.combine_hl(fg_group, bg_group)
     return { fg = fg_hl.fg, bg = bg_hl.bg }
 end
 
----@param group_name string
----@return { fg: string, bg: string }
+--- @param group_name string
+--- @return { fg: string, bg: string }
 function M.invert_hl(group_name)
     local hl = vim.api.nvim_get_hl(0, { name = group_name })
 
     return { fg = hl.bg, bg = hl.fg }
 end
 
----@param colorscheme_name string
+--- @param colorscheme_name string
 function M.set_highlights(colorscheme_name)
     local palette = require('mini.base16').config.palette
     local colors_name = colorscheme_name or vim.g.colors_name
