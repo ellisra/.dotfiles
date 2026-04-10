@@ -1,7 +1,6 @@
 return {
     vim.lsp.enable({
-        -- 'pyrefly',
-        'basedpyright',
+        'pyrefly',
         'clangd',
         'gopls',
         'lua-ls',

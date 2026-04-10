@@ -3,7 +3,7 @@ local utils = require('utils')
 
 vim.api.nvim_create_user_command('ISort', function (opts)
     local path = opts.args
-    local isort = '!ruff check --select I --fix %s'
+    local isort = '!ruff check --select I,F401 --fix %s'
 
     if path ~= nil and path ~= '' then
         vim.cmd(string.format(isort, path))
@@ -13,7 +13,7 @@ vim.api.nvim_create_user_command('ISort', function (opts)
 end, {
     nargs = '?',
     complete = 'file',
-    desc = 'isort current python file with ruff',
+    desc = 'isort python file with ruff',
 })
 
 vim.keymap.set('i', "'", function ()
