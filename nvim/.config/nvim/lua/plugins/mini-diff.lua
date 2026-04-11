@@ -1,4 +1,4 @@
-local utils = require('utils')
+local hls = require('highlights')
 
 return {
     require('mini.diff').setup({ view = { style = 'number' } }),
@@ -14,7 +14,7 @@ return {
         callback = function ()
             vim.schedule(function ()
                 vim.api.nvim_set_hl(0, 'MiniDiffOverAdd', {
-                    bg = utils.tint_colour({
+                    bg = hls.tint_colour({
                         hex_colour = string.format(
                             '#%06X',
                             vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
@@ -24,7 +24,7 @@ return {
                 })
 
                 vim.api.nvim_set_hl(0, 'MiniDiffOverDelete', {
-                    bg = utils.tint_colour({
+                    bg = hls.tint_colour({
                         hex_colour = string.format(
                             '#%06X',
                             vim.api.nvim_get_hl(0, { name = 'Normal' }).bg

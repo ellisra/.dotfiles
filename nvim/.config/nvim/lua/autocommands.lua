@@ -1,4 +1,5 @@
 local utils = require('utils')
+local hls = require('highlights')
 
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = function (name) vim.api.nvim_create_augroup(name, { clear = true }) end
@@ -32,7 +33,7 @@ autocmd('ColorScheme', {
     group = augroup('ellisra.apply_highlights'),
     callback = function (event)
         vim.schedule(function ()
-            utils.set_highlights(event.match)
+            hls.set_highlights(event.match)
         end)
     end,
 })
@@ -42,7 +43,7 @@ autocmd('OptionSet', {
     group = augroup('ellisra.sync_term_bg'),
     pattern = 'background',
     callback = function ()
-        utils.set_colorscheme_on_bg()
+        hls.set_colorscheme_on_bg()
     end,
 })
 

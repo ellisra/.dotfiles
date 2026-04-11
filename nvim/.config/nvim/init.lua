@@ -35,4 +35,4 @@ require('keymaps')
 require('statusline')
 require('floating-windows')
 
-require('utils').set_colorscheme_on_bg()
+require('highlights').set_colorscheme_on_bg()
