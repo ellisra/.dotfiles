@@ -44,3 +44,24 @@ vim.keymap.set('n', 'D', function ()
 end, { desc = '[D]iagnostic float' })
 
 vim.keymap.set('n', 'K', function () vim.lsp.buf.hover({ border = 'single' }) end)
+
+vim.keymap.set('n', '<leader>yp', function ()
+    local filepath = vim.fn.expand('%:p')
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local location = filepath .. ':' .. cursor[1] .. ':' .. cursor[2] + 1
+
+    vim.fn.setreg('+', location)
+    vim.notify('Yanked: ' .. location)
+end, { desc = '[Y]ank [P]osition' })
+
+vim.keymap.set('x', '<leader>yr', function ()
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'x', false)
+
+    local filepath = vim.fn.expand('%:p')
+    local start_pos = vim.fn.getcharpos("'<")
+    local end_pos = vim.fn.getcharpos("'>")
+    local location = filepath .. ':' .. start_pos[2] .. '-' .. end_pos[2]
+
+    vim.fn.setreg('+', location)
+    vim.notify('Yanked: ' .. location)
+end, { desc = '[Y]ank [R]ange' })
