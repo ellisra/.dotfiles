@@ -2,6 +2,7 @@ local fzf = require('fzf-lua')
 local keymap = vim.keymap.set
 
 fzf.setup({
+    ui_select = true,
     fzf_colors = true,
     file_icon_padding = ' ',
     oldfiles = { include_current_session = true },

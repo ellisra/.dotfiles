@@ -11,11 +11,11 @@
       "version": "'stable'"
     },
     "fzf-lua": {
-      "rev": "4deeecf611c0beba6455e6cf06e2c051a6169dd4",
+      "rev": "657c1bbb7357c61e26a20d868b53a460b05c18c0",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "mini.nvim": {
-      "rev": "2431902e78b76f435542d1e606f08475360068ca",
+      "rev": "4182d64727fb4876407af65c181b85428a4a70d1",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {

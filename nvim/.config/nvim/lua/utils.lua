@@ -28,9 +28,9 @@ function M.select_markdown_table()
     end
 end
 
---- Get characters surrounding cursor for pair logic
---- @param range? integer number of chars to capture on each side (default 1)
---- @return string before, string after
+---Get characters surrounding cursor for pair logic
+---@param range? integer number of chars to capture on each side (default 1)
+---@return string before, string after
 function M.get_pair_context(range)
     range = range or 1
     local line = vim.api.nvim_get_current_line()
@@ -40,7 +40,7 @@ function M.get_pair_context(range)
     return before, after
 end
 
---- @return string
+---@return string
 function M.get_current_filename()
     local filename = vim.fn.expand('%:t')
     filename, _ = filename:gsub('%.%w+$','')
@@ -48,7 +48,7 @@ function M.get_current_filename()
     return filename
 end
 
---- @param path string
+---@param path string
 function M.read_file(path)
     local file = io.open(path, 'r')
     if not file then return nil end
@@ -57,7 +57,7 @@ function M.read_file(path)
     return content
 end
 
---- @param t { path: string, filename: string }
+---@param t { path: string, filename: string }
 function M.insert_template(t)
     local lines = M.read_file(t.path)
     if not lines then return nil end
@@ -86,7 +86,7 @@ function M.toggle_checkbox()
     vim.api.nvim_set_current_line(new_line)
 end
 
---- @param t { dirpath: string, filename: string, template_path?: string, tags?: string[], title?: string }
+---@param t { dirpath: string, filename: string, template_path?: string, tags?: string[], title?: string }
 function M.create_note(t)
     local template_path = t.template_path or ''
     local tags = t.tags or {}
@@ -166,8 +166,8 @@ function M.show_git_blame()
     })
 end
 
---- @param name string
---- @param split_cmd string
+---@param name string
+---@param split_cmd string
 function M.create_split_term_command(name, split_cmd)
     vim.api.nvim_create_user_command(name, function(opts)
         local cmd = split_cmd .. ' | terminal'

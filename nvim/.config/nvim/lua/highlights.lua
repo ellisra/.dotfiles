@@ -8,15 +8,15 @@ function M.set_colorscheme_on_bg()
     end
 end
 
---- @param group string The highlight group name
---- @param options vim.api.keyset.highlight Highlight attributes
+---@param group string The highlight group name
+---@param options vim.api.keyset.highlight Highlight attributes
 local function hi(group, options)
     vim.api.nvim_set_hl(0, group, options)
 end
 
---- @param fg_group string
---- @param bg_group string
---- @return { fg: string, bg: string }
+---@param fg_group string
+---@param bg_group string
+---@return { fg: string, bg: string }
 local function combine_hl(fg_group, bg_group)
     local fg_hl = vim.api.nvim_get_hl(0, { name = fg_group })
     local bg_hl = vim.api.nvim_get_hl(0, { name = bg_group })
@@ -24,12 +24,43 @@ local function combine_hl(fg_group, bg_group)
     return { fg = fg_hl.fg, bg = bg_hl.bg }
 end
 
---- @param group_name string
---- @return { fg: string, bg: string }
+---@param group_name string
+---@return { fg: string, bg: string }
 local function invert_hl(group_name)
     local hl = vim.api.nvim_get_hl(0, { name = group_name })
 
     return { fg = hl.bg, bg = hl.fg }
+end
+
+---@param hex string
+---@return integer r, integer g, integer b
+local function hex_to_rgb(hex)
+    local r = tonumber(string.sub(hex, 2, 3), 16)
+    local g = tonumber(string.sub(hex, 4, 5), 16)
+    local b = tonumber(string.sub(hex, 6, 7), 16)
+
+    return r, g, b
+end
+
+---@param group string
+---@param factor? number
+---@return string
+local function dim(group, factor)
+    factor = factor or 0.5
+    local bg = vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
+    local bg_hex = string.format("#%06x", bg)
+
+    local group_fg = vim.api.nvim_get_hl(0, { name = group, link = false }).fg
+    local group_hex = string.format("#%06x", group_fg)
+
+    local r1, g1, b1 = hex_to_rgb(group_hex)
+    local r2, g2, b2 = hex_to_rgb(bg_hex)
+
+    return string.format("#%02x%02x%02x",
+        math.floor(r1 * factor + r2 * (1 - factor)),
+        math.floor(g1 * factor + g2 * (1 - factor)),
+        math.floor(b1 * factor + b2 * (1 - factor))
+    )
 end
 
 local function set_statusline_highlights()
@@ -45,12 +76,10 @@ local function set_statusline_highlights()
     hi('StatuslineModeCommand', invert_hl('StatuslineDiagnosticHint'))
 end
 
---- @param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
---- @return string
+---@param t { hex_colour: string, r_tint: integer, g_tint: integer, b_tint: integer }
+---@return string
 function M.tint_colour(t)
-    local r = tonumber(string.sub(t.hex_colour, 2, 3), 16)
-    local g = tonumber(string.sub(t.hex_colour, 4, 5), 16)
-    local b = tonumber(string.sub(t.hex_colour, 6, 7), 16)
+    local r, g, b = hex_to_rgb(t.hex_colour)
 
     r = math.min(255, math.max(0, r + t.r_tint))
     g = math.min(255, math.max(0, g + t.g_tint))
@@ -59,7 +88,7 @@ function M.tint_colour(t)
     return string.format('#%02X%02X%02X', r, g, b)
 end
 
---- @param colorscheme_name string
+---@param colorscheme_name string
 function M.set_highlights(colorscheme_name)
     local palette = require('mini.base16').config.palette
     local colors_name = colorscheme_name or vim.g.colors_name
@@ -179,6 +208,13 @@ function M.set_highlights(colorscheme_name)
     hi('BlinkCmpLabelMatch', { link = 'String' })
     hi('BlinkCmpMenu', { link = 'CursorLine' })
     hi('BlinkCmpMenuSelection', { link = 'Visual' })
+
+    hi('NvimDapViewBooleanDim', { fg = dim('Boolean') })
+    hi('NvimDapViewStringDim', { fg = dim('String') })
+    hi('NvimDapViewNumberDim', { fg = dim('Number') })
+    hi('NvimDapViewFloatDim', { fg = dim('Float') })
+    hi('NvimDapViewFunctionDim', { fg = dim('Function') })
+    hi('NvimDapViewConstantDim', { fg = dim('Constant') })
 
     set_statusline_highlights()
 end
