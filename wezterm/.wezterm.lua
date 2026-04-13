@@ -24,6 +24,32 @@ local function weight_for_appearance(appearance)
     end
 end
 
+local function format_tab_title(tab, tabs, panes, config, hover, max_width)
+    local pane = tab.active_pane
+    local title = pane.foreground_process_name:match('([^/]+)$') or pane.title
+    local cwd = pane.current_working_dir
+
+    if cwd then
+        local path = cwd.file_path:gsub('/$', '')
+        local parent_path, dir = path:match('(.+)/([^/]+)$')
+        if parent_path == wez.home_dir then
+            title = title .. ' in ~/' .. dir
+        elseif parent_path then
+            local parent = parent_path:match('([^/]+)$')
+            title = title .. ' in ' .. parent:sub(1, 4) .. '/' .. dir
+        end
+    end
+
+    local index = tab.tab_index + 1
+    title = index .. ': ' .. title
+
+    local available = max_width - 2
+    if #title > available then
+        title = title:sub(1, available - 1) .. '…'
+    end
+    return ' ' .. title .. ' '
+end
+
 local font_family = 'JetBrainsMono NFP'
 local appearance = get_appearance()
 
@@ -51,11 +77,13 @@ cfg = {
 	hide_tab_bar_if_only_one_tab = true,
 	show_new_tab_button_in_tab_bar = false,
 	tab_bar_at_bottom = true,
-	tab_max_width = 24,
+	tab_max_width = 32,
 
 	window_decorations = 'RESIZE',
 	window_close_confirmation = 'NeverPrompt',
 }
+
+wez.on('format-tab-title', format_tab_title)
 
 cfg.keys = {}
 

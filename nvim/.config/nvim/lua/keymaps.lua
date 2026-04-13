@@ -25,7 +25,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highl
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>cd', "<cmd>echo expand('%p')<CR>", { desc = '[C]urrent [D]irectory' })
 vim.keymap.set('n', '<leader>gb', function () utils.show_git_blame() end, { desc = '[G]it [B]lame' })
-vim.keymap.set('n', '<leader>cc', '<cmd>VTerm claude --continue<CR>', { desc = '[C]laude [C]ode' })
 
 vim.keymap.set('n', "'", function ()
     if vim.snippet.active({ direction = 1 }) then vim.snippet.jump(1) end
