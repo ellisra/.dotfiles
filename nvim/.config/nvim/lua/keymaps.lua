@@ -64,3 +64,20 @@ vim.keymap.set('x', '<leader>yr', function ()
     vim.fn.setreg('+', location)
     vim.notify('Yanked: ' .. location)
 end, { desc = '[Y]ank [R]ange' })
+
+vim.keymap.set('n', '<leader>yd', function ()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local diagnostics = vim.diagnostic.get(0, { lnum = cursor[1] - 1 })
+    if vim.tbl_isempty(diagnostics) then
+        vim.notify('No diagnostics on current line')
+        return
+    end
+
+    local diagnostic = diagnostics[1]
+    local filepath = vim.fn.expand('%:p')
+    local location = filepath .. ':' .. (diagnostic.lnum + 1) .. ':' .. (diagnostic.col + 1)
+    local text = location .. '\n' .. diagnostic.message
+
+    vim.fn.setreg('+', text)
+    vim.notify('Yanked diagnostics at: ' .. location)
+end, { desc = '[Y]ank [D]iagnostic' })
