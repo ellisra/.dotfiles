@@ -1,8 +1,8 @@
-require('nvim-dap-virtual-text').setup({ virt_text_pos = 'eol' })
 require('dap-view').setup({
     auto_toggle = true,
     winbar = { default_section = 'scopes' },
     windows = { terminal = { position = 'right' } },
+    virtual_text = { enabled = true, position = 'eol' }
 })
 
 local dap = require('dap')

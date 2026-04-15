@@ -1,4 +1,3 @@
-local utils = require('utils')
 local hls = require('highlights')
 
 local autocmd = vim.api.nvim_create_autocmd

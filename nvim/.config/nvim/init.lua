@@ -14,8 +14,8 @@ vim.pack.add({
     { src = gh .. 'saghen/blink.cmp', version = vim.version.range('*') },
     { src = gh .. 'A7Lavinraj/fyler.nvim', version = 'stable' },
     { src = gh .. 'shortcuts/no-neck-pain.nvim' },
-    { src = gh .. 'igorlfs/nvim-dap-view' },
-    { src = gh .. 'theHamsta/nvim-dap-virtual-text' },
+    -- TODO: switch back to main once this is merged
+    { src = gh .. 'ellisra/nvim-dap-view', version = 'configure-virtual-text' },
     { src = cb .. 'mfussenegger/nvim-dap-python' },
     { src = cb .. 'mfussenegger/nvim-dap' },
 })
