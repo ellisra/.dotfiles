@@ -11,4 +11,15 @@ return {
             },
         }
     },
+    handlers = {
+        -- TODO: Remove this when pyreflye properly supports ignoring diagnostics
+        ['textDocument/publishDiagnostics'] = function (err, result, ctx, config)
+            if result and result.diagnostics then
+                result.diagnostics = vim.tbl_filter(function (diag)
+                    return diag.code ~= 'missing-attribute'
+                end, result.diagnostics)
+            end
+            vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
+        end
+    },
 }
