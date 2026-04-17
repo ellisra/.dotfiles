@@ -3,6 +3,7 @@ require('blink.cmp').setup({
         preset = 'default',
         ['<Tab>'] = { 'select_and_accept', 'fallback' },
         ['<C-Enter>'] = { 'select_and_accept', 'fallback' },
+        ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
     },
 
     cmdline = {
@@ -26,6 +27,19 @@ require('blink.cmp').setup({
         },
     },
 
+    signature = {
+        enabled = true,
+        trigger = {
+            show_on_trigger_character = false,
+            show_on_insert_on_trigger_character = false,
+            show_on_accept_on_trigger_character = false,
+        },
+        window = {
+            border = 'single',
+            show_documentation = true,
+        },
+    },
+
     sources = {
         default = { 'lsp', 'path', 'buffer' },
         per_filetype = { markdown = { 'lsp' } },
@@ -37,10 +51,5 @@ require('blink.cmp').setup({
                 return 1
             end
         end,
-        -- transform_items = function (_, items)
-        --     return vim.tbl_filter(function (item)
-        --         return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
-        --     end, items)
-        -- end
     },
 })
