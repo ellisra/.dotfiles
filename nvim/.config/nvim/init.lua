@@ -16,7 +16,6 @@ vim.pack.add({
     { src = gh .. 'shortcuts/no-neck-pain.nvim' },
     -- TODO: switch back to main once this is merged
     { src = gh .. 'ellisra/nvim-dap-view', version = 'configure-virtual-text' },
-    { src = cb .. 'mfussenegger/nvim-dap-python' },
     { src = cb .. 'mfussenegger/nvim-dap' },
 })
 
