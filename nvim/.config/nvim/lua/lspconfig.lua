@@ -6,9 +6,7 @@ return {
         'lua-ls',
         'markdown-oxide',
         'ols',
-        'roslyn-ls',
         'rust-analyzer',
-        'vtsls',
     }),
 
     vim.diagnostic.config({

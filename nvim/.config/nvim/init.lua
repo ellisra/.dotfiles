@@ -29,7 +29,7 @@ require('plugins.dap')
 
 require('autocommands')
 require('user-commands')
-require('lsp-config')
+require('lspconfig')
 require('keymaps')
 require('statusline')
 require('floating-windows')
