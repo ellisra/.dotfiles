@@ -55,7 +55,7 @@ autocmd('FileType', {
 })
 
 autocmd('FileType', {
-    desc = 'Set 2-space indent for heavily nested filetypes',
+    desc = 'Set 2-space indent for certain filetypes',
     group = augroup('ellisra.indent_2_spaces'),
     pattern = { 'yaml', 'json', 'jsonc', 'markdown' },
     callback = function ()

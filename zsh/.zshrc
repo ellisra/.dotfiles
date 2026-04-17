@@ -61,6 +61,7 @@ export CLOUD_ML_REGION=europe-west1
 
 export PATH="$HOME/.roslyn-ls/content/LanguageServer/linux-x64:$PATH"
 export PATH="$PATH:$HOME/opt/ols"
+export PATH="$PATH:/Users/ellisra/ols"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
