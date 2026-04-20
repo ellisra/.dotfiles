@@ -4,6 +4,12 @@ vim.g.dark_default = 'gruber'
 vim.g.light_default = 'dayfox'
 
 require('options')
+require('autocommands')
+require('user-commands')
+require('lspconfig')
+require('keymaps')
+require('statusline')
+require('floating-windows')
 
 local gh = 'https://github.com/'
 local cb = 'https://codeberg.org/'
@@ -26,12 +32,5 @@ require('plugins.blink-cmp')
 require('plugins.fyler')
 require('plugins.no-neck-pain')
 require('plugins.dap')
-
-require('autocommands')
-require('user-commands')
-require('lspconfig')
-require('keymaps')
-require('statusline')
-require('floating-windows')
 
 require('highlights').set_colorscheme_on_bg()
